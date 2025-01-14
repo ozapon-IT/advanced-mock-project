@@ -47,91 +47,123 @@
     <main>
         <div class="shop-list">
             <div class="shop-list__card">
-                <img class="shop-list__image" src="" alt="">
-                <h2 class="shop-list__name">仙人</h2>
-                <p class="shop-list__area">#東京都</p>
-                <p class="shop-list__genre">#寿司</p>
-                <a class="shop-list__detail" href="">詳しくみる</a>
-                <button class="shop-list__favorite">
-                    <i class="bi bi-heart"></i>
-                </button>
+                <div class="shop-list__image">
+                    <img src="" alt="">
+                </div>
+                <div class="shop-list__content">
+                    <h2 class="shop-list__name">仙人</h2>
+                    <p class="shop-list__area">#東京都</p>
+                    <p class="shop-list__genre">#寿司</p>
+                    <a class="shop-list__detail" href="">詳しくみる</a>
+                    <button class="shop-list__favorite">
+                        <i class="bi bi-suit-heart-fill"></i>
+                    </button>
+                </div>
             </div>
 
             <div class="shop-list__card">
-                <img class="shop-list__image" src="" alt="">
-                <h2 class="shop-list__name">牛助</h2>
-                <p class="shop-list__area">#大阪府</p>
-                <p class="shop-list__genre">#焼肉</p>
-                <a class="shop-list__detail" href="">詳しくみる</a>
-                <button class="shop-list__favorite">
-                    <i class="bi bi-heart"></i>
-                </button>
+                <div class="shop-list__image">
+                    <img src="" alt="">
+                </div>
+                <div class="shop-list__content">
+                    <h2 class="shop-list__name">牛助</h2>
+                    <p class="shop-list__area">#大阪府</p>
+                    <p class="shop-list__genre">#焼肉</p>
+                    <a class="shop-list__detail" href="">詳しくみる</a>
+                    <button class="shop-list__favorite">
+                        <i class="bi bi-suit-heart-fill"></i>
+                    </button>
+                </div>
             </div>
 
             <div class="shop-list__card">
-                <img class="shop-list__image" src="" alt="">
-                <h2 class="shop-list__name">戦慄</h2>
-                <p class="shop-list__area">#福岡県</p>
-                <p class="shop-list__genre">#居酒屋</p>
-                <a class="shop-list__detail" href="">詳しくみる</a>
-                <button class="shop-list__favorite">
-                    <i class="bi bi-heart"></i>
-                </button>
+                <div class="shop-list__image">
+                    <img src="" alt="">
+                </div>
+                <div class="shop-list__content">
+                    <h2 class="shop-list__name">戦慄</h2>
+                    <p class="shop-list__area">#福岡県</p>
+                    <p class="shop-list__genre">#居酒屋</p>
+                    <a class="shop-list__detail" href="">詳しくみる</a>
+                    <button class="shop-list__favorite">
+                        <i class="bi bi-suit-heart-fill"></i>
+                    </button>
+                </div>
             </div>
 
             <div class="shop-list__card">
-                <img class="shop-list__image" src="" alt="">
-                <h2 class="shop-list__name">ルーク</h2>
-                <p class="shop-list__area">#東京都</p>
-                <p class="shop-list__genre">#イタリアン</p>
-                <a class="shop-list__detail" href="">詳しくみる</a>
-                <button class="shop-list__favorite">
-                    <i class="bi bi-heart"></i>
-                </button>
+                <div class="shop-list__image">
+                    <img src="" alt="">
+                </div>
+                <div class="shop-list__content">
+                    <h2 class="shop-list__name">ルーク</h2>
+                    <p class="shop-list__area">#東京都</p>
+                    <p class="shop-list__genre">#イタリアン</p>
+                    <a class="shop-list__detail" href="">詳しくみる</a>
+                    <button class="shop-list__favorite">
+                        <i class="bi bi-suit-heart-fill"></i>
+                    </button>
+                </div>
             </div>
 
             <div class="shop-list__card">
-                <img class="shop-list__image" src="" alt="">
-                <h2 class="shop-list__name">志摩屋</h2>
-                <p class="shop-list__area">#福岡県</p>
-                <p class="shop-list__genre">#ラーメン</p>
-                <a class="shop-list__detail" href="">詳しくみる</a>
-                <button class="shop-list__favorite">
-                    <i class="bi bi-heart"></i>
-                </button>
+                <div class="shop-list__image">
+                    <img src="" alt="">
+                </div>
+                <div class="shop-list__content">
+                    <h2 class="shop-list__name">志摩屋</h2>
+                    <p class="shop-list__area">#福岡県</p>
+                    <p class="shop-list__genre">#ラーメン</p>
+                    <a class="shop-list__detail" href="">詳しくみる</a>
+                    <button class="shop-list__favorite">
+                        <i class="bi bi-suit-heart-fill"></i>
+                    </button>
+                </div>
             </div>
 
             <div class="shop-list__card">
-                <img class="shop-list__image" src="" alt="">
-                <h2 class="shop-list__name">香</h2>
-                <p class="shop-list__area">#東京都</p>
-                <p class="shop-list__genre">#焼肉</p>
-                <a class="shop-list__detail" href="">詳しくみる</a>
-                <button class="shop-list__favorite">
-                    <i class="bi bi-heart"></i>
-                </button>
+                <div class="shop-list__image">
+                    <img src="" alt="">
+                </div>
+                <div class="shop-list__content">
+                    <h2 class="shop-list__name">香</h2>
+                    <p class="shop-list__area">#東京都</p>
+                    <p class="shop-list__genre">#焼肉</p>
+                    <a class="shop-list__detail" href="">詳しくみる</a>
+                    <button class="shop-list__favorite">
+                        <i class="bi bi-suit-heart-fill"></i>
+                    </button>
+                </div>
             </div>
 
             <div class="shop-list__card">
-                <img class="shop-list__image" src="" alt="">
-                <h2 class="shop-list__name">JJ</h2>
-                <p class="shop-list__area">#大阪府</p>
-                <p class="shop-list__genre">#イタリアン</p>
-                <a class="shop-list__detail" href="">詳しくみる</a>
-                <button class="shop-list__favorite">
-                    <i class="bi bi-heart"></i>
-                </button>
+                <div class="shop-list__image">
+                    <img src="" alt="">
+                </div>
+                <div class="shop-list__content">
+                    <h2 class="shop-list__name">JJ</h2>
+                    <p class="shop-list__area">#大阪府</p>
+                    <p class="shop-list__genre">#イタリアン</p>
+                    <a class="shop-list__detail" href="">詳しくみる</a>
+                    <button class="shop-list__favorite">
+                        <i class="bi bi-suit-heart-fill"></i>
+                    </button>
+                </div>
             </div>
 
             <div class="shop-list__card">
-                <img class="shop-list__image" src="" alt="">
-                <h2 class="shop-list__name">らーめん極み</h2>
-                <p class="shop-list__area">#東京都</p>
-                <p class="shop-list__genre">#ラーメン</p>
-                <a class="shop-list__detail" href="">詳しくみる</a>
-                <button class="shop-list__favorite">
-                    <i class="bi bi-heart"></i>
-                </button>
+                <div class="shop-list__image">
+                    <img src="" alt="">
+                </div>
+                <div class="shop-list__content">
+                    <h2 class="shop-list__name">らーめん極み</h2>
+                    <p class="shop-list__area">#東京都</p>
+                    <p class="shop-list__genre">#ラーメン</p>
+                    <a class="shop-list__detail" href="">詳しくみる</a>
+                    <button class="shop-list__favorite">
+                        <i class="bi bi-suit-heart-fill"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </main>
