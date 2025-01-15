@@ -1,0 +1,176 @@
+.detail {
+    display: flex;
+    margin: 2vw auto;
+    width: 90vw;
+    gap: 5vw;
+}
+
+.detail__content {
+    width: 42.5vw;
+}
+
+.content__name {
+    display: flex;
+    align-items: center;
+}
+
+.content__name a {
+    background-color: #fff;
+    text-decoration: none;
+    font-size: 1.5vw;
+    border-radius: 0.4vw;
+    padding: 0.3vw 0.6vw;
+    box-shadow: 0.2vw 0.2vw 0.2vw rgba(0, 0, 0, 0.5);
+}
+
+.content__name h2 {
+    font-size: 1.8vw;
+    margin-left: 1vw;
+}
+
+.content__image {
+    background-color: #ccc;
+    overflow: hidden;
+    width: 100%;
+    height: 26vw;
+    margin-top: 1.7vw;
+}
+
+.content__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.content__description {
+    margin-top: 2vw;
+}
+
+.description__area,
+.description__genre {
+    display: inline-block;
+    font-size: 1vw;
+}
+
+.description__summary {
+    margin-top: 2.1vw;
+    font-size: 1.1vw;
+    line-height: 1.7;
+}
+
+.detail__reservation {
+    position: relative;
+    background-color: #305cff;
+    width: 42.5vw;
+    border-radius: 0.4vw;
+}
+
+.reservation__form {
+    padding: 2vw 2.5vw;;
+}
+
+.reservation__title {
+    color: #fff;
+    font-size: 1.8vw;
+}
+
+.reservation__field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7vw;
+    margin-top: 2vw;
+}
+
+.field__date,
+.select__time,
+.select__number {
+    border: none;
+    font-size: 1vw;
+    border-radius: 0.4vw;
+    padding: 0.5vw;
+}
+
+.field__date {
+    width: 35%;
+}
+
+.field__select {
+    position: relative;
+}
+
+.field__select:after {
+    content: "";
+    position: absolute;
+    right: 1vw;
+    top: 50%;
+    transform: translateY(-50%);
+    border-left: 0.5vw solid transparent;
+    border-right: 0.5vw solid transparent;
+    border-top: 0.5vw solid transparent;
+    clip-path: polygon(0% 0%, 50% 30%, 100% 0%, 50% 100%, 0% 0%);
+    background-color: #ddd;
+    height: 0.3vw;
+    pointer-events: none;
+}
+
+.select__time,
+.select__number {
+    border: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: relative;
+    width: 100%;
+    padding: 0.5vw 1vw;
+}
+
+.reservation__confirmation {
+    background-color: #4D7EFD;
+    color: #fff;
+    margin-top: 1.3vw;
+    border-radius: 0.4vw;
+}
+
+.confirmation__table {
+    display: flex;
+    flex-direction: row;
+    font-size: 1vw;
+    padding: 1.7vw;
+}
+
+.confirmation__table tr {
+    display: flex;
+    flex-direction: column;
+}
+
+.confirmation__table tr:first-of-type {
+    text-align: left;
+    margin-right: 2.5vw;
+}
+
+.confirmation__table th:not(:first-of-type),
+.confirmation__table td:not(:first-of-type) {
+    margin-top: 1.3vw;
+}
+
+.reservation__button {
+    position: absolute;
+    bottom: 0;
+    background-color: #1d49ed;
+    text-align: center;
+    width: 100%;
+    border-radius: 0 0 0.4vw 0.4vw;
+    padding: 1vw 0;
+}
+
+.reservation__button button {
+    all: unset;
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1.5vw;
+}
+
+.reservation__button:hover {
+    background-color: #0538ff;
+}

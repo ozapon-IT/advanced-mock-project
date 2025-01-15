@@ -28,3 +28,7 @@ Route::get('/login', function () {
 Route::get('/thanks', function () {
     return view('auth.thanks');
 });
+
+Route::get('/detail/{shop_id}', function () {
+    return view('detail');
+});

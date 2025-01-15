@@ -54,7 +54,7 @@
                 <h2 class="shop-list__name">仙人</h2>
                 <p class="shop-list__area">#東京都</p>
                 <p class="shop-list__genre">#寿司</p>
-                <a class="shop-list__detail" href="">詳しくみる</a>
+                <a class="shop-list__detail" href="/detail/{shop_id}">詳しくみる</a>
                 <button class="shop-list__favorite">
                     <i class="bi bi-suit-heart-fill"></i>
                 </button>
