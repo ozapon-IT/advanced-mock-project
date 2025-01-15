@@ -24,7 +24,7 @@
     <div class="detail">
         <div class="detail__content">
             <div class="content__name">
-                <a href="">&lt;</a>
+                <a href="/">&lt;</a>
                 <h2>仙人</h2>
             </div>
 
@@ -39,19 +39,19 @@
             </div>
         </div>
         <div class="detail__reservation">
-            <form class="reservation__form" action="">
+            <div class="reservation__form">
                 <h2 class="reservation__title">予約</h2>
 
                 <div class="reservation__field">
-                    <input class="field__date" type="date" name="reservation_date" value="">
+                    <input class="field__date" type="date" name="reservation_date" value="" form="reservation-form">
                     <div class="field__select">
-                        <select class="select__time" name="reservation_time" id="">
+                        <select class="select__time" name="reservation_time" id="" form="reservation-form">
                             <option value="">予約時間</option>
                             <option value="">17:00</option>
                         </select>
                     </div>
                     <div class="field__select">
-                        <select class="select__number" name="number_of_people" id="">
+                        <select class="select__number" name="number_of_people" id="" form="reservation-form">
                             <option value="">予約人数</option>
                             <option value="">1人</option>
                         </select>
@@ -78,10 +78,12 @@
                         </tbody>
                     </table>
                 </div>
-            </form>
+            </div>
 
             <div class="reservation__button">
-                <button type="submit">予約する</button>
+                <form action="/done" id="reservation-form">
+                    <button type="submit">予約する</button>
+                </form>
             </div>
         </div>
     </div>

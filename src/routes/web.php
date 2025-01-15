@@ -32,3 +32,7 @@ Route::get('/thanks', function () {
 Route::get('/detail/{shop_id}', function () {
     return view('detail');
 });
+
+Route::get('/done', function () {
+    return view('done');
+});
