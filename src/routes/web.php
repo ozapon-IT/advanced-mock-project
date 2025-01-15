@@ -36,3 +36,7 @@ Route::get('/detail/{shop_id}', function () {
 Route::get('/done', function () {
     return view('done');
 });
+
+Route::get('/mypage', function () {
+    return view('mypage');
+});

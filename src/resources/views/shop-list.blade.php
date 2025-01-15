@@ -56,7 +56,7 @@
                 <p class="shop-list__genre">#寿司</p>
                 <a class="shop-list__detail" href="/detail/{shop_id}">詳しくみる</a>
                 <button class="shop-list__favorite">
-                    <i class="bi bi-suit-heart-fill"></i>
+                    <i class="bi bi-suit-heart-fill favorite--addition"></i>
                 </button>
             </div>
         </div>
@@ -70,7 +70,7 @@
                 <p class="shop-list__genre">#焼肉</p>
                 <a class="shop-list__detail" href="">詳しくみる</a>
                 <button class="shop-list__favorite">
-                    <i class="bi bi-suit-heart-fill"></i>
+                    <i class="bi bi-suit-heart-fill favorite--addition"></i>
                 </button>
             </div>
         </div>
