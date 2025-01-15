@@ -1,0 +1,35 @@
+.done {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    width: 28vw;
+    height: 18vw;
+    margin: 10vw auto;
+    border-radius: 0.4vw;
+    box-shadow: 0.2vw 0.2vw 0.2vw rgba(0, 0, 0, 0.5);
+}
+
+.done__content {
+    width: 80%;
+    text-align: center;
+}
+
+.done__message {
+    font-size: 1.5vw;
+}
+
+.done__back-button {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #4366eb;
+    color: #fff;
+    border-radius: 0.4vw;
+    font-size: 1vw;
+    padding: 0.6vw 0.9vw;
+    margin-top: 3vw;
+}
+
+.done__back-button:hover {
+    background-color: #305cff;
+}

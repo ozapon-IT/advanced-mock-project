@@ -28,3 +28,15 @@ Route::get('/login', function () {
 Route::get('/thanks', function () {
     return view('auth.thanks');
 });
+
+Route::get('/detail/{shop_id}', function () {
+    return view('detail');
+});
+
+Route::get('/done', function () {
+    return view('done');
+});
+
+Route::get('/mypage', function () {
+    return view('mypage');
+});

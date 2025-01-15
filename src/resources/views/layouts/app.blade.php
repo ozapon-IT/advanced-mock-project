@@ -29,7 +29,7 @@
             @auth
                 <a class="modal-menu__link" href="/">Home</a>
                 <a class="modal-menu__link" href="">Logout</a>
-                <a class="modal-menu__link" href="">Mypage</a>
+                <a class="modal-menu__link" href="/mypage">Mypage</a>
             @endauth
         </div>
     </div>

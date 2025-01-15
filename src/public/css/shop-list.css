@@ -16,10 +16,10 @@
 
 .shop-list__image {
     background-color: #ccc;
+    overflow: hidden;
     width: 100%;
     border-radius: 0.4vw 0.4vw 0 0;
     height: 11vw;
-    overflow: hidden;
 }
 
 .shop-list__image img {
@@ -75,4 +75,8 @@
 .bi-suit-heart-fill {
     font-size: 2.5vw;
     color: #ccc;
+}
+
+.favorite--addition {
+    color: red;
 }
