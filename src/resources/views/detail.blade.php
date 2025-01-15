@@ -24,7 +24,7 @@
     <div class="detail">
         <div class="detail__content">
             <div class="content__name">
-                <a href="/">&lt;</a>
+                <a href="{{ route('top') }}">&lt;</a>
                 <h2>仙人</h2>
             </div>
 
