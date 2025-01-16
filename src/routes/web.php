@@ -19,21 +19,25 @@ Route::get('/', [ShopController::class, 'showTopPage'])->name('top.show');
 
 Route::get('/detail/{shop_id}', [ShopController::class, 'showDetailPage'])->name('detail.show');
 
-Route::post('/detail/{shop_id}', [ReservationController::class, 'reserve'])->name('reserve');
-
-Route::get('/done', [ReservationController::class, 'done'])->name('done');
-
-Route::get('/register', function () {
-    return view('auth.register');
-});
-
-Route::get('/login', function () {
-    return view('auth.login');
-});
-
 Route::get('/thanks', function () {
     return view('auth.thanks');
+})->name('thanks');
+
+Route::middleware('auth')->group(function () {
+    Route::post('/detail/{shop_id}', [ReservationController::class, 'reserve'])->name('reserve');
+
+    Route::get('/done', [ReservationController::class, 'done'])->name('done');
 });
+
+
+// Route::get('/register', function () {
+//     return view('auth.register');
+// });
+
+// Route::get('/login', function () {
+//     return view('auth.login');
+// });
+
 
 
 Route::get('/mypage', function () {

@@ -24,22 +24,41 @@
     <div class="register">
         <h1 class="register__title">Registration</h1>
 
-        <form class="register__form" action="/thanks">
+        <form class="register__form" action="{{ route('register') }}" method="POST">
+            @csrf
+
             <div class="register__form-group">
                 <i class="bi bi-person-fill"></i>
 
                 <input class="register__input" type="text" name="name" value="{{ old('name') }}" placeholder="Username">
+
             </div>
+
+            @error('name')
+                <span class="error-message">{{ $message }}</span>
+            @enderror
+
             <div class="register__form-group">
                 <i class="bi bi-envelope-fill"></i>
 
                 <input class="register__input" type="text" name="email" value="{{ old('email') }}" placeholder="Email">
+
             </div>
+
+            @error('email')
+                <span class="error-message">{{ $message }}</span>
+            @enderror
+
             <div class="register__form-group">
                 <i class="bi bi-lock-fill"></i>
 
                 <input class="register__input" type="password" name="password" placeholder="Password">
+
             </div>
+
+            @error('password')
+                <span class="error-message">{{ $message }}</span>
+            @enderror
 
             <button class="register__button" type="submit">登録</button>
         </form>

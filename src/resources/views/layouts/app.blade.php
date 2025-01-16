@@ -24,13 +24,13 @@
         <div class="modal-menu__content">
             @guest
                 <a class="modal-menu__link" href="{{ route('top.show') }}">Home</a>
-                <a class="modal-menu__link" href="/register">Registration</a>
+                <a class="modal-menu__link" href="{{ route('register') }}">Registration</a>
                 <a class="modal-menu__link" href="/login">Login</a>
             @endguest
 
             @auth
                 <a class="modal-menu__link" href="{{ route('top.show') }}">Home</a>
-                <a class="modal-menu__link" href="">Logout</a>
+                <a class="modal-menu__link" href="{{ route('logout') }}">Logout</a>
                 <a class="modal-menu__link" href="/mypage">Mypage</a>
             @endauth
         </div>
