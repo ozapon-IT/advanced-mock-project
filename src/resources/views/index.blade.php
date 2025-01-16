@@ -32,7 +32,7 @@
                     @endforeach
                 </select>
             </div>
-            <form action="{{ route('top') }}" id="search-form" method="GET">
+            <form action="{{ route('top.show') }}" id="search-form" method="GET">
                 <button class="search__button" type="submit">
                     <i class="bi bi-search"></i>
                 </button>
@@ -55,7 +55,7 @@
                     <h2 class="shop-list__name">{{ $shop->name }}</h2>
                     <p class="shop-list__area">#{{ $shop->area }}</p>
                     <p class="shop-list__genre">#{{ $shop->genre }}</p>
-                    <a class="shop-list__detail" href="/detail/{shop_id}">詳しくみる</a>
+                    <a class="shop-list__detail" href="{{ route('detail.show', $shop->id) }}">詳しくみる</a>
                     <button class="shop-list__favorite">
                         <i class="bi bi-suit-heart-fill favorite--addition"></i>
                     </button>

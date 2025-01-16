@@ -162,3 +162,9 @@ body {
 .modal-menu__link:hover {
     text-decoration: underline;
 }
+
+.error-message {
+    color: red;
+    font-size: 1vw;
+    margin-top: 0.2vw;
+}

@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\IndexController;
+use App\Http\Controllers\ShopController;
+use App\Http\Controllers\ReservationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +15,13 @@ use App\Http\Controllers\IndexController;
 |
 */
 
-Route::get('/', [IndexController::class, 'index'])->name('top');
+Route::get('/', [ShopController::class, 'showTopPage'])->name('top.show');
+
+Route::get('/detail/{shop_id}', [ShopController::class, 'showDetailPage'])->name('detail.show');
+
+Route::post('/detail/{shop_id}', [ReservationController::class, 'reserve'])->name('reserve');
+
+Route::get('/done', [ReservationController::class, 'done'])->name('done');
 
 Route::get('/register', function () {
     return view('auth.register');
@@ -28,13 +35,6 @@ Route::get('/thanks', function () {
     return view('auth.thanks');
 });
 
-Route::get('/detail/{shop_id}', function () {
-    return view('detail');
-});
-
-Route::get('/done', function () {
-    return view('done');
-});
 
 Route::get('/mypage', function () {
     return view('mypage');
