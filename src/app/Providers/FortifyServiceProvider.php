@@ -10,6 +10,13 @@ use Illuminate\Support\ServiceProvider;
 use Laravel\Fortify\Fortify;
 use Laravel\Fortify\Contracts\RegisterResponse as RegisterResponseContract;
 use App\Http\Responses\RegisterResponse;
+use Laravel\Fortify\Contracts\LoginResponse as LoginResponseContract;
+use App\Http\Responses\LoginResponse;
+use Laravel\Fortify\Http\Requests\LoginRequest;
+use App\Http\Requests\CustomLoginRequest;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 // use App\Actions\Fortify\ResetUserPassword;
 // use App\Actions\Fortify\UpdateUserPassword;
 // use App\Actions\Fortify\UpdateUserProfileInformation;
@@ -23,6 +30,10 @@ class FortifyServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->singleton(RegisterResponseContract::class, RegisterResponse::class);
+
+        $this->app->singleton(LoginResponseContract::class, LoginResponse::class);
+
+        $this->app->singleton(LoginRequest::class, CustomLoginRequest::class);
     }
 
     /**
@@ -46,6 +57,17 @@ class FortifyServiceProvider extends ServiceProvider
             return Limit::perMinute(10)->by($email . $request->ip());
         });
 
+        Fortify::authenticateUsing(function (Request $request) {
+            $user = User::where('email', $request->email)->first();
+
+            if ($user && Hash::check($request->password, $user->password)) {
+                return $user;
+            }
+
+            throw ValidationException::withMessages([
+                Fortify::username() => 'ログイン情報が登録されていません',
+            ]);
+        });
         // Fortify::updateUserProfileInformationUsing(UpdateUserProfileInformation::class);
         // Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);
         // Fortify::resetUserPasswordsUsing(ResetUserPassword::class);

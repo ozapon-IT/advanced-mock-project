@@ -56,9 +56,32 @@
                     <p class="shop-list__area">#{{ $shop->area }}</p>
                     <p class="shop-list__genre">#{{ $shop->genre }}</p>
                     <a class="shop-list__detail" href="{{ route('detail.show', $shop->id) }}">詳しくみる</a>
-                    <button class="shop-list__favorite">
-                        <i class="bi bi-suit-heart-fill favorite--addition"></i>
-                    </button>
+                    @guest
+                        <form action="{{ route('login') }}" method="GET">
+                            <button class="shop-list__favorite">
+                                <i class="bi bi-suit-heart-fill"></i>
+                            </button>
+                        </form>
+                    @endguest
+
+                    @auth
+                        @if($shop->favorites->contains('user_id', auth()->id()))
+                            <form action="{{ route('favorite.delete', $shop) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button class="shop-list__favorite">
+                                    <i class="bi bi-suit-heart-fill favorite--addition"></i>
+                                </button>
+                            </form>
+                        @else
+                            <form action="{{ route('favorite.add', $shop) }}" method="POST">
+                                @csrf
+                                <button class="shop-list__favorite">
+                                    <i class="bi bi-suit-heart-fill"></i>
+                                </button>
+                            </form>
+                        @endif
+                    @endauth
                 </div>
             </div>
         @endforeach

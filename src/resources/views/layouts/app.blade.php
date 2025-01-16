@@ -25,12 +25,16 @@
             @guest
                 <a class="modal-menu__link" href="{{ route('top.show') }}">Home</a>
                 <a class="modal-menu__link" href="{{ route('register') }}">Registration</a>
-                <a class="modal-menu__link" href="/login">Login</a>
+                <a class="modal-menu__link" href="{{ route('login') }}">Login</a>
             @endguest
 
             @auth
                 <a class="modal-menu__link" href="{{ route('top.show') }}">Home</a>
-                <a class="modal-menu__link" href="{{ route('logout') }}">Logout</a>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+
+                    <button class="modal-menu__button" type="submit">Logout</button>
+                </form>
                 <a class="modal-menu__link" href="/mypage">Mypage</a>
             @endauth
         </div>

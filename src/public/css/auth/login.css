@@ -57,3 +57,7 @@
 .login__button:hover {
     background-color: #305cff;
 }
+
+.error-message {
+    margin-left: 2.3vw;
+}
