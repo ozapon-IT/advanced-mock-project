@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     background-color: #fff;
-    width: 28vw;
+    width: 30vw;
     height: 18vw;
     margin: 10vw auto;
     border-radius: 0.4vw;
@@ -25,7 +25,7 @@
     background-color: #4366eb;
     color: #fff;
     border-radius: 0.4vw;
-    font-size: 1vw;
+    font-size: 1.2vw;
     padding: 0.6vw 0.9vw;
     margin-top: 3vw;
 }

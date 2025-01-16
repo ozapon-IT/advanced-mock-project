@@ -52,7 +52,7 @@ body {
     background-color: #fff;
     border-radius: 0.4vw;
     box-shadow: 0.2vw 0.2vw 0.2vw rgba(0, 0, 0, 0.5);
-    width: 43vw;
+    width: 42.3vw;
     padding: 0.5vw 1vw;
 }
 
@@ -161,4 +161,22 @@ body {
 
 .modal-menu__link:hover {
     text-decoration: underline;
+}
+
+.modal-menu__button {
+    all: unset;
+    cursor: pointer;
+    color: #305cff;
+    font-size: 2.1vw;
+    margin-top: 2vw;
+}
+
+.modal-menu__button:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    color: red;
+    font-size: 1vw;
+    margin-top: 0.2vw;
 }

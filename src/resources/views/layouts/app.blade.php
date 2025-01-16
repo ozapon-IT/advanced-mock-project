@@ -16,19 +16,25 @@
 
     @yield('main')
 
+    @yield('script')
+
     <div class="modal-menu" id="modal-menu">
         <a href="#" class="modal-menu__close"><i class="bi bi-x"></i></a>
 
         <div class="modal-menu__content">
             @guest
-                <a class="modal-menu__link" href="{{ route('top') }}">Home</a>
-                <a class="modal-menu__link" href="/register">Registration</a>
-                <a class="modal-menu__link" href="/login">Login</a>
+                <a class="modal-menu__link" href="{{ route('top.show') }}">Home</a>
+                <a class="modal-menu__link" href="{{ route('register') }}">Registration</a>
+                <a class="modal-menu__link" href="{{ route('login') }}">Login</a>
             @endguest
 
             @auth
-                <a class="modal-menu__link" href="{{ route('top') }}">Home</a>
-                <a class="modal-menu__link" href="">Logout</a>
+                <a class="modal-menu__link" href="{{ route('top.show') }}">Home</a>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+
+                    <button class="modal-menu__button" type="submit">Logout</button>
+                </form>
                 <a class="modal-menu__link" href="/mypage">Mypage</a>
             @endauth
         </div>

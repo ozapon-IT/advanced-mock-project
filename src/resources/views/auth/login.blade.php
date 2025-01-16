@@ -24,17 +24,28 @@
     <div class="login">
         <h1 class="login__title">Login</h1>
 
-        <form class="login__form" action="">
+        <form class="login__form" action="{{ route('login') }}" method="POST">
+            @csrf
+
             <div class="login__form-group">
                 <i class="bi bi-envelope-fill"></i>
 
                 <input class="login__input" type="text" name="email" value="{{ old('email') }}" placeholder="Email">
             </div>
+
+            @error('email')
+                <span class="error-message">{{ $message }}</span>
+            @enderror
+
             <div class="login__form-group">
                 <i class="bi bi-lock-fill"></i>
 
                 <input class="login__input" type="password" name="password" placeholder="Password">
             </div>
+
+            @error('password')
+                <span class="error-message">{{ $message }}</span>
+            @enderror
 
             <button class="login__button" type="submit">ログイン</button>
         </form>
