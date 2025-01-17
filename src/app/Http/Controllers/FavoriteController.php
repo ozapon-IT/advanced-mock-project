@@ -15,7 +15,8 @@ class FavoriteController extends Controller
             ]);
         }
 
-        return redirect()->back();
+        return response()->json(['message' => 'favorite added'], 200);
+        // return redirect()->back();
     }
 
     public function delete(Shop $shop)
@@ -24,6 +25,7 @@ class FavoriteController extends Controller
             $shop->favorites()->where('user_id', auth()->id())->delete();
         }
 
-        return redirect()->back();
+        return response()->json(['message' => 'favorite removed'], 200);
+        // return redirect()->back();
     }
 }

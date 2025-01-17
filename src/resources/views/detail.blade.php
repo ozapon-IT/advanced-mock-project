@@ -24,7 +24,11 @@
     <div class="detail">
         <div class="detail__content">
             <div class="content__name">
-                <a href="{{ route('top.show') }}">&lt;</a>
+                @if (request('from') === 'mypage')
+                    <a href="{{ route('mypage.show') }}">&lt;</a>
+                @else
+                    <a href="{{ route('top.show') }}">&lt;</a>
+                @endif
                 <h2>{{ $shop->name }}</h2>
             </div>
 
@@ -98,21 +102,18 @@
                 </div>
             </div>
 
-            <div class="reservation__button">
-                @guest
-                    <form action="/login" method="GET">
-                        <button type="submit">予約する</button>
-                    </form>
-                @endguest
-
-                @auth
-                    <form action="{{ route('reserve', $shop->id) }}" id="reservation-form" method="POST">
-                        @csrf
-
-                        <button type="submit">予約する</button>
-                    </form>
-                @endauth
-            </div>
+            @guest
+                <form action="{{ route('login') }}" method="GET">
+                    <button class="reservation__button" type="submit">予約する</button>
+                </form>
+            @endguest
+            @auth
+                <form action="{{ route('reserve', $shop->id) }}" id="reservation-form" method="POST">
+                    @csrf
+                    <input type="hidden" name="from" value="{{ request('from') }}">
+                    <button class="reservation__button" type="submit">予約する</button>
+                </form>
+            @endauth
         </div>
     </div>
 </main>
