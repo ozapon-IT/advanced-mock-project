@@ -47,7 +47,12 @@
                 <h2 class="reservation__title">予約</h2>
 
                 <div class="reservation__field">
-                    <input class="field__date" type="date" name="reservation_date" value="{{ old('reservation_date') }}" form="reservation-form" id="reservation-date">
+                    <div class="field__input">
+                        <input class="input__date" type="text" name="reservation_date" value="{{ old('reservation_date') }}" form="reservation-form" id="reservation-date" placeholder="予約日">
+                        <button  class="input__calendar" type="button">
+                            <i class="bi bi-calendar"></i>
+                        </button>
+                    </div>
 
                     @error('reservation_date')
                         <span class="error-message">{{ $message }}</span>
@@ -121,6 +126,20 @@
 
 @section('script')
 <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const dateInput = document.getElementById('reservation-date');
+        const calendarIcon = document.querySelector('.input__calendar');
+
+        flatpickr("#reservation-date", {
+            dateFormat: "Y-m-d",
+            locale: "ja",
+        });
+
+        calendarIcon.addEventListener('click', () => {
+            dateInput._flatpickr.open();
+        })
+    });
+
     document.addEventListener('DOMContentLoaded', () => {
         const dateInput = document.getElementById('reservation-date');
         const timeSelect = document.getElementById('reservation-time');

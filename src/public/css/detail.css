@@ -81,17 +81,39 @@
     margin-top: 2vw;
 }
 
-.field__date,
+.input__date,
 .select__time,
 .select__number {
     border: none;
+    cursor: pointer;
     font-size: 1vw;
     border-radius: 0.4vw;
     padding: 0.5vw;
 }
 
-.field__date {
+.field__input {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
     width: 35%;
+}
+
+.input__date {
+    width: 100%;
+    padding: 0.5vw 1vw;
+}
+
+.input__date::placeholder {
+    color: #000;
+}
+
+.input__calendar {
+    all: unset;
+    cursor: pointer;
+    position: absolute;
+    color: #999;
+    font-size: 1vw;
+    right: 1vw;
 }
 
 .field__select {

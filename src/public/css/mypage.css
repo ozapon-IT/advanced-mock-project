@@ -86,6 +86,10 @@
     font-size: 1.7vw;
 }
 
+.bi-x-circle:hover {
+    font-size: 1.8vw;
+}
+
 .content__favorite {
     width: 49vw;
 }

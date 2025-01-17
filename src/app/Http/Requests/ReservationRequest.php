@@ -56,7 +56,7 @@ class ReservationRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'reservation_date.required' => '日付を選択してください。',
+            'reservation_date.required' => '予約日を選択してください。',
             'reservation_date.after_or_equal' => '過去の日付を選択することはできません。',
             'reservation_time.required' => '予約時間を選択してください。',
             'number_of_people.required' => '予約人数を選択してください。',

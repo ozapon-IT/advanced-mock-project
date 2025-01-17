@@ -70,7 +70,11 @@ class Shop extends Model
     public function scopeFilterByText($query, $text): Builder
     {
         if (!empty($text)) {
-            $query->where('name', 'like', '%' . $text . '%');
+            $query->where(function ($query) use ($text) {
+                $query->where('name', 'like', '%' . $text . '%')
+                    ->orwhere('area', 'like', '%' . $text . '%')
+                    ->orwhere('genre', 'like', '%' . $text . '%');
+            });
         }
         return $query;
     }
