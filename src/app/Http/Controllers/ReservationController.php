@@ -8,21 +8,30 @@ use App\Models\Reservation;
 
 class ReservationController extends Controller
 {
-    public function reserve(ReservationRequest $request, int $id)
+    public function reserve(int $id, ReservationRequest $reservationRequest)
     {
         Reservation::create([
             'user_id' => auth()->id(),
             'shop_id' => $id,
-            'reservation_date' => $request->reservation_date,
-            'reservation_time' => $request->reservation_time,
-            'number_of_people' => $request->number_of_people,
+            'reservation_date' => $reservationRequest->reservation_date,
+            'reservation_time' => $reservationRequest->reservation_time,
+            'number_of_people' => $reservationRequest->number_of_people,
         ]);
 
-        return redirect()->route('done');
+        $from = $reservationRequest->input('from');
+
+        return redirect()->route('done', ['from' => $from]);
     }
 
     public function done()
     {
         return view('done');
+    }
+
+    public function deleteReservation(Reservation $reservation)
+    {
+        $reservation->delete();
+
+        return redirect()->back();
     }
 }
