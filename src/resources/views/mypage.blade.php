@@ -26,39 +26,41 @@
         <div class="mypage__content">
             <div class="content__reservation-status">
                 <h3 class="reservation-status__title">予約状況</h3>
-                @foreach ($reservations as $index => $reservation)
-                    <div class="reservation-status__card">
-                        <div class="card__number">
-                            <i class="bi bi-clock-fill"></i>
-                            <p>{{ $index === 0 ? '予約1' : '予約' . ($index + 1) }}</p>
+                <div class="reservation-status__container">
+                    @foreach ($reservations as $index => $reservation)
+                        <div class="reservation-status__card">
+                            <div class="card__number">
+                                <i class="bi bi-clock-fill"></i>
+                                <p>{{ $index === 0 ? '予約1' : '予約' . ($index + 1) }}</p>
+                            </div>
+                            <table class="card__table">
+                                <thead>
+                                    <tr>
+                                        <th>Shop</th>
+                                        <th>Date</th>
+                                        <th>Time</th>
+                                        <th>Number</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{{ $reservation->shop->name }}</td>
+                                        <td>{{ $reservation->reservation_date }}</td>
+                                        <td>{{ $reservation->reservation_time }}</td>
+                                        <td>{{ $reservation->number_of_people}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="card__delete-button">
+                                <form action="{{ route('delete.reservation', $reservation) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit"><i class="bi bi-x-circle"></i></button>
+                                </form>
+                            </div>
                         </div>
-                        <table class="card__table">
-                            <thead>
-                                <tr>
-                                    <th>Shop</th>
-                                    <th>Date</th>
-                                    <th>Time</th>
-                                    <th>Number</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>{{ $reservation->shop->name }}</td>
-                                    <td>{{ $reservation->reservation_date }}</td>
-                                    <td>{{ $reservation->reservation_time }}</td>
-                                    <td>{{ $reservation->number_of_people}}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <div class="card__delete-button">
-                            <form action="{{ route('delete.reservation', $reservation) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit"><i class="bi bi-x-circle"></i></button>
-                            </form>
-                        </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
             </div>
             <div class="content__favorite">
                 <h3 class="favorite__title">お気に入り店舗</h3>

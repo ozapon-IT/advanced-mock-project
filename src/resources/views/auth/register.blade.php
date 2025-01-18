@@ -42,7 +42,6 @@
                 <i class="bi bi-envelope-fill"></i>
 
                 <input class="register__input" type="text" name="email" value="{{ old('email') }}" placeholder="Email">
-
             </div>
 
             @error('email')
@@ -53,7 +52,6 @@
                 <i class="bi bi-lock-fill"></i>
 
                 <input class="register__input" type="password" name="password" placeholder="Password">
-
             </div>
 
             @error('password')

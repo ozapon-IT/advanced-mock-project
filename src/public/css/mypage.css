@@ -86,10 +86,6 @@
     font-size: 1.7vw;
 }
 
-.bi-x-circle:hover {
-    font-size: 1.8vw;
-}
-
 .content__favorite {
     width: 49vw;
 }
@@ -175,4 +171,142 @@
 .bi-suit-heart-fill {
     font-size: 2.5vw;
     color: red;
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        height: 5vw;
+    }
+
+    .mypage {
+        margin: 0 auto;
+    }
+
+    .mypage__name {
+        font-size: 4vw;
+    }
+
+    .mypage__content {
+        display: block;
+        gap: 0;
+        margin-top: 5vw;
+    }
+
+    .content__reservation-status {
+        width: 100%;
+    }
+
+    .reservation-status__title {
+        font-size: 3vw;
+        margin-bottom: 4vw;
+    }
+
+    .reservation-status__container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2vw;
+    }
+
+    .reservation-status__card {
+        width: 36vw;
+        border-radius: 0.8vw;
+        padding: 4vw;
+        margin-top: 0;
+        box-shadow: 0.4vw 0.4vw 0.4vw rgba(0, 0, 0, 0.5);
+    }
+
+    .bi-clock-fill {
+        font-size: 3.5vw;
+    }
+
+    .card__number p {
+        font-size: 2vw;
+        margin-left: 4vw;
+    }
+
+    .card__table {
+        margin-top: 4vw;
+        font-size: 2vw;
+    }
+
+    .card__table tr:first-of-type {
+        margin-right: 5vw;
+    }
+
+    .card__table th:not(:first-of-type),
+    .card__table td:not(:first-of-type) {
+        margin-top: 2.5vw;
+    }
+
+    .card__delete-button {
+        top: 4vw;
+        right: 4vw;
+    }
+
+    .bi-x-circle {
+        font-size: 3.5vw;
+    }
+
+    .content__favorite {
+        width: 100%;
+        margin: 4vw 0;
+    }
+
+    .favorite__title {
+        font-size: 3vw;
+        /* margin-top: 4vw; */
+    }
+
+    .favorite__shop-list {
+        width: 100%;
+        gap: 2vw;
+        margin-top: 4vw;
+    }
+
+    .shop-list__card {
+        width: 44vw;
+        height: 40vw;
+        border-radius: 0.8vw;
+        box-shadow: 0.4vw 0.4vw 0.4vw rgba(0, 0, 0, 0.5);
+    }
+
+    .shop-list__image {
+        border-radius: 0.8vw 0.8vw 0 0;
+        height: 23vw;
+    }
+
+    .shop-list__content {
+        height: 13vw;
+        padding: 2vw;
+    }
+
+    .shop-list__name {
+        font-size: 3vw;
+    }
+
+    .shop-list__area {
+        margin-top: 1.5vw;
+    }
+
+    .shop-list__area,
+    .shop-list__genre {
+        font-size: 2vw;
+    }
+
+    .shop-list__detail {
+        left: 2vw;
+        bottom: 2vw;
+        padding:  1vw 2vw;
+        border-radius: 0.8vw;
+        font-size: 2.5vw;
+    }
+
+    .shop-list__favorite {
+        right: 2vw;
+        bottom: 2vw;
+    }
+
+    .bi-suit-heart-fill {
+        font-size: 5.5vw;
+    }
 }
