@@ -33,3 +33,28 @@
 .done__back-button:hover {
     background-color: #305cff;
 }
+
+@media screen and (max-width: 768px) {
+    .done {
+        width: 60vw;
+        height: 36vw;
+        margin: 5vw auto;
+        border-radius: 0.8vw;
+        box-shadow: 0.4vw 0.4vw 0.4vw rgba(0, 0, 0, 0.5);
+    }
+
+    .done__content {
+        width: 80%;
+    }
+
+    .done__message {
+        font-size: 3vw;
+    }
+
+    .done__back-button {
+        border-radius: 0.8vw;
+        font-size: 2.5vw;
+        padding: 1.2vw 1.8vw;
+        margin-top: 6vw;
+    }
+}

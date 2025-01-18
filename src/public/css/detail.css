@@ -17,9 +17,10 @@
 .content__name a {
     background-color: #fff;
     text-decoration: none;
-    font-size: 1.5vw;
+    color: #000;
+    font-size: 1.7vw;
     border-radius: 0.4vw;
-    padding: 0.3vw 0.6vw;
+    padding: 0.3vw 0.8vw 0.5vw 0.8vw;
     box-shadow: 0.2vw 0.2vw 0.2vw rgba(0, 0, 0, 0.5);
 }
 
@@ -191,4 +192,127 @@
 
 .reservation__button:hover {
     background-color: #0538ff;
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        height: 5vw;
+    }
+
+    .detail {
+        display: block;
+        margin: 0 auto;
+    }
+
+    .detail__content {
+        width: 100%;
+    }
+
+    .content__name a {
+        font-size: 3.5vw;
+        border-radius: 0.8vw;
+        padding: 0.3vw 1.2vw 0.6vw 1.2vw;
+        box-shadow: 0.4vw 0.4vw 0.4vw rgba(0, 0, 0, 0.5);
+    }
+
+    .content__name h2 {
+        font-size: 3vw;
+        margin-left: 1vw;
+    }
+
+    .content__image {
+        height: 50vw;
+        margin-top: 3vw;
+    }
+
+    .content__description {
+        margin-top: 5vw;
+    }
+
+    .description__area,
+    .description__genre {
+        font-size: 2.2vw;
+    }
+
+    .description__summary {
+        margin-top: 4vw;
+        font-size: 2.2vw;
+        line-height: 2;
+    }
+
+    .detail__reservation {
+        margin: 3vw 0;
+        width: 100%;
+        height: 73vw;
+        border-radius: 0.8vw;
+    }
+
+    .reservation__form {
+        padding: 3vw 4vw;;
+    }
+
+    .reservation__title {
+        font-size: 3vw;
+    }
+
+    .reservation__field {
+        gap: 1.5vw;
+        margin-top: 4vw;
+    }
+
+    .input__date,
+    .select__time,
+    .select__number {
+        font-size: 2.2vw;
+        border-radius: 0.8vw;
+    }
+
+    .input__date {
+        width: 100%;
+        padding: 1vw 2vw;
+    }
+
+    .input__calendar {
+        font-size: 2vw;
+        right: 2vw;
+    }
+
+    .field__select:after {
+        right: 2vw;
+        top: 50%;
+        border-left: 1vw solid transparent;
+        border-right: 1vw solid transparent;
+        border-top: 1vw solid transparent;
+        height: 0.6vw;
+    }
+
+    .select__time,
+    .select__number {
+        padding: 1vw 2vw;
+    }
+
+    .reservation__confirmation {
+        margin: 2.5vw 0;
+        border-radius: 0.8vw;
+    }
+
+    .confirmation__table {
+        font-size: 2.2vw;
+        padding: 3vw;
+    }
+
+    .confirmation__table tr:first-of-type {
+        margin-right: 5vw;
+    }
+
+    .confirmation__table th:not(:first-of-type),
+    .confirmation__table td:not(:first-of-type) {
+        margin-top: 2.5vw;
+    }
+
+    .reservation__button {
+        font-size: 3vw;
+        border-radius: 0 0 0.8vw 0.8vw;
+        padding: 2vw 0;
+    }
 }
