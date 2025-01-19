@@ -2,6 +2,8 @@ FROM php:8.2-fpm
 
 COPY php.ini /usr/local/etc/php/
 
+RUN apt-get update && apt-get install -y cron supervisor
+
 RUN apt update \
     && apt install -y default-mysql-client zlib1g-dev libzip-dev unzip \
     && docker-php-ext-install pdo_mysql zip
@@ -11,3 +13,7 @@ RUN curl -sS https://getcomposer.org/installer | php \
     && composer self-update
 
 WORKDIR /var/www
+
+COPY supervisor.conf /etc/supervisor/conf.d/supervisor.conf
+
+CMD ["supervisord", "-c", "/etc/supervisor/conf.d/supervisor.conf"]

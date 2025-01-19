@@ -27,4 +27,14 @@ class Reservation extends Model
     {
         return $this->belongsTo(Shop::class);
     }
+
+    /**
+     * ユーザーとのリレーションを定義
+     *
+     * @return BelongsTo
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 }

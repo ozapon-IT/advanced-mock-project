@@ -13,6 +13,8 @@ services:
         build: ./docker/php
         volumes:
             - ./src:/var/www/
+        environment:
+            - TZ=Asia/Tokyo
 
     mysql:
         platform: linux/x86_64
