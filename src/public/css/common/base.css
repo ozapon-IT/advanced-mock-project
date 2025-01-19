@@ -132,7 +132,7 @@ body {
     background-color: #4366eb;
     position: absolute;
     top: 3.33vw;
-    left: 5vw;
+    left: 4.6vw;
     border-radius: 0.4vw;
     padding: 0.1vw;
     box-shadow: 0.2vw 0.2vw 0.2vw rgba(0, 0, 0, 0.5);
@@ -177,7 +177,7 @@ body {
 
 .error-message {
     color: red;
-    font-size: 1vw;
+    font-size: 0.9vw;
     margin-top: 0.2vw;
 }
 
@@ -245,7 +245,7 @@ body {
 
     .modal-menu__close {
         top: 4vw;
-        left: 5vw;
+        left: 4vw;
         border-radius: 0.8vw;
         padding: 0.2vw;
         box-shadow: 0.4vw 0.4vw 0.4vw rgba(0, 0, 0, 0.5);
@@ -270,7 +270,7 @@ body {
     }
 
     .error-message {
-        font-size: 2vw;
+        font-size: 1.8vw;
         margin-top: 0.2vw;
     }
 }

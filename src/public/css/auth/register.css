@@ -63,6 +63,10 @@
     margin-left: 2.3vw;
 }
 
+.modal-menu__close {
+    left: 5vw;
+}
+
 @media screen and (max-width: 768px) {
     .register {
         width: 60vw;
