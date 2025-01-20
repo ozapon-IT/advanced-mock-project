@@ -34,4 +34,20 @@ class ReservationController extends Controller
 
         return redirect()->back();
     }
+
+    public function show(Reservation $reservation)
+    {
+        return view('reservation-change', compact('reservation'));
+    }
+
+    public function changeReservation(Reservation $reservation, ReservationRequest $reservationRequest)
+    {
+        $reservation->update([
+            'reservation_date' => $reservationRequest->reservation_date,
+            'reservation_time' => $reservationRequest->reservation_time,
+            'number_of_people' => $reservationRequest->number_of_people,
+        ]);
+
+        return redirect()->route('mypage.show');
+    }
 }

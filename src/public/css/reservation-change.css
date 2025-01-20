@@ -1,0 +1,226 @@
+.change__reservation {
+    position: relative;
+    background-color: #305cff;
+    margin: 3vw auto;
+    width: 42.5vw;
+    height: 42.8vw;
+    border-radius: 0.4vw;
+}
+
+.reservation__form {
+    padding: 2vw 2.5vw;;
+}
+
+.reservation__title {
+    color: #fff;
+    font-size: 1.8vw;
+}
+
+.reservation__field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7vw;
+    margin-top: 2vw;
+}
+
+.input__date,
+.select__time,
+.select__number {
+    border: none;
+    cursor: pointer;
+    font-size: 1vw;
+    border-radius: 0.4vw;
+    padding: 0.5vw;
+}
+
+.field__input {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    width: 35%;
+}
+
+.input__date {
+    width: 100%;
+    padding: 0.5vw 1vw;
+}
+
+.input__date::placeholder {
+    color: #000;
+}
+
+.input__calendar {
+    all: unset;
+    cursor: pointer;
+    position: absolute;
+    color: #999;
+    font-size: 1vw;
+    right: 1vw;
+}
+
+.field__select {
+    position: relative;
+}
+
+.field__select:after {
+    content: "";
+    position: absolute;
+    right: 1vw;
+    top: 50%;
+    transform: translateY(-50%);
+    border-left: 0.5vw solid transparent;
+    border-right: 0.5vw solid transparent;
+    border-top: 0.5vw solid transparent;
+    clip-path: polygon(0% 0%, 50% 30%, 100% 0%, 50% 100%, 0% 0%);
+    background-color: #ddd;
+    height: 0.3vw;
+    pointer-events: none;
+}
+
+.select__time,
+.select__number {
+    border: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: relative;
+    width: 100%;
+    padding: 0.5vw 1vw;
+}
+
+.reservation__confirmation {
+    background-color: #4D7EFD;
+    color: #fff;
+    margin-top: 1.3vw;
+    border-radius: 0.4vw;
+}
+
+.confirmation__table {
+    display: flex;
+    flex-direction: row;
+    font-size: 1vw;
+    padding: 1.7vw;
+}
+
+.confirmation__table tr {
+    display: flex;
+    flex-direction: column;
+}
+
+.confirmation__table tr:first-of-type {
+    text-align: left;
+    margin-right: 2.5vw;
+}
+
+.confirmation__table th:not(:first-of-type),
+.confirmation__table td:not(:first-of-type) {
+    margin-top: 1.3vw;
+}
+
+.reservation__button {
+    all: unset;
+    color: #fff;
+    background-color: #1d49ed;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    font-size: 1.5vw;
+    border-radius: 0 0 0.4vw 0.4vw;
+    padding: 1vw 0;
+}
+
+.reservation__button:hover {
+    background-color: #0538ff;
+}
+
+.modal-menu__close {
+    left: 5vw;
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        height: 5vw;
+    }
+
+    .change__reservation {
+        margin: 3vw auto;
+        width: 90%;
+        height: 73vw;
+        border-radius: 0.8vw;
+    }
+
+    .reservation__form {
+        padding: 3vw 4vw;;
+    }
+
+    .reservation__title {
+        font-size: 3vw;
+    }
+
+    .reservation__field {
+        gap: 1.5vw;
+        margin-top: 4vw;
+    }
+
+    .input__date,
+    .select__time,
+    .select__number {
+        font-size: 2.2vw;
+        border-radius: 0.8vw;
+    }
+
+    .input__date {
+        width: 100%;
+        padding: 1vw 2vw;
+    }
+
+    .input__calendar {
+        font-size: 2vw;
+        right: 2vw;
+    }
+
+    .field__select:after {
+        right: 2vw;
+        top: 50%;
+        border-left: 1vw solid transparent;
+        border-right: 1vw solid transparent;
+        border-top: 1vw solid transparent;
+        height: 0.6vw;
+    }
+
+    .select__time,
+    .select__number {
+        padding: 1vw 2vw;
+    }
+
+    .reservation__confirmation {
+        margin: 2.5vw 0;
+        border-radius: 0.8vw;
+    }
+
+    .confirmation__table {
+        font-size: 2.2vw;
+        padding: 3vw;
+    }
+
+    .confirmation__table tr:first-of-type {
+        margin-right: 5vw;
+    }
+
+    .confirmation__table th:not(:first-of-type),
+    .confirmation__table td:not(:first-of-type) {
+        margin-top: 2.5vw;
+    }
+
+    .reservation__button {
+        font-size: 3vw;
+        border-radius: 0 0 0.8vw 0.8vw;
+        padding: 2vw 0;
+    }
+
+    .modal-menu__close {
+        left: 5vw;
+    }
+}
