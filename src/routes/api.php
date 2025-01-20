@@ -14,6 +14,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// 認証ユーザー情報取得ルート
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+// 合計金額を計算するAPIルート
+Route::get('/calculate-total', function (Request $request) {
+    $shopId = $request->query('shop_id');
+    $menuName = $request->query('menu_name');
+    $numberOfPeople = (int) $request->query('number_of_people', 0);
+
+    $totalAmount = calculateTotalAmount($numberOfPeople, $menuName, $shopId);
+
+    return response()->json([
+        'amount' => $totalAmount,
+        'formatted_amount' => formattedTotalAmount($totalAmount),
+    ]);
 });

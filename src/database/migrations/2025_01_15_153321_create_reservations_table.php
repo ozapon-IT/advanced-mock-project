@@ -15,10 +15,16 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('shop_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('menu_id')->constrained()->cascadeOnDelete();
             $table->date('reservation_date');
             $table->string('reservation_time', 10);
             $table->string('number_of_people', 10);
+            $table->decimal('total_amount', 10, 0);
+            $table->string('payment_method', 100);
+            $table->string('stripe_session_id')->nullable();
+            $table->string('payment_status', 100)->default('pending');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

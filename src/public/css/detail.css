@@ -59,10 +59,20 @@
     line-height: 1.7;
 }
 
+.description__menu {
+    margin: 2.1vw 0 0 1vw;
+    font-size: 1.1vw;
+}
+
+.description__menu li:not(:first-of-type) {
+    margin-top: 1vw;
+}
+
 .detail__reservation {
     position: relative;
     background-color: #305cff;
     width: 42.5vw;
+    height: 53vw;
     border-radius: 0.4vw;
 }
 
@@ -84,7 +94,9 @@
 
 .input__date,
 .select__time,
-.select__number {
+.select__number,
+.select__menu,
+.select__payment {
     border: none;
     cursor: pointer;
     font-size: 1vw;
@@ -137,7 +149,9 @@
 }
 
 .select__time,
-.select__number {
+.select__number,
+.select__menu,
+.select__payment {
     border: none;
     appearance: none;
     -webkit-appearance: none;
@@ -168,7 +182,7 @@
 
 .confirmation__table tr:first-of-type {
     text-align: left;
-    margin-right: 2.5vw;
+    margin-right: 4vw;
 }
 
 .confirmation__table th:not(:first-of-type),
@@ -244,10 +258,19 @@
         line-height: 2;
     }
 
+    .description__menu {
+        margin: 4vw 0 0 2.5vw;
+        font-size: 2.2vw;
+    }
+
+    .description__menu li:not(:first-of-type) {
+        margin-top: 2.5vw;
+    }
+
     .detail__reservation {
-        margin: 3vw 0;
+        margin: 5vw 0;
         width: 100%;
-        height: 73vw;
+        height: 105vw;
         border-radius: 0.8vw;
     }
 
@@ -266,7 +289,9 @@
 
     .input__date,
     .select__time,
-    .select__number {
+    .select__number,
+    .select__menu,
+    .select__payment {
         font-size: 2.2vw;
         border-radius: 0.8vw;
     }
@@ -291,7 +316,9 @@
     }
 
     .select__time,
-    .select__number {
+    .select__number,
+    .select__menu,
+    .select__payment {
         padding: 1vw 2vw;
     }
 

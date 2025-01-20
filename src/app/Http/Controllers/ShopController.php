@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Shop;
+use App\Models\Menu;
 
 class ShopController extends Controller
 {
@@ -29,6 +30,8 @@ class ShopController extends Controller
             abort(404, 'Shop not found');
         }
 
-        return view('detail' , compact('shop'));
+        $menus = Menu::where('shop_id', $id)->get();
+
+        return view('detail' , compact('shop', 'menus'));
     }
 }
