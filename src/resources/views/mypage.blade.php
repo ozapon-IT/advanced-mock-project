@@ -58,6 +58,11 @@
                                     <button type="submit"><i class="bi bi-x-circle"></i></button>
                                 </form>
                             </div>
+                            <div class="card__reservation-change">
+                                <form action="{{ route('change.reservation', $reservation) }}" method="GET">
+                                    <button type="submit">予約変更</button>
+                                </form>
+                            </div>
                         </div>
                     @endforeach
                 </div>

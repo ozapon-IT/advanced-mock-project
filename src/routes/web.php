@@ -38,6 +38,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/mypage', [MypageController::class, 'showMypage'])->name('mypage.show');
 
     Route::delete('/mypage/delete_reservation/{reservation}', [ReservationController::class, 'deleteReservation'])->name('delete.reservation');
+
+    Route::get('/mypage/change_reservation/{reservation}', [ReservationController::class, 'show'])->name('reservation-change.show');
+
+    Route::patch('/mypage/change_reservation/{reservation}', [ReservationController::class, 'changeReservation'])->name('change.reservation');
 });
 
 Route::get('/email/verify/{id}/{hash}', [VerifyEmailController::class, '__invoke'])->middleware('signed', 'setUserFromId')->name('verification.verify');

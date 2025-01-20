@@ -62,7 +62,7 @@
 
 .card__table tr:first-of-type {
     text-align: left;
-    margin-right: 2.5vw;
+    margin-right: 4vw;
 }
 
 .card__table th:not(:first-of-type),
@@ -76,14 +76,31 @@
     right: 2vw;
 }
 
+.bi-x-circle {
+    color: #fff;
+    font-size: 1.7vw;
+}
+
 .card__delete-button button {
     all: unset;
     cursor: pointer;
 }
 
-.bi-x-circle {
+.card__reservation-change {
+    position: absolute;
     color: #fff;
-    font-size: 1.7vw;
+    bottom: 2vw;
+    right: 2vw;
+}
+
+.card__reservation-change button {
+    all: unset;
+    color: #fff;
+    font-size: 1vw;
+}
+
+.card__reservation-change:hover {
+    text-decoration: underline;
 }
 
 .content__favorite {
@@ -230,7 +247,7 @@
     }
 
     .card__table tr:first-of-type {
-        margin-right: 5vw;
+        margin-right: 4vw;
     }
 
     .card__table th:not(:first-of-type),
@@ -245,6 +262,15 @@
 
     .bi-x-circle {
         font-size: 3.5vw;
+    }
+
+    .card__reservation-change {
+        bottom: 4vw;
+        right: 4vw;
+    }
+
+    .card__reservation-change button {
+        font-size: 2vw;
     }
 
     .content__favorite {
