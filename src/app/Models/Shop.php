@@ -31,6 +31,26 @@ class Shop extends Model
     }
 
     /**
+     * 予約とのリレーションを定義
+     *
+     * @return HasMany
+     */
+    public function reservations(): HasMany
+    {
+        return $this->hasMany(Reservation::class);
+    }
+
+    /**
+     * メニューとのリレーションを定義
+     *
+     * @return HasMany
+     */
+    public function menus(): HasMany
+    {
+        return $this->hasMany(Menu::class);
+    }
+
+    /**
      * 地域でフィルタリング
      *
      * @param Builder $query

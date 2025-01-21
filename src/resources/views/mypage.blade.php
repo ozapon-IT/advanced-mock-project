@@ -40,6 +40,8 @@
                                         <th>Date</th>
                                         <th>Time</th>
                                         <th>Number</th>
+                                        <th>Menu</th>
+                                        <th>Price</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -48,6 +50,8 @@
                                         <td>{{ $reservation->reservation_date }}</td>
                                         <td>{{ $reservation->reservation_time }}</td>
                                         <td>{{ $reservation->number_of_people}}</td>
+                                        <td>{{ $reservation->menu->name}}</td>
+                                        <td>{{ formattedTotalAmount($reservation->total_amount) }}</td>
                                     </tr>
                                 </tbody>
                             </table>

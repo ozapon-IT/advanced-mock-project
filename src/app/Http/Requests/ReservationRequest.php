@@ -45,6 +45,12 @@ class ReservationRequest extends FormRequest
             'number_of_people' => [
                 'required',
             ],
+            'reservation_menu' => [
+                'required',
+            ],
+            'payment_method' => [
+                'required',
+            ],
         ];
     }
 
@@ -60,6 +66,8 @@ class ReservationRequest extends FormRequest
             'reservation_date.after_or_equal' => '過去の日付を選択することはできません。',
             'reservation_time.required' => '予約時間を選択してください。',
             'number_of_people.required' => '予約人数を選択してください。',
+            'reservation_menu.required' => '予約メニューを選択してください。',
+            'payment_method.required' => '支払い方法を選択してください。',
         ];
     }
 }

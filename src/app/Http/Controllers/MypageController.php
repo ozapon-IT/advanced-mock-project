@@ -10,7 +10,9 @@ class MypageController extends Controller
 {
     public function showMypage()
     {
-        $reservations = Reservation::where('user_id', auth()->id())->get();
+        $reservations = Reservation::where('user_id', auth()->id())
+            ->where('payment_status', 'paid')
+            ->get();
 
         $favorites = Favorite::where('user_id', auth()->id())->get();
 
