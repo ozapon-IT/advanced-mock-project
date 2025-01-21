@@ -56,6 +56,17 @@
                 @error('number_of_people')
                     <span class="error-message">{{ $message }}</span>
                 @enderror
+                <div class="field__select">
+                    <select class="select__menu" name="reservation_menu" form="reservation-form" id="reservation-menu">
+                        <option value="" disabled {{ old('menu') ? '' : 'selected'}}>予約メニュー</option>
+                        @foreach (generateReservationMenus($reservation->shop->id) as $menu)
+                            <option value="{{ $menu }}" {{ old('menu') == $menu ? 'selected' : ''}}>{{ $menu }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                @error('reservation_menu')
+                    <span class="error-message">{{ $message }}</span>
+                @enderror
             </div>
             <div class="reservation__confirmation">
                 <table class="confirmation__table">
@@ -65,6 +76,8 @@
                             <th>Date</th>
                             <th>Time</th>
                             <th>Number</th>
+                            <th>Menu</th>
+                            <th>Price</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -73,6 +86,8 @@
                             <td id="table-reservation-date">{{ old('reservation_date') ?? $reservation->reservation_date }}</td>
                             <td id="table-reservation-time">{{ old('reservation_time') ?? $reservation->reservation_time }}</td>
                             <td id="table-reservation-number">{{ old('number_of_people') ?? $reservation->number_of_people }}</td>
+                            <td id="table-reservation-menu">{{ old('reservation_menu') ?? $reservation->menu->name }}</td>
+                            <td id="table-reservation-price">{{ formattedTotalAmount($reservation->total_amount) }}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -82,6 +97,7 @@
         <form action="{{ route('change.reservation', $reservation) }}" id="reservation-form" method="POST">
             @csrf
             @method('PATCH')
+            <input type="hidden" name="payment_method" value="{{ $reservation->payment_method }}">
             <button class="reservation__button" type="submit">予約変更する</button>
         </form>
     </div>
@@ -108,22 +124,58 @@
         const dateInput = document.getElementById('reservation-date');
         const timeSelect = document.getElementById('reservation-time');
         const numberSelect = document.getElementById('reservation-number');
+        const menuSelect = document.getElementById('reservation-menu');
 
         const tableDate = document.getElementById('table-reservation-date');
         const tableTime = document.getElementById('table-reservation-time');
         const tableNumber = document.getElementById('table-reservation-number');
+        const tableMenu = document.getElementById('table-reservation-menu');
 
         dateInput.addEventListener('change', () => {
-            tableDate.textContent = dateInput.value || '未選択';
+            tableDate.textContent = dateInput.value || '';
         });
 
         timeSelect.addEventListener('change', () => {
-            tableTime.textContent = timeSelect.value || '未選択';
+            tableTime.textContent = timeSelect.value || '';
         });
 
         numberSelect.addEventListener('change', () => {
-            tableNumber.textContent = numberSelect.value || '未選択';
+            tableNumber.textContent = numberSelect.value || '';
         });
+
+        menuSelect.addEventListener('change', () => {
+            tableMenu.textContent = menuSelect.value || '';
+        });
+
+        const tablePrice = document.getElementById('table-reservation-price');
+
+        const shopId = {{ $reservation->shop->id }};
+
+        const updatePrice = async () => {
+            const numberOfPeople = parseInt(numberSelect.value || 0);
+            const menuName = menuSelect.value || '';
+
+            if (!numberOfPeople || !menuName) {
+                tablePrice.textContent = '';
+                return;
+            }
+
+            try {
+                const response = await fetch(`/api/calculate-total?shop_id=${shopId}&menu_name=${encodeURIComponent(menuName)}&number_of_people=${numberOfPeople}`);
+                if (response.ok) {
+                    const data = await response.json();
+                    tablePrice.textContent = data.formatted_amount;
+                } else {
+                    tablePrice.textContent = 'エラー';
+                }
+            } catch (error) {
+                console.error('Error calculating total amount:', error);
+                tablePrice.textContent = 'エラー';
+            }
+        };
+
+        numberSelect.addEventListener('change', updatePrice);
+        menuSelect.addEventListener('change', updatePrice);
     });
 </script>
 @endsection

@@ -3,7 +3,7 @@
     background-color: #305cff;
     margin: 3vw auto;
     width: 42.5vw;
-    height: 42.8vw;
+    height: 46vw;
     border-radius: 0.4vw;
 }
 
@@ -25,7 +25,8 @@
 
 .input__date,
 .select__time,
-.select__number {
+.select__number,
+.select__menu {
     border: none;
     cursor: pointer;
     font-size: 1vw;
@@ -78,7 +79,8 @@
 }
 
 .select__time,
-.select__number {
+.select__number,
+.select__menu {
     border: none;
     appearance: none;
     -webkit-appearance: none;
@@ -147,7 +149,7 @@
     .change__reservation {
         margin: 3vw auto;
         width: 90%;
-        height: 73vw;
+        height: 90vw;
         border-radius: 0.8vw;
     }
 
@@ -166,7 +168,8 @@
 
     .input__date,
     .select__time,
-    .select__number {
+    .select__number,
+    .select__menu {
         font-size: 2.2vw;
         border-radius: 0.8vw;
     }
@@ -191,7 +194,8 @@
     }
 
     .select__time,
-    .select__number {
+    .select__number,
+    .select__menu {
         padding: 1vw 2vw;
     }
 
@@ -221,6 +225,6 @@
     }
 
     .modal-menu__close {
-        left: 5vw;
+        left: 4vw;
     }
 }

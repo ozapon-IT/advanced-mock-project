@@ -6,6 +6,7 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\MypageController;
 use Laravel\Fortify\Http\Controllers\VerifyEmailController;
+use App\Http\Controllers\StripeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/mypage/change_reservation/{reservation}', [ReservationController::class, 'show'])->name('reservation-change.show');
 
     Route::patch('/mypage/change_reservation/{reservation}', [ReservationController::class, 'changeReservation'])->name('change.reservation');
+
+    Route::get('/payment/session', [StripeController::class, 'createCheckoutSession'])->name('create.checkout-session');
+
+    Route::get('/payment/session/success', [StripeController::class, 'handleSuccess'])->name('reservation.success');
+
+    Route::get('/payment/session/cancel', [StripeController::class, 'handleCancel'])->name('reservation.cancel');
 });
 
 Route::get('/email/verify/{id}/{hash}', [VerifyEmailController::class, '__invoke'])->middleware('signed', 'setUserFromId')->name('verification.verify');

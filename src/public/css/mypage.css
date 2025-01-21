@@ -88,7 +88,6 @@
 
 .card__reservation-change {
     position: absolute;
-    color: #fff;
     bottom: 2vw;
     right: 2vw;
 }
@@ -96,11 +95,9 @@
 .card__reservation-change button {
     all: unset;
     color: #fff;
-    font-size: 1vw;
-}
-
-.card__reservation-change:hover {
+    cursor: pointer;
     text-decoration: underline;
+    font-size: 1vw;
 }
 
 .content__favorite {
@@ -188,10 +185,6 @@
 .bi-suit-heart-fill {
     font-size: 2.5vw;
     color: red;
-}
-
-.modal-menu__close {
-    left: 5vw;
 }
 
 @media screen and (max-width: 768px) {
@@ -284,7 +277,6 @@
 
     .favorite__title {
         font-size: 3vw;
-        /* margin-top: 4vw; */
     }
 
     .favorite__shop-list {
@@ -338,5 +330,9 @@
 
     .bi-suit-heart-fill {
         font-size: 5.5vw;
+    }
+
+    .modal-menu__close {
+        left: 4vw;
     }
 }

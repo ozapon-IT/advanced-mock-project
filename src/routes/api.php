@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StripeWebhookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +33,6 @@ Route::get('/calculate-total', function (Request $request) {
         'formatted_amount' => formattedTotalAmount($totalAmount),
     ]);
 });
+
+// Stripe Webhookイベントルート
+Route::post('/stripe/webhook', [StripeWebhookController::class, 'handleWebhook']);

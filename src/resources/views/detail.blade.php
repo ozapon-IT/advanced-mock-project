@@ -106,8 +106,6 @@
                         <select class="select__payment" name="payment_method" form="reservation-form" id="payment-method">
                             <option value="" disabled {{ old('payment_method') ? '' : 'selected'}}>支払い方法</option>
 
-                            <option value="コンビニ払い" {{ old('payment_method') == 'コンビニ払い' ? 'selected' : ''}}>コンビニ払い</option>
-
                             <option value="カード払い" {{ old('payment_method') == 'カード払い' ? 'selected' : ''}}>カード払い</option>
                         </select>
                     </div>

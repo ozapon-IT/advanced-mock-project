@@ -15,6 +15,7 @@ class Reservation extends Model
     protected $fillable = [
         'user_id',
         'shop_id',
+        'menu_id',
         'reservation_date',
         'reservation_time',
         'number_of_people',
@@ -42,5 +43,15 @@ class Reservation extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    /**
+     * メニューとのリレーションを定義
+     *
+     * @return BelongsTo
+     */
+    public function menu(): BelongsTo
+    {
+        return $this->belongsTo(Menu::class);
     }
 }

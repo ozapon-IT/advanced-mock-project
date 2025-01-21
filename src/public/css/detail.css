@@ -208,10 +208,6 @@
     background-color: #0538ff;
 }
 
-.modal-menu__close {
-    left: 5vw;
-}
-
 @media screen and (max-width: 768px) {
     .header {
         height: 5vw;
