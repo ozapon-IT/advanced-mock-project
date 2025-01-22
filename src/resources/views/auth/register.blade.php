@@ -31,7 +31,6 @@
                 <i class="bi bi-person-fill"></i>
 
                 <input class="register__input" type="text" name="name" value="{{ old('name') }}" placeholder="Username">
-
             </div>
 
             @error('name')
