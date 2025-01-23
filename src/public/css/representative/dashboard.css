@@ -1,0 +1,147 @@
+.dashboard {
+    margin: 2vw auto;
+    width: 90vw;
+}
+
+.dashboard__title {
+    text-align: center;
+    font-size: 2vw;
+}
+
+.dashboard__contents {
+    display: flex;
+    width: 100%;
+    gap: 7vw;
+    margin-top: 3vw;
+}
+
+.contents__shop-information {
+    width: 41.5vw;
+}
+
+.shop-information__title {
+    text-align: center;
+    font-size: 1.5vw;
+}
+
+.shop-information__create-or-update,
+.reservation-status__confirmation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #305cff;
+    margin: 0 auto;
+    box-shadow: 0.2vw 0.2vw 0.2vw rgba(0, 0, 0, 0.5);
+    border-radius: 0.4vw;
+    width: 41.5vw;
+    height: 20vw;
+    margin-top: 3vw;
+}
+
+.bi-shop,
+.bi-list-check {
+    margin-right: 0.5vw;
+    color: #fff;
+    font-size: 1.5vw;
+}
+
+.shop-information__create-or-update a,
+.reservation-status__confirmation a {
+    text-decoration: none;
+    font-size: 1.5vw;
+    color: #fff;
+}
+
+.shop-information__create-or-update a:hover,
+.reservation-status__confirmation a:hover {
+    text-decoration: underline;
+}
+
+.contents__reservation-status {
+    width: 41.5vw;
+}
+
+.reservation-status__title {
+    text-align: center;
+    font-size: 1.5vw;
+}
+
+.shop-information__create-or-update p,
+.reservation-status__confirmation p {
+    font-size: 1.5vw;
+    background-color: #fff;
+    border-radius: 0.4vw;
+    margin-bottom: 5vw;
+    padding: 1vw;
+}
+
+.modal-menu__close {
+    left: 5vw;
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        height: 5vw;
+    }
+
+    .dashboard {
+        margin: 0 auto 6vw;
+    }
+
+    .dashboard__title {
+        font-size: 4vw;
+    }
+
+    .dashboard__contents {
+        display: block;
+        width: 100%;
+        margin-top: 6vw;
+    }
+
+    .contents__shop-information {
+        width: 100%;
+    }
+
+    .shop-information__title {
+        font-size: 3vw;
+    }
+
+    .shop-information__create-or-update,
+    .reservation-status__confirmation {
+        box-shadow: 0.4vw 0.4vw 0.4vw rgba(0, 0, 0, 0.5);
+        border-radius: 0.8vw;
+        width: 100%;
+        height: 40vw;
+        margin-top: 5vw;
+    }
+
+    .bi-shop,
+    .bi-list-check {
+        margin-right: 1vw;
+        font-size: 3vw;
+    }
+
+    .shop-information__create-or-update a,
+    .reservation-status__confirmation a {
+        font-size: 3vw;
+    }
+
+    .contents__reservation-status {
+        width: 100%;
+    }
+
+    .reservation-status__title {
+        font-size: 3vw;
+        margin-top: 5vw;
+    }
+
+    .shop-information__create-or-update p,
+    .reservation-status__confirmation p {
+        font-size: 3vw;
+        background-color: #fff;
+        border-radius: 0.8vw;
+        margin-bottom: 10vw;
+        padding: 2vw;
+    }
+}

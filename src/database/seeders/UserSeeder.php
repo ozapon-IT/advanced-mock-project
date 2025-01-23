@@ -8,7 +8,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
 
-class AdminUserSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -22,5 +22,15 @@ class AdminUserSeeder extends Seeder
             'email_verified_at' => Carbon::now(),
             'role' => 3,
         ]);
+
+        for ($i = 1; $i <= 20; $i++) {
+            User::create([
+                'name' => "店舗代表者{$i}",
+                'email' => "test@daihyousha{$i}.com",
+                'password' => Hash::make("daihyousha{$i}"),
+                'email_verified_at' => Carbon::now(),
+                'role' => 2,
+            ]);
+        }
     }
 }

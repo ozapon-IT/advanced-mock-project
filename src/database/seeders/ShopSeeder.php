@@ -5,6 +5,9 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Shop;
+use App\Models\Area;
+use App\Models\Genre;
+use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -15,6 +18,12 @@ class ShopSeeder extends Seeder
      */
     public function run(): void
     {
+        $representatives = User::where('role', 2)->orderBy('id', 'asc')->get();
+
+        if ($representatives->isEmpty()) {
+            throw new \Exception("No users with role 2 (店舗代表者) found in the database.");
+        }
+
         $shops = [
             ['name' => '仙人', 'area' => '東京都', 'genre' => '寿司', 'summary' => '料理長厳選の食材から作る寿司を用いたコースをぜひお楽しみください。食材・味・価格、お客様の満足度を徹底的に追及したお店です。特別な日のお食事、ビジネス接待まで気軽に使用することができます。', 'image_path' => 'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/sushi.jpg'],
             ['name' => '牛助', 'area' => '大阪府', 'genre' => '焼肉', 'summary' => '焼肉業界で20年間経験を積み、肉を熟知したマスターによる実力派焼肉店。長年の実績とお付き合いをもとに、なかなか食べられない希少部位も仕入れております。また、ゆったりとくつろげる空間はお仕事終わりの一杯や女子会にぴったりです。', 'image_path' => 'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/yakiniku.jpg'],
@@ -38,7 +47,26 @@ class ShopSeeder extends Seeder
             ['name' => '木船', 'area' => '大阪府', 'genre' => '寿司', 'summary' => '毎日店主自ら市場等に出向き、厳選した魚介類が、お鮨をはじめとした繊細な料理に仕立てられます。また、選りすぐりの種類豊富なドリンクもご用意しております。', 'image_path' => 'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/sushi.jpg'],
         ];
 
+        $representativeCount = $representatives->count();
+        $representativeIndex = 0;
+
         foreach ($shops as $shop) {
+            $area = Area::where('name', $shop['area'])->first();
+            if (!$area) {
+                throw new \Exception("Area '{$shop['area']}' not found in the database.");
+            }
+
+            $genre = Genre::where('name', $shop['genre'])->first();
+            if (!$genre) {
+                throw new \Exception("Genre '{$shop['genre']}' not found in the database.");
+            }
+
+            // データベースの作成順で店舗代表者を取得
+            $representative = $representatives[$representativeIndex];
+
+            // インデックスを次の店舗代表者に進める
+            $representativeIndex = ($representativeIndex + 1) % $representativeCount;
+
             // URLから画像データを取得
             $imageUrl = $shop['image_path'];
             $imageContents = file_get_contents($imageUrl);
@@ -52,11 +80,15 @@ class ShopSeeder extends Seeder
             // storage/app/public/shops に保存
             Storage::disk('public')->put($imageName, $imageContents);
 
-            // shopsテーブルには相対パスのみを保存
-            $shop['image_path'] = $imageName;
-
             // 店舗データを作成
-            Shop::create($shop);
+            Shop::create([
+                'user_id' => $representative->id,
+                'area_id' => $area->id,
+                'genre_id' => $genre->id,
+                'name' => $shop['name'],
+                'summary' => $shop['summary'],
+                'image_path' => $imageName,
+            ]);
         }
     }
 }

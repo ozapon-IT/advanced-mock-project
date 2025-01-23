@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', '管理者ダッシュボード画面 - Rese')
+@section('title', '管理者ダッシュボード - Rese')
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/admin/dashboard.css') }}">

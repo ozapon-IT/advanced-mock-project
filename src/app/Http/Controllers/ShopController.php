@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Shop;
+use App\Models\Area;
+use App\Models\Genre;
 use App\Models\Menu;
 
 class ShopController extends Controller
@@ -16,8 +18,8 @@ class ShopController extends Controller
             ->filterByText($request->text)
             ->get();
 
-        $areas = Shop::getAreas();
-        $genres = Shop::getGenres();
+        $areas = Area::all();
+        $genres = Genre::all();
 
         return view('index', compact('shops', 'areas', 'genres'));
     }
