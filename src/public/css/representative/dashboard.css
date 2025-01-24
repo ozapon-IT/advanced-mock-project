@@ -40,8 +40,8 @@
 }
 
 .bi-shop,
-.bi-list-check {
-    margin-right: 0.5vw;
+.bi-list-check
+.bi-book {
     color: #fff;
     font-size: 1.5vw;
 }
@@ -143,5 +143,9 @@
         border-radius: 0.8vw;
         margin-bottom: 10vw;
         padding: 2vw;
+    }
+
+    .modal-menu__close {
+        left: 4vw;
     }
 }

@@ -116,9 +116,9 @@ body {
 }
 
 .error-message {
-    color: red;
+    color: yellow;
     font-size: 0.9vw;
-    margin-top: 0.2vw;
+    margin-top: 0.5vw;
 }
 
 @media screen and (max-width: 768px) {
@@ -180,6 +180,6 @@ body {
 
     .error-message {
         font-size: 1.8vw;
-        margin-top: 0.2vw;
+        margin-top: 1vw;
     }
 }

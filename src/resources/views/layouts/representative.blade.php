@@ -16,6 +16,8 @@
 
     @yield('main')
 
+    @yield('script')
+
     <div class="modal-menu" id="modal-menu">
         <a href="#" class="modal-menu__close"><i class="bi bi-x"></i></a>
 
