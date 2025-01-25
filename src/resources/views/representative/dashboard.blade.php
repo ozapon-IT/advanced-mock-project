@@ -32,8 +32,8 @@
                 </div>
                 @if ($shopEditDate)
                     <div class="shop-information__create-or-update">
-                        <p>メニュー編集日: {{ $menuEditDate }}</p>
-                        <a href="{{-- route('show.menu-edit') --}}"><i class="bi bi-book"></i> メニュー作成or更新</a>
+                        <p>メニュー数: {{ $totalMenus }}</p>
+                        <a href="{{ route('show.menu-edit') }}"><i class="bi bi-book"></i> メニュー作成or更新</a>
                     </div>
                 @endif
             </div>

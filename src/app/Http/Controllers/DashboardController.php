@@ -33,11 +33,10 @@ class DashboardController extends Controller
 
         $shopEditDate = $shop->updated_at->toDateString();
 
-        $menu = Menu::where('shop_id', $shop->id)->first();
-        $menuEditDate = $menu ? $menu->updated_at->toDateString() : null;
+        $totalMenus= Menu::where('shop_id', $shop->id)->count();
 
         $totalReservations = Reservation::where('shop_id', $shop->id)->count();
 
-        return view('representative.dashboard', compact('totalReservations', 'shopEditDate', 'menuEditDate'));
+        return view('representative.dashboard', compact('totalReservations', 'shopEditDate', 'totalMenus'));
     }
 }

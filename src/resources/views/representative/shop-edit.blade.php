@@ -49,7 +49,7 @@
                         <select class="section__select" name="area" form="shop-edit-form">
                             <option disabled {{ old('area') ? '' : 'selected'}}>エリア選択</option>
                             @foreach ($areas as $area)
-                                <option value="{{ $area->id }}" {{ request('area') == $area->id ? 'selected' : ''}}>{{ $area->name }}</option>
+                                <option value="{{ $area->id }}" {{ old('area') == $area->id ? 'selected' : ''}}>{{ $area->name }}</option>
                             @endforeach
                         </select>
                     </section>
@@ -61,7 +61,7 @@
                         <select class="section__select" name="genre" form="shop-edit-form">
                             <option disabled {{ old('genre') ? '' : 'selected'}}>ジャンル選択</option>
                             @foreach ($genres as $genre)
-                                <option value="{{ $genre->id }}" {{ request('genre') == $genre->id ? 'selected' : ''}}>{{ $genre->name }}</option>
+                                <option value="{{ $genre->id }}" {{ old('genre') == $genre->id ? 'selected' : ''}}>{{ $genre->name }}</option>
                             @endforeach
                         </select>
                     </section>
@@ -70,7 +70,7 @@
                     @enderror
                     <section class="form__section">
                         <h4 class="section__title">店舗概要</h4>
-                        <textarea class="section__textarea" name="summary" value="{{ old('summary') }}" form="shop-edit-form"></textarea>
+                        <textarea class="section__textarea" name="summary" form="shop-edit-form">{{ old('summary') }}</textarea>
                     </section>
                     @error('summary')
                         <span class="error-message">{{ $message }}</span>
