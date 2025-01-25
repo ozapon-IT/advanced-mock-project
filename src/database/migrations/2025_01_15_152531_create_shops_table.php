@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('shops', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('area_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('genre_id')->constrained()->cascadeOnDelete();
             $table->string('name', 100);
-            $table->string('area', 10);
-            $table->string('genre', 10);
             $table->string('summary', 255);
             $table->string('image_path', 255);
             $table->timestamps();

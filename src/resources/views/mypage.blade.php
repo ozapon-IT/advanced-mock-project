@@ -81,8 +81,8 @@
                             </div>
                             <div class="shop-list__content">
                                 <h2 class="shop-list__name">{{ $favorite->shop->name }}</h2>
-                                <p class="shop-list__area">#{{ $favorite->shop->area }}</p>
-                                <p class="shop-list__genre">#{{ $favorite->shop->genre }}</p>
+                                <p class="shop-list__area">#{{ $favorite->shop->area->name }}</p>
+                                <p class="shop-list__genre">#{{ $favorite->shop->genre->name }}</p>
                                 <a class="shop-list__detail" href="{{ route('detail.show', $favorite->shop_id) . '?from=mypage' }}">詳しくみる</a>
                                 <button
                                     class="shop-list__favorite js-favorite-button"

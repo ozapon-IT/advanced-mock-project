@@ -1,0 +1,185 @@
+body {
+    background-color: #eee;
+    box-sizing: border-box;
+}
+
+.header {
+    height: 6.7vw;
+    display: flex;
+    align-items: end;
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90vw;
+    height: 4vw;
+    margin: 0 auto;
+}
+
+.header__menu {
+    display: flex;
+}
+
+.menu__button {
+    background-color: #4366eb;
+    border-radius: 0.4vw;
+    padding: 0.3vw;
+    box-shadow: 0.2vw 0.2vw 0.2vw rgba(0, 0, 0, 0.5);
+}
+
+.menu__button:hover {
+    background-color: #305cff;
+}
+
+.bi-list {
+    color: #fff;
+    font-size: 2.1vw;
+}
+
+.menu__service-name {
+    font-weight: bold;
+    color:  #305cff;
+    font-size: 2.1vw;
+    margin-left: 1.3vw;
+    display: flex;
+    align-items: center;
+}
+
+.modal-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-color: rgba(255, 255, 255);
+    overflow: auto;
+}
+
+.modal-menu:target {
+    display: block;
+}
+
+.modal-menu__link {
+    display: block;
+    text-decoration: none;
+}
+
+.modal-menu__close {
+    display:inline-block;
+    background-color: #4366eb;
+    position: absolute;
+    top: 3.33vw;
+    left: 4.5vw;
+    border-radius: 0.4vw;
+    padding: 0.1vw;
+    box-shadow: 0.2vw 0.2vw 0.2vw rgba(0, 0, 0, 0.5);
+}
+
+.modal-menu__close:hover {
+    background-color: #305cff;
+}
+
+.bi-x {
+    color: #fff;
+    font-size: 2.5vw;
+}
+
+.modal-menu__content {
+    text-align: center;
+    margin: 20vw auto;
+    width: 20vw;
+}
+
+.modal-menu__link {
+    color: #305cff;
+    font-size: 2.1vw;
+    margin-top: 2vw;
+}
+
+.modal-menu__link:hover {
+    text-decoration: underline;
+}
+
+.modal-menu__button {
+    all: unset;
+    cursor: pointer;
+    color: #305cff;
+    font-size: 2.1vw;
+    margin-top: 2vw;
+}
+
+.modal-menu__button:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    color: yellow;
+    font-size: 0.9vw;
+    margin-top: 0.5vw;
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        align-items: center;
+        height: 13vw;
+        padding: 4vw 0;
+    }
+
+    .header__container {
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .header__menu {
+        margin-right: auto;
+    }
+
+    .menu__button {
+        border-radius: 0.8vw;
+        padding: 0.6vw;
+        box-shadow: 0.4vw 0.4vw 0.4vw rgba(0, 0, 0, 0.5);
+    }
+
+    .bi-list {
+        font-size: 4vw;
+    }
+
+    .menu__service-name {
+        font-size: 4vw;
+        margin-left: 2vw;
+    }
+
+    .modal-menu__close {
+        top: 4vw;
+        left: 4vw;
+        border-radius: 0.8vw;
+        padding: 0.2vw;
+        box-shadow: 0.4vw 0.4vw 0.4vw rgba(0, 0, 0, 0.5);
+    }
+
+    .bi-x {
+        font-size: 4.8vw;
+    }
+
+    .modal-menu__content {
+        width: 30vw;
+    }
+
+    .modal-menu__link {
+        font-size: 4.5vw;
+        margin-top: 4vw;
+    }
+
+    .modal-menu__button {
+        font-size: 4.5vw;
+        margin-top: 4vw;
+    }
+
+    .error-message {
+        font-size: 1.8vw;
+        margin-top: 1vw;
+    }
+}

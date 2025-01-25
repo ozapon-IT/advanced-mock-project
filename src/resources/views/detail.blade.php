@@ -37,8 +37,8 @@
             </div>
 
             <div class="content__description">
-                <p class="description__area">#{{ $shop->area }}</p>
-                <p class="description__genre">#{{ $shop->genre }}</p>
+                <p class="description__area">#{{ $shop->area->name }}</p>
+                <p class="description__genre">#{{ $shop->genre->name }}</p>
                 <p class="description__summary">{{ $shop->summary }}</p>
                 <ul class="description__menu">
                     @foreach ($menus as $menu)

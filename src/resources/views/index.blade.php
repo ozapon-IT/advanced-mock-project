@@ -20,7 +20,7 @@
                 <select class="search__select search__area" name="area" form="search-form">
                     <option value="All area" {{ request('area') === 'All area' ? 'selected' : ''}}>All area</option>
                     @foreach ($areas as $area)
-                        <option value="{{ $area }}" {{ request('area') === $area ? 'selected' : ''}}>{{ $area }}</option>
+                        <option value="{{ $area->id }}" {{ request('area') == $area->id ? 'selected' : ''}}>{{ $area->name }}</option>
                     @endforeach
                 </select>
             </div>
@@ -28,7 +28,7 @@
                 <select class="search__select search__genre" name="genre" form="search-form">
                     <option value="All genre" {{ request('genre') === 'All genre' ? 'selected' : ''}}>All genre</option>
                     @foreach ($genres as $genre)
-                        <option value="{{ $genre }}" {{ request('genre') === $genre ? 'selected' : ''}}>{{ $genre }}</option>
+                        <option value="{{ $genre->id }}" {{ request('genre') == $genre->id ? 'selected' : ''}}>{{ $genre->name }}</option>
                     @endforeach
                 </select>
             </div>
@@ -53,8 +53,8 @@
                 </div>
                 <div class="shop-list__content">
                     <h2 class="shop-list__name">{{ $shop->name }}</h2>
-                    <p class="shop-list__area">#{{ $shop->area }}</p>
-                    <p class="shop-list__genre">#{{ $shop->genre }}</p>
+                    <p class="shop-list__area">#{{ $shop->area->name }}</p>
+                    <p class="shop-list__genre">#{{ $shop->genre->name }}</p>
                     <a class="shop-list__detail" href="{{ route('detail.show', $shop->id) . '?from=top' }}">詳しくみる</a>
                     @guest
                         <form action="{{ route('login') }}" method="GET">

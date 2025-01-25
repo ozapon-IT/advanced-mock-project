@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ReservationRequest;
 use App\Models\Reservation;
 use App\Models\Menu;
+use App\Models\Shop;
 
 class ReservationController extends Controller
 {
@@ -67,5 +68,21 @@ class ReservationController extends Controller
         ]);
 
         return redirect()->route('mypage.show');
+    }
+
+    public function showReservationListPage()
+    {
+        $shopId = Shop::where('user_id', auth()->id())->first()->id;
+
+        $reservations = Reservation::where('shop_id', $shopId)
+            ->orderBy('reservation_date', 'asc')
+            ->get();
+
+        return view('representative.reservation-list', compact('reservations'));
+    }
+
+    public function showReservationDetailPage(Reservation $reservation)
+    {
+        return view('representative.reservation-detail', compact('reservation'));
     }
 }

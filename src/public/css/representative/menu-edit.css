@@ -1,0 +1,324 @@
+.menu-edit {
+    margin: 2vw auto;
+    width: 90vw;
+}
+
+.menu-edit__title {
+    text-align: center;
+    font-size: 2vw;
+}
+
+.menu-edit__contents {
+    display: flex;
+    width: 100%;
+    gap: 7vw;
+    margin-top: 3vw;
+}
+
+.contents__create,
+.contents__update {
+    width: 41.5vw;
+}
+
+.create__title,
+.update__title {
+    text-align: center;
+    font-size: 1.5vw;
+}
+
+.create__form,
+.update__form {
+    box-shadow: 0.2vw 0.2vw 0.2vw rgba(0, 0, 0, 0.5);
+    border-radius: 0.4vw;
+    margin-top: 3vw;
+    padding: 3vw 4vw;
+}
+
+.create__form {
+    position: relative;
+    background-color: #305cff;
+    height: 20vw;
+}
+
+.form__section {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__section:not(:first-of-type) {
+    margin-top: 2vw;
+}
+
+.section__title {
+    color: #fff;
+    font-size: 1.3vw;
+    margin-bottom: 1vw;
+}
+
+.section__input {
+    border: none;
+    font-size: 1vw;
+    border-radius: 0.2vw;
+    height: 2.5vw;
+    padding: 0 0.8vw;
+}
+
+.form__section:nth-of-type(2) {
+    position: relative;
+}
+
+.section__input--price {
+    padding: 0 2vw;
+}
+
+.section__input--yen-sign {
+    position: absolute;
+    left: 0.7vw;
+    bottom: 0.6vw;
+    font-weight: bold;
+    font-size: 1.2vw;
+}
+
+.form__button {
+    all: unset;
+    color: #fff;
+    background-color: #1d49ed;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    width: 100%;
+    font-size: 1.5vw;
+    border-radius: 0 0 0.4vw 0.4vw;
+    padding: 1vw 0;
+}
+
+.form__button:hover {
+    background-color: #0538ff;
+}
+
+.update__form {
+    background-color: #fff;
+}
+
+.form__table {
+    width: 100%;
+}
+
+.table__row {
+    display: block;
+    height: 2vw;
+    line-height: 2vw;
+}
+
+.form__table thead tr {
+    border-bottom: 0.1vw solid #aaa;
+    font-size: 1.3vw;
+}
+
+.form__table tbody tr {
+    margin-top: 1vw;
+}
+
+.table__input {
+    border: none;
+    background-color: #edf2fa;
+    border-radius: 0.2vw;
+    font-size: 1vw;
+    padding: 0.4vw;
+}
+
+.table__input--name {
+    width: 16.5vw;
+}
+
+.table__row td:first-of-type {
+    width: 18vw;
+}
+
+.table__row td:nth-of-type(2) {
+    position: relative;
+    width: 12vw;
+}
+
+.table__input--yen-sign {
+    position: absolute;
+    font-size: 1vw;
+    left: 0.5vw;
+    top: 0.1vw;
+}
+
+.table__input--price {
+    padding: 0.4vw 1.5vw;
+    width: 8.5vw;
+}
+
+.table__row td:nth-of-type(3) {
+    width: 3.6vw;
+}
+
+.table__button {
+    all: unset;
+    display: block;
+    background-color:#4366eb;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 0.2vw;
+    font-size: 1vw;
+    padding: 0 0.7vw;
+}
+
+.table__button:hover {
+    background-color: #305cff;
+}
+
+.error-message--red {
+    color: red;
+    font-size: 0.8vw;
+}
+
+.modal-menu__close {
+    left: 5vw;
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        height: 5vw;
+    }
+
+    .menu-edit {
+        margin: 0 auto 6vw;
+    }
+
+    .menu-edit__title {
+        font-size: 3.7vw;
+    }
+
+    .menu-edit__contents {
+        display: block;
+        gap: 0;
+        margin-top: 6vw;
+    }
+
+    .contents__create,
+    .contents__update {
+        width: 100%;
+    }
+
+    .create__title,
+    .update__title {
+        font-size: 3vw;
+    }
+
+    .create__form,
+    .update__form {
+        box-shadow: 0.4vw 0.4vw 0.4vw rgba(0, 0, 0, 0.5);
+        border-radius: 0.8vw;
+        margin-top: 6vw;
+        padding: 6vw 8vw;
+    }
+
+    .create__form {
+        height: 40vw;
+    }
+
+    .form__section:not(:first-of-type) {
+        margin-top: 4vw;
+    }
+
+    .section__title {
+        font-size: 2.6vw;
+        margin-bottom: 2vw;
+    }
+
+    .section__input {
+        font-size: 2vw;
+        border-radius: 0.4vw;
+        height: 5vw;
+        padding: 0 1.6vw;
+    }
+
+    .section__input--price {
+        padding: 0 4vw;
+    }
+
+    .section__input--yen-sign {
+        left: 1.4vw;
+        bottom: 1.2vw;
+        font-size: 2.4vw;
+    }
+
+    .form__button {
+        font-size: 3vw;
+        border-radius: 0 0 0.8vw 0.8vw;
+        padding: 2vw 0;
+    }
+
+    .contents__update {
+        margin-top: 6vw;
+    }
+
+    .table__row {
+        height: 4vw;
+        line-height: 4vw;
+    }
+
+    .form__table thead tr {
+        font-size: 2.6vw;
+    }
+
+    .form__table tbody tr {
+        margin-top: 2vw;
+    }
+
+    .table__input {
+        border-radius: 0.4vw;
+        font-size: 2vw;
+        padding: 0.8vw;
+    }
+
+    .table__input--name {
+        width: 35vw;
+    }
+
+    .table__row td:first-of-type {
+        width: 39vw;
+    }
+
+    .table__row td:nth-of-type(2) {
+        position: relative;
+        width: 29vw;
+    }
+
+    .table__input--yen-sign {
+        font-size: 2vw;
+        left: 1vw;
+        top: 0.2vw;
+    }
+
+    .table__input--price {
+        padding: 0.8vw 3vw;
+        width: 21vw;
+    }
+
+    .table__row td:nth-of-type(3) {
+        width: 7.5vw;
+    }
+
+    .table__button {
+        border-radius: 0.4vw;
+        font-size: 2vw;
+        padding: 0 1.4vw;
+    }
+
+    .error-message--red {
+        font-size: 1.6vw;
+    }
+
+    .modal-menu__close {
+        left: 4vw;
+    }
+}
+
+

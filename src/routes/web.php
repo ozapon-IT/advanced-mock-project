@@ -19,15 +19,17 @@ use App\Http\Controllers\StripeController;
 |
 */
 
-Route::get('/', [ShopController::class, 'showTopPage'])->name('top.show');
+Route::middleware(['guest_or_user'])->group(function () {
+    Route::get('/', [ShopController::class, 'showTopPage'])->name('top.show');
 
-Route::get('/detail/{shop_id}', [ShopController::class, 'showDetailPage'])->name('detail.show');
+    Route::get('/detail/{shop_id}', [ShopController::class, 'showDetailPage'])->name('detail.show');
 
-Route::get('/thanks', function () {
-    return view('auth.thanks');
-})->name('thanks');
+    Route::get('/thanks', function () {
+        return view('auth.thanks');
+    })->name('thanks');
+});
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'role:1'])->group(function () {
     Route::post('/detail/{shop_id}', [ReservationController::class, 'reserve'])->name('reserve');
 
     Route::get('/done', [ReservationController::class, 'done'])->name('done');
