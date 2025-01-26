@@ -1,0 +1,133 @@
+.announce {
+    width: 90vw;
+    margin: 2vw auto;
+}
+
+.announce__title {
+    text-align: center;
+    font-size: 2vw;
+}
+
+.announce__form {
+    position: relative;
+    background-color: #305cff;
+    margin: 3vw auto;
+    padding: 3vw 4vw;
+    width: 34.5vw;
+    height: 36vw;
+    border-radius: 0.4vw;
+    box-shadow: 0.2vw 0.2vw 0.2vw rgba(0, 0, 0, 0.5);
+}
+
+.announce__group {
+    display: flex;
+    flex-direction: column;
+}
+
+.announce__group:nth-of-type(2) {
+    margin-top: 2vw;
+}
+
+.announce__label {
+    color: #fff;
+    font-size: 1.5vw;
+}
+
+.announce__input,
+.announce__textarea {
+    margin-top: 0.5vw;
+    border: none;
+    font-size: 1.2vw;
+    border-radius: 0.2vw;
+}
+
+.announce__input {
+    height: 2.5vw;
+    padding: 0 1vw;
+}
+
+.announce__textarea {
+    height: 20vw;
+    padding: 1vw;
+}
+
+.announce__button {
+    all: unset;
+    color: #fff;
+    background-color: #1d49ed;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    width: 100%;
+    font-size: 1.5vw;
+    border-radius: 0 0 0.4vw 0.4vw;
+    padding: 1vw 0;
+}
+
+.announce__button:hover {
+    background-color: #0538ff;
+}
+
+.modal-menu__close {
+    left: 5vw;
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        height: 5vw;
+    }
+
+    .announce {
+        margin: 0 auto 3vw;
+    }
+
+    .announce__title {
+        font-size: 3.7vw;
+    }
+
+    .announce__form {
+        margin: 6vw auto;
+        padding: 6vw 8vw;
+        width: 74vw;
+        height: 72vw;
+        border-radius: 0.8vw;
+        box-shadow: 0.4vw 0.4vw 0.4vw rgba(0, 0, 0, 0.5);
+    }
+
+    .announce__group:nth-of-type(2) {
+        margin-top: 4vw;
+    }
+
+    .announce__label {
+        font-size: 2.7vw;
+    }
+
+    .announce__input,
+    .announce__textarea {
+        margin-top: 1vw;
+        font-size: 2.4vw;
+        border-radius: 0.4vw;
+    }
+
+    .announce__input {
+        height: 5vw;
+        padding: 0 2vw;
+    }
+
+    .announce__textarea {
+        height: 40vw;
+        padding: 2vw;
+    }
+
+    .announce__button {
+        font-size: 3vw;
+        border-radius: 0 0 0.8vw 0.8vw;
+        padding: 2vw 0;
+    }
+
+    .modal-menu__close {
+        left: 4vw;
+    }
+}
