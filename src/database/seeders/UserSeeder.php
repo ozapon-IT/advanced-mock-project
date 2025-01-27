@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
     {
         User::create([
             'name' => '管理者',
-            'email' => 'admin@coachtech.com',
+            'email' => 'test@admin.com',
             'password' => Hash::make('testadmin'),
             'email_verified_at' => Carbon::now(),
             'role' => 3,
@@ -30,6 +30,16 @@ class UserSeeder extends Seeder
                 'password' => Hash::make("daihyousha{$i}"),
                 'email_verified_at' => Carbon::now(),
                 'role' => 2,
+            ]);
+        }
+
+        for ($i = 1; $i <= 10; $i++) {
+            User::create([
+                'name' => "一般ユーザー{$i}",
+                'email' => "test@user{$i}.com",
+                'password' => Hash::make("testuser{$i}"),
+                'email_verified_at' => Carbon::now(),
+                'role' => 1,
             ]);
         }
     }

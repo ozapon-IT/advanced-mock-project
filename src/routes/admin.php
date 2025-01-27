@@ -12,7 +12,9 @@ Route::middleware(['auth', 'role:3'])->group(function () {
 
     Route::post('/representative_registration', [RegisterController::class, 'create'])->name('create.representative');
 
-    Route::get('/announce', [AnnounceController::class, 'show'])->name('show.announce');
+    Route::get('/announce', [AnnounceController::class, 'showAnnouncePage'])->name('show.announce');
 
     Route::post('/announce', [AnnounceController::class, 'send'])->name('send.announce');
+
+    Route::get('/announce/detail/{announce}', [AnnounceController::class, 'showDetailPage'])->name('show.detail');
 });

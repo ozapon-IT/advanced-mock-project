@@ -12,9 +12,11 @@ use App\Jobs\UpdateSentAtJob;
 
 class AnnounceController extends Controller
 {
-    public function show()
+    public function showAnnouncePage()
     {
-        return view('admin.announce');
+        $announces = Announce::orderByDesc('created_at')->paginate(15);
+
+        return view('admin.announce', compact('announces'));
     }
 
     public function send(AnnounceRequest $request)
@@ -48,6 +50,11 @@ class AnnounceController extends Controller
             return redirect()->route('admin.dashboard')->withErrors(['error' => 'メール送信中にエラーが発生しました。']);
         }
 
-        return redirect()->route('admin.dashboard');
+        return redirect()->route('show.announce');
+    }
+
+    public function showDetailPage(Announce $announce)
+    {
+        return view('admin.announce_detail', compact('announce'));
     }
 }
