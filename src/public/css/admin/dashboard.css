@@ -76,6 +76,12 @@
     padding: 1vw;
 }
 
+.alert {
+    font-size: 1vw;
+    color: yellow;
+    margin-top: 0.2vw;
+}
+
 .modal-menu__close {
     left: 5vw;
 }
@@ -143,6 +149,11 @@
         border-radius: 0.8vw;
         margin-bottom: 10vw;
         padding: 2vw;
+    }
+
+    .alert {
+        font-size: 2vw;
+        margin-top: 0.4vw;
     }
 
     .modal-menu__close {

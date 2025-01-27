@@ -1,0 +1,307 @@
+.announce {
+    width: 90vw;
+    margin: 2vw auto;
+}
+
+.announce__title {
+    text-align: center;
+    font-size: 2vw;
+}
+
+.announce__contents {
+    display: flex;
+    width: 100%;
+    gap: 7vw;
+    margin-top: 3vw;
+}
+
+.announce__create,
+.announce__history {
+    width: 41.5vw;
+}
+
+.announce__subtitle {
+    text-align: center;
+    font-size: 1.5vw;
+}
+
+.announce__form {
+    position: relative;
+    background-color: #305cff;
+    box-shadow: 0.2vw 0.2vw 0.2vw rgba(0, 0, 0, 0.5);
+    border-radius: 0.4vw;
+    padding: 3vw 4vw;
+    margin-top: 3vw;
+    height: 36vw;
+}
+
+.announce__form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.announce__form-group:nth-of-type(2) {
+    margin-top: 2vw;
+}
+
+.announce__form-label {
+    color: #fff;
+    font-size: 1.5vw;
+}
+
+.announce__form-input,
+.announce__form-textarea {
+    margin-top: 0.5vw;
+    border: none;
+    font-size: 1.2vw;
+    border-radius: 0.2vw;
+}
+
+.announce__form-input {
+    height: 2.5vw;
+    padding: 0 1vw;
+}
+
+.announce__form-textarea {
+    height: 20vw;
+    padding: 1vw;
+}
+
+.announce__form-button {
+    all: unset;
+    color: #fff;
+    background-color: #1d49ed;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    width: 100%;
+    font-size: 1.5vw;
+    border-radius: 0 0 0.4vw 0.4vw;
+    padding: 1vw 0;
+}
+
+.announce__form-button:hover {
+    background-color: #0538ff;
+}
+
+.announce__table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 0.5vw;
+    border-radius: 0.4vw;
+    font-size: 1.2vw;
+    margin-top: 1vw;
+}
+
+.announce__table-row {
+    background-color: #305cff;
+    width: 100%;
+    height: 2vw;
+}
+
+.announce__table-row th,
+.announce__table-row td {
+    color: #fff;
+    line-height: 2vw;
+    text-align: center;
+}
+
+.announce__table-row th:first-of-type {
+    border-radius: 0.4vw 0 0 0;
+}
+
+.announce__table-row th:last-of-type {
+    border-radius: 0 0.4vw 0 0;
+}
+
+.announce__table-row:last-of-type td:first-of-type {
+    border-radius: 0 0 0 0.4vw;
+}
+
+.announce__table-row:last-of-type td:last-of-type {
+    border-radius: 0 0 0.4vw 0;
+}
+
+.announce__table-link {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2vw;
+}
+
+.announce__table-link:hover {
+    text-decoration: underline;
+}
+
+.modal-menu__close {
+    left: 5vw;
+}
+
+/* ページネーション */
+.announce__pagination {
+    display: flex;
+    justify-content: right;
+    margin-top: 3vw;
+}
+
+.announce__pagination ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.announce__pagination li:nth-of-type(1) {
+    border: 0.1vw solid transparent;
+}
+
+.announce__pagination li:not(:nth-of-type(1)) {
+    border-top: 0.1vw solid transparent;
+    border-right: 0.1vw solid transparent;
+    border-bottom: 0.1vw solid transparent;
+}
+
+.announce__pagination a,
+.announce__pagination span {
+    display: inline-block;
+    padding: 0.3vw 0.6vw;
+    font-size: 1vw;
+    background-color: white;
+    color: inherit;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.announce__pagination a:hover {
+    background-color: #ddd;
+}
+
+.announce__pagination .active span {
+    background-color: #305cff;
+    color: #fff;
+    cursor: default;
+}
+
+.announce__pagination .disabled span {
+    color: #999;
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        height: 5vw;
+    }
+
+    .announce {
+        margin: 0 auto 3vw;
+    }
+
+    .announce__title {
+        font-size: 3.7vw;
+    }
+
+    .announce__contents {
+        display: block;
+        gap: 0;
+        margin-top: 6vw;
+    }
+
+    .announce__create,
+    .announce__history {
+        width: 100%;
+    }
+
+    .announce__subtitle {
+        font-size: 3vw;
+    }
+
+    .announce__form {
+        margin: 6vw auto;
+        padding: 6vw 8vw;
+        width: 74vw;
+        height: 72vw;
+        border-radius: 0.8vw;
+        box-shadow: 0.4vw 0.4vw 0.4vw rgba(0, 0, 0, 0.5);
+    }
+
+    .announce__form-group:nth-of-type(2) {
+        margin-top: 4vw;
+    }
+
+    .announce__form-label {
+        font-size: 2.7vw;
+    }
+
+    .announce__form-input,
+    .announce__form-textarea {
+        margin-top: 1vw;
+        font-size: 2.4vw;
+        border-radius: 0.4vw;
+    }
+
+    .announce__form-input {
+        height: 5vw;
+        padding: 0 2vw;
+    }
+
+    .announce__form-textarea {
+        height: 40vw;
+        padding: 2vw;
+    }
+
+    .announce__form-button {
+        font-size: 3vw;
+        border-radius: 0 0 0.8vw 0.8vw;
+        padding: 2vw 0;
+    }
+
+    .announce__table {
+        border-spacing: 0 1vw;
+        font-size: 2.4vw;
+        margin-top: 2vw;
+    }
+
+    .announce__table-row {
+        height: 4vw;
+    }
+
+    .announce__table-row th,
+    .announce__table-row td {
+        line-height: 4vw;
+    }
+
+    .announce__table-row th:first-of-type {
+        border-radius: 0.8vw 0 0 0;
+    }
+
+    .announce__table-row th:last-of-type {
+        border-radius: 0 0.8vw 0 0;
+    }
+
+    .announce__table-row:last-of-type td:first-of-type {
+        border-radius: 0 0 0 0.8vw;
+    }
+
+    .announce__table-row:last-of-type td:last-of-type {
+        border-radius: 0 0 0.8vw 0;
+    }
+
+    .announce__table-link {
+        font-size: 2.4vw;
+    }
+
+    .modal-menu__close {
+        left: 4vw;
+    }
+
+    /* ページネーション */
+    .announce__pagination {
+        margin-top: 5vw;
+    }
+
+    .announce__pagination a,
+    .announce__pagination span {
+        padding: 0.6vw 1.2vw;
+        font-size: 2vw;
+    }
+}

@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', '管理者ダッシュボード - Rese')
+@section('title', 'ダッシュボード(管理者) - Rese')
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/admin/dashboard.css') }}">
@@ -28,7 +28,12 @@
                 <h3 class="user__title">ユーザー</h3>
                 <div class="user__announce">
                     <p>総ユーザー数: {{ $totalUsers }}人</p>
-                    <a href=""><i class="bi bi-envelope-fill"></i>お知らせメール作成</a>
+                    <a href="{{ route('show.announce') }}"><i class="bi bi-envelope-fill"></i>お知らせメール作成</a>
+                    @if ($errors->has('error'))
+                        <div class="alert">
+                            <span>{{ $errors->first('error') }}</span>
+                        </div>
+                    @endif
                 </div>
             </div>
             <div class="contents__representative">
