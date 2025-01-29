@@ -35,6 +35,20 @@
     margin-top: 2vw;
 }
 
+.reservation-detail__back {
+    margin-top: 2vw;
+    text-align: right;
+}
+
+.reservation-detail__back a {
+    text-decoration: none;
+    font-size: 1.2vw;
+}
+
+.reservation-detail__back a:hover {
+    text-decoration: underline;
+}
+
 .modal-menu__close {
     left: 5vw;
 }
@@ -79,5 +93,13 @@
     .table__row th:not(:first-of-type),
     .table__row td:not(:first-of-type) {
         margin-top: 4vw;
+    }
+
+    .reservation-detail__back {
+        margin-top: 4vw;
+    }
+
+    .reservation-detail__back a {
+        font-size: 2.4vw;
     }
 }

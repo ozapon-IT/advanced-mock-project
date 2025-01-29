@@ -40,7 +40,7 @@
 
                     <button class="modal-menu__button" type="submit">Logout</button>
                 </form>
-                <a class="modal-menu__link" href="{{ route('mypage.show') }}">Mypage</a>
+                <a class="modal-menu__link" href="{{ route('show.mypage') }}">Mypage</a>
             @endauth
         </div>
     </div>

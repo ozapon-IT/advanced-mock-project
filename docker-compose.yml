@@ -15,6 +15,9 @@ services:
             - ./src:/var/www/
         environment:
             - TZ=Asia/Tokyo
+        depends_on:
+            mysql:
+                condition: service_healthy
 
     mysql:
         platform: linux/x86_64
@@ -28,6 +31,11 @@ services:
             - ./docker/mysql/data:/var/lib/mysql
             - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
             - ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+        healthcheck:
+            test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
+            interval: 10s
+            timeout: 5s
+            retries: 5
 
     phpmyadmin:
         platform: linux/x86_64

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Models\Reservation;
+use App\Jobs\SendReservationCompletedEmailJob;
 
 class StripeWebhookController extends Controller
 {
@@ -56,9 +57,17 @@ class StripeWebhookController extends Controller
                 if (isset($session->payment_status) && $session->payment_status === 'paid') {
                     $reservation->payment_status = 'paid';
                     $reservation->save();
-                }
 
-                Log::info('Reservation payment status updated to paid in checkout.session.completed.', ['reservation_id' => $reservation->id]);
+                    try {
+                        SendReservationCompletedEmailJob::dispatch($reservation);
+
+                        Log::info('Reservation email sent successfully.', ['reservation_id' => $reservation->id]);
+                    } catch (\Exception $e) {
+                        Log::error('Failed to send reservation email.', ['reservation_id' => $reservation->id, 'error' => $e->getMessage()]);
+                    }
+
+                    Log::info('Reservation payment status updated to paid.', ['reservation_id' => $reservation->id]);
+                }
             } else {
                 Log::info('Reservation already paid. No action needed.', ['reservation_id' => $reservation->id]);
             }

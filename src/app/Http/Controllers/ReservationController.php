@@ -43,7 +43,7 @@ class ReservationController extends Controller
     {
         $reservation->delete();
 
-        return redirect()->back();
+        return redirect()->route('show.mypage');
     }
 
     public function show(Reservation $reservation)
@@ -67,7 +67,7 @@ class ReservationController extends Controller
             'total_amount' => $totalAmount,
         ]);
 
-        return redirect()->route('mypage.show');
+        return redirect()->route('show.mypage');
     }
 
     public function showReservationListPage()
@@ -75,14 +75,25 @@ class ReservationController extends Controller
         $shopId = Shop::where('user_id', auth()->id())->first()->id;
 
         $reservations = Reservation::where('shop_id', $shopId)
+            ->with(['user', 'menu'])
             ->orderBy('reservation_date', 'asc')
             ->get();
 
         return view('representative.reservation-list', compact('reservations'));
     }
 
-    public function showReservationDetailPage(Reservation $reservation)
+    public function showReservationDetailPage(Reservation $reservation = null)
     {
+        if (!$reservation) {
+            abort(404, '予約が見つかりません。');
+        }
+
+        $reservation->load(['user', 'shop', 'menu']);
+
+        if ($reservation->shop_id !== auth()->user()->shop->id) {
+            abort(403, 'この予約情報を閲覧する権限がありません。');
+        }
+
         return view('representative.reservation-detail', compact('reservation'));
     }
 }

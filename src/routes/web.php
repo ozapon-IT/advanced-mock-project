@@ -38,7 +38,7 @@ Route::middleware(['auth', 'role:1'])->group(function () {
 
     Route::delete('/favorite/{shop}', [FavoriteController::class, 'delete'])->name('favorite.delete');
 
-    Route::get('/mypage', [MypageController::class, 'showMypage'])->name('mypage.show');
+    Route::get('/mypage', [MypageController::class, 'showMypage'])->name('show.mypage');
 
     Route::delete('/mypage/delete_reservation/{reservation}', [ReservationController::class, 'deleteReservation'])->name('delete.reservation');
 
