@@ -24,7 +24,7 @@
     <div class="done">
         <div class="done__content">
             <p class="done__message">ご予約ありがとうございます</p>
-            <a class="done__back-button" href="{{ request('from') === 'mypage' ? route('mypage.show') : route('top.show') }}">戻る</a>
+            <a class="done__back-button" href="{{ request('from') === 'mypage' ? route('show.mypage') : route('top.show') }}">戻る</a>
         </div>
     </div>
 </main>

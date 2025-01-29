@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -62,6 +63,16 @@ class User extends Authenticatable implements MustVerifyEmail
     public function getRoleName(): string
     {
         return self::$roles[$this->role]  ?? 'Unknown';
+    }
+
+    /**
+     * 店舗代表者の店舗とのリレーションを定義
+     *
+     * @return HasOne
+     */
+    public function shop(): HasOne
+    {
+        return $this->hasOne(Shop::class);
     }
 
     /**

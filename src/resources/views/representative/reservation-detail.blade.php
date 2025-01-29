@@ -47,6 +47,9 @@
                 </tr>
             </tbody>
         </table>
+        <div class="reservation-detail__back">
+            <a href="{{ route('show.reservation-list') }}">戻る</a>
+        </div>
     </div>
 </main>
 @endsection

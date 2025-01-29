@@ -25,7 +25,7 @@
         <div class="detail__content">
             <div class="content__name">
                 @if (request('from') === 'mypage')
-                    <a href="{{ route('mypage.show') }}">&lt;</a>
+                    <a href="{{ route('show.mypage') }}">&lt;</a>
                 @else
                     <a href="{{ route('top.show') }}">&lt;</a>
                 @endif
