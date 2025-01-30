@@ -7,6 +7,7 @@ use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\MypageController;
 use Laravel\Fortify\Http\Controllers\VerifyEmailController;
 use App\Http\Controllers\StripeController;
+use App\Http\Controllers\ReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,8 @@ Route::middleware(['auth', 'role:1'])->group(function () {
     Route::get('/mypage/change_reservation/{reservation}', [ReservationController::class, 'show'])->name('reservation-change.show');
 
     Route::patch('/mypage/change_reservation/{reservation}', [ReservationController::class, 'changeReservation'])->name('change.reservation');
+
+    Route::get('/mypage/review/{shop}', [ReviewController::class, 'show'])->name('show.review');
 
     Route::get('/payment/session', [StripeController::class, 'createCheckoutSession'])->name('create.checkout-session');
 

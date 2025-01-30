@@ -73,7 +73,7 @@
             </div>
             <div class="content__favorite">
                 <h3 class="favorite__title">お気に入り店舗</h3>
-                <div class="favorite__shop-list">
+                <div class="shop-list">
                     @foreach ($favorites as $favorite)
                         <div class="shop-list__card" id="favorite-card-{{ $favorite->shop->id }}">
                             <div class="shop-list__image">
@@ -97,6 +97,36 @@
                     @endforeach
                 </div>
             </div>
+
+            <div class="mypage__visited">
+                <h3 class="mypage__subtitle">行ったお店</h3>
+
+                <div class="shop-list">
+                    @foreach ($visitedShops as $visitedShop)
+                        <div class="shop-list__card" id="visited-card-{{ $visitedShop->shop->id }}">
+                            <div class="shop-list__image">
+                                <img src="{{ asset('storage/' . $visitedShop->shop->image_path) }}" alt="{{ $visitedShop->shop->name . 'の店舗画像' }}">
+                            </div>
+                            <div class="shop-list__content">
+                                <h2 class="shop-list__name">{{ $visitedShop->shop->name }}</h2>
+                                <p class="shop-list__area">#{{ $visitedShop->shop->area->name }}</p>
+                                <p class="shop-list__genre">#{{ $visitedShop->shop->genre->name }}</p>
+                                <a class="shop-list__detail" href="{{ route('show.review', $visitedShop->shop->id) . '?from=mypage' }}">レビューする</a>
+                                <button
+                                    class="shop-list__favorite js-favorite-button"
+                                    data-shop-id="{{ $visitedShop->shop->id }}"
+                                    data-favorited="{{ $visitedShop->shop->favorites->contains('user_id', auth()->id()) ? 'true' : 'false' }}"
+                                    data-target-id="visited-card-{{ $visitedShop->shop->id }}"
+                                >
+                                    <i
+                                        class="bi bi-suit-heart-fill {{ $visitedShop->shop->favorites->contains('user_id', auth()->id()) ? 'favorite--addition' : '' }}">
+                                    </i>
+                                </button>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
         </div>
     </div>
 </main>
@@ -105,41 +135,81 @@
 @section('script')
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const favoriteButtons = document.querySelectorAll('.js-favorite-button');
-        favoriteButtons.forEach(button => {
-            button.addEventListener('click', async (e) => {
-                e.preventDefault();
+        document.addEventListener('click', async (e) => {
+            const button = e.target.closest('.js-favorite-button');
+            if (!button) return; // クリック対象がボタンでなければ無視
 
-                const shopId = button.dataset.shopId;
-                const isFavorited = button.dataset.favorited === 'true';
-                const targetId =button.dataset.targetId;
-                const url = `/favorite/${shopId}`;
-                const method = isFavorited ? 'DELETE' : 'POST';
+            e.preventDefault();
 
-                try {
-                    const response = await fetch(url, {
-                        method: method,
-                        headers: {
-                            'X-CSRF-TOKEN' : document.querySelector('meta[name="csrf-token"]').content,
-                            'Content_Type' : 'application/json',
+            const shopId = button.dataset.shopId;
+            const isFavorited = button.dataset.favorited === 'true';
+            const url = `/favorite/${shopId}`;
+            const method = isFavorited ? 'DELETE' : 'POST';
+
+            try {
+                const response = await fetch(url, {
+                    method: method,
+                    headers: {
+                        'X-CSRF-TOKEN' : document.querySelector('meta[name="csrf-token"]').content,
+                        'Content-Type' : 'application/json',
+                    }
+                });
+
+                if (response.ok) {
+                    // 同じ shopId のボタンを全て取得して連動更新
+                    const allRelatedButtons = document.querySelectorAll(`.js-favorite-button[data-shop-id=\"${shopId}\"]`);
+
+                    allRelatedButtons.forEach((btn) => {
+                        const currentFavorited = btn.dataset.favorited === 'true';
+                         // dataset を反転
+                        btn.dataset.favorited = currentFavorited ? 'false' : 'true';
+                        // アイコンのクラス付け外し
+                        const icon = btn.querySelector('i');
+                        if (icon) {
+                            icon.classList.toggle('favorite--addition', !currentFavorited);
+                        }
+
+                        // お気に入り解除(DELETE) の場合、お気に入り一覧カードは削除
+                        if (method === 'DELETE') {
+                            const targetId = btn.dataset.targetId;
+                            if (targetId && targetId.includes('favorite-card')) {
+                                const targetCard = document.getElementById(targetId);
+                                if (targetCard) {
+                                    targetCard.remove();
+                                }
+                            }
                         }
                     });
 
-                    if (response.ok) {
-                        if (method === 'DELETE') {
-                            const targetCard = document.getElementById(targetId);
-                            if (targetCard) {
-                                targetCard.remove();
+                    // お気に入り追加時、新しいカードをお気に入り店舗リストに追加
+                    if (method === 'POST') {
+                         // 「行ったお店」リストから同じ shopId を持つカードを取得
+                        const favoriteList = document.querySelector('.content__favorite .shop-list');
+                        // すでに追加されていないか確認（重複防止）
+                        if (!document.getElementById(`favorite-card-${shopId}`)) {
+                            const visitedCard = document.getElementById(`visited-card-${shopId}`);
+                            if (visitedCard) {
+                                // カードをクローン（複製）
+                                const newCard = visitedCard.cloneNode(true);
+                                newCard.id = `favorite-card-${shopId}`;
+                                // ボタンの設定を変更
+                                const newButton = newCard.querySelector('.js-favorite-button');
+                                newButton.dataset.targetId = `favorite-card-${shopId}`;
+                                newButton.dataset.favorited = "true";
+                                // アイコンを正しく反映
+                                const newIcon = newButton.querySelector('i');
+                                newIcon.classList.add('favorite--addition');
+                                // お気に入りリストに追加
+                                favoriteList.appendChild(newCard);
                             }
                         }
-                        button.setAttribute('data-favorited', isFavorited ? 'false' : 'true');
-                    } else {
-                        console.error('お気に入りの更新に失敗しました。');
                     }
-                } catch (error) {
-                    console.error('通信エラー:', error)
+                } else {
+                    console.error('お気に入りの更新に失敗しました。');
                 }
-            });
+            } catch (error) {
+                console.error('通信エラー:', error)
+            }
         });
     });
 </script>

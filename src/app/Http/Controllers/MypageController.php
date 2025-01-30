@@ -11,11 +11,15 @@ class MypageController extends Controller
     public function showMypage()
     {
         $reservations = Reservation::where('user_id', auth()->id())
-            ->where('payment_status', 'paid')
+            ->where('status', '予約済み')
             ->get();
 
         $favorites = Favorite::where('user_id', auth()->id())->get();
 
-        return view('mypage', compact('reservations', 'favorites'));
+        $visitedShops = Reservation::where('user_id', auth()->id())
+            ->where('status', '来店済み')
+            ->get();
+
+        return view('mypage', compact('reservations', 'favorites', 'visitedShops'));
     }
 }

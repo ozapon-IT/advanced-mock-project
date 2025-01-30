@@ -1,0 +1,96 @@
+.review {
+    margin: 3vw auto;
+    width: 42.5vw;
+    border-radius: 0.4vw;
+}
+
+.review__heading {
+    text-align: center;
+    font-size: 2vw;
+}
+
+.review__form {
+    position: relative;
+    background-color: #305cff;
+    padding: 3vw 4vw;
+    border-radius: 0.4vw;
+    width: 34.5vw;
+    height: 46vw;
+    margin-top: 3vw;
+}
+
+.review__field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7vw;
+    padding-bottom: 2vw;
+}
+
+.review__field:not(:first-of-type) {
+    margin-top: 2vw;
+}
+
+.review__field:not(:last-of-type) {
+    border-bottom: 0.1vw dashed #ccc;
+}
+
+.review__subheading {
+    color: #fff;
+    font-size: 1.5vw;
+}
+
+.review__rating {
+    display: flex;
+    flex-direction: row-reverse; /* 右から左へ並べる */
+    justify-content: center;
+    gap: 0.3vw;
+}
+
+.review__rating input {
+    display: none; /* ラジオボタンを非表示 */
+}
+
+.review__rating label i {
+    font-size: 2.5vw;
+    color: #fff;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+/* 選択時に星を金色に変更 */
+.review__rating input:checked ~ label i,
+.review__rating input:checked ~ label ~ label i {
+    color: gold;
+}
+
+.review__input,
+.review__textarea {
+    border: none;
+    border-radius: 0.2vw;
+    font-size: 1.2vw;
+    padding: 0.5vw 1vw;
+}
+
+.review__textarea {
+    height: 15vw;
+    line-height: 1.5;
+}
+
+.review__button {
+    all: unset;
+    color: #fff;
+    background-color: #1d49ed;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    width: 100%;
+    font-size: 1.5vw;
+    border-radius: 0 0 0.4vw 0.4vw;
+    padding: 1vw 0;
+}
+
+.review__button:hover {
+    background-color: #0538ff;
+}

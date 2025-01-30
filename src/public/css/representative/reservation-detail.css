@@ -8,11 +8,16 @@
     font-size: 2vw;
 }
 
+.reservation-detail__wrapper {
+    position: relative;
+}
+
 .reservation-detail__table {
     display: flex;
     flex-direction: row;
     background-color: #305cff;
     color: #fff;
+    height: 32vw;
     border-radius: 0.4vw;
     box-shadow: 0.2vw 0.2vw 0.2vw rgba(0, 0, 0, 0.5);
     margin-top: 3vw;
@@ -33,6 +38,25 @@
 .table__row th:not(:first-of-type),
 .table__row td:not(:first-of-type) {
     margin-top: 2vw;
+}
+
+.reservation-detail__button {
+    all: unset;
+    color: #fff;
+    background-color: #1d49ed;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    width: 100%;
+    font-size: 1.5vw;
+    border-radius: 0 0 0.4vw 0.4vw;
+    padding: 1vw 0;
+}
+
+.reservation-detail__button:hover {
+    background-color: #0538ff;
 }
 
 .reservation-detail__back {
@@ -73,6 +97,7 @@
         flex-direction: row;
         background-color: #305cff;
         color: #fff;
+        height: 64vw;
         border-radius: 0.8vw;
         box-shadow: 0.4vw 0.4vw 0.4vw rgba(0, 0, 0, 0.5);
         margin-top: 4vw;
@@ -93,6 +118,12 @@
     .table__row th:not(:first-of-type),
     .table__row td:not(:first-of-type) {
         margin-top: 4vw;
+    }
+
+    .reservation-detail__button {
+        font-size: 3vw;
+        border-radius: 0 0 0.8vw 0.8vw;
+        padding: 2vw 0;
     }
 
     .reservation-detail__back {

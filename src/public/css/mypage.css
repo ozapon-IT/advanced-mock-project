@@ -100,19 +100,21 @@
     font-size: 1vw;
 }
 
-.content__favorite {
-    width: 49vw;
+.content__favorite,
+.mypage__visited {
+    width: 21.3vw;
 }
 
-.favorite__title {
+.favorite__title,
+.mypage__subtitle {
     font-size: 1.5vw;
 }
 
-.favorite__shop-list {
+.shop-list {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     width: 100%;
-    gap: 6.4vw;
+    gap: 1.6vw;
     margin-top: 2vw;
 }
 
@@ -184,6 +186,10 @@
 
 .bi-suit-heart-fill {
     font-size: 2.5vw;
+    color: #ccc;
+}
+
+.favorite--addition {
     color: red;
 }
 
@@ -270,16 +276,19 @@
         font-size: 2vw;
     }
 
-    .content__favorite {
+    .content__favorite,
+    .mypage__visited {
         width: 100%;
         margin: 4vw 0;
     }
 
-    .favorite__title {
+    .favorite__title,
+    .mypage__subtitle {
         font-size: 3vw;
     }
 
-    .favorite__shop-list {
+    .shop-list {
+        grid-template-columns: repeat(2, 1fr);
         width: 100%;
         gap: 2vw;
         margin-top: 4vw;

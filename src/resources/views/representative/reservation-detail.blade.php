@@ -23,30 +23,37 @@
 <main>
     <div class="reservation-detail">
         <h2 class="reservation-detail__title">予約詳細</h2>
-        <table class="reservation-detail__table">
-            <thead>
-                <tr class="table__row">
-                    <th>User</th>
-                    <th>Date</th>
-                    <th>Time</th>
-                    <th>Number</th>
-                    <th>Menu</th>
-                    <th>Price</th>
-                    <th>Payment</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="table__row">
-                    <td>{{ $reservation->user->name }}</td>
-                    <td>{{ $reservation->reservation_date }}</td>
-                    <td>{{ $reservation->reservation_time }}</td>
-                    <td>{{ $reservation->number_of_people }}</td>
-                    <td>{{ $reservation->menu->name }}</td>
-                    <td>{{ formattedTotalAmount($reservation->total_amount) }}</td>
-                    <td>{{ $reservation->payment_method }} {{ $reservation->payment_status === 'paid' ? '決済済み' : '未決済' }}</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="reservation-detail__wrapper">
+            <table class="reservation-detail__table">
+                <thead>
+                    <tr class="table__row">
+                        <th>User</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Number</th>
+                        <th>Menu</th>
+                        <th>Price</th>
+                        <th>Payment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table__row">
+                        <td>{{ $reservation->user->name }}</td>
+                        <td>{{ $reservation->reservation_date }}</td>
+                        <td>{{ $reservation->reservation_time }}</td>
+                        <td>{{ $reservation->number_of_people }}</td>
+                        <td>{{ $reservation->menu->name }}</td>
+                        <td>{{ formattedTotalAmount($reservation->total_amount) }}</td>
+                        <td>{{ $reservation->payment_method }} {{ $reservation->payment_status === 'paid' ? '決済済み' : '未決済' }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <form action="{{ route('visit.reservation-shop', $reservation) }}" method="POST">
+                @csrf
+                @method('PATCH')
+                <button class="reservation-detail__button" type="submit">来店</button>
+            </form>
+        </div>
         <div class="reservation-detail__back">
             <a href="{{ route('show.reservation-list') }}">戻る</a>
         </div>

@@ -41,7 +41,7 @@ class ReservationController extends Controller
 
     public function deleteReservation(Reservation $reservation)
     {
-        $reservation->delete();
+        tap($reservation)->update(['status' => 'キャンセル'])->delete();
 
         return redirect()->route('show.mypage');
     }
@@ -75,6 +75,7 @@ class ReservationController extends Controller
         $shopId = Shop::where('user_id', auth()->id())->first()->id;
 
         $reservations = Reservation::where('shop_id', $shopId)
+            ->where('status', '予約済み')
             ->with(['user', 'menu'])
             ->orderBy('reservation_date', 'asc')
             ->get();
@@ -95,5 +96,12 @@ class ReservationController extends Controller
         }
 
         return view('representative.reservation-detail', compact('reservation'));
+    }
+
+    public function visit(Reservation $reservation)
+    {
+        $reservation->update(['status' => '来店済み']);
+
+        return redirect()->route('show.reservation-list');
     }
 }
