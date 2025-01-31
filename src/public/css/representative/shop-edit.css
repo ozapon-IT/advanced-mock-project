@@ -112,17 +112,19 @@
 .section__textarea {
     height: 8vw;
     padding: 0.8vw;
+    line-height: 1.5;
 }
 
 .confirmation__detail {
     background-color: #fff;
     position: relative;
-    height: 39.1vw;
+    height: 41vw;
 }
 
 .detail__shop-name {
     font-weight: bold;
     font-size: 1.3vw;
+    line-height: 1.5;
     margin-bottom: 1.5vw;
 }
 
@@ -267,7 +269,7 @@
     }
 
     .confirmation__detail {
-        height: 75vw;
+        height: 80vw;
     }
 
     .detail__shop-name {

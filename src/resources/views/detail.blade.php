@@ -45,6 +45,42 @@
                         <li>{{ $menu->name }} {{ formattedTotalAmount($menu->price) }}</li>
                     @endforeach
                 </ul>
+                <div class="detail__wrapper">
+                    <div class="detail__rating">
+                        @php
+                            $averageRating = $shop->average_rating ?? 0;
+                            $fullStars = floor($averageRating);
+                            $halfStar = ($averageRating - $fullStars) >= 0.5 ? 1 : 0;
+                            $emptyStars = 5 - ($fullStars + $halfStar);
+                        @endphp
+
+                        @for ($i = 0; $i < $fullStars; $i++)
+                            <i class="bi bi-star-fill"></i>
+                        @endfor
+
+                        @if ($halfStar)
+                            <i class="bi bi-star-half"></i>
+                        @endif
+
+                        @for ($i = 0; $i < $emptyStars; $i++)
+                            <i class="bi bi-star"></i>
+                        @endfor
+
+                        <span class="detail__rating-value">{{ number_format($averageRating, 2) }}</span>
+                    </div>
+
+                    <div class="detail__reviews">
+                        <a href="{{ route('show.review-list', $shop) }}"><i class="bi bi-chat-dots"></i></a>
+
+                        <span class="detail__reviews-number">{{ $shop->reviews->count() }}</span>
+                    </div>
+
+                    <div class="detail__favorites">
+                        <i class="bi bi-suit-heart-fill"></i>
+
+                        <span class="detail__favorites-number">{{ $shop->favorites->count() }}</span>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="detail__reservation">
@@ -130,7 +166,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>{{ $shop->name }}</td>
+                                <td>{{ mb_strimwidth($shop->name, 0, 50, "...") }}</td>
                                 <td id="table-reservation-date">{{ old('reservation_date') ?? '未選択' }}</td>
                                 <td id="table-reservation-time">{{ old('reservation_time') ?? '未選択' }}</td>
                                 <td id="table-reservation-number">{{ old('number_of_people') ?? '未選択' }}</td>

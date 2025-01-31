@@ -80,7 +80,7 @@
                                 <img src="{{ asset('storage/' . $favorite->shop->image_path) }}" alt="{{ $favorite->shop->name . 'の店舗画像' }}">
                             </div>
                             <div class="shop-list__content">
-                                <h2 class="shop-list__name">{{ $favorite->shop->name }}</h2>
+                                <h2 class="shop-list__name">{{ mb_strimwidth($favorite->shop->name, 0, 15, "...") }}</h2>
                                 <p class="shop-list__area">#{{ $favorite->shop->area->name }}</p>
                                 <p class="shop-list__genre">#{{ $favorite->shop->genre->name }}</p>
                                 <a class="shop-list__detail" href="{{ route('detail.show', $favorite->shop_id) . '?from=mypage' }}">詳しくみる</a>
@@ -108,7 +108,7 @@
                                 <img src="{{ asset('storage/' . $visitedShop->shop->image_path) }}" alt="{{ $visitedShop->shop->name . 'の店舗画像' }}">
                             </div>
                             <div class="shop-list__content">
-                                <h2 class="shop-list__name">{{ $visitedShop->shop->name }}</h2>
+                                <h2 class="shop-list__name">{{ mb_strimwidth($visitedShop->shop->name, 0, 15, "...") }}</h2>
                                 <p class="shop-list__area">#{{ $visitedShop->shop->area->name }}</p>
                                 <p class="shop-list__genre">#{{ $visitedShop->shop->genre->name }}</p>
                                 <a class="shop-list__detail" href="{{ route('show.review', $visitedShop->shop->id) . '?from=mypage' }}">レビューする</a>
@@ -199,6 +199,12 @@
                                 // アイコンを正しく反映
                                 const newIcon = newButton.querySelector('i');
                                 newIcon.classList.add('favorite--addition');
+                                // 詳しくみるページ用のリンクに書き換え
+                                const detailLink = newCard.querySelector('.shop-list__detail');
+                                if (detailLink) {
+                                    detailLink.href = `/detail/${shopId}?from=mypage`;
+                                    detailLink.textContent = '詳しくみる';
+                                }
                                 // お気に入りリストに追加
                                 favoriteList.appendChild(newCard);
                             }

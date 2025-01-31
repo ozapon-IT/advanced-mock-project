@@ -27,6 +27,7 @@
 .content__name h2 {
     font-size: 1.8vw;
     margin-left: 1vw;
+    line-height: 1.5;
 }
 
 .content__image {
@@ -45,6 +46,7 @@
 
 .content__description {
     margin-top: 2vw;
+    position: relative;
 }
 
 .description__area,
@@ -208,6 +210,59 @@
     background-color: #0538ff;
 }
 
+.detail__wrapper {
+    display: flex;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.detail__rating {
+    display: flex;
+    align-items: center;
+    gap: 0.2vw;
+    font-size: 1.8vw;
+    color: #FFD700;
+}
+
+.detail__rating-value {
+    margin-left: 0.3vw;
+    font-size: 1.6vw;
+    color: #333;
+}
+
+.detail__reviews,
+.detail__favorites {
+    margin-left: 1vw;
+}
+
+.detail__reviews a,
+.detail__reviews-number,
+.bi-suit-heart-fill,
+.detail__favorites-number {
+    font-size: 1.6vw;
+}
+
+.detail__reviews-number,
+.detail__favorites-number {
+    color: #333;
+}
+
+.detail__reviews a {
+    color: #666;
+    border-bottom: 0.1vw solid #666;
+}
+
+.detail__reviews a:hover{
+    color: #305cff;;
+    border-bottom: 0.1vw solid #305cff;;
+}
+
+.bi-suit-heart-fill {
+    color: red;
+}
+
+
 @media screen and (max-width: 768px) {
     .header {
         height: 5vw;
@@ -341,5 +396,27 @@
         font-size: 3vw;
         border-radius: 0 0 0.8vw 0.8vw;
         padding: 2vw 0;
+    }
+
+    .detail__rating {
+        gap: 0.4vw;
+        font-size: 3.6vw;
+    }
+
+    .detail__rating-value {
+        margin-left: 0.6vw;
+        font-size: 3.2vw;
+    }
+
+    .detail__reviews,
+    .detail__favorites {
+        margin-left: 2vw;
+    }
+
+    .detail__reviews a,
+    .detail__reviews-number,
+    .bi-suit-heart-fill,
+    .detail__favorites-number {
+        font-size: 3.2vw;
     }
 }

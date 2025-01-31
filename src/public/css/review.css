@@ -1,12 +1,13 @@
 .review {
     margin: 3vw auto;
-    width: 42.5vw;
+    width: 45vw;
     border-radius: 0.4vw;
 }
 
 .review__heading {
     text-align: center;
     font-size: 2vw;
+    line-height: 1.5;
 }
 
 .review__form {
@@ -14,8 +15,8 @@
     background-color: #305cff;
     padding: 3vw 4vw;
     border-radius: 0.4vw;
-    width: 34.5vw;
-    height: 46vw;
+    width: 37vw;
+    height: 44vw;
     margin-top: 3vw;
 }
 
@@ -93,4 +94,66 @@
 
 .review__button:hover {
     background-color: #0538ff;
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        height: 5vw;
+    }
+
+    .review {
+        margin: 0 auto 6vw;
+        width: 90vw;
+        border-radius: 0.8vw;
+    }
+
+    .review__heading {
+        font-size: 4vw;
+    }
+
+    .review__form {
+        padding: 6vw 8vw;
+        border-radius: 0.8vw;
+        width: 74vw;
+        height: 88vw;
+        margin-top: 6vw;
+    }
+
+    .review__field {
+        gap: 1.4vw;
+        padding-bottom: 4vw;
+    }
+
+    .review__field:not(:first-of-type) {
+        margin-top: 4vw;
+    }
+
+    .review__subheading {
+        font-size: 3vw;
+    }
+
+    .review__rating {
+        gap: 0.6vw;
+    }
+
+    .review__rating label i {
+        font-size: 5vw;
+    }
+
+    .review__input,
+    .review__textarea {
+        border-radius: 0.4vw;
+        font-size: 2.4vw;
+        padding: 1vw 2vw;
+    }
+
+    .review__textarea {
+        height: 30vw;
+    }
+
+    .review__button {
+        font-size: 3vw;
+        border-radius: 0 0 0.8vw 0.8vw;
+        padding: 2vw 0;
+    }
 }

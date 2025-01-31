@@ -76,10 +76,15 @@
     padding: 1vw;
 }
 
-.alert {
-    font-size: 1vw;
-    color: yellow;
-    margin-top: 0.2vw;
+.message {
+    text-align: center;
+    color: blue;
+    font-size: 1.5vw;
+    margin-top: 1vw;
+}
+
+.message--alert {
+    color: red;
 }
 
 .modal-menu__close {
@@ -151,9 +156,9 @@
         padding: 2vw;
     }
 
-    .alert {
-        font-size: 2vw;
-        margin-top: 0.4vw;
+    .message {
+        font-size: 3vw;
+        margin-top: 2vw;
     }
 
     .modal-menu__close {

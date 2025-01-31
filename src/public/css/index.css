@@ -73,12 +73,23 @@
 }
 
 .bi-suit-heart-fill {
-    font-size: 2.5vw;
+    font-size: 2.4vw;
     color: #ccc;
 }
 
 .favorite--addition {
     color: red;
+}
+
+.shop-list__rating {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 1.3vw;
+    bottom: 4.4vw;
+    gap: 0.2vw;
+    font-size: 1.5vw;
+    color: #FFD700;
 }
 
 @media screen and (max-width: 768px) {
@@ -132,6 +143,13 @@
     }
 
     .bi-suit-heart-fill {
-        font-size: 5.5vw;
+        font-size: 4.8vw;
+    }
+
+    .shop-list__rating {
+        right: 2vw;
+        bottom: 8.5vw;
+        gap: 0.4vw;
+        font-size: 3vw;
     }
 }

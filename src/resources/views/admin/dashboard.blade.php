@@ -23,17 +23,21 @@
 <main>
     <div class="dashboard">
         <h2 class="dashboard__title">Dashboard</h2>
+        @if ($errors->has('error'))
+            <div class="message message--alert">
+                <span>{{ $errors->first('error') }}</span>
+            </div>
+        @elseif (session('success'))
+            <div class="message">
+                <span>{{ session('success') }}</span>
+            </div>
+        @endif
         <div class="dashboard__contents">
             <div class="contents__user">
                 <h3 class="user__title">ユーザー</h3>
                 <div class="user__announce">
                     <p>総ユーザー数: {{ $totalUsers }}人</p>
                     <a href="{{ route('show.announce') }}"><i class="bi bi-envelope-fill"></i>お知らせメール作成</a>
-                    @if ($errors->has('error'))
-                        <div class="alert">
-                            <span>{{ $errors->first('error') }}</span>
-                        </div>
-                    @endif
                 </div>
             </div>
             <div class="contents__representative">

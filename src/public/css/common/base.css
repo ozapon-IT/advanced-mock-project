@@ -181,6 +181,12 @@ body {
     margin-top: 0.2vw;
 }
 
+.error-message--yellow {
+    color: yellow;
+    font-size: 0.9vw;
+    margin-top: 0.2vw;
+}
+
 @media screen and (max-width: 768px) {
     .header {
         align-items: center;
@@ -271,6 +277,11 @@ body {
 
     .error-message {
         font-size: 1.8vw;
-        margin-top: 0.2vw;
+        margin-top: 0.4vw;
+    }
+
+    .error-message--yellow {
+        font-size: 1.8vw;
+        margin-top: 0.4vw;
     }
 }

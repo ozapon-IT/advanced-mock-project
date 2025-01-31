@@ -14,7 +14,7 @@ class AnnounceController extends Controller
 {
     public function showAnnouncePage()
     {
-        $announces = Announce::orderByDesc('created_at')->paginate(15);
+        $announces = Announce::orderByDesc('sent_at')->paginate(15);
 
         return view('admin.announce', compact('announces'));
     }
@@ -50,7 +50,7 @@ class AnnounceController extends Controller
             return redirect()->route('admin.dashboard')->withErrors(['error' => 'メール送信中にエラーが発生しました。']);
         }
 
-        return redirect()->route('show.announce');
+        return redirect()->route('admin.dashboard')->with(['success' => 'お知らせメールを送信しました。']);
     }
 
     public function showDetailPage(Announce $announce)

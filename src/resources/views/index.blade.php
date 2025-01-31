@@ -52,7 +52,7 @@
                     <img src="{{ asset('storage/' . $shop->image_path) }}" alt="{{ $shop->name . 'の店舗画像' }}">
                 </div>
                 <div class="shop-list__content">
-                    <h2 class="shop-list__name">{{ $shop->name }}</h2>
+                    <h2 class="shop-list__name">{{ mb_strimwidth($shop->name, 0, 15, "...") }}</h2>
                     <p class="shop-list__area">#{{ $shop->area->name }}</p>
                     <p class="shop-list__genre">#{{ $shop->genre->name }}</p>
                     <a class="shop-list__detail" href="{{ route('detail.show', $shop->id) . '?from=top' }}">詳しくみる</a>
@@ -75,6 +75,27 @@
                             </i>
                         </button>
                     @endauth
+
+                    <div class="shop-list__rating">
+                        @php
+                            $averageRating = $shop->average_rating ?? 0;
+                            $fullStars = floor($averageRating);
+                            $halfStar = ($averageRating - $fullStars) >= 0.5 ? 1 : 0;
+                            $emptyStars = 5 - ($fullStars + $halfStar);
+                        @endphp
+
+                        @for ($i = 0; $i < $fullStars; $i++)
+                            <i class="bi bi-star-fill"></i>
+                        @endfor
+
+                        @if ($halfStar)
+                            <i class="bi bi-star-half"></i>
+                        @endif
+
+                        @for ($i = 0; $i < $emptyStars; $i++)
+                            <i class="bi bi-star"></i>
+                        @endfor
+                    </div>
                 </div>
             </div>
         @endforeach

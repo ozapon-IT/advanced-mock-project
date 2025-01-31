@@ -25,6 +25,8 @@ Route::middleware(['guest_or_user'])->group(function () {
 
     Route::get('/detail/{shop_id}', [ShopController::class, 'showDetailPage'])->name('detail.show');
 
+    Route::get('detail/{shop}/reviews', [ReviewController::class, 'showReviewList'])->name('show.review-list');
+
     Route::get('/thanks', function () {
         return view('auth.thanks');
     })->name('thanks');
@@ -48,6 +50,10 @@ Route::middleware(['auth', 'role:1'])->group(function () {
     Route::patch('/mypage/change_reservation/{reservation}', [ReservationController::class, 'changeReservation'])->name('change.reservation');
 
     Route::get('/mypage/review/{shop}', [ReviewController::class, 'show'])->name('show.review');
+
+    Route::post('/mypage/review/{shop}', [ReviewController::class, 'create'])->name('create.review');
+
+    Route::patch('/mypage/review/{shop}', [ReviewController::class, 'update'])->name('update.review');
 
     Route::get('/payment/session', [StripeController::class, 'createCheckoutSession'])->name('create.checkout-session');
 
