@@ -8,12 +8,12 @@
 
 @section('header')
 <header class="header">
-    <div class="header__container">
+    <div class="header__wrapper">
         <div class="header__menu">
-            <a class="menu__button" href="#modal-menu">
+            <a class="header__menu-toggle" href="#modal-menu">
                 <i class="bi bi-list"></i>
             </a>
-            <h1 class="menu__service-name">Rese</h1>
+            <span class="header__service-name">Rese</span>
         </div>
     </div>
 </header>
@@ -22,7 +22,7 @@
 @section('main')
 <main>
     <div class="review-list">
-        <h2 class="review-list__heading">{{ $shop->name }} のレビュー一覧</h2>
+        <h1 class="review-list__heading">{{ $shop->name }} のレビュー一覧</h1>
         @foreach ($reviews as $review)
             <div class="review-list__card">
                 <p class="review-list__username">{{ $review->user->name }}さんのレビュー</p>
@@ -48,6 +48,13 @@
         @endforeach
         <div class="review-list__pagination">
             {{ $reviews->links('vendor.pagination.custom') }}
+        </div>
+        <div class="review-list__back">
+            @if (request('from') === 'mypage')
+                <a class="review-list__back-link" href="{{ route('detail.show', $shop->id) . '?from=mypage' }}">戻る</a>
+            @else
+                <a class="review-list__back-link" href="{{ route('detail.show', $shop->id) . '?from=top'}}">戻る</a>
+            @endif
         </div>
     </div>
 </main>

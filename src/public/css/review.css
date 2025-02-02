@@ -1,3 +1,7 @@
+.modal-menu__close {
+    left: 4.5vw;
+}
+
 .review {
     margin: 3vw auto;
     width: 45vw;
@@ -20,18 +24,18 @@
     margin-top: 3vw;
 }
 
-.review__field {
+.review__form-group {
     display: flex;
     flex-direction: column;
     gap: 0.7vw;
     padding-bottom: 2vw;
 }
 
-.review__field:not(:first-of-type) {
+.review__form-group:not(:first-of-type) {
     margin-top: 2vw;
 }
 
-.review__field:not(:last-of-type) {
+.review__form-group:not(:last-of-type) {
     border-bottom: 0.1vw dashed #ccc;
 }
 
@@ -42,13 +46,13 @@
 
 .review__rating {
     display: flex;
-    flex-direction: row-reverse; /* 右から左へ並べる */
+    flex-direction: row-reverse;
     justify-content: center;
     gap: 0.3vw;
 }
 
 .review__rating input {
-    display: none; /* ラジオボタンを非表示 */
+    display: none;
 }
 
 .review__rating label i {
@@ -58,10 +62,9 @@
     transition: color 0.3s;
 }
 
-/* 選択時に星を金色に変更 */
 .review__rating input:checked ~ label i,
 .review__rating input:checked ~ label ~ label i {
-    color: gold;
+    color: #FFD700;
 }
 
 .review__input,
@@ -96,9 +99,24 @@
     background-color: #0538ff;
 }
 
+/* バックリンク */
+.review__back {
+    margin-top: 2vw;
+    text-align: center;
+}
+
+.review__back-link {
+    color: #666;
+    font-size: 1.2vw;
+}
+
+.review__back-link:hover {
+    color: #305cff;
+}
+
 @media screen and (max-width: 768px) {
-    .header {
-        height: 5vw;
+    .modal-menu__close {
+        left: 4vw;
     }
 
     .review {
@@ -119,12 +137,12 @@
         margin-top: 6vw;
     }
 
-    .review__field {
+    .review__form-group {
         gap: 1.4vw;
         padding-bottom: 4vw;
     }
 
-    .review__field:not(:first-of-type) {
+    .review__form-group:not(:first-of-type) {
         margin-top: 4vw;
     }
 
@@ -155,5 +173,14 @@
         font-size: 3vw;
         border-radius: 0 0 0.8vw 0.8vw;
         padding: 2vw 0;
+    }
+
+    /* バックリンク */
+    .review__back {
+        margin-top: 4vw;
+    }
+
+    .review__back-link {
+        font-size: 2.4vw;
     }
 }

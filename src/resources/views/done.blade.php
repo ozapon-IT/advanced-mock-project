@@ -8,12 +8,12 @@
 
 @section('header')
 <header class="header">
-    <div class="header__container">
+    <div class="header__wrapper">
         <div class="header__menu">
-            <a class="menu__button" href="#modal-menu">
+            <a class="header__menu-toggle" href="#modal-menu">
                 <i class="bi bi-list"></i>
             </a>
-            <h1 class="menu__service-name">Rese</h1>
+            <span class="header__service-name">Rese</span>
         </div>
     </div>
 </header>
@@ -22,9 +22,9 @@
 @section('main')
 <main>
     <div class="done">
-        <div class="done__content">
+        <div class="done__wrapper">
             <p class="done__message">ご予約ありがとうございます</p>
-            <a class="done__back-button" href="{{ request('from') === 'mypage' ? route('show.mypage') : route('top.show') }}">戻る</a>
+            <a class="done__back-link" href="{{ request('from') === 'mypage' ? route('show.mypage') : route('top.show') }}">戻る</a>
         </div>
     </div>
 </main>

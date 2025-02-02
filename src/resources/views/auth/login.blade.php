@@ -8,12 +8,12 @@
 
 @section('header')
 <header class="header">
-    <div class="header__container">
+    <div class="header__wrapper">
         <div class="header__menu">
-            <a class="menu__button" href="#modal-menu">
+            <a class="header__menu-toggle" href="#modal-menu">
                 <i class="bi bi-list"></i>
             </a>
-            <h1 class="menu__service-name">Rese</h1>
+            <span class="header__service-name" aria-hidden="true">Rese</span>
         </div>
     </div>
 </header>
@@ -22,7 +22,7 @@
 @section('main')
 <main>
     <div class="login">
-        <h1 class="login__title">Login</h1>
+        <h1 class="login__heading">Login</h1>
 
         <form class="login__form" action="{{ route('login') }}" method="POST">
             @csrf
@@ -30,7 +30,7 @@
             <div class="login__form-group">
                 <i class="bi bi-envelope-fill"></i>
 
-                <input class="login__input" type="text" name="email" value="{{ old('email') }}" placeholder="Email">
+                <input class="login__input" type="text" name="email" value="{{ old('email') }}" placeholder="Email" autocomplete="email" aria-label="メールアドレスを入力してください">
             </div>
 
             @error('email')
@@ -40,7 +40,7 @@
             <div class="login__form-group">
                 <i class="bi bi-lock-fill"></i>
 
-                <input class="login__input" type="password" name="password" placeholder="Password">
+                <input class="login__input" type="password" name="password" placeholder="Password" autocomplete="current-password" aria-label="パスワードを入力してください">
             </div>
 
             @error('password')

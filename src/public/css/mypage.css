@@ -1,29 +1,34 @@
+.modal-menu__close {
+    left: 4.5vw;
+}
+
 .mypage {
     margin: 2vw auto;
     width: 90vw;
 }
 
-.mypage__name {
+.mypage__heading {
     text-align: center;
     font-size: 2vw;
 }
 
-.mypage__content {
+.mypage__contents {
     display: flex;
     width: 100%;
     gap: 7vw;
     margin-top: 3vw;
 }
 
-.content__reservation-status {
+/* 予約状況 */
+.mypage__reservation-status {
     width: 34vw;
 }
 
-.reservation-status__title {
+.mypage__subheading {
     font-size: 1.5vw;
 }
 
-.reservation-status__card {
+.mypage__reservation-card {
     position: relative;
     background-color: #305cff;
     border-radius: 0.4vw;
@@ -32,7 +37,7 @@
     box-shadow: 0.2vw 0.2vw 0.2vw rgba(0, 0, 0, 0.5);
 }
 
-.card__number {
+.mypage__reservation-card-header {
     display: flex;
     align-items: center;
     color: #fff;
@@ -42,12 +47,12 @@
     font-size: 1.7vw;
 }
 
-.card__number p {
+.mypage__reservation-card-header p {
     font-size: 1vw;
     margin-left: 2.5vw;
 }
 
-.card__table {
+.mypage__reservation-card-table {
     display: flex;
     flex-direction: row;
     color: #fff;
@@ -55,22 +60,22 @@
     font-size: 1vw;
 }
 
-.card__table tr {
+.mypage__reservation-card-table tr {
     display: flex;
     flex-direction: column;
 }
 
-.card__table tr:first-of-type {
+.mypage__reservation-card-table tr:first-of-type {
     text-align: left;
     margin-right: 4vw;
 }
 
-.card__table th:not(:first-of-type),
-.card__table td:not(:first-of-type) {
+.mypage__reservation-card-table th:not(:first-of-type),
+.mypage__reservation-card-table td:not(:first-of-type) {
     margin-top: 1.3vw;
 }
 
-.card__delete-button {
+.mypage__reservation-delete {
     position: absolute;
     top: 2vw;
     right: 2vw;
@@ -81,33 +86,35 @@
     font-size: 1.7vw;
 }
 
-.card__delete-button button {
+.bi-x-circle:hover {
+    color: gold;
+}
+
+.mypage__button {
     all: unset;
     cursor: pointer;
 }
 
-.card__reservation-change {
+.mypage__reservation-change {
     position: absolute;
     bottom: 2vw;
     right: 2vw;
 }
 
-.card__reservation-change button {
-    all: unset;
+.mypage__button--update {
     color: #fff;
-    cursor: pointer;
     text-decoration: underline;
     font-size: 1vw;
 }
 
-.content__favorite,
-.mypage__visited {
-    width: 21.3vw;
+.mypage__button--update:hover {
+    color: gold;
 }
 
-.favorite__title,
-.mypage__subtitle {
-    font-size: 1.5vw;
+/* お気に入り店舗&行ったお店 */
+.mypage__favorite-shop,
+.mypage__visited-shop {
+    width: 21.3vw;
 }
 
 .shop-list {
@@ -185,49 +192,64 @@
 }
 
 .bi-suit-heart-fill {
-    font-size: 2.5vw;
+    font-size: 2.4vw;
     color: #ccc;
 }
 
-.favorite--addition {
+.bi-suit-heart-fill--red {
     color: red;
 }
 
+.shop-list__rating {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 1.3vw;
+    bottom: 4.4vw;
+    gap: 0.2vw;
+    font-size: 1.5vw;
+    color: #FFD700;
+}
+
 @media screen and (max-width: 768px) {
-    .header {
-        height: 5vw;
+    .modal-menu__close {
+        left: 4vw;
     }
 
     .mypage {
-        margin: 0 auto;
+        margin: 0 auto 6vw;
     }
 
-    .mypage__name {
+    .mypage__heading {
         font-size: 4vw;
     }
 
-    .mypage__content {
+    .mypage__contents {
         display: block;
         gap: 0;
         margin-top: 5vw;
     }
 
-    .content__reservation-status {
+    /* 予約状況 */
+    .mypage__reservation-status {
         width: 100%;
     }
 
-    .reservation-status__title {
+    .mypage__subheading {
         font-size: 3vw;
+    }
+
+    .mypage__reservation-status .mypage__subheading {
         margin-bottom: 4vw;
     }
 
-    .reservation-status__container {
+    .mypage__reservation-card-container {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 2vw;
     }
 
-    .reservation-status__card {
+    .mypage__reservation-card {
         width: 36vw;
         border-radius: 0.8vw;
         padding: 4vw;
@@ -239,26 +261,26 @@
         font-size: 3.5vw;
     }
 
-    .card__number p {
+    .mypage__reservation-card-header p {
         font-size: 2vw;
         margin-left: 4vw;
     }
 
-    .card__table {
+    .mypage__reservation-card-table {
         margin-top: 4vw;
         font-size: 2vw;
     }
 
-    .card__table tr:first-of-type {
+    .mypage__reservation-card-table tr:first-of-type {
         margin-right: 4vw;
     }
 
-    .card__table th:not(:first-of-type),
-    .card__table td:not(:first-of-type) {
+    .mypage__reservation-card-table th:not(:first-of-type),
+    .mypage__reservation-card-table td:not(:first-of-type) {
         margin-top: 2.5vw;
     }
 
-    .card__delete-button {
+    .mypage__reservation-delete {
         top: 4vw;
         right: 4vw;
     }
@@ -267,24 +289,20 @@
         font-size: 3.5vw;
     }
 
-    .card__reservation-change {
+    .mypage__reservation-change {
         bottom: 4vw;
         right: 4vw;
     }
 
-    .card__reservation-change button {
+    .mypage__button--update {
         font-size: 2vw;
     }
 
-    .content__favorite,
-    .mypage__visited {
+    /* お気に入り店舗&行ったお店 */
+    .mypage__favorite-shop,
+    .mypage__visited-shop {
         width: 100%;
         margin: 4vw 0;
-    }
-
-    .favorite__title,
-    .mypage__subtitle {
-        font-size: 3vw;
     }
 
     .shop-list {
@@ -338,10 +356,13 @@
     }
 
     .bi-suit-heart-fill {
-        font-size: 5.5vw;
+        font-size: 4.8vw;
     }
 
-    .modal-menu__close {
-        left: 4vw;
+    .shop-list__rating {
+        right: 2vw;
+        bottom: 8.5vw;
+        gap: 0.4vw;
+        font-size: 3vw;
     }
 }

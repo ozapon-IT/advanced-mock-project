@@ -10,7 +10,7 @@
     box-shadow: 0.2vw 0.2vw 0.2vw rgba(0, 0, 0, 0.5);
 }
 
-.thanks__content {
+.thanks__wrapper {
     width: 80%;
     text-align: center;
 }
@@ -19,7 +19,7 @@
     font-size: 1.5vw;
 }
 
-.thanks__login-button {
+.thanks__button {
     display: inline-block;
     text-decoration: none;
     background-color: #4366eb;
@@ -30,15 +30,15 @@
     margin-top: 3vw;
 }
 
-.thanks__login-button:hover {
+.thanks__button:hover {
     background-color: #305cff;
 }
 
-.modal-menu__close {
-    left: 5vw;
-}
-
 @media screen and (max-width: 768px) {
+    .modal-menu__close {
+        left: 5vw;
+    }
+
     .thanks {
         width: 60vw;
         height: 36vw;
@@ -47,7 +47,7 @@
         box-shadow: 0.4vw 0.4vw 0.4vw rgba(0, 0, 0, 0.5);
     }
 
-    .thanks__content {
+    .thanks__wrapper {
         width: 80%;
     }
 
@@ -55,7 +55,7 @@
         font-size: 3vw;
     }
 
-    .thanks__login-button {
+    .thanks__button {
         border-radius: 0.8vw;
         font-size: 2.5vw;
         padding: 1.2vw 1.8vw;

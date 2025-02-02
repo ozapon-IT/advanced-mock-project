@@ -1,3 +1,7 @@
+.modal-menu__close {
+    left: 4.5vw;
+}
+
 .review-list {
     margin: 3vw auto;
     width: 45vw;
@@ -42,10 +46,7 @@
 .review-list__review {
     font-size: 1.2vw;
     margin-top: 2vw;
-}
-
-.modal-menu__close {
-    left: 5vw;
+    line-height: 1.5;
 }
 
 /* ページネーション */
@@ -97,9 +98,24 @@
     color: #999;
 }
 
+/* バックリンク */
+.review-list__back {
+    margin-top: 2vw;
+    text-align: right;
+}
+
+.review-list__back-link {
+    color: #666;
+    font-size: 1.2vw;
+}
+
+.review-list__back-link:hover {
+    color: #305cff;
+}
+
 @media screen and (max-width: 768px) {
-    .header {
-        height: 5vw;
+    .modal-menu__close {
+        left: 4vw;
     }
 
     .review-list {
@@ -148,7 +164,12 @@
         font-size: 2vw;
     }
 
-    .modal-menu__close {
-        left: 4vw;
+    /* バックリンク */
+    .review-list__back {
+        margin-top: 4vw;
+    }
+
+    .review-list__back-link {
+        font-size: 2.4vw;
     }
 }
