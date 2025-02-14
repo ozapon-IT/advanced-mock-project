@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('payment_method', 100);
             $table->string('stripe_session_id')->nullable();
             $table->string('payment_status', 100)->default('pending');
+            $table->string('status', 100)->default('予約済み');
             $table->timestamps();
             $table->softDeletes();
         });

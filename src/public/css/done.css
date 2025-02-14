@@ -10,7 +10,7 @@
     box-shadow: 0.2vw 0.2vw 0.2vw rgba(0, 0, 0, 0.5);
 }
 
-.done__content {
+.done__wrapper {
     width: 80%;
     text-align: center;
 }
@@ -19,7 +19,7 @@
     font-size: 1.5vw;
 }
 
-.done__back-button {
+.done__back-link {
     display: inline-block;
     text-decoration: none;
     background-color: #4366eb;
@@ -30,12 +30,8 @@
     margin-top: 3vw;
 }
 
-.done__back-button:hover {
+.done__back-link:hover {
     background-color: #305cff;
-}
-
-.modal-menu__close {
-    left: 5vw;
 }
 
 @media screen and (max-width: 768px) {
@@ -47,7 +43,7 @@
         box-shadow: 0.4vw 0.4vw 0.4vw rgba(0, 0, 0, 0.5);
     }
 
-    .done__content {
+    .done__wrapper {
         width: 80%;
     }
 
@@ -55,10 +51,14 @@
         font-size: 3vw;
     }
 
-    .done__back-button {
+    .done__back-link {
         border-radius: 0.8vw;
         font-size: 2.5vw;
         padding: 1.2vw 1.8vw;
         margin-top: 6vw;
+    }
+
+    .modal-menu__close {
+        left: 5vw;
     }
 }

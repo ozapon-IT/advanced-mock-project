@@ -1,3 +1,7 @@
+.modal-menu__close {
+    left: 4.5vw;
+}
+
 .detail {
     display: flex;
     margin: 2vw auto;
@@ -9,27 +13,32 @@
     width: 42.5vw;
 }
 
-.content__name {
+.detail__shop-name-container {
     display: flex;
     align-items: center;
 }
 
-.content__name a {
+.detail__back-link {
     background-color: #fff;
     text-decoration: none;
-    color: #000;
+    color: #666;
     font-size: 1.7vw;
     border-radius: 0.4vw;
     padding: 0.3vw 0.8vw 0.5vw 0.8vw;
     box-shadow: 0.2vw 0.2vw 0.2vw rgba(0, 0, 0, 0.5);
 }
 
-.content__name h2 {
-    font-size: 1.8vw;
-    margin-left: 1vw;
+.detail__back-link:hover {
+    color: #000;
 }
 
-.content__image {
+.detail__shop-name {
+    font-size: 1.8vw;
+    margin-left: 1vw;
+    line-height: 1.5;
+}
+
+.detail__shop-image-container {
     background-color: #ccc;
     overflow: hidden;
     width: 100%;
@@ -37,37 +46,91 @@
     margin-top: 1.7vw;
 }
 
-.content__image img {
+.detail__shop-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.content__description {
+.detail__shop-description {
     margin-top: 2vw;
+    position: relative;
 }
 
-.description__area,
-.description__genre {
+.detail__shop-area,
+.detail__shop-genre {
     display: inline-block;
     font-size: 1vw;
 }
 
-.description__summary {
+.detail__shop-summary {
     margin-top: 2.1vw;
     font-size: 1.1vw;
     line-height: 1.7;
 }
 
-.description__menu {
+.detail__shop-menu {
     margin: 2.1vw 0 0 1vw;
     font-size: 1.1vw;
 }
 
-.description__menu li:not(:first-of-type) {
+.detail__shop-menu-item:not(:first-of-type) {
     margin-top: 1vw;
 }
 
+.detail__shop-rating-container {
+    display: flex;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.detail__shop-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.2vw;
+    font-size: 1.8vw;
+    color: #FFD700;
+}
+
+.detail__shop-rating-value {
+    margin-left: 0.3vw;
+    font-size: 1.6vw;
+    color: #333;
+}
+
+.detail__shop-reviews,
+.detail__shop-favorites {
+    margin-left: 1vw;
+}
+
+.detail__shop-reviews-link,
+.detail__shop-reviews-number,
+.detail__shop-favorites-number {
+    font-size: 1.6vw;
+}
+
+.detail__shop-reviews-number,
+.detail__shop-favorites-number {
+    color: #333;
+}
+
+.detail__shop-reviews-link {
+    color: #666;
+    border-bottom: 0.1vw solid #666;
+}
+
+.detail__shop-reviews-link:hover{
+    color: #305cff;
+    border-bottom: 0.1vw solid #305cff;
+}
+
+.bi-suit-heart-fill {
+    color: red;
+    font-size: 1.6vw;
+}
+
+/* 予約フォーム */
 .detail__reservation {
     position: relative;
     background-color: #305cff;
@@ -76,64 +139,64 @@
     border-radius: 0.4vw;
 }
 
-.reservation__form {
+.detail__reservation-form {
     padding: 2vw 2.5vw;;
 }
 
-.reservation__title {
+.detail__reservation-heading {
     color: #fff;
     font-size: 1.8vw;
 }
 
-.reservation__field {
+.detail__form-field {
     display: flex;
     flex-direction: column;
     gap: 0.7vw;
     margin-top: 2vw;
 }
 
-.input__date,
-.select__time,
-.select__number,
-.select__menu,
-.select__payment {
-    border: none;
-    cursor: pointer;
-    font-size: 1vw;
-    border-radius: 0.4vw;
-    padding: 0.5vw;
-}
-
-.field__input {
+.detail__reservation-date {
     position: relative;
     display: inline-flex;
     align-items: center;
     width: 35%;
 }
 
-.input__date {
+.detail__input {
+    border: none;
     width: 100%;
     padding: 0.5vw 1vw;
+    font-size: 1vw;
+    border-radius: 0.2vw;
 }
 
-.input__date::placeholder {
+.detail__input::placeholder {
     color: #000;
 }
 
-.input__calendar {
+.detail__button {
     all: unset;
     cursor: pointer;
     position: absolute;
+}
+
+.detail__button--calendar {
     color: #999;
     font-size: 1vw;
     right: 1vw;
 }
 
-.field__select {
+.detail__reservation-time,
+.detail__reservation-number,
+.detail__reservation-menu,
+.detail__payment-method {
     position: relative;
 }
 
-.field__select:after {
+.detail__reservation-time:after,
+.detail__reservation-number:after,
+.detail__reservation-menu:after,
+.detail__payment-method:after {
     content: "";
     position: absolute;
     right: 1vw;
@@ -148,54 +211,51 @@
     pointer-events: none;
 }
 
-.select__time,
-.select__number,
-.select__menu,
-.select__payment {
+.detail__select {
     border: none;
+    cursor: pointer;
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
     position: relative;
     width: 100%;
     padding: 0.5vw 1vw;
+    font-size: 1vw;
+    border-radius: 0.2vw;
 }
 
-.reservation__confirmation {
+.detail__reservation-confirmation {
     background-color: #4D7EFD;
     color: #fff;
     margin-top: 1.3vw;
     border-radius: 0.4vw;
 }
 
-.confirmation__table {
+.detail__confirmation-table {
     display: flex;
     flex-direction: row;
     font-size: 1vw;
     padding: 1.7vw;
 }
 
-.confirmation__table tr {
+.detail__confirmation-table tr {
     display: flex;
     flex-direction: column;
 }
 
-.confirmation__table tr:first-of-type {
+.detail__confirmation-table tr:first-of-type {
     text-align: left;
     margin-right: 4vw;
 }
 
-.confirmation__table th:not(:first-of-type),
-.confirmation__table td:not(:first-of-type) {
+.detail__confirmation-table th:not(:first-of-type),
+.detail__confirmation-table td:not(:first-of-type) {
     margin-top: 1.3vw;
 }
 
-.reservation__button {
-    all: unset;
+.detail__button--reservation {
     color: #fff;
     background-color: #1d49ed;
-    cursor: pointer;
-    position: absolute;
     bottom: 0;
     text-align: center;
     width: 100%;
@@ -204,13 +264,13 @@
     padding: 1vw 0;
 }
 
-.reservation__button:hover {
+.detail__button--reservation:hover {
     background-color: #0538ff;
 }
 
 @media screen and (max-width: 768px) {
-    .header {
-        height: 5vw;
+    .modal-menu__close {
+        left: 4vw;
     }
 
     .detail {
@@ -222,47 +282,74 @@
         width: 100%;
     }
 
-    .content__name a {
+    .detail__back-link {
         font-size: 3.5vw;
         border-radius: 0.8vw;
         padding: 0.3vw 1.2vw 0.6vw 1.2vw;
         box-shadow: 0.4vw 0.4vw 0.4vw rgba(0, 0, 0, 0.5);
     }
 
-    .content__name h2 {
+    .detail__shop-name {
         font-size: 3vw;
-        margin-left: 1vw;
+        margin-left: 2vw;
     }
 
-    .content__image {
+    .detail__shop-image-container {
         height: 50vw;
         margin-top: 3vw;
     }
 
-    .content__description {
+    .detail__shop-description {
         margin-top: 5vw;
     }
 
-    .description__area,
-    .description__genre {
+    .detail__shop-area,
+    .detail__shop-genre {
         font-size: 2.2vw;
     }
 
-    .description__summary {
+    .detail__shop-summary {
         margin-top: 4vw;
         font-size: 2.2vw;
         line-height: 2;
     }
 
-    .description__menu {
+    .detail__shop-menu {
         margin: 4vw 0 0 2.5vw;
         font-size: 2.2vw;
     }
 
-    .description__menu li:not(:first-of-type) {
+    .detail__shop-menu-item:not(:first-of-type) {
         margin-top: 2.5vw;
     }
 
+    .detail__shop-rating {
+        gap: 0.4vw;
+        font-size: 3.6vw;
+    }
+
+    .detail__shop-rating-value {
+        margin-left: 0.6vw;
+        font-size: 3.2vw;
+    }
+
+    .detail__shop-reviews,
+    .detail__shop-favorites {
+        margin-left: 2vw;
+    }
+
+    .detail__shop-reviews-link,
+    .detail__shop-reviews-number,
+    .detail__shop-favorites-number {
+        font-size: 3.2vw;
+    }
+
+    .bi-suit-heart-fill {
+        font-size: 3.2vw;
+    }
+
+
+    /* 予約フォーム */
     .detail__reservation {
         margin: 5vw 0;
         width: 100%;
@@ -270,74 +357,68 @@
         border-radius: 0.8vw;
     }
 
-    .reservation__form {
+    .detail__reservation-form {
         padding: 3vw 4vw;;
     }
 
-    .reservation__title {
+    .detail__reservation-heading {
         font-size: 3vw;
     }
 
-    .reservation__field {
+    .detail__form-field {
         gap: 1.5vw;
         margin-top: 4vw;
     }
 
-    .input__date,
-    .select__time,
-    .select__number,
-    .select__menu,
-    .select__payment {
+    .detail__input {
+        width: 100%;
+        padding: 1vw 2vw;
         font-size: 2.2vw;
         border-radius: 0.8vw;
     }
 
-    .input__date {
-        width: 100%;
-        padding: 1vw 2vw;
-    }
-
-    .input__calendar {
+    .detail__button--calendar {
         font-size: 2vw;
         right: 2vw;
     }
 
-    .field__select:after {
+    .detail__reservation-time:after,
+    .detail__reservation-number:after,
+    .detail__reservation-menu:after,
+    .detail__payment-method:after {
         right: 2vw;
-        top: 50%;
         border-left: 1vw solid transparent;
         border-right: 1vw solid transparent;
         border-top: 1vw solid transparent;
         height: 0.6vw;
     }
 
-    .select__time,
-    .select__number,
-    .select__menu,
-    .select__payment {
+    .detail__select {
+        font-size: 2.2vw;
+        border-radius: 0.8vw;
         padding: 1vw 2vw;
     }
 
-    .reservation__confirmation {
+    .detail__reservation-confirmation {
         margin: 2.5vw 0;
         border-radius: 0.8vw;
     }
 
-    .confirmation__table {
+    .detail__confirmation-table {
         font-size: 2.2vw;
         padding: 3vw;
     }
 
-    .confirmation__table tr:first-of-type {
+    .detail__confirmation-table tr:first-of-type {
         margin-right: 5vw;
     }
 
-    .confirmation__table th:not(:first-of-type),
-    .confirmation__table td:not(:first-of-type) {
+    .detail__confirmation-table th:not(:first-of-type),
+    .detail__confirmation-table td:not(:first-of-type) {
         margin-top: 2.5vw;
     }
 
-    .reservation__button {
+    .detail__button--reservation {
         font-size: 3vw;
         border-radius: 0 0 0.8vw 0.8vw;
         padding: 2vw 0;

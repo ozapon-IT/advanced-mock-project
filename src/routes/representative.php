@@ -13,6 +13,8 @@ Route::middleware(['auth', 'role:2'])->group(function () {
 
     Route::get('/reservation_detail/{reservation}', [ReservationController::class, 'showReservationDetailPage'])->name('show.reservation-detail');
 
+    Route::patch('/reservation_detail/{reservation}', [ReservationController::class, 'visit'])->name('visit.reservation-shop');
+
     Route::get('/shop_edit', [ShopController::class, 'showShopEditPage'])->name('show.shop-edit');
 
     Route::post('/shop_edit', [ShopController::class, 'create'])->name('create.shop-information');

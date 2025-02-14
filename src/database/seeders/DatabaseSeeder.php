@@ -19,8 +19,8 @@ class DatabaseSeeder extends Seeder
             MenuSeeder::class,
             FavoriteSeeder::class,
             ReservationSeeder::class,
+            ReviewSeeder::class,
+            AnnounceSeeder::class,
         ]);
-
-        \App\Models\Announce::factory(20)->create();
     }
 }

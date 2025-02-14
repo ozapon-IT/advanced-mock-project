@@ -73,18 +73,37 @@
 }
 
 .bi-suit-heart-fill {
-    font-size: 2.5vw;
+    font-size: 2.4vw;
     color: #ccc;
 }
 
-.favorite--addition {
+.bi-suit-heart-fill--red {
     color: red;
 }
 
+.shop-list__rating {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 1.3vw;
+    bottom: 4.4vw;
+    gap: 0.2vw;
+    font-size: 1.5vw;
+    color: #FFD700;
+}
+
+.modal-menu__close {
+    left: 4.5vw;
+}
+
 @media screen and (max-width: 768px) {
+    .header {
+        height: 13vw;
+    }
+
     .shop-list {
         grid-template-columns: repeat(2, 1fr);
-        margin: 0 auto 4vw;
+        margin: 0 auto 6vw;
         gap: 2vw;
     }
 
@@ -132,6 +151,17 @@
     }
 
     .bi-suit-heart-fill {
-        font-size: 5.5vw;
+        font-size: 4.8vw;
+    }
+
+    .shop-list__rating {
+        right: 2vw;
+        bottom: 8.5vw;
+        gap: 0.4vw;
+        font-size: 3vw;
+    }
+
+    .modal-menu__close {
+        left: 4vw;
     }
 }

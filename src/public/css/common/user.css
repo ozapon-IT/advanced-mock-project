@@ -3,13 +3,14 @@ body {
     box-sizing: border-box;
 }
 
+/* ヘッダー */
 .header {
     height: 6.7vw;
     display: flex;
     align-items: end;
 }
 
-.header__container {
+.header__wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -22,14 +23,14 @@ body {
     display: flex;
 }
 
-.menu__button {
+.header__menu-toggle {
     background-color: #4366eb;
     border-radius: 0.4vw;
     padding: 0.3vw;
     box-shadow: 0.2vw 0.2vw 0.2vw rgba(0, 0, 0, 0.5);
 }
 
-.menu__button:hover {
+.header__menu-toggle:hover {
     background-color: #305cff;
 }
 
@@ -38,7 +39,7 @@ body {
     font-size: 2.1vw;
 }
 
-.menu__service-name {
+.header__service-name {
     font-weight: bold;
     color:  #305cff;
     font-size: 2.1vw;
@@ -56,11 +57,11 @@ body {
     padding: 0.5vw 1vw;
 }
 
-.search__box {
+.header__search-group {
     position: relative;
 }
 
-.search__box:after {
+.header__search-group:after {
     content: "";
     position: absolute;
     right: 0.5vw;
@@ -75,7 +76,7 @@ body {
     pointer-events: none;
 }
 
-.search__select {
+.header__search-select {
     border: none;
     appearance: none;
     -webkit-appearance: none;
@@ -87,7 +88,7 @@ body {
     border-right: 0.1vw solid #eee;
 }
 
-.search__button {
+.header__search-button {
     all: unset;
     cursor: pointer;
     color: #ccc;
@@ -97,16 +98,17 @@ body {
     margin: 0 0.5vw;
 }
 
-.search__button:hover {
-    color: #777;
+.header__search-button:hover {
+    color: #305cff;
 }
 
-.search__text {
+.header__search-input {
     border: none;
     font-size: 1.1vw;
     width: 25vw;
 }
 
+/* モーダルメニュー */
 .modal-menu {
     position: fixed;
     top: 0;
@@ -132,7 +134,7 @@ body {
     background-color: #4366eb;
     position: absolute;
     top: 3.33vw;
-    left: 4.5vw;
+    left: 5vw;
     border-radius: 0.4vw;
     padding: 0.1vw;
     box-shadow: 0.2vw 0.2vw 0.2vw rgba(0, 0, 0, 0.5);
@@ -175,20 +177,26 @@ body {
     text-decoration: underline;
 }
 
+/* バリデーションエラーメッセージ */
 .error-message {
     color: red;
     font-size: 0.9vw;
     margin-top: 0.2vw;
 }
 
+.error-message--yellow {
+    color: yellow;
+}
+
 @media screen and (max-width: 768px) {
+    /* ヘッダー */
     .header {
         align-items: center;
-        height: 13vw;
+        height: 5vw;
         padding: 4vw 0;
     }
 
-    .header__container {
+    .header__wrapper {
         flex-direction: column;
         height: 100%;
     }
@@ -197,7 +205,7 @@ body {
         margin-right: auto;
     }
 
-    .menu__button {
+    .header__menu-toggle {
         border-radius: 0.8vw;
         padding: 0.6vw;
         box-shadow: 0.4vw 0.4vw 0.4vw rgba(0, 0, 0, 0.5);
@@ -207,7 +215,7 @@ body {
         font-size: 4vw;
     }
 
-    .menu__service-name {
+    .header__service-name {
         font-size: 4vw;
         margin-left: 2vw;
     }
@@ -218,7 +226,7 @@ body {
         width: 88vw;
     }
 
-    .search__box:after {
+    .header__search-group:after {
         right: 1vw;
         border-left: 1vw solid transparent;
         border-right: 1vw solid transparent;
@@ -226,23 +234,24 @@ body {
         height: 0.6vw;
     }
 
-    .search__select {
+    .header__search-select {
         padding: 1vw;
         font-size: 2.5vw;
         width: 20vw;
     }
 
-    .search__button {
+    .header__search-button {
         font-size: 2.5vw;
         margin: 0 1vw;
         color: #777;
     }
 
-    .search__text {
+    .header__search-input {
         font-size: 2.5vw;
         width: 40vw;
     }
 
+    /* モーダルメニュー */
     .modal-menu__close {
         top: 4vw;
         left: 4vw;
@@ -269,8 +278,9 @@ body {
         margin-top: 4vw;
     }
 
+    /* バリデーションエラーメッセージ */
     .error-message {
         font-size: 1.8vw;
-        margin-top: 0.2vw;
+        margin-top: 0.4vw;
     }
 }

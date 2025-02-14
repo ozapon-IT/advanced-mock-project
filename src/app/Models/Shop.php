@@ -23,6 +23,16 @@ class Shop extends Model
     ];
 
     /**
+     * レビューとのリレーションを定義
+     *
+     * @return HasMany
+     */
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    /**
      * お気に入りとのリレーションを定義
      *
      * @return HasMany

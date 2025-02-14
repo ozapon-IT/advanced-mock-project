@@ -60,20 +60,6 @@ class ReservationCompleted extends Mailable
             \Log::error('スタックトレース: ' . $e->getTraceAsString());
             $this->qrCodePath = null;
         }
-
-        // $qrCode = new QrCode($this->reservationUrl);
-
-        // $qrCode = $qrCode
-        //     ->withEncoding(new Encoding('UTF-8'))
-        //     ->withErrorCorrectionLevel(new ErrorCorrectionLevelHigh())
-        //     ->withSize(300)
-        //     ->withMargin(10);
-
-        // $writer = new PngWriter();
-        // /** @var PngResult $result */
-        // $result = $writer->write($qrCode);
-
-        // $this->qrCodeBase64 = base64_encode($result->getString());
     }
 
     /**

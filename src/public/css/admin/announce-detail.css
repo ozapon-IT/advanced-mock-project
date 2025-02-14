@@ -8,26 +8,26 @@
     font-size: 2vw;
 }
 
-.announce-detail__contents {
-    background-color: #305cff;
+.announce-detail__content {
+    background-color: #fff;
     border-radius: 0.4vw;
     box-shadow: 0.2vw 0.2vw 0.2vw rgba(0, 0, 0, 0.5);
     margin-top: 3vw;
     padding: 3vw 5vw;
 }
 
-.announce-detail__group:not(:first-of-type) {
+.announce-detail__content-wrapper:not(:first-of-type) {
     margin-top: 2vw;
 }
 
-.announce-detail__group h3 {
-    color: #fff;
+.announce-detail__subheading {
+    color: #000;
     font-size: 1.5vw;
-    border-bottom: 0.1vw solid #fff;
+    border-bottom: 0.1vw solid #000;
 }
 
-.announce-detail__group p {
-    color: #fff;
+.announce-detail__content-wrapper p {
+    color: #000;
     font-size: 1.2vw;
     margin-top: 1vw;
 }
@@ -37,22 +37,22 @@
     text-align: right;
 }
 
-.announce-detail__back a {
-    text-decoration: none;
+.announce-detail__link {
+    color: #666;
     font-size: 1.2vw;
 }
 
-.announce-detail__back a:hover {
-    text-decoration: underline;
-}
-
-.modal-menu__close {
-    left: 5vw;
+.announce-detail__link:hover {
+    color: #305cff;
 }
 
 @media screen and (max-width: 768px) {
     .header {
         height: 5vw;
+    }
+
+    .modal-menu__close {
+        left: 5vw;
     }
 
     .announce-detail {
@@ -64,22 +64,22 @@
         font-size: 3.8vw;
     }
 
-    .announce-detail__contents {
+    .announce-detail__content {
         border-radius: 0.8vw;
         box-shadow: 0.4vw 0.4vw 0.4vw rgba(0, 0, 0, 0.5);
         margin-top: 6vw;
         padding: 6vw 10vw;
     }
 
-    .announce-detail__group:not(:first-of-type) {
+    .announce-detail__content-wrapper:not(:first-of-type) {
         margin-top: 4vw;
     }
 
-    .announce-detail__group h3 {
+    .announce-detail__subheading {
         font-size: 3vw;
     }
 
-    .announce-detail__group p {
+    .announce-detail__content-wrapper p {
         font-size: 2.4vw;
         margin-top: 2vw;
     }
@@ -88,7 +88,7 @@
         margin-top: 4vw;
     }
 
-    .announce-detail__back a {
+    .announce-detail__link {
         font-size: 2.4vw;
     }
 }

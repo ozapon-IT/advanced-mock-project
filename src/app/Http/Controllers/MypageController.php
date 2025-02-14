@@ -11,11 +11,28 @@ class MypageController extends Controller
     public function showMypage()
     {
         $reservations = Reservation::where('user_id', auth()->id())
-            ->where('payment_status', 'paid')
+            ->where('status', '予約済み')
             ->get();
 
-        $favorites = Favorite::where('user_id', auth()->id())->get();
+        $favorites = Favorite::with(['shop'])
+            ->where('user_id', auth()->id())
+            ->get()
+            ->map(function ($favorite) {
+                $favorite->average_rating = round($favorite->shop->reviews->avg('rating'), 2);
+                return $favorite;
+            });
 
-        return view('mypage', compact('reservations', 'favorites'));
+
+        $visitedShops = Reservation::with(['shop'])
+            ->where('user_id', auth()->id())
+            ->where('status', '来店済み')
+            ->get()
+            ->unique('shop_id')
+            ->map(function ($visitedShop) {
+                $visitedShop->average_rating = round($visitedShop->shop->reviews->avg('rating'), 2);
+                return $visitedShop;
+            });
+
+        return view('mypage', compact('reservations', 'favorites', 'visitedShops'));
     }
 }

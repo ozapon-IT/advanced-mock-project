@@ -3,7 +3,7 @@
     width: 90vw;
 }
 
-.dashboard__title {
+.dashboard__heading {
     text-align: center;
     font-size: 2vw;
 }
@@ -15,17 +15,16 @@
     margin-top: 3vw;
 }
 
-.contents__shop-information {
+.dashboard__contents-wrapper {
     width: 41.5vw;
 }
 
-.shop-information__title {
+.dashboard__subheading {
     text-align: center;
     font-size: 1.5vw;
 }
 
-.shop-information__create-or-update,
-.reservation-status__confirmation {
+.dashboard__function {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -46,29 +45,17 @@
     font-size: 1.5vw;
 }
 
-.shop-information__create-or-update a,
-.reservation-status__confirmation a {
+.dashboard__function a {
     text-decoration: none;
     font-size: 1.5vw;
     color: #fff;
 }
 
-.shop-information__create-or-update a:hover,
-.reservation-status__confirmation a:hover {
+.dashboard__function a:hover {
     text-decoration: underline;
 }
 
-.contents__reservation-status {
-    width: 41.5vw;
-}
-
-.reservation-status__title {
-    text-align: center;
-    font-size: 1.5vw;
-}
-
-.shop-information__create-or-update p,
-.reservation-status__confirmation p {
+.dashboard__function p {
     font-size: 1.5vw;
     background-color: #fff;
     border-radius: 0.4vw;
@@ -77,7 +64,7 @@
 }
 
 .modal-menu__close {
-    left: 5vw;
+    left: 4.5vw;
 }
 
 @media screen and (max-width: 768px) {
@@ -89,7 +76,7 @@
         margin: 0 auto 6vw;
     }
 
-    .dashboard__title {
+    .dashboard__heading {
         font-size: 4vw;
     }
 
@@ -99,16 +86,19 @@
         margin-top: 6vw;
     }
 
-    .contents__shop-information {
+    .dashboard__contents-wrapper {
         width: 100%;
     }
 
-    .shop-information__title {
+    .dashboard__contents-wrapper:not(:first-of-type) {
+        margin-top: 5vw;
+    }
+
+    .dashboard__subheading {
         font-size: 3vw;
     }
 
-    .shop-information__create-or-update,
-    .reservation-status__confirmation {
+    .dashboard__function {
         box-shadow: 0.4vw 0.4vw 0.4vw rgba(0, 0, 0, 0.5);
         border-radius: 0.8vw;
         width: 100%;
@@ -122,22 +112,11 @@
         font-size: 3vw;
     }
 
-    .shop-information__create-or-update a,
-    .reservation-status__confirmation a {
+    .dashboard__function a {
         font-size: 3vw;
     }
 
-    .contents__reservation-status {
-        width: 100%;
-    }
-
-    .reservation-status__title {
-        font-size: 3vw;
-        margin-top: 5vw;
-    }
-
-    .shop-information__create-or-update p,
-    .reservation-status__confirmation p {
+    .dashboard__function p {
         font-size: 3vw;
         background-color: #fff;
         border-radius: 0.8vw;

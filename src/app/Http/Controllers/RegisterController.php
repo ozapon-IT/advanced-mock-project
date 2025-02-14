@@ -27,6 +27,6 @@ class RegisterController extends Controller
             'role' => 2,
         ]);
 
-        return redirect()->route('admin.dashboard');
+        return redirect()->route('admin.dashboard')->with(['success' => '店舗代表者を登録しました。']);
     }
 }

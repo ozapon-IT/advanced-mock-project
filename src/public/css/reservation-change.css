@@ -1,69 +1,62 @@
-.change__reservation {
+.reservation-change {
     position: relative;
     background-color: #305cff;
     margin: 3vw auto;
-    width: 42.5vw;
+    width: 37vw;
     height: 46vw;
     border-radius: 0.4vw;
+    padding: 3vw 4vw;
 }
 
-.reservation__form {
-    padding: 2vw 2.5vw;;
-}
-
-.reservation__title {
+.reservation-change__heading {
     color: #fff;
     font-size: 1.8vw;
 }
 
-.reservation__field {
+.reservation-change__form {
     display: flex;
     flex-direction: column;
-    gap: 0.7vw;
+    gap: 1vw;
     margin-top: 2vw;
 }
 
-.input__date,
-.select__time,
-.select__number,
-.select__menu {
-    border: none;
-    cursor: pointer;
-    font-size: 1vw;
-    border-radius: 0.4vw;
-    padding: 0.5vw;
-}
-
-.field__input {
+.reservation-change__input-field {
     position: relative;
     display: inline-flex;
     align-items: center;
     width: 35%;
 }
 
-.input__date {
+.reservation-change__input {
+    border: none;
+    cursor: pointer;
     width: 100%;
+    font-size: 1vw;
+    border-radius: 0.2vw;
     padding: 0.5vw 1vw;
 }
 
-.input__date::placeholder {
+.reservation-change__input::placeholder {
     color: #000;
 }
 
-.input__calendar {
+.reservation-change__button {
     all: unset;
     cursor: pointer;
     position: absolute;
+}
+
+.reservation-change__button--calendar {
     color: #999;
     font-size: 1vw;
     right: 1vw;
 }
 
-.field__select {
+.reservation-change__select-field {
     position: relative;
 }
 
-.field__select:after {
+.reservation-change__select-field:after {
     content: "";
     position: absolute;
     right: 1vw;
@@ -78,54 +71,53 @@
     pointer-events: none;
 }
 
-.select__time,
-.select__number,
-.select__menu {
+.reservation-change__select {
     border: none;
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
     position: relative;
+    cursor: pointer;
     width: 100%;
+    font-size: 1vw;
+    border-radius: 0.2vw;
     padding: 0.5vw 1vw;
 }
 
-.reservation__confirmation {
+.reservation-change__confirmation {
     background-color: #4D7EFD;
     color: #fff;
-    margin-top: 1.3vw;
+    margin-top: 2vw;
     border-radius: 0.4vw;
 }
 
-.confirmation__table {
+.reservation-change__confirmation-table {
     display: flex;
     flex-direction: row;
     font-size: 1vw;
     padding: 1.7vw;
 }
 
-.confirmation__table tr {
+.reservation-change__confirmation-table tr {
     display: flex;
     flex-direction: column;
 }
 
-.confirmation__table tr:first-of-type {
+.reservation-change__confirmation-table tr:first-of-type {
     text-align: left;
     margin-right: 2.5vw;
 }
 
-.confirmation__table th:not(:first-of-type),
-.confirmation__table td:not(:first-of-type) {
+.reservation-change__confirmation-table th:not(:first-of-type),
+.reservation-change__confirmation-table td:not(:first-of-type) {
     margin-top: 1.3vw;
 }
 
-.reservation__button {
-    all: unset;
+.reservation-change__button--update {
     color: #fff;
     background-color: #1d49ed;
-    cursor: pointer;
-    position: absolute;
     bottom: 0;
+    right: 0;
     text-align: center;
     width: 100%;
     font-size: 1.5vw;
@@ -133,98 +125,100 @@
     padding: 1vw 0;
 }
 
-.reservation__button:hover {
+.reservation-change__button--update:hover {
     background-color: #0538ff;
 }
 
-.modal-menu__close {
-    left: 5vw;
+/* バックリンク */
+.reservation-change__back {
+    margin: 2vw;
+    text-align: center;
+}
+
+.reservation-change__back-link {
+    color: #666;
+    font-size: 1.2vw;
+}
+
+.reservation-change__back-link:hover {
+    color: #305cff;
 }
 
 @media screen and (max-width: 768px) {
-    .header {
-        height: 5vw;
-    }
-
-    .change__reservation {
-        margin: 3vw auto;
-        width: 90%;
+    .reservation-change {
+        margin: 3vw auto 6vw;
+        width: 74vw;
         height: 90vw;
         border-radius: 0.8vw;
+        padding: 6vw 8vw;
     }
 
-    .reservation__form {
-        padding: 3vw 4vw;;
-    }
-
-    .reservation__title {
+    .reservation-change__heading {
         font-size: 3vw;
     }
 
-    .reservation__field {
-        gap: 1.5vw;
+    .reservation-change__form {
+        gap: 2vw;
         margin-top: 4vw;
     }
 
-    .input__date,
-    .select__time,
-    .select__number,
-    .select__menu {
-        font-size: 2.2vw;
-        border-radius: 0.8vw;
-    }
-
-    .input__date {
+    .reservation-change__input {
         width: 100%;
+        font-size: 2.2vw;
+        border-radius: 0.4vw;
         padding: 1vw 2vw;
     }
 
-    .input__calendar {
+    .reservation-change__button--calendar {
         font-size: 2vw;
         right: 2vw;
     }
 
-    .field__select:after {
+    .reservation-change__select-field:after {
         right: 2vw;
-        top: 50%;
         border-left: 1vw solid transparent;
         border-right: 1vw solid transparent;
         border-top: 1vw solid transparent;
         height: 0.6vw;
     }
 
-    .select__time,
-    .select__number,
-    .select__menu {
+    .reservation-change__select {
+        font-size: 2.2vw;
+        border-radius: 0.4vw;
         padding: 1vw 2vw;
     }
 
-    .reservation__confirmation {
-        margin: 2.5vw 0;
+    .reservation-change__confirmation {
+        margin-top: 4vw;
         border-radius: 0.8vw;
     }
 
-    .confirmation__table {
+    .reservation-change__confirmation-table {
         font-size: 2.2vw;
         padding: 3vw;
     }
 
-    .confirmation__table tr:first-of-type {
+    .reservation-change__confirmation-table tr:first-of-type {
         margin-right: 5vw;
     }
 
-    .confirmation__table th:not(:first-of-type),
-    .confirmation__table td:not(:first-of-type) {
+    .reservation-change__confirmation-table th:not(:first-of-type),
+    .reservation-change__confirmation-table td:not(:first-of-type) {
         margin-top: 2.5vw;
     }
 
-    .reservation__button {
+    .reservation-change__button--update {
         font-size: 3vw;
         border-radius: 0 0 0.8vw 0.8vw;
         padding: 2vw 0;
     }
 
-    .modal-menu__close {
-        left: 4vw;
+    /* バックリンク */
+    .reservation-change__back {
+        margin-top: 4vw;
+    }
+
+    .reservation-change__back-link {
+        font-size: 2.4vw;
     }
 }

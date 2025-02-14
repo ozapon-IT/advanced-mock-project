@@ -13,11 +13,15 @@ class ShopController extends Controller
 {
     public function showTopPage(Request $request)
     {
-        $shops = Shop::query()
+        $shops = Shop::with(['area', 'genre', 'favorites', 'reviews'])
             ->filterByArea($request->area)
             ->filterByGenre($request->genre)
             ->filterByText($request->text)
-            ->get();
+            ->get()
+            ->map(function ($shop) {
+                $shop->average_rating = round($shop->reviews->avg('rating'), 2);
+                return $shop;
+            });
 
         $areas = Area::all();
         $genres = Genre::all();
@@ -27,11 +31,13 @@ class ShopController extends Controller
 
     public function showDetailPage(int $id)
     {
-        $shop = Shop::find($id);
+        $shop = Shop::with(['reviews', 'favorites'])->find($id);
 
         if (!$shop) {
             abort(404, 'Shop not found');
         }
+
+        $shop->average_rating = round($shop->reviews->avg('rating'), 2);
 
         $menus = Menu::where('shop_id', $id)->get();
 

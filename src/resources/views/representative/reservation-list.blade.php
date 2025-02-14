@@ -8,12 +8,12 @@
 
 @section('header')
 <header class="header">
-    <div class="header__container">
+    <div class="header__wrapper">
         <div class="header__menu">
-            <a class="menu__button" href="#modal-menu">
+            <a class="header__menu-toggle" href="#modal-menu">
                 <i class="bi bi-list"></i>
             </a>
-            <h1 class="menu__service-name">Rese</h1>
+            <span class="header__service-name">Rese</span>
         </div>
     </div>
 </header>
@@ -22,16 +22,16 @@
 @section('main')
 <main>
     <div class="reservation-list">
-        <h2 class="reservation-list__title">予約一覧</h2>
+        <h1 class="reservation-list__heading">予約一覧</h1>
         <table class="reservation-list__table">
-            <tr class="table__row">
+            <tr class="reservation-list__table-row">
                 <th>予約日時</th>
                 <th>予約人数</th>
                 <th>お名前</th>
                 <th>予約詳細</th>
             </tr>
             @foreach ($reservations as $reservation)
-                <tr class="table__row">
+                <tr class="reservation-list__table-row">
                     <td>{{ $reservation->reservation_date }} {{ $reservation->reservation_time }}</td>
                     <td>{{ $reservation->number_of_people }}</td>
                     <td>{{ $reservation->user->name }}</td>

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.user')
 
 @section('title', 'サンクスページ - Rese')
 
@@ -8,12 +8,12 @@
 
 @section('header')
 <header class="header">
-    <div class="header__container">
+    <div class="header__wrapper">
         <div class="header__menu">
-            <a class="menu__button" href="#modal-menu">
+            <a class="header__menu-toggle" href="#modal-menu">
                 <i class="bi bi-list"></i>
             </a>
-            <h1 class="menu__service-name">Rese</h1>
+            <span class="header__service-name">Rese</span>
         </div>
     </div>
 </header>
@@ -22,9 +22,9 @@
 @section('main')
 <main>
     <div class="thanks">
-        <div class="thanks__content">
+        <div class="thanks__wrapper">
             <p class="thanks__message">会員登録ありがとうございます</p>
-            <a class="thanks__login-button" href="/login">ログインする</a>
+            <a class="thanks__button" href="/login">ログインする</a>
         </div>
     </div>
 </main>

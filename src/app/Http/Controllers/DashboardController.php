@@ -35,7 +35,7 @@ class DashboardController extends Controller
 
         $totalMenus= Menu::where('shop_id', $shop->id)->count();
 
-        $totalReservations = Reservation::where('shop_id', $shop->id)->count();
+        $totalReservations = Reservation::where('shop_id', $shop->id)->where('status', '予約済み')->count();
 
         return view('representative.dashboard', compact('totalReservations', 'shopEditDate', 'totalMenus'));
     }

@@ -3,7 +3,7 @@
     width: 90vw;
 }
 
-.dashboard__title {
+.dashboard__heading {
     text-align: center;
     font-size: 2vw;
 }
@@ -15,17 +15,16 @@
     margin-top: 3vw;
 }
 
-.contents__user {
+.dashboard__contents-wrapper {
     width: 41.5vw;
 }
 
-.user__title {
+.dashboard__subheading {
     text-align: center;
     font-size: 1.5vw;
 }
 
-.user__announce,
-.representative__register {
+.dashboard__function {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -46,29 +45,17 @@
     font-size: 1.5vw;
 }
 
-.user__announce a,
-.representative__register a {
+.dashboard__function a {
     text-decoration: none;
     font-size: 1.5vw;
     color: #fff;
 }
 
-.user__announce a:hover,
-.representative__register a:hover {
+.dashboard__function a:hover {
     text-decoration: underline;
 }
 
-.contents__representative {
-    width: 41.5vw;
-}
-
-.representative__title {
-    text-align: center;
-    font-size: 1.5vw;
-}
-
-.user__announce p,
-.representative__register p {
+.dashboard__function p {
     font-size: 1.5vw;
     background-color: #fff;
     border-radius: 0.4vw;
@@ -76,14 +63,15 @@
     padding: 1vw;
 }
 
-.alert {
-    font-size: 1vw;
-    color: yellow;
-    margin-top: 0.2vw;
+.message {
+    text-align: center;
+    color: blue;
+    font-size: 1.2vw;
+    margin-top: 1vw;
 }
 
-.modal-menu__close {
-    left: 5vw;
+.message--alert {
+    color: red;
 }
 
 @media screen and (max-width: 768px) {
@@ -95,7 +83,7 @@
         margin: 0 auto 6vw;
     }
 
-    .dashboard__title {
+    .dashboard__heading {
         font-size: 4vw;
     }
 
@@ -105,16 +93,19 @@
         margin-top: 6vw;
     }
 
-    .contents__user {
+    .dashboard__contents-wrapper {
         width: 100%;
     }
 
-    .user__title {
+    .dashboard__contents-wrapper:not(:first-of-type) {
+        margin-top: 5vw;
+    }
+
+    .dashboard__subheading {
         font-size: 3vw;
     }
 
-    .user__announce,
-    .representative__register {
+    .dashboard__function {
         box-shadow: 0.4vw 0.4vw 0.4vw rgba(0, 0, 0, 0.5);
         border-radius: 0.8vw;
         width: 100%;
@@ -128,22 +119,11 @@
         font-size: 3vw;
     }
 
-    .user__announce a,
-    .representative__register a {
+    .dashboard__function a {
         font-size: 3vw;
     }
 
-    .contents__representative {
-        width: 100%;
-    }
-
-    .representative__title {
-        font-size: 3vw;
-        margin-top: 5vw;
-    }
-
-    .user__announce p,
-    .representative__register p {
+    .dashboard__function p {
         font-size: 3vw;
         background-color: #fff;
         border-radius: 0.8vw;
@@ -151,12 +131,8 @@
         padding: 2vw;
     }
 
-    .alert {
-        font-size: 2vw;
-        margin-top: 0.4vw;
-    }
-
-    .modal-menu__close {
-        left: 4vw;
+    .message {
+        font-size: 2.4vw;
+        margin-top: 2vw;
     }
 }

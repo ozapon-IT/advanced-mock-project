@@ -1,9 +1,13 @@
+.modal-menu__close {
+    left: 4.5vw;
+}
+
 .announce {
     width: 90vw;
     margin: 2vw auto;
 }
 
-.announce__title {
+.announce__heading {
     text-align: center;
     font-size: 2vw;
 }
@@ -20,15 +24,15 @@
     width: 41.5vw;
 }
 
-.announce__subtitle {
+.announce__subheading {
     text-align: center;
     font-size: 1.5vw;
 }
 
+/* 作成 */
 .announce__form {
     position: relative;
     background-color: #305cff;
-    box-shadow: 0.2vw 0.2vw 0.2vw rgba(0, 0, 0, 0.5);
     border-radius: 0.4vw;
     padding: 3vw 4vw;
     margin-top: 3vw;
@@ -44,30 +48,30 @@
     margin-top: 2vw;
 }
 
-.announce__form-label {
+.announce__label {
     color: #fff;
     font-size: 1.5vw;
 }
 
-.announce__form-input,
-.announce__form-textarea {
+.announce__input,
+.announce__textarea {
     margin-top: 0.5vw;
     border: none;
     font-size: 1.2vw;
     border-radius: 0.2vw;
 }
 
-.announce__form-input {
+.announce__input {
     height: 2.5vw;
     padding: 0 1vw;
 }
 
-.announce__form-textarea {
+.announce__textarea {
     height: 20vw;
     padding: 1vw;
 }
 
-.announce__form-button {
+.announce__button {
     all: unset;
     color: #fff;
     background-color: #1d49ed;
@@ -82,10 +86,11 @@
     padding: 1vw 0;
 }
 
-.announce__form-button:hover {
+.announce__button:hover {
     background-color: #0538ff;
 }
 
+/* 履歴 */
 .announce__table {
     width: 100%;
     border-collapse: separate;
@@ -96,14 +101,14 @@
 }
 
 .announce__table-row {
-    background-color: #305cff;
+    background-color: #fff;
     width: 100%;
     height: 2vw;
 }
 
 .announce__table-row th,
 .announce__table-row td {
-    color: #fff;
+    color: #000;
     line-height: 2vw;
     text-align: center;
 }
@@ -124,25 +129,20 @@
     border-radius: 0 0 0.4vw 0;
 }
 
-.announce__table-link {
-    text-decoration: none;
-    color: #fff;
+.announce__link {
+    color: #666;
     font-size: 1.2vw;
 }
 
-.announce__table-link:hover {
-    text-decoration: underline;
-}
-
-.modal-menu__close {
-    left: 5vw;
+.announce__link:hover {
+    color: #305cff;
 }
 
 /* ページネーション */
 .announce__pagination {
     display: flex;
     justify-content: right;
-    margin-top: 3vw;
+    margin-top: 2.5vw;
 }
 
 .announce__pagination ul {
@@ -192,11 +192,15 @@
         height: 5vw;
     }
 
-    .announce {
-        margin: 0 auto 3vw;
+    .modal-menu__close {
+        left: 4vw;
     }
 
-    .announce__title {
+    .announce {
+        margin: 0 auto 6vw;
+    }
+
+    .announce__heading {
         font-size: 3.7vw;
     }
 
@@ -211,50 +215,51 @@
         width: 100%;
     }
 
-    .announce__subtitle {
+    .announce__subheading {
         font-size: 3vw;
     }
 
+    /* 作成 */
     .announce__form {
         margin: 6vw auto;
         padding: 6vw 8vw;
         width: 74vw;
         height: 72vw;
         border-radius: 0.8vw;
-        box-shadow: 0.4vw 0.4vw 0.4vw rgba(0, 0, 0, 0.5);
     }
 
     .announce__form-group:nth-of-type(2) {
         margin-top: 4vw;
     }
 
-    .announce__form-label {
+    .announce__label {
         font-size: 2.7vw;
     }
 
-    .announce__form-input,
-    .announce__form-textarea {
+    .announce__input,
+    .announce__textarea {
         margin-top: 1vw;
         font-size: 2.4vw;
         border-radius: 0.4vw;
     }
 
-    .announce__form-input {
+    .announce__input {
         height: 5vw;
         padding: 0 2vw;
     }
 
-    .announce__form-textarea {
+    .announce__textarea {
         height: 40vw;
         padding: 2vw;
     }
 
-    .announce__form-button {
+    .announce__button {
         font-size: 3vw;
         border-radius: 0 0 0.8vw 0.8vw;
         padding: 2vw 0;
     }
 
+    /* 履歴 */
     .announce__table {
         border-spacing: 0 1vw;
         font-size: 2.4vw;
@@ -286,12 +291,8 @@
         border-radius: 0 0 0.8vw 0;
     }
 
-    .announce__table-link {
+    .announce__link {
         font-size: 2.4vw;
-    }
-
-    .modal-menu__close {
-        left: 4vw;
     }
 
     /* ページネーション */

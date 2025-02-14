@@ -17,7 +17,6 @@ class AnnounceFactory extends Factory
      */
     public function definition(): array
     {
-        // $faker = \Faker\Factory::create('ja_JP');
         $this->faker->locale('ja_JP');
 
         return [
