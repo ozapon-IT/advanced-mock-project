@@ -3,13 +3,14 @@ body {
     box-sizing: border-box;
 }
 
+/* ヘッダー */
 .header {
     height: 6.7vw;
     display: flex;
     align-items: end;
 }
 
-.header__container {
+.header__wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -22,14 +23,14 @@ body {
     display: flex;
 }
 
-.menu__button {
+.header__menu-toggle {
     background-color: #4366eb;
     border-radius: 0.4vw;
     padding: 0.3vw;
     box-shadow: 0.2vw 0.2vw 0.2vw rgba(0, 0, 0, 0.5);
 }
 
-.menu__button:hover {
+.header__menu-toggle:hover {
     background-color: #305cff;
 }
 
@@ -38,7 +39,7 @@ body {
     font-size: 2.1vw;
 }
 
-.menu__service-name {
+.header__service-name {
     font-weight: bold;
     color:  #305cff;
     font-size: 2.1vw;
@@ -47,6 +48,7 @@ body {
     align-items: center;
 }
 
+/* モーダルメニュー */
 .modal-menu {
     position: fixed;
     top: 0;
@@ -72,7 +74,7 @@ body {
     background-color: #4366eb;
     position: absolute;
     top: 3.33vw;
-    left: 4.5vw;
+    left: 5vw;
     border-radius: 0.4vw;
     padding: 0.1vw;
     box-shadow: 0.2vw 0.2vw 0.2vw rgba(0, 0, 0, 0.5);
@@ -115,20 +117,31 @@ body {
     text-decoration: underline;
 }
 
+/* バリデーションエラーメッセージ */
 .error-message {
-    color: yellow;
-    font-size: 0.9vw;
+    color: red;
+    font-size: 1vw;
     margin-top: 0.5vw;
 }
 
+.error-message--yellow {
+    color: yellow;
+}
+
 @media screen and (max-width: 768px) {
+    .error-message {
+        font-size: 2vw;
+        margin-top: 1vw;
+    }
+
+    /* ヘッダー */
     .header {
         align-items: center;
         height: 13vw;
         padding: 4vw 0;
     }
 
-    .header__container {
+    .header__wrapper {
         flex-direction: column;
         height: 100%;
     }
@@ -137,7 +150,7 @@ body {
         margin-right: auto;
     }
 
-    .menu__button {
+    .header__menu-toggle {
         border-radius: 0.8vw;
         padding: 0.6vw;
         box-shadow: 0.4vw 0.4vw 0.4vw rgba(0, 0, 0, 0.5);
@@ -147,11 +160,12 @@ body {
         font-size: 4vw;
     }
 
-    .menu__service-name {
+    .header__service-name {
         font-size: 4vw;
         margin-left: 2vw;
     }
 
+    /* モーダルメニュー */
     .modal-menu__close {
         top: 4vw;
         left: 4vw;
@@ -176,10 +190,5 @@ body {
     .modal-menu__button {
         font-size: 4.5vw;
         margin-top: 4vw;
-    }
-
-    .error-message {
-        font-size: 1.8vw;
-        margin-top: 1vw;
     }
 }

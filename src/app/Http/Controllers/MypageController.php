@@ -27,6 +27,7 @@ class MypageController extends Controller
             ->where('user_id', auth()->id())
             ->where('status', '来店済み')
             ->get()
+            ->unique('shop_id')
             ->map(function ($visitedShop) {
                 $visitedShop->average_rating = round($visitedShop->shop->reviews->avg('rating'), 2);
                 return $visitedShop;

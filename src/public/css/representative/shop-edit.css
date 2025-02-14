@@ -1,9 +1,13 @@
+.modal-menu__close {
+    left: 4.5vw;
+}
+
 .shop-edit {
     margin: 2vw auto;
     width: 90vw;
 }
 
-.shop-edit__title {
+.shop-edit__heading {
     text-align: center;
     font-size: 2vw;
 }
@@ -15,56 +19,54 @@
     margin-top: 3vw;
 }
 
-.contents__edit,
-.contents__confirmation {
+.shop-edit__contents-wrapper {
     width: 41.5vw;
 }
 
-.edit__title,
-.confirmation__title {
+.shop-edit__subheading {
     text-align: center;
     font-size: 1.5vw;
 }
 
-.edit__form,
-.confirmation__detail {
+.shop-edit__form,
+.shop-edit__confirmation {
     background-color: #305cff;
-    box-shadow: 0.2vw 0.2vw 0.2vw rgba(0, 0, 0, 0.5);
     border-radius: 0.4vw;
     margin-top: 3vw;
     padding: 3vw 4vw;
 }
 
-.form__section {
+/* 編集 */
+.shop-edit__form-group {
     display: flex;
     flex-direction: column;
 }
 
-.form__section:not(:first-of-type) {
+.shop-edit__form-group:not(:first-of-type) {
     margin-top: 2vw;
 }
 
-.section__title {
+.shop-edit__form-group p {
     color: #fff;
     font-size: 1.3vw;
     margin-bottom: 1vw;
 }
 
-.section__input,
-.section__select,
-.section__textarea {
+.shop-edit__input,
+.shop-edit__select,
+.shop-edit__textarea {
     border: none;
     font-size: 1vw;
     border-radius: 0.2vw;
 }
 
-.section__input,
-.section__select {
+.shop-edit__input,
+.shop-edit__select {
     height: 2.5vw;
     padding: 0 0.8vw;
 }
 
-.section__image--button {
+.shop-edit__label--button {
     background-color: #fff;
     cursor: pointer;
     font-size: 1vw;
@@ -74,19 +76,19 @@
     border-radius: 0.2vw;
 }
 
-.section__input--image {
+.shop-edit__input--image {
     display: none;
 }
 
-.form__section:nth-of-type(2),
-.form__section:nth-of-type(3),
-.form__section:nth-of-type(4) {
+.shop-edit__form-group:nth-of-type(2),
+.shop-edit__form-group:nth-of-type(3),
+.shop-edit__form-group:nth-of-type(4) {
     position: relative;
 }
 
-.form__section:nth-of-type(2):after,
-.form__section:nth-of-type(3):after,
-.form__section:nth-of-type(4):after {
+.shop-edit__form-group:nth-of-type(2):after,
+.shop-edit__form-group:nth-of-type(3):after,
+.shop-edit__form-group:nth-of-type(4):after {
     content: "";
     position: absolute;
     right: 1vw;
@@ -101,7 +103,7 @@
     pointer-events: none;
 }
 
-.section__select {
+.shop-edit__select {
     cursor: pointer;
     appearance: none;
     -webkit-appearance: none;
@@ -109,56 +111,57 @@
     position: relative;
 }
 
-.section__textarea {
+.shop-edit__textarea {
     height: 8vw;
     padding: 0.8vw;
     line-height: 1.5;
 }
 
-.confirmation__detail {
+/* 確認 */
+.shop-edit__confirmation {
     background-color: #fff;
     position: relative;
     height: 41vw;
 }
 
-.detail__shop-name {
+.shop-edit__shop-name {
     font-weight: bold;
     font-size: 1.3vw;
     line-height: 1.5;
     margin-bottom: 1.5vw;
 }
 
-.detail__shop-image {
+.shop-edit__shop-image {
     overflow: hidden;
     width: 100%;
     height: 20vw;
     margin-bottom: 1.5vw;
 }
 
-.shop-image {
+.shop-edit__image {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: none;
 }
 
-.shop-image--visible {
+.shop-edit__image--visible {
     display: block;
 }
 
-.detail__shop-area,
-.detail__shop-genre {
+.shop-edit__shop-area,
+.shop-edit__shop-genre {
     display: inline-block;
     font-size: 1vw;
 }
 
-.detail__shop-summary {
+.shop-edit__shop-summary {
     font-size: 1vw;
     margin-top: 1.5vw;
     line-height: 1.7;
 }
 
-.detail__button {
+.shop-edit__button {
     all: unset;
     color: #fff;
     background-color: #1d49ed;
@@ -173,7 +176,7 @@
     padding: 1vw 0;
 }
 
-.detail__button:hover {
+.shop-edit__button:hover {
     background-color: #0538ff;
 }
 
@@ -182,11 +185,15 @@
         height: 5vw;
     }
 
+    .modal-menu__close {
+        left: 4vw;
+    }
+
     .shop-edit {
         margin: 0 auto 6vw;
     }
 
-    .shop-edit__title {
+    .shop-edit__heading {
         font-size: 3.7vw;
     }
 
@@ -196,47 +203,49 @@
         margin-top: 6vw;
     }
 
-    .contents__edit,
-    .contents__confirmation {
+    .shop-edit__contents-wrapper {
         width: 100%;
     }
 
-    .edit__title,
-    .confirmation__title {
+    .shop-edit__contents-wrapper:not(:first-of-type) {
+        margin-top: 5vw;
+    }
+
+    .shop-edit__subheading {
         font-size: 3vw;
     }
 
-    .edit__form,
-    .confirmation__detail {
-        box-shadow: 0.4vw 0.4vw 0.4vw rgba(0, 0, 0, 0.5);
+    .shop-edit__form,
+    .shop-edit__confirmation {
         border-radius: 0.8vw;
         margin-top: 6vw;
         padding: 6vw 8vw;
     }
 
-    .form__section:not(:first-of-type) {
+    /* 編集 */
+    .shop-edit__form-group:not(:first-of-type) {
         margin-top: 4vw;
     }
 
-    .section__title {
+    .shop-edit__form-group p {
         font-size: 2.6vw;
         margin-bottom: 2vw;
     }
 
-    .section__input,
-    .section__select,
-    .section__textarea {
+    .shop-edit__input,
+    .shop-edit__select,
+    .shop-edit__textarea {
         font-size: 2vw;
         border-radius: 0.4vw;
     }
 
-    .section__input,
-    .section__select {
+    .shop-edit__input,
+    .shop-edit__select {
         height: 5vw;
         padding: 0 1.6vw;
     }
 
-    .section__image--button {
+    .shop-edit__label--button {
         font-size: 2vw;
         height: 5vw;
         line-height: 5vw;
@@ -244,9 +253,9 @@
         border-radius: 0.4vw;
     }
 
-    .form__section:nth-of-type(2):after,
-    .form__section:nth-of-type(3):after,
-    .form__section:nth-of-type(4):after {
+    .shop-edit__form-group:nth-of-type(2):after,
+    .shop-edit__form-group:nth-of-type(3):after,
+    .shop-edit__form-group:nth-of-type(4):after {
         right: 2vw;
         top: 75%;
         transform: translateY(-50%);
@@ -259,41 +268,38 @@
         pointer-events: none;
     }
 
-    .section__textarea {
+    .shop-edit__textarea {
         height: 16vw;
         padding: 1.6vw;
     }
 
-    .contents__confirmation {
-        margin-top: 6vw;
-    }
-
-    .confirmation__detail {
+    /* 確認 */
+    .shop-edit__confirmation {
         height: 80vw;
     }
 
-    .detail__shop-name {
+    .shop-edit__shop-name {
         font-size: 2.6vw;
         margin-bottom: 3vw;
     }
 
-    .detail__shop-image {
+    .shop-edit__shop-image {
         height: 40vw;
         margin-bottom: 3vw;
     }
 
-    .detail__shop-area,
-    .detail__shop-genre {
+    .shop-edit__shop-area,
+    .shop-edit__shop-genre {
         font-size: 2vw;
     }
 
-    .detail__shop-summary {
+    .shop-edit__shop-summary {
         font-size: 2vw;
         margin-top: 3vw;
         line-height: 1.7;
     }
 
-    .detail__button {
+    .shop-edit__button {
         all: unset;
         color: #fff;
         background-color: #1d49ed;

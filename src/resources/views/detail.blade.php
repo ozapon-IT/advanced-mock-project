@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.user')
 
 @section('title', '飲食店詳細ページ - Rese')
 
@@ -186,7 +186,7 @@
 
             @guest
                 <form action="{{ route('login') }}" method="GET">
-                    <button class="detail__reservation-button" type="submit">予約する</button>
+                    <button class="detail__button detail__button--reservation" type="submit">予約する</button>
                 </form>
             @endguest
             @auth

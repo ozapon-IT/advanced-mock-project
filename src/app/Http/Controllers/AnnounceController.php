@@ -55,6 +55,6 @@ class AnnounceController extends Controller
 
     public function showDetailPage(Announce $announce)
     {
-        return view('admin.announce_detail', compact('announce'));
+        return view('admin.announce-detail', compact('announce'));
     }
 }

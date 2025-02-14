@@ -8,12 +8,12 @@
 
 @section('header')
 <header class="header">
-    <div class="header__container">
+    <div class="header__wrapper">
         <div class="header__menu">
-            <a class="menu__button" href="#modal-menu">
+            <a class="header__menu-toggle" href="#modal-menu">
                 <i class="bi bi-list"></i>
             </a>
-            <h1 class="menu__service-name">Rese</h1>
+            <span class="header__service-name">Rese</span>
         </div>
     </div>
 </header>
@@ -22,11 +22,11 @@
 @section('main')
 <main>
     <div class="reservation-detail">
-        <h2 class="reservation-detail__title">予約詳細</h2>
+        <h1 class="reservation-detail__heading">予約詳細</h1>
         <div class="reservation-detail__wrapper">
             <table class="reservation-detail__table">
                 <thead>
-                    <tr class="table__row">
+                    <tr class="reservation-detail__table-row">
                         <th>User</th>
                         <th>Date</th>
                         <th>Time</th>
@@ -37,7 +37,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="table__row">
+                    <tr class="reservation-detail__table-row">
                         <td>{{ $reservation->user->name }}</td>
                         <td>{{ $reservation->reservation_date }}</td>
                         <td>{{ $reservation->reservation_time }}</td>
@@ -55,7 +55,7 @@
             </form>
         </div>
         <div class="reservation-detail__back">
-            <a href="{{ route('show.reservation-list') }}">戻る</a>
+            <a class="reservation-detail__link" href="{{ route('show.reservation-list') }}">戻る</a>
         </div>
     </div>
 </main>

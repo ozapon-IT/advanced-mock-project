@@ -3,7 +3,7 @@
     margin: 2vw auto;
 }
 
-.menu-edit__title {
+.menu-edit__heading {
     text-align: center;
     font-size: 2vw;
 }
@@ -15,47 +15,48 @@
     margin-top: 3vw;
 }
 
-.contents__create,
-.contents__update {
+.menu-edit__contents-wrapper {
     width: 41.5vw;
 }
 
-.create__title,
-.update__title {
+.menu-edit__subheading {
     text-align: center;
     font-size: 1.5vw;
 }
 
-.create__form,
-.update__form {
-    box-shadow: 0.2vw 0.2vw 0.2vw rgba(0, 0, 0, 0.5);
+.menu-edit__form {
     border-radius: 0.4vw;
     margin-top: 3vw;
     padding: 3vw 4vw;
 }
 
-.create__form {
+/* 作成 */
+.menu-edit__form--create {
     position: relative;
     background-color: #305cff;
     height: 20vw;
 }
 
-.form__section {
+.menu-edit__form-group {
     display: flex;
     flex-direction: column;
 }
 
-.form__section:not(:first-of-type) {
+.menu-edit__form-group:not(:first-of-type) {
     margin-top: 2vw;
 }
 
-.section__title {
+.menu-edit__form-group:nth-of-type(2) {
+    position: relative;
+}
+
+.menu-edit__form-group p {
     color: #fff;
     font-size: 1.3vw;
     margin-bottom: 1vw;
 }
 
-.section__input {
+.menu-edit__form-input {
     border: none;
     font-size: 1vw;
     border-radius: 0.2vw;
@@ -63,15 +64,11 @@
     padding: 0 0.8vw;
 }
 
-.form__section:nth-of-type(2) {
-    position: relative;
-}
-
-.section__input--price {
+.menu-edit__form-input--price {
     padding: 0 2vw;
 }
 
-.section__input--yen-sign {
+.menu-edit__form-yen-sign {
     position: absolute;
     left: 0.7vw;
     bottom: 0.6vw;
@@ -79,7 +76,7 @@
     font-size: 1.2vw;
 }
 
-.form__button {
+.menu-edit__form-button {
     all: unset;
     color: #fff;
     background-color: #1d49ed;
@@ -94,34 +91,49 @@
     padding: 1vw 0;
 }
 
-.form__button:hover {
+.menu-edit__form-button:hover {
     background-color: #0538ff;
 }
 
-.update__form {
+/* 更新 */
+.menu-edit__form--update {
     background-color: #fff;
+    box-shadow: 0.2vw 0.2vw 0.2vw rgba(0, 0, 0, 0.5);
 }
 
-.form__table {
+.menu-edit__table {
     width: 100%;
 }
 
-.table__row {
+.menu-edit__table-row {
     display: block;
     height: 2vw;
     line-height: 2vw;
 }
 
-.form__table thead tr {
+.menu-edit__table thead tr {
     border-bottom: 0.1vw solid #aaa;
     font-size: 1.3vw;
 }
 
-.form__table tbody tr {
+.menu-edit__table tbody tr {
     margin-top: 1vw;
 }
 
-.table__input {
+.menu-edit__table-row td:first-of-type {
+    width: 18vw;
+}
+
+.menu-edit__table-row td:nth-of-type(2) {
+    position: relative;
+    width: 12vw;
+}
+
+.menu-edit__table-row td:nth-of-type(3) {
+    width: 3.6vw;
+}
+
+.menu-edit__table-input {
     border: none;
     background-color: #edf2fa;
     border-radius: 0.2vw;
@@ -129,36 +141,24 @@
     padding: 0.4vw;
 }
 
-.table__input--name {
+.menu-edit__table-input--name {
     width: 16.5vw;
 }
 
-.table__row td:first-of-type {
-    width: 18vw;
+.menu-edit__table-input--price {
+    padding: 0.4vw 1.5vw;
+    width: 8.5vw;
 }
 
-.table__row td:nth-of-type(2) {
-    position: relative;
-    width: 12vw;
-}
-
-.table__input--yen-sign {
+.menu-edit__table-yen-sign {
     position: absolute;
     font-size: 1vw;
     left: 0.5vw;
     top: 0.1vw;
 }
 
-.table__input--price {
-    padding: 0.4vw 1.5vw;
-    width: 8.5vw;
-}
 
-.table__row td:nth-of-type(3) {
-    width: 3.6vw;
-}
-
-.table__button {
+.menu-edit__table-button {
     all: unset;
     display: block;
     background-color:#4366eb;
@@ -169,17 +169,8 @@
     padding: 0 0.7vw;
 }
 
-.table__button:hover {
+.menu-edit__table-button:hover {
     background-color: #305cff;
-}
-
-.error-message--red {
-    color: red;
-    font-size: 0.8vw;
-}
-
-.modal-menu__close {
-    left: 5vw;
 }
 
 @media screen and (max-width: 768px) {
@@ -191,7 +182,7 @@
         margin: 0 auto 6vw;
     }
 
-    .menu-edit__title {
+    .menu-edit__heading {
         font-size: 3.7vw;
     }
 
@@ -201,124 +192,116 @@
         margin-top: 6vw;
     }
 
-    .contents__create,
-    .contents__update {
+    .menu-edit__contents-wrapper {
         width: 100%;
     }
 
-    .create__title,
-    .update__title {
+    .menu-edit__subheading {
         font-size: 3vw;
     }
 
-    .create__form,
-    .update__form {
-        box-shadow: 0.4vw 0.4vw 0.4vw rgba(0, 0, 0, 0.5);
+    .menu-edit__form {
         border-radius: 0.8vw;
         margin-top: 6vw;
         padding: 6vw 8vw;
     }
 
-    .create__form {
+    /* 作成 */
+    .menu-edit__form--create {
         height: 40vw;
     }
 
-    .form__section:not(:first-of-type) {
+    .menu-edit__form-group:not(:first-of-type) {
         margin-top: 4vw;
     }
 
-    .section__title {
+    .menu-edit__form-group p {
         font-size: 2.6vw;
         margin-bottom: 2vw;
     }
 
-    .section__input {
+    .menu-edit__form-input {
         font-size: 2vw;
         border-radius: 0.4vw;
         height: 5vw;
         padding: 0 1.6vw;
     }
 
-    .section__input--price {
+    .menu-edit__form-input--price {
         padding: 0 4vw;
     }
 
-    .section__input--yen-sign {
+    .menu-edit__form-yen-sign {
         left: 1.4vw;
         bottom: 1.2vw;
         font-size: 2.4vw;
     }
 
-    .form__button {
+    .menu-edit__form-button {
         font-size: 3vw;
         border-radius: 0 0 0.8vw 0.8vw;
         padding: 2vw 0;
     }
 
-    .contents__update {
+    /* 更新 */
+    .menu-edit__contents-wrapper:not(:first-of-type) {
         margin-top: 6vw;
     }
 
-    .table__row {
+    .menu-edit__form--update {
+        box-shadow: 0.4vw 0.4vw 0.4vw rgba(0, 0, 0, 0.5);
+    }
+
+    .menu-edit__table-row {
         height: 4vw;
         line-height: 4vw;
     }
 
-    .form__table thead tr {
+    .menu-edit__table thead tr {
         font-size: 2.6vw;
     }
 
-    .form__table tbody tr {
+    .menu-edit__table tbody tr {
         margin-top: 2vw;
     }
 
-    .table__input {
+    .menu-edit__table-row td:first-of-type {
+        width: 39vw;
+    }
+
+    .menu-edit__table-row td:nth-of-type(2) {
+        position: relative;
+        width: 29vw;
+    }
+
+    .menu-edit__table-row td:nth-of-type(3) {
+        width: 7.5vw;
+    }
+
+    .menu-edit__table-input {
         border-radius: 0.4vw;
         font-size: 2vw;
         padding: 0.8vw;
     }
 
-    .table__input--name {
+    .menu-edit__table-input--name {
         width: 35vw;
     }
 
-    .table__row td:first-of-type {
-        width: 39vw;
+    .menu-edit__table-input--price {
+        padding: 0.8vw 3vw;
+        width: 21vw;
     }
 
-    .table__row td:nth-of-type(2) {
-        position: relative;
-        width: 29vw;
-    }
-
-    .table__input--yen-sign {
+    .menu-edit__table-yen-sign {
         font-size: 2vw;
         left: 1vw;
         top: 0.2vw;
     }
 
-    .table__input--price {
-        padding: 0.8vw 3vw;
-        width: 21vw;
-    }
-
-    .table__row td:nth-of-type(3) {
-        width: 7.5vw;
-    }
-
-    .table__button {
+    .menu-edit__table-button {
         border-radius: 0.4vw;
         font-size: 2vw;
         padding: 0 1.4vw;
     }
-
-    .error-message--red {
-        font-size: 1.6vw;
-    }
-
-    .modal-menu__close {
-        left: 4vw;
-    }
 }
-
-
