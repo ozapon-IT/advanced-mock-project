@@ -27,6 +27,7 @@ class ReservationController extends Controller
             'number_of_people' => $reservationRequest->number_of_people,
             'payment_method' => $paymentMethod,
             'total_amount' => $totalAmount,
+            'status' => '予約中',
         ]);
 
         $from = $reservationRequest->input('from');
@@ -102,6 +103,6 @@ class ReservationController extends Controller
     {
         $reservation->update(['status' => '来店済み']);
 
-        return redirect()->route('show.reservation-list');
+        return redirect()->route('show.reservation-list')->with(['success' => '来店処理を実行しました。']);
     }
 }

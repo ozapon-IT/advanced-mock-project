@@ -23,6 +23,17 @@
 <main>
     <div class="dashboard">
         <h1 class="dashboard__heading">Dashboard</h1>
+
+        @if ($errors->has('error'))
+            <div class="message message--alert">
+                <span>{{ $errors->first('error') }}</span>
+            </div>
+        @elseif (session('success'))
+            <div class="message">
+                <span>{{ session('success') }}</span>
+            </div>
+        @endif
+
         <div class="dashboard__contents">
             <div class="dashboard__contents-wrapper">
                 <h2 class="dashboard__subheading">店舗情報</h2>

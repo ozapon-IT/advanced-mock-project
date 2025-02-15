@@ -29,7 +29,7 @@ class MenuController extends Controller
             'price' => $validatedData['price'],
         ]);
 
-        return redirect()->route('show.menu-edit');
+        return redirect()->route('show.menu-edit')->with(['success' => 'メニューを作成しました。']);
     }
 
     public function update(MenuRequest $request, Menu $menu)
@@ -41,6 +41,6 @@ class MenuController extends Controller
             'price' => $validatedData['price_' . $menu->id],
         ]);
 
-        return redirect()->route('representative.dashboard');
+        return redirect()->route('show.menu-edit')->with(['success' => 'メニューを更新しました。']);
     }
 }

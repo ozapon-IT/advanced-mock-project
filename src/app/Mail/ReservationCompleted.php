@@ -33,11 +33,20 @@ class ReservationCompleted extends Mailable
 
         try {
             // QRコード生成
+            // $options = new QROptions([
+            //     'version'      => 7,
+            //     'outputType'   => QRCode::OUTPUT_IMAGE_PNG,
+            //     'eccLevel'     => QRCode::ECC_M,
+            //     'scale'        => 7,
+            // ]);
             $options = new QROptions([
-                'version'      => 7,
-                'outputType'   => QRCode::OUTPUT_IMAGE_PNG,
-                'eccLevel'     => QRCode::ECC_M,
-                'scale'        => 7,
+                'version'      => QRCode::VERSION_AUTO, // 自動バージョン選択
+                'outputType'   => QRCode::OUTPUT_IMAGE_PNG, // PNG形式
+                'eccLevel'     => QRCode::ECC_H, // 最高エラー訂正
+                'scale'        => 10, // 拡大倍率（読み取りしやすいサイズ）
+                'bgColor'      => '#FFFFFF', // 背景色（白）
+                'fgColor'      => '#000000', // QRコードの色（黒）
+                'margin'       => 4, // 余白を確保（静的ゾーン）
             ]);
 
             $qrCode = new QRCode($options);

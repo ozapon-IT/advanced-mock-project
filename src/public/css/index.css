@@ -92,13 +92,9 @@
     color: #FFD700;
 }
 
-.modal-menu__close {
-    left: 4.5vw;
-}
-
 @media screen and (max-width: 768px) {
     .header {
-        height: 13vw;
+        height: 14vw;
     }
 
     .shop-list {
@@ -159,9 +155,5 @@
         bottom: 8.5vw;
         gap: 0.4vw;
         font-size: 3vw;
-    }
-
-    .modal-menu__close {
-        left: 4vw;
     }
 }

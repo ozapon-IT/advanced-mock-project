@@ -68,7 +68,7 @@ class ShopController extends Controller
             'image_path' => $path,
         ]);
 
-        return redirect()->route('representative.dashboard');
+        return redirect()->route('show.shop-edit')->with(['success' => '店舗情報を作成しました。']);
     }
 
     public function update(ShopRequest $shopRequest, Shop $shop)
@@ -90,6 +90,6 @@ class ShopController extends Controller
             'image_path' => $path,
         ]);
 
-        return redirect()->route('representative.dashboard');
+        return redirect()->route('show.shop-edit')->with(['success' => '店舗情報を更新しました。']);
     }
 }

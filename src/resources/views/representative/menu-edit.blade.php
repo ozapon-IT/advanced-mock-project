@@ -24,6 +24,16 @@
     <div class="menu-edit">
         <h1 class="menu-edit__heading">メニュー</h1>
 
+        @if ($errors->has('error'))
+            <div class="message message--alert">
+                <span>{{ $errors->first('error') }}</span>
+            </div>
+        @elseif (session('success'))
+            <div class="message">
+                <span>{{ session('success') }}</span>
+            </div>
+        @endif
+
         <div class="menu-edit__contents">
             <div class="menu-edit__contents-wrapper">
                 <h2 class="menu-edit__subheading">作成</h2>

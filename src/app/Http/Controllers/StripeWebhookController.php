@@ -56,6 +56,7 @@ class StripeWebhookController extends Controller
             if ($reservation->payment_status !== 'paid') {
                 if (isset($session->payment_status) && $session->payment_status === 'paid') {
                     $reservation->payment_status = 'paid';
+                    $reservation->status = '予約済み';
                     $reservation->save();
 
                     try {

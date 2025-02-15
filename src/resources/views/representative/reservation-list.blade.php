@@ -23,6 +23,17 @@
 <main>
     <div class="reservation-list">
         <h1 class="reservation-list__heading">予約一覧</h1>
+
+        @if ($errors->has('error'))
+            <div class="message message--alert">
+                <span>{{ $errors->first('error') }}</span>
+            </div>
+        @elseif (session('success'))
+            <div class="message">
+                <span>{{ session('success') }}</span>
+            </div>
+        @endif
+
         <table class="reservation-list__table">
             <tr class="reservation-list__table-row">
                 <th>予約日時</th>
