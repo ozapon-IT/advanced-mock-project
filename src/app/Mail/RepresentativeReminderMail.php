@@ -43,7 +43,7 @@ class RepresentativeReminderMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.representative_reminder',
+            view: 'emails.representative-reminder',
         );
     }
 

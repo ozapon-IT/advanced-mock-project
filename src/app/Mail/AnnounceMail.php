@@ -33,7 +33,7 @@ class AnnounceMail extends Mailable implements ShouldQueue
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: $this->announce->title,
+            subject: "【Rese】{$this->announce->title}",
         );
     }
 

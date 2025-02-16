@@ -73,7 +73,7 @@
                         @foreach ($announces as $announce)
                             <tr class="announce__table-row">
                                 <td>{{ $announce->title }}</td>
-                                <td><a class="announce__link" href="{{ route('show.detail', $announce) }}">詳細</a></td>
+                                <td><a class="announce__link" href="{{ route('announce-detail.show', $announce) }}">詳細</a></td>
                             </tr>
                         @endforeach
                     </tbody>

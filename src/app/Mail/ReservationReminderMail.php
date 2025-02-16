@@ -40,7 +40,7 @@ class ReservationReminderMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.reservation_reminder',
+            view: 'emails.reservation-reminder',
         );
     }
 

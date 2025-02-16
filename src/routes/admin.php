@@ -16,5 +16,5 @@ Route::middleware(['auth', 'role:3'])->group(function () {
 
     Route::post('/announce', [AnnounceController::class, 'send'])->name('send.announce');
 
-    Route::get('/announce/detail/{announce}', [AnnounceController::class, 'showDetailPage'])->name('show.detail');
+    Route::get('/announce/detail/{announce}', [AnnounceController::class, 'showDetail'])->name('announce-detail.show');
 });

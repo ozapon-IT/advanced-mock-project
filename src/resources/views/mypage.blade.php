@@ -56,14 +56,14 @@
                                 </tbody>
                             </table>
                             <div class="mypage__reservation-delete">
-                                <form action="{{ route('delete.reservation', $reservation) }}" method="POST">
+                                <form action="{{ route('reservations.destroy', $reservation) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button class="mypage__button" type="submit"><i class="bi bi-x-circle"></i></button>
                                 </form>
                             </div>
                             <div class="mypage__reservation-change">
-                                <form action="{{ route('change.reservation', $reservation) }}" method="GET">
+                                <form action="{{ route('reservations.edit', $reservation) }}" method="GET">
                                     <button class="mypage__button mypage__button--update" type="submit">予約変更</button>
                                 </form>
                             </div>
@@ -131,7 +131,7 @@
                                 <h2 class="shop-list__name">{{ mb_strimwidth($visitedShop->shop->name, 0, 15, "...") }}</h2>
                                 <p class="shop-list__area">#{{ $visitedShop->shop->area->name }}</p>
                                 <p class="shop-list__genre">#{{ $visitedShop->shop->genre->name }}</p>
-                                <a class="shop-list__detail" href="{{ route('show.review', $visitedShop->shop->id) . '?from=mypage' }}" aria-label="{{ $visitedShop->shop->name }}の詳細を見る">レビューする</a>
+                                <a class="shop-list__detail" href="{{ route('reviews.create', $visitedShop->shop->id) . '?from=mypage' }}" aria-label="{{ $visitedShop->shop->name }}の詳細を見る">レビューする</a>
                                 <button
                                     class="shop-list__favorite js-favorite-button"
                                     data-shop-id="{{ $visitedShop->shop->id }}"

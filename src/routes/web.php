@@ -21,45 +21,45 @@ use App\Http\Controllers\ReviewController;
 */
 
 Route::middleware(['guest_or_user'])->group(function () {
-    Route::get('/', [ShopController::class, 'showTopPage'])->name('top.show');
+    Route::get('/', [ShopController::class, 'index'])->name('index');
 
-    Route::get('/detail/{shop_id}', [ShopController::class, 'showDetailPage'])->name('detail.show');
+    Route::get('/detail/{shop_id}', [ShopController::class, 'show'])->name('detail.show');
 
-    Route::get('detail/{shop}/reviews', [ReviewController::class, 'showReviewList'])->name('show.review-list');
+    Route::get('/detail/{shop}/reviews', [ReviewController::class, 'index'])->name('reviews.index');
 
     Route::get('/thanks', function () {
         return view('auth.thanks');
-    })->name('thanks');
+    })->name('auth.thanks');
 });
 
 Route::middleware(['auth', 'role:1'])->group(function () {
-    Route::post('/detail/{shop_id}', [ReservationController::class, 'reserve'])->name('reserve');
+    Route::post('/detail/{shop}/reservations', [ReservationController::class, 'store'])->name('reservations.store');
 
-    Route::get('/done', [ReservationController::class, 'done'])->name('done');
+    Route::get('/done', [ReservationController::class, 'done'])->name('reservations.done');
 
-    Route::post('/favorite/{shop}', [FavoriteController::class, 'add'])->name('favorite.add');
+    Route::post('/favorite/{shop}', [FavoriteController::class, 'store'])->name('favorites.store');
 
-    Route::delete('/favorite/{shop}', [FavoriteController::class, 'delete'])->name('favorite.delete');
+    Route::delete('/favorite/{shop}', [FavoriteController::class, 'destroy'])->name('favorites.destroy');
 
-    Route::get('/mypage', [MypageController::class, 'showMypage'])->name('show.mypage');
+    Route::get('/mypage', [MypageController::class, 'index'])->name('mypage.index');
 
-    Route::delete('/mypage/delete_reservation/{reservation}', [ReservationController::class, 'deleteReservation'])->name('delete.reservation');
+    Route::delete('/mypage/reservations/{reservation}', [ReservationController::class, 'destroy'])->name('reservations.destroy');
 
-    Route::get('/mypage/change_reservation/{reservation}', [ReservationController::class, 'show'])->name('reservation-change.show');
+    Route::get('/mypage/reservations/{reservation}/edit', [ReservationController::class, 'edit'])->name('reservations.edit');
 
-    Route::patch('/mypage/change_reservation/{reservation}', [ReservationController::class, 'changeReservation'])->name('change.reservation');
+    Route::patch('/mypage/reservations/{reservation}', [ReservationController::class, 'update'])->name('reservations.update');
 
-    Route::get('/mypage/review/{shop}', [ReviewController::class, 'show'])->name('show.review');
+    Route::get('/mypage/reviews/{shop}/create', [ReviewController::class, 'create'])->name('reviews.create');
 
-    Route::post('/mypage/review/{shop}', [ReviewController::class, 'create'])->name('create.review');
+    Route::post('/mypage/reviews/{shop}', [ReviewController::class, 'store'])->name('reviews.store');
 
-    Route::patch('/mypage/review/{shop}', [ReviewController::class, 'update'])->name('update.review');
+    Route::patch('/mypage/reviews/{shop}', [ReviewController::class, 'update'])->name('reviews.update');
 
-    Route::get('/payment/session', [StripeController::class, 'createCheckoutSession'])->name('create.checkout-session');
+    Route::get('/payments/checkout', [StripeController::class, 'checkout'])->name('payments.checkout');
 
-    Route::get('/payment/session/success', [StripeController::class, 'handleSuccess'])->name('reservation.success');
+    Route::get('/payments/success', [StripeController::class, 'handleSuccess'])->name('payments.success');
 
-    Route::get('/payment/session/cancel', [StripeController::class, 'handleCancel'])->name('reservation.cancel');
+    Route::get('/payments/cancel', [StripeController::class, 'handleCancel'])->name('payments.cancel');
 });
 
 Route::get('/email/verify/{id}/{hash}', [VerifyEmailController::class, '__invoke'])->middleware('signed', 'setUserFromId')->name('verification.verify');

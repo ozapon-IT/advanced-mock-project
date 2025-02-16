@@ -25,9 +25,9 @@
         <div class="detail__content">
             <div class="detail__shop-name-container">
                 @if (request('from') === 'mypage')
-                    <a class="detail__back-link" href="{{ route('show.mypage') }}" aria-label="前のページに戻る">&lt;</a>
+                    <a class="detail__back-link" href="{{ route('mypage.index') }}" aria-label="前のページに戻る">&lt;</a>
                 @else
-                    <a class="detail__back-link" href="{{ route('top.show') }}" aria-label="前のページに戻る">&lt;</a>
+                    <a class="detail__back-link" href="{{ route('index') }}" aria-label="前のページに戻る">&lt;</a>
                 @endif
                 <h1 class="detail__shop-name">{{ $shop->name }}</h1>
             </div>
@@ -71,9 +71,9 @@
 
                     <div class="detail__shop-reviews">
                         @if (request('from') === 'mypage')
-                            <a class="detail__shop-reviews-link" href="{{ route('show.review-list', $shop) . '?from=mypage' }}" aria-label="レビューを見る"><i class="bi bi-chat-dots"></i></a>
+                            <a class="detail__shop-reviews-link" href="{{ route('reviews.index', $shop) . '?from=mypage' }}" aria-label="レビューを見る"><i class="bi bi-chat-dots"></i></a>
                         @else
-                            <a class="detail__shop-reviews-link" href="{{ route('show.review-list', $shop) . '?from=top' }}" aria-label="レビューを見る"><i class="bi bi-chat-dots"></i></a>
+                            <a class="detail__shop-reviews-link" href="{{ route('reviews.index', $shop) . '?from=top' }}" aria-label="レビューを見る"><i class="bi bi-chat-dots"></i></a>
                         @endif
 
                         <span class="detail__shop-reviews-number">{{ $shop->reviews->count() }}</span>
@@ -190,7 +190,7 @@
                 </form>
             @endguest
             @auth
-                <form action="{{ route('reserve', $shop->id) }}" id="reservation-form" method="POST">
+                <form action="{{ route('reservations.store', $shop->id) }}" id="reservation-form" method="POST">
                     @csrf
                     <input type="hidden" name="from" value="{{ request('from') }}">
                     <button class="detail__button detail__button--reservation" type="submit">予約する</button>

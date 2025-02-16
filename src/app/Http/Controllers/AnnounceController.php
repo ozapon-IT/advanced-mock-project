@@ -53,7 +53,7 @@ class AnnounceController extends Controller
         return redirect()->route('admin.dashboard')->with(['success' => 'お知らせメールを送信しました。']);
     }
 
-    public function showDetailPage(Announce $announce)
+    public function showDetail(Announce $announce)
     {
         return view('admin.announce-detail', compact('announce'));
     }

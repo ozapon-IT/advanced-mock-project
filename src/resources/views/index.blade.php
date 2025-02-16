@@ -32,7 +32,7 @@
                     @endforeach
                 </select>
             </div>
-            <form action="{{ route('top.show') }}" id="search-form" method="GET">
+            <form action="{{ route('index') }}" id="search-form" method="GET">
                 <button class="header__search-button" type="submit">
                     <i class="bi bi-search"></i>
                 </button>

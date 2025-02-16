@@ -11,7 +11,7 @@ use App\Models\Reservation;
 
 class StripeController extends Controller
 {
-    public function createCheckoutSession(Request $request)
+    public function checkout(Request $request)
     {
         Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
 
@@ -41,8 +41,8 @@ class StripeController extends Controller
                 'payment_method_types' => ['card'],
                 'line_items' => [$lineItem],
                 'mode' => 'payment',
-                'success_url' => route('reservation.success', ['from' => $from]),
-                'cancel_url' => route('reservation.cancel', ['shopId' => $shopId, 'from' => $from]),
+                'success_url' => route('payments.success', ['from' => $from]),
+                'cancel_url' => route('payments.cancel', ['shopId' => $shopId, 'from' => $from]),
                 'customer_email' => auth()->user()->email,
                 'payment_intent_data' => [
                     'metadata' => [
@@ -78,7 +78,7 @@ class StripeController extends Controller
     {
         $from = $request->input('from');
 
-        return redirect()->route('done', ['from' => $from]);
+        return redirect()->route('reservations.done', ['from' => $from]);
     }
 
     public function handleCancel(Request $request)
@@ -109,7 +109,7 @@ class StripeController extends Controller
                 'stack' => $e->getTraceAsString(),
             ]);
 
-            return redirect()->route('top.show');
+            return redirect()->route('index');
         }
     }
 }

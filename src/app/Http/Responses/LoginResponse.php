@@ -26,6 +26,6 @@ class LoginResponse implements LoginResponseContract
             return redirect()->route('representative.dashboard');
         }
 
-        return redirect()->route('top.show');
+        return redirect()->route('index');
     }
 }

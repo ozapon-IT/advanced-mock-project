@@ -11,7 +11,7 @@ use App\Models\Menu;
 
 class ShopController extends Controller
 {
-    public function showTopPage(Request $request)
+    public function index(Request $request)
     {
         $shops = Shop::with(['area', 'genre', 'favorites', 'reviews'])
             ->filterByArea($request->area)
@@ -29,7 +29,7 @@ class ShopController extends Controller
         return view('index', compact('shops', 'areas', 'genres'));
     }
 
-    public function showDetailPage(int $id)
+    public function show(int $id)
     {
         $shop = Shop::with(['reviews', 'favorites'])->find($id);
 

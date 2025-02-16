@@ -18,6 +18,6 @@ class RegisterResponse implements RegisterResponseContract
     {
         Auth::guard('web')->logout();
 
-        return redirect()->route('thanks');
+        return redirect()->route('auth.thanks');
     }
 }

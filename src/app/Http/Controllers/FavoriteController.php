@@ -6,7 +6,7 @@ use App\Models\Shop;
 
 class FavoriteController extends Controller
 {
-    public function add(Shop $shop)
+    public function store(Shop $shop)
     {
         if (!$shop->favorites()->where('user_id', auth()->id())->exists()) {
             $shop->favorites()->create([
@@ -16,16 +16,14 @@ class FavoriteController extends Controller
         }
 
         return response()->json(['message' => 'favorite added'], 200);
-        // return redirect()->back();
     }
 
-    public function delete(Shop $shop)
+    public function destroy(Shop $shop)
     {
         if ($shop->favorites()->where('user_id', auth()->id())->exists()) {
             $shop->favorites()->where('user_id', auth()->id())->delete();
         }
 
         return response()->json(['message' => 'favorite removed'], 200);
-        // return redirect()->back();
     }
 }
