@@ -1,7 +1,7 @@
 .reservation-change {
     position: relative;
     background-color: #305cff;
-    margin: 3vw auto;
+    margin: 3vw auto 0;
     width: 37vw;
     height: 46vw;
     border-radius: 0.4vw;
@@ -131,7 +131,7 @@
 
 /* バックリンク */
 .reservation-change__back {
-    margin: 2vw;
+    margin: 3vw 0;
     text-align: center;
 }
 
@@ -146,7 +146,7 @@
 
 @media screen and (max-width: 768px) {
     .reservation-change {
-        margin: 3vw auto 6vw;
+        margin: 3vw auto 0;
         width: 74vw;
         height: 90vw;
         border-radius: 0.8vw;
@@ -215,7 +215,7 @@
 
     /* バックリンク */
     .reservation-change__back {
-        margin-top: 4vw;
+        margin: 6vw 0;
     }
 
     .reservation-change__back-link {

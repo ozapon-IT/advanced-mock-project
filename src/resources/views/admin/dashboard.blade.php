@@ -22,7 +22,8 @@
 @section('main')
 <main>
     <div class="dashboard">
-        <h1 class="dashboard__heading">Dashboard</h1>
+        <h1 class="dashboard__heading">{{ auth()->user()->name }}</h1>
+
         @if ($errors->has('error'))
             <div class="message message--alert">
                 <span>{{ $errors->first('error') }}</span>
@@ -32,19 +33,20 @@
                 <span>{{ session('success') }}</span>
             </div>
         @endif
+
         <div class="dashboard__contents">
             <div class="dashboard__contents-wrapper">
                 <h2 class="dashboard__subheading">ユーザー</h2>
                 <div class="dashboard__function">
                     <p>総ユーザー数: {{ $totalUsers }}人</p>
-                    <a href="{{ route('show.announce') }}"><i class="bi bi-envelope-fill"></i>お知らせメール作成</a>
+                    <a href="{{ route('admin.users.announce') }}"><i class="bi bi-envelope-fill"></i>お知らせメール作成</a>
                 </div>
             </div>
             <div class="dashboard__contents-wrapper">
                 <h2 class="dashboard__subheading">店舗代表者</h2>
                 <div class="dashboard__function">
                     <p>総店舗代表者数: {{ $totalRepresentatives }}人</p>
-                    <a href="{{ route('show.register') }}"><i class="bi bi-person-fill"></i>店舗代表者登録</a>
+                    <a href="{{ route('admin.representatives.create') }}"><i class="bi bi-person-fill"></i>店舗代表者登録</a>
                 </div>
             </div>
         </div>

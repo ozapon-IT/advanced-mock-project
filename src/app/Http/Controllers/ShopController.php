@@ -11,7 +11,7 @@ use App\Models\Menu;
 
 class ShopController extends Controller
 {
-    public function showTopPage(Request $request)
+    public function index(Request $request)
     {
         $shops = Shop::with(['area', 'genre', 'favorites', 'reviews'])
             ->filterByArea($request->area)
@@ -29,7 +29,7 @@ class ShopController extends Controller
         return view('index', compact('shops', 'areas', 'genres'));
     }
 
-    public function showDetailPage(int $id)
+    public function show(int $id)
     {
         $shop = Shop::with(['reviews', 'favorites'])->find($id);
 
@@ -44,7 +44,7 @@ class ShopController extends Controller
         return view('detail' , compact('shop', 'menus'));
     }
 
-    public function showShopEditPage()
+    public function edit()
     {
         $shop = Shop::where('user_id', auth()->id())->first();
         $areas = Area::all();
@@ -53,7 +53,7 @@ class ShopController extends Controller
         return view('representative.shop-edit', compact('shop','areas', 'genres'));
     }
 
-    public function create(ShopRequest $shopRequest)
+    public function store(ShopRequest $shopRequest)
     {
         $validatedData = $shopRequest->validated();
 
@@ -68,7 +68,7 @@ class ShopController extends Controller
             'image_path' => $path,
         ]);
 
-        return redirect()->route('representative.dashboard');
+        return redirect()->route('representative.dashboard')->with(['success' => '店舗情報を作成しました。']);
     }
 
     public function update(ShopRequest $shopRequest, Shop $shop)
@@ -90,6 +90,6 @@ class ShopController extends Controller
             'image_path' => $path,
         ]);
 
-        return redirect()->route('representative.dashboard');
+        return redirect()->route('representative.dashboard')->with(['success' => '店舗情報を更新しました。']);
     }
 }

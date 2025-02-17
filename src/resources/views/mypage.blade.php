@@ -23,9 +23,20 @@
 <main>
     <div class="mypage">
         <h1 class="mypage__heading">{{ auth()->user()->name }}さん</h1>
+
+        @if ($errors->has('error'))
+            <div class="message message--alert">
+                <span>{{ $errors->first('error') }}</span>
+            </div>
+        @elseif (session('success'))
+            <div class="message">
+                <span>{{ session('success') }}</span>
+            </div>
+        @endif
+
         <div class="mypage__contents">
             <section class="mypage__reservation-status">
-                <h2 class="mypage__subheading">予約状況</h2>
+                <h2 class="mypage__subheading">予約状況 ({{ $reservations->count() }})</h2>
                 <div class="mypage__reservation-card-container">
                     @foreach ($reservations as $index => $reservation)
                         <div class="mypage__reservation-card">
@@ -56,14 +67,14 @@
                                 </tbody>
                             </table>
                             <div class="mypage__reservation-delete">
-                                <form action="{{ route('delete.reservation', $reservation) }}" method="POST">
+                                <form action="{{ route('reservations.destroy', $reservation) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button class="mypage__button" type="submit"><i class="bi bi-x-circle"></i></button>
                                 </form>
                             </div>
                             <div class="mypage__reservation-change">
-                                <form action="{{ route('change.reservation', $reservation) }}" method="GET">
+                                <form action="{{ route('reservations.edit', $reservation) }}" method="GET">
                                     <button class="mypage__button mypage__button--update" type="submit">予約変更</button>
                                 </form>
                             </div>
@@ -72,7 +83,9 @@
                 </div>
             </section>
             <div class="mypage__favorite-shop">
-                <h2 class="mypage__subheading">お気に入り店舗</h2>
+                <h2 class="mypage__subheading">
+                    お気に入り店舗 <span id="favorite-count">({{ $favorites->count() }})</span>
+                </h2>
                 <div class="shop-list">
                     @foreach ($favorites as $favorite)
                         <div class="shop-list__card" id="favorite-card-{{ $favorite->shop->id }}">
@@ -119,7 +132,7 @@
             </div>
 
             <div class="mypage__visited-shop">
-                <h2 class="mypage__subheading">行ったお店</h2>
+                <h2 class="mypage__subheading">行ったお店 ({{ $visitedShops->count() }})</h2>
 
                 <div class="shop-list">
                     @foreach ($visitedShops as $visitedShop)
@@ -131,7 +144,7 @@
                                 <h2 class="shop-list__name">{{ mb_strimwidth($visitedShop->shop->name, 0, 15, "...") }}</h2>
                                 <p class="shop-list__area">#{{ $visitedShop->shop->area->name }}</p>
                                 <p class="shop-list__genre">#{{ $visitedShop->shop->genre->name }}</p>
-                                <a class="shop-list__detail" href="{{ route('show.review', $visitedShop->shop->id) . '?from=mypage' }}" aria-label="{{ $visitedShop->shop->name }}の詳細を見る">レビューする</a>
+                                <a class="shop-list__detail" href="{{ route('reviews.create', $visitedShop->shop->id) . '?from=mypage' }}" aria-label="{{ $visitedShop->shop->name }}の詳細を見る">レビューする</a>
                                 <button
                                     class="shop-list__favorite js-favorite-button"
                                     data-shop-id="{{ $visitedShop->shop->id }}"
@@ -149,15 +162,15 @@
                                         $halfStar = ($averageRating - $fullStars) >= 0.5 ? 1 : 0;
                                         $emptyStars = 5 - ($fullStars + $halfStar);
                                     @endphp
-            
+
                                     @for ($i = 0; $i < $fullStars; $i++)
                                         <i class="bi bi-star-fill"></i>
                                     @endfor
-            
+
                                     @if ($halfStar)
                                         <i class="bi bi-star-half"></i>
                                     @endif
-            
+
                                     @for ($i = 0; $i < $emptyStars; $i++)
                                         <i class="bi bi-star"></i>
                                     @endfor
@@ -250,6 +263,11 @@
                             }
                         }
                     }
+
+                    // お気に入り店舗数更新
+                    const updatedCount = document.querySelectorAll('.mypage__favorite-shop .shop-list .shop-list__card').length;
+                    const favoriteCountElement = document.getElementById('favorite-count');
+                    favoriteCountElement.textContent = `(${updatedCount})`;
                 } else {
                     console.error('お気に入りの更新に失敗しました。');
                 }

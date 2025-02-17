@@ -12,14 +12,14 @@ use App\Jobs\UpdateSentAtJob;
 
 class AnnounceController extends Controller
 {
-    public function showAnnouncePage()
+    public function showAnnounce()
     {
         $announces = Announce::orderByDesc('sent_at')->paginate(15);
 
         return view('admin.announce', compact('announces'));
     }
 
-    public function send(AnnounceRequest $request)
+    public function storeAndSend(AnnounceRequest $request)
     {
         $validatedData = $request->validated();
 
@@ -53,7 +53,7 @@ class AnnounceController extends Controller
         return redirect()->route('admin.dashboard')->with(['success' => 'お知らせメールを送信しました。']);
     }
 
-    public function showDetailPage(Announce $announce)
+    public function show(Announce $announce)
     {
         return view('admin.announce-detail', compact('announce'));
     }

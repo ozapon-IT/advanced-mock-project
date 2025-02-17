@@ -128,6 +128,18 @@ body {
     color: yellow;
 }
 
+/* セッションメッセージ */
+.message {
+    text-align: center;
+    color: blue;
+    font-size: 1.2vw;
+    margin-top: 1vw;
+}
+
+.message--alert {
+    color: red;
+}
+
 @media screen and (max-width: 768px) {
     .header {
         align-items: center;
@@ -185,8 +197,15 @@ body {
         margin-top: 4vw;
     }
 
+    /* バリデーションエラーメッセージ */
     .error-message {
         font-size: 2vw;
         margin-top: 1vw;
+    }
+
+    /* セッションメッセージ */
+    .message {
+        font-size: 2.4vw;
+        margin-top: 2vw;
     }
 }

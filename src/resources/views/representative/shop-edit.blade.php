@@ -23,20 +23,25 @@
 <main>
     <div class="shop-edit">
         <h1 class="shop-edit__heading">店舗情報編集</h1>
+
         <div class="shop-edit__contents">
             <div class="shop-edit__contents-wrapper">
                 <h2 class="shop-edit__subheading">編集</h2>
+
                 <div class="shop-edit__form">
                     <div class="shop-edit__form-group">
                         <p>店舗名</p>
-                        <input class="shop-edit__input" type="text" name="name" value="{{ old('name') }}" form="shop-edit-form">
+
+                        <input class="shop-edit__input" type="text" name="name" value="{{ old('name', $shop ? $shop->name : '') }}" form="shop-edit-form">
                     </div>
                     @error('name')
                         <span class="error-message error-message--yellow">{{ $message }}</span>
                     @enderror
+
                     <div class="shop-edit__form-group">
                         <p>店舗画像</p>
-                        <label class="shop-edit__label--button" for="shop-image">
+
+                        <label class="shop-edit__label--image-select" for="shop-image">
                             画像選択
                             <input class="shop-edit__input--image" type="file" name="image" value="{{ old('image') }}" accept=".jpeg,.png" id="shop-image" form="shop-edit-form">
                         </label>
@@ -44,39 +49,48 @@
                     @error('image')
                         <span class="error-message error-message--yellow">{{ $message }}</span>
                     @enderror
+
                     <div class="shop-edit__form-group">
                         <p>エリア</p>
+
                         <select class="shop-edit__select" name="area" form="shop-edit-form">
                             <option disabled {{ old('area') ? '' : 'selected'}}>エリア選択</option>
+
                             @foreach ($areas as $area)
-                                <option value="{{ $area->id }}" {{ old('area') == $area->id ? 'selected' : ''}}>{{ $area->name }}</option>
+                                <option value="{{ $area->id }}" {{ old('area', $shop ? $shop->area_id : '') == $area->id ? 'selected' : ''}}>{{ $area->name }}</option>
                             @endforeach
                         </select>
                     </div>
                     @error('area')
                         <span class="error-message error-message--yellow">{{ $message }}</span>
                     @enderror
+
                     <div class="shop-edit__form-group">
                         <p>ジャンル</p>
+
                         <select class="shop-edit__select" name="genre" form="shop-edit-form">
                             <option disabled {{ old('genre') ? '' : 'selected'}}>ジャンル選択</option>
+
                             @foreach ($genres as $genre)
-                                <option value="{{ $genre->id }}" {{ old('genre') == $genre->id ? 'selected' : ''}}>{{ $genre->name }}</option>
+                                <option value="{{ $genre->id }}" {{ old('genre', $shop ? $shop->genre_id : '') == $genre->id ? 'selected' : ''}}>{{ $genre->name }}</option>
                             @endforeach
                         </select>
                     </div>
                     @error('genre')
                         <span class="error-message error-message--yellow">{{ $message }}</span>
                     @enderror
+
                     <div class="shop-edit__form-group">
                         <p>店舗概要</p>
-                        <textarea class="shop-edit__textarea" name="summary" form="shop-edit-form">{{ old('summary') }}</textarea>
+
+                        <textarea class="shop-edit__textarea" name="summary" form="shop-edit-form">{{ old('summary', $shop ? $shop->summary : '') }}</textarea>
                     </div>
                     @error('summary')
                         <span class="error-message error-message--yellow">{{ $message }}</span>
                     @enderror
                 </div>
             </div>
+
             <div class="shop-edit__contents-wrapper">
                 <h2 class="shop-edit__subheading">確認</h2>
                 <div class="shop-edit__confirmation">
@@ -93,13 +107,13 @@
                     <p class="shop-edit__shop-summary" id="shop-summary-preview">{{ $shop->summary ?? ''}}</p>
 
                     @if ($shop)
-                        <form action="{{ route('update.shop-information', $shop) }}" method="POST" id="shop-edit-form" enctype="multipart/form-data">
+                        <form action="{{ route('representative.shop.update', $shop) }}" method="POST" id="shop-edit-form" enctype="multipart/form-data">
                             @csrf
                             @method('PATCH')
                             <button class="shop-edit__button" type="submit">更新する</button>
                         </form>
                     @else
-                        <form action="{{ route('create.shop-information') }}" method="POST" id="shop-edit-form" enctype="multipart/form-data">
+                        <form action="{{ route('representative.shop.store') }}" method="POST" id="shop-edit-form" enctype="multipart/form-data">
                             @csrf
                             <button class="shop-edit__button" type="submit">作成する</button>
                         </form>

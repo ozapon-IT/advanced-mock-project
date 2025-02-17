@@ -57,13 +57,13 @@
                 @enderror
             </div>
             @if ($review)
-                <form action="{{ route('update.review', $shop) }}" method="POST" id="review-form">
+                <form action="{{ route('reviews.update', $shop) }}" method="POST" id="review-form">
                     @csrf
                     @method('PATCH')
                     <button class="review__button" type="submit">再投稿する</button>
                 </form>
             @else
-                <form action="{{ route('create.review', $shop) }}" method="POST" id="review-form">
+                <form action="{{ route('reviews.store', $shop) }}" method="POST" id="review-form">
                     @csrf
                     <button class="review__button" type="submit">投稿する</button>
                 </form>
@@ -71,7 +71,7 @@
         </div>
 
         <div class="review__back">
-            <a class="review__back-link" href="{{ route('show.mypage') }}">戻る</a>
+            <a class="review__back-link" href="{{ route('mypage.index') }}">戻る</a>
         </div>
     </div>
 </main>

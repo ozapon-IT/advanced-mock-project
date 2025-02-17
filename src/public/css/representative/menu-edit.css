@@ -1,3 +1,7 @@
+.modal-menu__close {
+    left: 5vw;
+}
+
 .menu-edit {
     width: 90vw;
     margin: 2vw auto;
@@ -34,16 +38,17 @@
 .menu-edit__form--create {
     position: relative;
     background-color: #305cff;
-    height: 20vw;
+    height: 18vw;
 }
 
 .menu-edit__form-group {
     display: flex;
     flex-direction: column;
+    margin-bottom: 0.5vw;
 }
 
 .menu-edit__form-group:not(:first-of-type) {
-    margin-top: 2vw;
+    margin-top: 1.5vw;
 }
 
 .menu-edit__form-group:nth-of-type(2) {
@@ -178,6 +183,10 @@
         height: 5vw;
     }
 
+    .modal-menu__close {
+        left: 4vw;
+    }
+
     .menu-edit {
         margin: 0 auto 6vw;
     }
@@ -208,11 +217,15 @@
 
     /* 作成 */
     .menu-edit__form--create {
-        height: 40vw;
+        height: 36vw;
+    }
+
+    .menu-edit__form-group {
+        margin-bottom: 1vw;
     }
 
     .menu-edit__form-group:not(:first-of-type) {
-        margin-top: 4vw;
+        margin-top: 3vw;
     }
 
     .menu-edit__form-group p {

@@ -59,21 +59,20 @@
 }
 
 .reservation-list__table-row td a {
-    text-decoration: none;
     color: #fff;
 }
 
 .reservation-list__table-row td a:hover {
-    text-decoration: underline;
+    color: gold;
+}
+
+.modal-menu__close {
+    left: 5vw;
 }
 
 @media screen and (max-width: 768px) {
     .header {
         height: 5vw;
-    }
-
-    .modal-menu__close {
-        left: 5vw;
     }
 
     .reservation-list {

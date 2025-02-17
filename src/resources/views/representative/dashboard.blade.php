@@ -22,18 +22,29 @@
 @section('main')
 <main>
     <div class="dashboard">
-        <h1 class="dashboard__heading">Dashboard</h1>
+        <h1 class="dashboard__heading">{{ auth()->user()->name }}さん</h1>
+
+        @if ($errors->has('error'))
+            <div class="message message--alert">
+                <span>{{ $errors->first('error') }}</span>
+            </div>
+        @elseif (session('success'))
+            <div class="message">
+                <span>{{ session('success') }}</span>
+            </div>
+        @endif
+
         <div class="dashboard__contents">
             <div class="dashboard__contents-wrapper">
                 <h2 class="dashboard__subheading">店舗情報</h2>
                 <div class="dashboard__function">
                     <p>店舗情報編集日: {{ $shopEditDate ?? '' }}</p>
-                    <a href="{{ route('show.shop-edit') }}"><i class="bi bi-shop"></i> 店舗情報編集</a>
+                    <a href="{{ route('representative.shop.edit') }}"><i class="bi bi-shop"></i> 店舗情報編集</a>
                 </div>
                 @if ($shopEditDate)
                     <div class="dashboard__function">
                         <p>メニュー数: {{ $totalMenus }}</p>
-                        <a href="{{ route('show.menu-edit') }}"><i class="bi bi-book"></i> メニュー編集</a>
+                        <a href="{{ route('representative.shop.menu.edit') }}"><i class="bi bi-book"></i> メニュー編集</a>
                     </div>
                 @endif
             </div>
@@ -41,7 +52,7 @@
                 <h2 class="dashboard__subheading">予約状況</h2>
                 <div class="dashboard__function">
                     <p>予約数: {{ $totalReservations ?? '0' }}</p>
-                    <a href="{{ route('show.reservation-list') }}"><i class="bi bi-list-check"></i> 予約一覧確認</a>
+                    <a href="{{ route('representative.reservations.index') }}"><i class="bi bi-list-check"></i> 予約一覧確認</a>
                 </div>
             </div>
         </div>

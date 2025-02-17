@@ -8,7 +8,7 @@ use App\Models\Favorite;
 
 class MypageController extends Controller
 {
-    public function showMypage()
+    public function index()
     {
         $reservations = Reservation::where('user_id', auth()->id())
             ->where('status', '予約済み')

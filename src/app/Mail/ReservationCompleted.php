@@ -29,15 +29,18 @@ class ReservationCompleted extends Mailable
     public function __construct(Reservation $reservation)
     {
         $this->reservation = $reservation;
-        $this->reservationUrl = route('show.reservation-detail', $this->reservation->id);
+        $this->reservationUrl = route('representative.reservations.show', $this->reservation->id);
 
         try {
             // QRコード生成
             $options = new QROptions([
-                'version'      => 7,
-                'outputType'   => QRCode::OUTPUT_IMAGE_PNG,
-                'eccLevel'     => QRCode::ECC_M,
-                'scale'        => 7,
+                'version'      => 5, // 5〜10くらいの固定バージョンを試す
+                'outputType'   => QRCode::OUTPUT_IMAGE_PNG, // PNG形式
+                'eccLevel'     => QRCode::ECC_Q, // 高いエラー訂正（Hより低め）
+                'scale'        => 10, // 拡大倍率（読み取りしやすいサイズ）
+                'bgColor'      => [255, 255, 255], // 背景色（白）
+                'fgColor'      => [0, 0, 0], // QRコードの色（黒）
+                'margin'       => 8, // 余白を確保（静的ゾーン）
             ]);
 
             $qrCode = new QRCode($options);
@@ -68,7 +71,7 @@ class ReservationCompleted extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: '【予約完了】ご予約が確定しました',
+            subject: '【Rese】ご予約が確定しました',
         );
     }
 
@@ -78,7 +81,7 @@ class ReservationCompleted extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.reservation_completed',
+            view: 'emails.reservation-completed',
             with: [
                 'reservation' => $this->reservation,
                 'reservationUrl' => $this->reservationUrl,

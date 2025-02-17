@@ -6,15 +6,15 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AnnounceController;
 
 Route::middleware(['auth', 'role:3'])->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'adminIndex'])->name('admin.dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'showAdminDashboard'])->name('admin.dashboard');
 
-    Route::get('/representative_registration', [RegisterController::class, 'show'])->name('show.register');
+    Route::get('/representatives/register', [RegisterController::class, 'create'])->name('admin.representatives.create');
 
-    Route::post('/representative_registration', [RegisterController::class, 'create'])->name('create.representative');
+    Route::post('/representatives/register', [RegisterController::class, 'store'])->name('admin.representatives.store');
 
-    Route::get('/announce', [AnnounceController::class, 'showAnnouncePage'])->name('show.announce');
+    Route::get('/users/announce', [AnnounceController::class, 'showAnnounce'])->name('admin.users.announce');
 
-    Route::post('/announce', [AnnounceController::class, 'send'])->name('send.announce');
+    Route::post('/users/announce', [AnnounceController::class, 'storeAndSend'])->name('admin.users.announce.send');
 
-    Route::get('/announce/detail/{announce}', [AnnounceController::class, 'showDetailPage'])->name('show.detail');
+    Route::get('/users/announce/{announce}', [AnnounceController::class, 'show'])->name('admin.users.announce.show');
 });

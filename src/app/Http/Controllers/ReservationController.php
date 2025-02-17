@@ -10,7 +10,7 @@ use App\Models\Shop;
 
 class ReservationController extends Controller
 {
-    public function reserve(int $id, ReservationRequest $reservationRequest)
+    public function store(int $id, ReservationRequest $reservationRequest)
     {
         $totalAmount = calculateTotalAmount((int)$reservationRequest->number_of_people, $reservationRequest->reservation_menu, $id);
 
@@ -27,11 +27,12 @@ class ReservationController extends Controller
             'number_of_people' => $reservationRequest->number_of_people,
             'payment_method' => $paymentMethod,
             'total_amount' => $totalAmount,
+            'status' => '予約中',
         ]);
 
         $from = $reservationRequest->input('from');
 
-        return redirect()->route('create.checkout-session', ['amount' => $totalAmount, 'reservation_id' => $reservation->id, 'from' => $from]);
+        return redirect()->route('payments.checkout', ['amount' => $totalAmount, 'reservation_id' => $reservation->id, 'from' => $from]);
     }
 
     public function done()
@@ -39,20 +40,26 @@ class ReservationController extends Controller
         return view('done');
     }
 
-    public function deleteReservation(Reservation $reservation)
+    public function destroy(Reservation $reservation)
     {
         tap($reservation)->update(['status' => 'キャンセル'])->delete();
 
-        return redirect()->route('show.mypage');
+        return redirect()->route('mypage.index')->with(['success' => '予約をキャンセルしました。']);
     }
 
-    public function show(Reservation $reservation)
+    public function edit(Reservation $reservation)
     {
         return view('reservation-change', compact('reservation'));
     }
 
-    public function changeReservation(Reservation $reservation, ReservationRequest $reservationRequest)
+    public function update(Reservation $reservation, ReservationRequest $reservationRequest)
     {
+        if ($reservationRequest->has('status')) {
+            $reservation->update(['status' => $reservationRequest->input('status')]);
+
+            return redirect()->route('representative.dashboard')->with(['success' => '来店処理を実行しました。']);
+        }
+
         $shopId = $reservation->shop->id;
 
         $totalAmount = calculateTotalAmount((int)$reservationRequest->number_of_people, $reservationRequest->reservation_menu, $shopId);
@@ -67,10 +74,10 @@ class ReservationController extends Controller
             'total_amount' => $totalAmount,
         ]);
 
-        return redirect()->route('show.mypage');
+        return redirect()->route('mypage.index')->with(['success' => '予約を変更しました。']);
     }
 
-    public function showReservationListPage()
+    public function index()
     {
         $shopId = Shop::where('user_id', auth()->id())->first()->id;
 
@@ -83,7 +90,7 @@ class ReservationController extends Controller
         return view('representative.reservation-list', compact('reservations'));
     }
 
-    public function showReservationDetailPage(Reservation $reservation = null)
+    public function show(Reservation $reservation = null)
     {
         if (!$reservation) {
             abort(404, '予約が見つかりません。');
@@ -96,12 +103,5 @@ class ReservationController extends Controller
         }
 
         return view('representative.reservation-detail', compact('reservation'));
-    }
-
-    public function visit(Reservation $reservation)
-    {
-        $reservation->update(['status' => '来店済み']);
-
-        return redirect()->route('show.reservation-list');
     }
 }

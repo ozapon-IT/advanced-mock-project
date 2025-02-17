@@ -109,7 +109,7 @@
             </table>
         </div>
 
-        <form action="{{ route('change.reservation', $reservation) }}" id="reservation-form" method="POST">
+        <form action="{{ route('reservations.update', $reservation) }}" id="reservation-form" method="POST">
             @csrf
             @method('PATCH')
             <input type="hidden" name="payment_method" value="{{ $reservation->payment_method }}">
@@ -119,7 +119,7 @@
     </div>
 
     <div class="reservation-change__back">
-        <a class="reservation-change__back-link" href="{{ route('show.mypage') }}">戻る</a>
+        <a class="reservation-change__back-link" href="{{ route('mypage.index') }}">戻る</a>
     </div>
 </main>
 @endsection

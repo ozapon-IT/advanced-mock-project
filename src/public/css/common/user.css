@@ -134,7 +134,7 @@ body {
     background-color: #4366eb;
     position: absolute;
     top: 3.33vw;
-    left: 5vw;
+    left: 4.5vw;
     border-radius: 0.4vw;
     padding: 0.1vw;
     box-shadow: 0.2vw 0.2vw 0.2vw rgba(0, 0, 0, 0.5);
@@ -186,6 +186,18 @@ body {
 
 .error-message--yellow {
     color: yellow;
+}
+
+/* セッションメッセージ */
+.message {
+    text-align: center;
+    color: blue;
+    font-size: 1.2vw;
+    margin-top: 1vw;
+}
+
+.message--alert {
+    color: red;
 }
 
 @media screen and (max-width: 768px) {
@@ -282,5 +294,11 @@ body {
     .error-message {
         font-size: 1.8vw;
         margin-top: 0.4vw;
+    }
+
+    /* セッションメッセージ */
+    .message {
+        font-size: 2.4vw;
+        margin-top: 2vw;
     }
 }

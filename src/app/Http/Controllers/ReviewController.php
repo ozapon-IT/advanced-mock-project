@@ -8,7 +8,14 @@ use App\Models\Review;
 
 class ReviewController extends Controller
 {
-    public function show(Shop $shop)
+    public function index(Shop $shop)
+    {
+        $reviews = Review::with('user')->where('shop_id', $shop->id)->paginate(5);
+
+        return view('review-list', compact('reviews', 'shop'));
+    }
+
+    public function create(Shop $shop)
     {
         $review = Review::where('user_id', auth()->id())
             ->where('shop_id', $shop->id)
@@ -17,7 +24,7 @@ class ReviewController extends Controller
         return view('review', compact('shop', 'review'));
     }
 
-    public function create(ReviewRequest $request, Shop $shop)
+    public function store(ReviewRequest $request, Shop $shop)
     {
         $validatedData = $request->validated();
 
@@ -29,7 +36,7 @@ class ReviewController extends Controller
             'review' => $validatedData['review'],
         ]);
 
-        return redirect()->route('show.mypage');
+        return redirect()->route('mypage.index')->with(['success' => 'レビューを作成しました。']);
     }
 
     public function update(ReviewRequest $request, Shop $shop)
@@ -44,13 +51,6 @@ class ReviewController extends Controller
             $review->update($validatedData);
         }
 
-        return redirect()->route('show.mypage');
-    }
-
-    public function showReviewList(Shop $shop)
-    {
-        $reviews = Review::with('user')->where('shop_id', $shop->id)->paginate(5);
-
-        return view('review-list', compact('reviews', 'shop'));
+        return redirect()->route('mypage.index')->with(['success' => 'レビューを更新しました。']);
     }
 }

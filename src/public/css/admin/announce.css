@@ -68,6 +68,7 @@
 
 .announce__textarea {
     height: 20vw;
+    line-height: 1.5;
     padding: 1vw;
 }
 

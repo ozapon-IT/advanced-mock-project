@@ -28,29 +28,29 @@
             <div class="announce__create">
                 <h2 class="announce__subheading">作成</h2>
 
-                <form class="announce__form" action="{{ route('send.announce') }}" method="POST">
+                <form class="announce__form" action="{{ route('admin.users.announce.send') }}" method="POST">
                     @csrf
 
                     <div class="announce__form-group">
                         <label class="announce__label" for="mail-title">タイトル</label>
-    
+
                         <input class="announce__input" type="text" name="title" id="mail-title" value="{{ old('title') }}">
-    
+
                         @error('title')
                             <span class="error-message error-message--yellow">{{ $message }}</span>
                         @enderror
                     </div>
-    
+
                     <div class="announce__form-group">
                         <label class="announce__label" for="mail-body">本文</label>
-    
+
                         <textarea class="announce__textarea" name="body" id="mail-body">{{ old('body') }}</textarea>
-    
+
                         @error('body')
                             <span class="error-message error-message--yellow">{{ $message }}</span>
                         @enderror
                     </div>
-    
+
                     <button class="announce__button" type="submit">送信</button>
                 </form>
             </div>
@@ -73,7 +73,7 @@
                         @foreach ($announces as $announce)
                             <tr class="announce__table-row">
                                 <td>{{ $announce->title }}</td>
-                                <td><a class="announce__link" href="{{ route('show.detail', $announce) }}">詳細</a></td>
+                                <td><a class="announce__link" href="{{ route('admin.users.announce.show', $announce) }}">詳細</a></td>
                             </tr>
                         @endforeach
                     </tbody>

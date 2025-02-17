@@ -10,12 +10,12 @@ use Carbon\Carbon;
 
 class RegisterController extends Controller
 {
-    public function show()
+    public function create()
     {
         return view('admin.register');
     }
 
-    public function create(CustomRegisterRequest $request)
+    public function store(CustomRegisterRequest $request)
     {
         $validatedData = $request->only(['name', 'email', 'password']);
 

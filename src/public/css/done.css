@@ -34,6 +34,10 @@
     background-color: #305cff;
 }
 
+.modal-menu__close {
+    left: 5vw;
+}
+
 @media screen and (max-width: 768px) {
     .done {
         width: 60vw;
@@ -56,9 +60,5 @@
         font-size: 2.5vw;
         padding: 1.2vw 1.8vw;
         margin-top: 6vw;
-    }
-
-    .modal-menu__close {
-        left: 5vw;
     }
 }
