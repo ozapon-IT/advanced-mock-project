@@ -22,6 +22,17 @@ class ReservationRequest extends FormRequest
      */
     public function rules(): array
     {
+        $inputKeys = array_diff(array_keys($this->all()), ['_token', '_method']);
+        if ($this->has('status') && count($inputKeys) === 1) {
+            return [
+                'status' => [
+                    'required',
+                    'string',
+                    'in:来店済み',
+                ],
+            ];
+        }
+
         $currentDate = Carbon::now()->format('Y-m-d');
         $currentTime = Carbon::now()->format('H:i');
 

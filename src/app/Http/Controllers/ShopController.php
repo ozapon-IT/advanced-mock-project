@@ -44,7 +44,7 @@ class ShopController extends Controller
         return view('detail' , compact('shop', 'menus'));
     }
 
-    public function showShopEditPage()
+    public function edit()
     {
         $shop = Shop::where('user_id', auth()->id())->first();
         $areas = Area::all();
@@ -53,7 +53,7 @@ class ShopController extends Controller
         return view('representative.shop-edit', compact('shop','areas', 'genres'));
     }
 
-    public function create(ShopRequest $shopRequest)
+    public function store(ShopRequest $shopRequest)
     {
         $validatedData = $shopRequest->validated();
 
@@ -68,7 +68,7 @@ class ShopController extends Controller
             'image_path' => $path,
         ]);
 
-        return redirect()->route('show.shop-edit')->with(['success' => '店舗情報を作成しました。']);
+        return redirect()->route('representative.dashboard')->with(['success' => '店舗情報を作成しました。']);
     }
 
     public function update(ShopRequest $shopRequest, Shop $shop)
@@ -90,6 +90,6 @@ class ShopController extends Controller
             'image_path' => $path,
         ]);
 
-        return redirect()->route('show.shop-edit')->with(['success' => '店舗情報を更新しました。']);
+        return redirect()->route('representative.dashboard')->with(['success' => '店舗情報を更新しました。']);
     }
 }

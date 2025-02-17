@@ -10,7 +10,7 @@ use App\Models\Reservation;
 
 class DashboardController extends Controller
 {
-    public function adminIndex()
+    public function showAdminDashboard()
     {
         $totalUsers = User::where('role', 1)->count();
 
@@ -19,7 +19,7 @@ class DashboardController extends Controller
         return view('admin.dashboard', compact('totalUsers', 'totalRepresentatives'));
     }
 
-    public function representativeIndex()
+    public function showRepresentativeDashboard()
     {
         $shop = Shop::where('user_id', auth()->id())->first();
 

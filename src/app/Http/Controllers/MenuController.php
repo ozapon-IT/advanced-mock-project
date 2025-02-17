@@ -9,7 +9,7 @@ use App\Models\Menu;
 
 class MenuController extends Controller
 {
-    public function show()
+    public function edit()
     {
         $shopId = Shop::where('user_id', auth()->id())->first()->id;
         $menus = Menu::where('shop_id', $shopId)->get();
@@ -17,7 +17,7 @@ class MenuController extends Controller
         return view('representative.menu-edit', compact('menus'));
     }
 
-    public function create(MenuRequest $request)
+    public function store(MenuRequest $request)
     {
         $validatedData = $request->validated();
 
@@ -29,7 +29,7 @@ class MenuController extends Controller
             'price' => $validatedData['price'],
         ]);
 
-        return redirect()->route('show.menu-edit')->with(['success' => 'メニューを作成しました。']);
+        return redirect()->route('representative.dashboard')->with(['success' => 'メニューを作成しました。']);
     }
 
     public function update(MenuRequest $request, Menu $menu)
@@ -41,6 +41,6 @@ class MenuController extends Controller
             'price' => $validatedData['price_' . $menu->id],
         ]);
 
-        return redirect()->route('show.menu-edit')->with(['success' => 'メニューを更新しました。']);
+        return redirect()->route('representative.dashboard')->with(['success' => 'メニューを更新しました。']);
     }
 }

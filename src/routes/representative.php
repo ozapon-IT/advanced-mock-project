@@ -7,23 +7,23 @@ use App\Http\Controllers\ShopController;
 use App\Http\Controllers\MenuController;
 
 Route::middleware(['auth', 'role:2'])->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'RepresentativeIndex'])->name('representative.dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'showRepresentativeDashboard'])->name('representative.dashboard');
 
-    Route::get('/reservation_list', [ReservationController::class, 'showReservationListPage'])->name('show.reservation-list');
+    Route::get('/reservations', [ReservationController::class, 'index'])->name('representative.reservations.index');
 
-    Route::get('/reservation_detail/{reservation}', [ReservationController::class, 'showReservationDetailPage'])->name('show.reservation-detail');
+    Route::get('/reservations/{reservation}', [ReservationController::class, 'show'])->name('representative.reservations.show');
 
-    Route::patch('/reservation_detail/{reservation}', [ReservationController::class, 'visit'])->name('visit.reservation-shop');
+    Route::patch('/reservations/{reservation}', [ReservationController::class, 'update'])->name('representative.reservations.update');
 
-    Route::get('/shop_edit', [ShopController::class, 'showShopEditPage'])->name('show.shop-edit');
+    Route::get('/shop/edit', [ShopController::class, 'edit'])->name('representative.shop.edit');
 
-    Route::post('/shop_edit', [ShopController::class, 'create'])->name('create.shop-information');
+    Route::post('/shop/edit', [ShopController::class, 'store'])->name('representative.shop.store');
 
-    Route::patch('/shop_edit/{shop}', [ShopController::class, 'update'])->name('update.shop-information');
+    Route::patch('/shop/edit/{shop}', [ShopController::class, 'update'])->name('representative.shop.update');
 
-    Route::get('/menu_edit', [MenuController::class, 'show'])->name('show.menu-edit');
+    Route::get('/shop/menu/edit', [MenuController::class, 'edit'])->name('representative.shop.menu.edit');
 
-    Route::post('/menu_edit', [MenuController::class, 'create'])->name('create.menu');
+    Route::post('/shop/menu/edit', [MenuController::class, 'store'])->name('representative.shop.menu.store');
 
-    Route::patch('/menu_edit/{menu}', [MenuController::class, 'update'])->name('update.menu');
+    Route::patch('/shop/menu/edit/{menu}', [MenuController::class, 'update'])->name('representative.shop.menu.update');
 });

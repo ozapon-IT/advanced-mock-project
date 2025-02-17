@@ -70,7 +70,7 @@ class StripeController extends Controller
                 'stack' => $e->getTraceAsString(),
             ]);
 
-            return redirect()->route('detail.show', ['shop_id' => $shopId]);
+            return redirect()->route('mypage.index')->withErrors(['error' => '決済画面に接続中にエラーが発生しました。']);
         }
     }
 
@@ -109,7 +109,7 @@ class StripeController extends Controller
                 'stack' => $e->getTraceAsString(),
             ]);
 
-            return redirect()->route('index');
+            return redirect()->route('mypage.index')->withErrors(['error' => 'キャンセル処理中にエラーが発生しました。']);
         }
     }
 }

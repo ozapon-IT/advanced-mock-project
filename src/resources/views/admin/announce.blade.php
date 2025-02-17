@@ -28,7 +28,7 @@
             <div class="announce__create">
                 <h2 class="announce__subheading">作成</h2>
 
-                <form class="announce__form" action="{{ route('send.announce') }}" method="POST">
+                <form class="announce__form" action="{{ route('admin.users.announce.send') }}" method="POST">
                     @csrf
 
                     <div class="announce__form-group">
@@ -73,7 +73,7 @@
                         @foreach ($announces as $announce)
                             <tr class="announce__table-row">
                                 <td>{{ $announce->title }}</td>
-                                <td><a class="announce__link" href="{{ route('announce-detail.show', $announce) }}">詳細</a></td>
+                                <td><a class="announce__link" href="{{ route('admin.users.announce.show', $announce) }}">詳細</a></td>
                             </tr>
                         @endforeach
                     </tbody>

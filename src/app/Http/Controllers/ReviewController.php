@@ -36,7 +36,7 @@ class ReviewController extends Controller
             'review' => $validatedData['review'],
         ]);
 
-        return redirect()->route('mypage.index');
+        return redirect()->route('mypage.index')->with(['success' => 'レビューを作成しました。']);
     }
 
     public function update(ReviewRequest $request, Shop $shop)
@@ -51,6 +51,6 @@ class ReviewController extends Controller
             $review->update($validatedData);
         }
 
-        return redirect()->route('mypage.index');
+        return redirect()->route('mypage.index')->with(['success' => 'レビューを更新しました。']);
     }
 }

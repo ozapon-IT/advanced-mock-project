@@ -24,22 +24,12 @@
     <div class="menu-edit">
         <h1 class="menu-edit__heading">メニュー</h1>
 
-        @if ($errors->has('error'))
-            <div class="message message--alert">
-                <span>{{ $errors->first('error') }}</span>
-            </div>
-        @elseif (session('success'))
-            <div class="message">
-                <span>{{ session('success') }}</span>
-            </div>
-        @endif
-
         <div class="menu-edit__contents">
             <div class="menu-edit__contents-wrapper">
                 <h2 class="menu-edit__subheading">作成</h2>
 
                 <div class="menu-edit__form menu-edit__form--create">
-                    <form action="{{ route('create.menu') }}" method="POST">
+                    <form action="{{ route('representative.shop.menu.store') }}" method="POST">
                         @csrf
                         <input type="hidden" name="action" value="create">
 
@@ -81,7 +71,7 @@
                         <tbody>
                             @if ($menus)
                                 @foreach ($menus as $menu)
-                                    <form action="{{ route('update.menu', $menu) }}" method="POST">
+                                    <form action="{{ route('representative.shop.menu.update', $menu) }}" method="POST">
                                         @csrf
                                         @method('PATCH')
                                         <input type="hidden" name="action" value="update">

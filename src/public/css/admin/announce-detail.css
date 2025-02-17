@@ -32,6 +32,10 @@
     margin-top: 1vw;
 }
 
+.announce-detail__content-wrapper:nth-of-type(2) p {
+    line-height: 1.5;
+}
+
 .announce-detail__back {
     margin-top: 3vw;
     text-align: center;

@@ -42,7 +42,7 @@
         </div>
 
         <div class="announce-detail__back">
-            <a class="announce-detail__link" href="{{ route('show.announce') }}">戻る</a>
+            <a class="announce-detail__link" href="{{ route('admin.users.announce') }}">戻る</a>
         </div>
     </div>
 </main>

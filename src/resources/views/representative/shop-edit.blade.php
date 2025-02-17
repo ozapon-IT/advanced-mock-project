@@ -24,16 +24,6 @@
     <div class="shop-edit">
         <h1 class="shop-edit__heading">店舗情報編集</h1>
 
-        @if ($errors->has('error'))
-            <div class="message message--alert">
-                <span>{{ $errors->first('error') }}</span>
-            </div>
-        @elseif (session('success'))
-            <div class="message">
-                <span>{{ session('success') }}</span>
-            </div>
-        @endif
-
         <div class="shop-edit__contents">
             <div class="shop-edit__contents-wrapper">
                 <h2 class="shop-edit__subheading">編集</h2>
@@ -117,13 +107,13 @@
                     <p class="shop-edit__shop-summary" id="shop-summary-preview">{{ $shop->summary ?? ''}}</p>
 
                     @if ($shop)
-                        <form action="{{ route('update.shop-information', $shop) }}" method="POST" id="shop-edit-form" enctype="multipart/form-data">
+                        <form action="{{ route('representative.shop.update', $shop) }}" method="POST" id="shop-edit-form" enctype="multipart/form-data">
                             @csrf
                             @method('PATCH')
                             <button class="shop-edit__button" type="submit">更新する</button>
                         </form>
                     @else
-                        <form action="{{ route('create.shop-information') }}" method="POST" id="shop-edit-form" enctype="multipart/form-data">
+                        <form action="{{ route('representative.shop.store') }}" method="POST" id="shop-edit-form" enctype="multipart/form-data">
                             @csrf
                             <button class="shop-edit__button" type="submit">作成する</button>
                         </form>

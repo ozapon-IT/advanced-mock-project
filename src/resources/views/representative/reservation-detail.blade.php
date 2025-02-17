@@ -48,14 +48,15 @@
                     </tr>
                 </tbody>
             </table>
-            <form action="{{ route('visit.reservation-shop', $reservation) }}" method="POST">
+            <form action="{{ route('representative.reservations.update', $reservation) }}" method="POST">
                 @csrf
                 @method('PATCH')
+                <input type="hidden" name="status" value="来店済み">
                 <button class="reservation-detail__button" type="submit">来店</button>
             </form>
         </div>
         <div class="reservation-detail__back">
-            <a class="reservation-detail__link" href="{{ route('show.reservation-list') }}">戻る</a>
+            <a class="reservation-detail__link" href="{{ route('representative.reservations.index') }}">戻る</a>
         </div>
     </div>
 </main>

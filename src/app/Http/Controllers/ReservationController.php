@@ -44,7 +44,7 @@ class ReservationController extends Controller
     {
         tap($reservation)->update(['status' => 'キャンセル'])->delete();
 
-        return redirect()->route('mypage.index');
+        return redirect()->route('mypage.index')->with(['success' => '予約をキャンセルしました。']);
     }
 
     public function edit(Reservation $reservation)
@@ -54,6 +54,12 @@ class ReservationController extends Controller
 
     public function update(Reservation $reservation, ReservationRequest $reservationRequest)
     {
+        if ($reservationRequest->has('status')) {
+            $reservation->update(['status' => $reservationRequest->input('status')]);
+
+            return redirect()->route('representative.dashboard')->with(['success' => '来店処理を実行しました。']);
+        }
+
         $shopId = $reservation->shop->id;
 
         $totalAmount = calculateTotalAmount((int)$reservationRequest->number_of_people, $reservationRequest->reservation_menu, $shopId);
@@ -68,10 +74,10 @@ class ReservationController extends Controller
             'total_amount' => $totalAmount,
         ]);
 
-        return redirect()->route('mypage.index');
+        return redirect()->route('mypage.index')->with(['success' => '予約を変更しました。']);
     }
 
-    public function showReservationListPage()
+    public function index()
     {
         $shopId = Shop::where('user_id', auth()->id())->first()->id;
 
@@ -84,7 +90,7 @@ class ReservationController extends Controller
         return view('representative.reservation-list', compact('reservations'));
     }
 
-    public function showReservationDetailPage(Reservation $reservation = null)
+    public function show(Reservation $reservation = null)
     {
         if (!$reservation) {
             abort(404, '予約が見つかりません。');
@@ -97,12 +103,5 @@ class ReservationController extends Controller
         }
 
         return view('representative.reservation-detail', compact('reservation'));
-    }
-
-    public function visit(Reservation $reservation)
-    {
-        $reservation->update(['status' => '来店済み']);
-
-        return redirect()->route('show.reservation-list')->with(['success' => '来店処理を実行しました。']);
     }
 }

@@ -29,7 +29,7 @@ class ReservationCompleted extends Mailable
     public function __construct(Reservation $reservation)
     {
         $this->reservation = $reservation;
-        $this->reservationUrl = route('show.reservation-detail', $this->reservation->id);
+        $this->reservationUrl = route('representative.reservations.show', $this->reservation->id);
 
         try {
             // QRコード生成

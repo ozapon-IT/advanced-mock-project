@@ -24,7 +24,7 @@
     <div class="register">
         <h1 class="register__heading">Registration</h1>
 
-        <form class="register__form" action="{{ route('create.representative') }}" method="POST">
+        <form class="register__form" action="{{ route('admin.representatives.store') }}" method="POST">
             @csrf
 
             <div class="register__form-group">
