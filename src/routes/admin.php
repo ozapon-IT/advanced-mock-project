@@ -12,9 +12,9 @@ Route::middleware(['auth', 'role:3'])->group(function () {
 
     Route::post('/representatives/register', [RegisterController::class, 'store'])->name('admin.representatives.store');
 
-    Route::get('/users/announce', [AnnounceController::class, 'showAnnounce'])->name('admin.users.announce');
+    Route::get('/users/announcements', [AnnounceController::class, 'create'])->name('admin.users.announcements.create');
 
-    Route::post('/users/announce', [AnnounceController::class, 'storeAndSend'])->name('admin.users.announce.send');
+    Route::post('/users/announcements', [AnnounceController::class, 'storeAndSend'])->name('admin.users.announcements.send');
 
-    Route::get('/users/announce/{announce}', [AnnounceController::class, 'show'])->name('admin.users.announce.show');
+    Route::get('/users/announcements/{announce}', [AnnounceController::class, 'show'])->name('admin.users.announcements.show');
 });

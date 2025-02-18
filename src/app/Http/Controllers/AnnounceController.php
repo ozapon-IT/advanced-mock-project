@@ -12,7 +12,7 @@ use App\Jobs\UpdateSentAtJob;
 
 class AnnounceController extends Controller
 {
-    public function showAnnounce()
+    public function create()
     {
         $announces = Announce::orderByDesc('sent_at')->paginate(15);
 

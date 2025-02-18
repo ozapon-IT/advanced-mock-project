@@ -18,7 +18,7 @@ class MypageController extends Controller
             ->where('user_id', auth()->id())
             ->get()
             ->map(function ($favorite) {
-                $favorite->average_rating = round($favorite->shop->reviews->avg('rating'), 2);
+                $favorite->shop->average_rating = round($favorite->shop->reviews->avg('rating'), 2);
                 return $favorite;
             });
 
@@ -29,7 +29,7 @@ class MypageController extends Controller
             ->get()
             ->unique('shop_id')
             ->map(function ($visitedShop) {
-                $visitedShop->average_rating = round($visitedShop->shop->reviews->avg('rating'), 2);
+                $visitedShop->shop->average_rating = round($visitedShop->shop->reviews->avg('rating'), 2);
                 return $visitedShop;
             });
 

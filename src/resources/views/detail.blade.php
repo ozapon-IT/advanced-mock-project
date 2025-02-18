@@ -7,16 +7,7 @@
 @endsection
 
 @section('header')
-<header class="header">
-    <div class="header__wrapper">
-        <div class="header__menu">
-            <a class="header__menu-toggle" href="#modal-menu">
-                <i class="bi bi-list"></i>
-            </a>
-            <span class="header__service-name">Rese</span>
-        </div>
-    </div>
-</header>
+<x-header />
 @endsection
 
 @section('main')
@@ -38,35 +29,20 @@
 
             <div class="detail__shop-description">
                 <p class="detail__shop-area">#{{ $shop->area->name }}</p>
+
                 <p class="detail__shop-genre">#{{ $shop->genre->name }}</p>
+
                 <p class="detail__shop-summary">{{ $shop->summary }}</p>
+
                 <ul class="detail__shop-menu">
                     @foreach ($menus as $menu)
                         <li class="detail__shop-menu-item">{{ $menu->name }} {{ formattedTotalAmount($menu->price) }}</li>
                     @endforeach
                 </ul>
+
                 <div class="detail__shop-rating-container">
                     <div class="detail__shop-rating">
-                        @php
-                            $averageRating = $shop->average_rating ?? 0;
-                            $fullStars = floor($averageRating);
-                            $halfStar = ($averageRating - $fullStars) >= 0.5 ? 1 : 0;
-                            $emptyStars = 5 - ($fullStars + $halfStar);
-                        @endphp
-
-                        @for ($i = 0; $i < $fullStars; $i++)
-                            <i class="bi bi-star-fill"></i>
-                        @endfor
-
-                        @if ($halfStar)
-                            <i class="bi bi-star-half"></i>
-                        @endif
-
-                        @for ($i = 0; $i < $emptyStars; $i++)
-                            <i class="bi bi-star"></i>
-                        @endfor
-
-                        <span class="detail__shop-rating-value">{{ number_format($averageRating, 2) }}</span>
+                        <x-rating-stars :rating="$shop->average_rating" showValue="true" />
                     </div>
 
                     <div class="detail__shop-reviews">
@@ -89,10 +65,10 @@
         </div>
 
         <div class="detail__reservation">
-            <div class="detail__reservation-form">
+            <div class="detail__reservation-wrapper">
                 <h2 class="detail__reservation-heading">予約</h2>
 
-                <div class="detail__form-field">
+                <div class="detail__reservation-form">
                     <div class="detail__reservation-date">
                         <input class="detail__input" type="text" name="reservation_date" value="{{ old('reservation_date') }}" form="reservation-form" id="reservation-date" placeholder="予約日">
                         <button  class="detail__button detail__button--calendar" type="button">
@@ -100,9 +76,7 @@
                         </button>
                     </div>
 
-                    @error('reservation_date')
-                        <span class="error-message error-message--yellow">{{ $message }}</span>
-                    @enderror
+                    <x-validation-error field="reservation_date" yellow="true" />
 
                     <div class="detail__reservation-time">
                         <select class="detail__select" name="reservation_time" form="reservation-form" id="reservation-time">
@@ -113,9 +87,7 @@
                         </select>
                     </div>
 
-                    @error('reservation_time')
-                        <span class="error-message error-message--yellow">{{ $message }}</span>
-                    @enderror
+                    <x-validation-error field="reservation_time" yellow="true" />
 
                     <div class="detail__reservation-number">
                         <select class="detail__select" name="number_of_people" form="reservation-form" id="reservation-number">
@@ -126,9 +98,7 @@
                         </select>
                     </div>
 
-                    @error('number_of_people')
-                        <span class="error-message error-message--yellow">{{ $message }}</span>
-                    @enderror
+                    <x-validation-error field="number_of_people" yellow="true" />
 
                     <div class="detail__reservation-menu">
                         <select class="detail__select" name="reservation_menu" form="reservation-form" id="reservation-menu">
@@ -139,9 +109,7 @@
                         </select>
                     </div>
 
-                    @error('reservation_menu')
-                        <span class="error-message error-message--yellow">{{ $message }}</span>
-                    @enderror
+                    <x-validation-error field="reservation_menu" yellow="true" />
 
                     <div class="detail__payment-method">
                         <select class="detail__select" name="payment_method" form="reservation-form" id="payment-method">
@@ -151,36 +119,11 @@
                         </select>
                     </div>
 
-                    @error('payment_method')
-                        <span class="error-message error-message--yellow">{{ $message }}</span>
-                    @enderror
+                    <x-validation-error field="payment_method" yellow="true" />
                 </div>
 
                 <div class="detail__reservation-confirmation">
-                    <table class="detail__confirmation-table">
-                        <thead>
-                            <tr>
-                                <th>Shop</th>
-                                <th>Date</th>
-                                <th>Time</th>
-                                <th>Number</th>
-                                <th>Menu</th>
-                                <th>Price</th>
-                                <th>Payment</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>{{ mb_strimwidth($shop->name, 0, 50, "...") }}</td>
-                                <td id="table-reservation-date">{{ old('reservation_date') ?? '未選択' }}</td>
-                                <td id="table-reservation-time">{{ old('reservation_time') ?? '未選択' }}</td>
-                                <td id="table-reservation-number">{{ old('number_of_people') ?? '未選択' }}</td>
-                                <td id="table-reservation-menu">{{ old('reservation_menu') ?? '未選択' }}</td>
-                                <td id="table-reservation-price">未選択</td>
-                                <td id="table-payment-method">{{ old('payment_method') ?? '未選択' }}</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <x-reservation-details-table :shop="$shop" type="detail" />
                 </div>
             </div>
 
@@ -189,6 +132,7 @@
                     <button class="detail__button detail__button--reservation" type="submit">予約する</button>
                 </form>
             @endguest
+
             @auth
                 <form action="{{ route('reservations.store', $shop->id) }}" id="reservation-form" method="POST">
                     @csrf

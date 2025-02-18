@@ -7,16 +7,7 @@
 @endsection
 
 @section('header')
-<header class="header">
-    <div class="header__wrapper">
-        <div class="header__menu">
-            <a class="header__menu-toggle" href="#modal-menu">
-                <i class="bi bi-list"></i>
-            </a>
-            <span class="header__service-name">Rese</span>
-        </div>
-    </div>
-</header>
+<x-header />
 @endsection
 
 @section('main')

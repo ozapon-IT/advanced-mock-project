@@ -1,22 +1,9 @@
 @extends('layouts.representative')
 
-@section('title', '予約一覧ページ(店舗代表者) - Rese')
+@section('title', '予約一覧ページ - Rese')
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/representative/reservation-list.css') }}">
-@endsection
-
-@section('header')
-<header class="header">
-    <div class="header__wrapper">
-        <div class="header__menu">
-            <a class="header__menu-toggle" href="#modal-menu">
-                <i class="bi bi-list"></i>
-            </a>
-            <span class="header__service-name">Rese</span>
-        </div>
-    </div>
-</header>
 @endsection
 
 @section('main')

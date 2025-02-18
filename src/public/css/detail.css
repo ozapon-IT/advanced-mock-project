@@ -135,7 +135,7 @@
     border-radius: 0.4vw;
 }
 
-.detail__reservation-form {
+.detail__reservation-wrapper {
     padding: 2vw 2.5vw;;
 }
 
@@ -144,7 +144,7 @@
     font-size: 1.8vw;
 }
 
-.detail__form-field {
+.detail__reservation-form {
     display: flex;
     flex-direction: column;
     gap: 0.7vw;
@@ -227,25 +227,25 @@
     border-radius: 0.4vw;
 }
 
-.detail__confirmation-table {
+.detail__confirmation-details {
     display: flex;
     flex-direction: row;
     font-size: 1vw;
     padding: 1.7vw;
 }
 
-.detail__confirmation-table tr {
+.detail__confirmation-details tr {
     display: flex;
     flex-direction: column;
 }
 
-.detail__confirmation-table tr:first-of-type {
+.detail__confirmation-details tr:first-of-type {
     text-align: left;
     margin-right: 4vw;
 }
 
-.detail__confirmation-table th:not(:first-of-type),
-.detail__confirmation-table td:not(:first-of-type) {
+.detail__confirmation-details th:not(:first-of-type),
+.detail__confirmation-details td:not(:first-of-type) {
     margin-top: 1.3vw;
 }
 
@@ -262,6 +262,11 @@
 
 .detail__button--reservation:hover {
     background-color: #0538ff;
+}
+
+/* バリデーションエラーメッセージ */
+.error-message {
+    margin-top: 0;
 }
 
 @media screen and (max-width: 768px) {
@@ -349,7 +354,7 @@
         border-radius: 0.8vw;
     }
 
-    .detail__reservation-form {
+    .detail__reservation-wrapper {
         padding: 3vw 4vw;;
     }
 
@@ -357,7 +362,7 @@
         font-size: 3vw;
     }
 
-    .detail__form-field {
+    .detail__reservation-form {
         gap: 1.5vw;
         margin-top: 4vw;
     }
@@ -396,17 +401,17 @@
         border-radius: 0.8vw;
     }
 
-    .detail__confirmation-table {
+    .detail__confirmation-details {
         font-size: 2.2vw;
         padding: 3vw;
     }
 
-    .detail__confirmation-table tr:first-of-type {
+    .detail__confirmation-details tr:first-of-type {
         margin-right: 5vw;
     }
 
-    .detail__confirmation-table th:not(:first-of-type),
-    .detail__confirmation-table td:not(:first-of-type) {
+    .detail__confirmation-details th:not(:first-of-type),
+    .detail__confirmation-details td:not(:first-of-type) {
         margin-top: 2.5vw;
     }
 

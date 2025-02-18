@@ -1,22 +1,9 @@
 @extends('layouts.representative')
 
-@section('title', '店舗情報編集ページ(店舗代表者) - Rese')
+@section('title', '店舗情報編集ページ - Rese')
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/representative/shop-edit.css') }}">
-@endsection
-
-@section('header')
-<header class="header">
-    <div class="header__wrapper">
-        <div class="header__menu">
-            <a class="header__menu-toggle" href="#modal-menu">
-                <i class="bi bi-list"></i>
-            </a>
-            <span class="header__service-name">Rese</span>
-        </div>
-    </div>
-</header>
 @endsection
 
 @section('main')
@@ -25,7 +12,7 @@
         <h1 class="shop-edit__heading">店舗情報編集</h1>
 
         <div class="shop-edit__contents">
-            <div class="shop-edit__contents-wrapper">
+            <section class="shop-edit__section">
                 <h2 class="shop-edit__subheading">編集</h2>
 
                 <div class="shop-edit__form">
@@ -34,9 +21,8 @@
 
                         <input class="shop-edit__input" type="text" name="name" value="{{ old('name', $shop ? $shop->name : '') }}" form="shop-edit-form">
                     </div>
-                    @error('name')
-                        <span class="error-message error-message--yellow">{{ $message }}</span>
-                    @enderror
+
+                    <x-validation-error field="name" yellow="true" />
 
                     <div class="shop-edit__form-group">
                         <p>店舗画像</p>
@@ -46,9 +32,8 @@
                             <input class="shop-edit__input--image" type="file" name="image" value="{{ old('image') }}" accept=".jpeg,.png" id="shop-image" form="shop-edit-form">
                         </label>
                     </div>
-                    @error('image')
-                        <span class="error-message error-message--yellow">{{ $message }}</span>
-                    @enderror
+
+                    <x-validation-error field="image" yellow="true" />
 
                     <div class="shop-edit__form-group">
                         <p>エリア</p>
@@ -61,9 +46,8 @@
                             @endforeach
                         </select>
                     </div>
-                    @error('area')
-                        <span class="error-message error-message--yellow">{{ $message }}</span>
-                    @enderror
+
+                    <x-validation-error field="area" yellow="true" />
 
                     <div class="shop-edit__form-group">
                         <p>ジャンル</p>
@@ -76,23 +60,22 @@
                             @endforeach
                         </select>
                     </div>
-                    @error('genre')
-                        <span class="error-message error-message--yellow">{{ $message }}</span>
-                    @enderror
+
+                    <x-validation-error field="genre" yellow="true" />
 
                     <div class="shop-edit__form-group">
                         <p>店舗概要</p>
 
                         <textarea class="shop-edit__textarea" name="summary" form="shop-edit-form">{{ old('summary', $shop ? $shop->summary : '') }}</textarea>
                     </div>
-                    @error('summary')
-                        <span class="error-message error-message--yellow">{{ $message }}</span>
-                    @enderror
-                </div>
-            </div>
 
-            <div class="shop-edit__contents-wrapper">
+                    <x-validation-error field="summary" yellow="true" />
+                </div>
+            </section>
+
+            <section class="shop-edit__section">
                 <h2 class="shop-edit__subheading">確認</h2>
+
                 <div class="shop-edit__confirmation">
                     <p class="shop-edit__shop-name" id="shop-name-preview">{{ $shop->name ?? '' }}</p>
 
@@ -119,7 +102,7 @@
                         </form>
                     @endif
                 </div>
-            </div>
+            </section>
         </div>
     </div>
 </main>
