@@ -7,16 +7,7 @@
 @endsection
 
 @section('header')
-<header class="header">
-    <div class="header__wrapper">
-        <div class="header__menu">
-            <a class="header__menu-toggle" href="#modal-menu">
-                <i class="bi bi-list"></i>
-            </a>
-            <span class="header__service-name" aria-hidden="true">Rese</span>
-        </div>
-    </div>
-</header>
+<x-header />
 @endsection
 
 @section('main')
@@ -33,9 +24,7 @@
                 <input class="login__input" type="text" name="email" value="{{ old('email') }}" placeholder="Email" autocomplete="email" aria-label="メールアドレスを入力してください">
             </div>
 
-            @error('email')
-                <span class="error-message">{{ $message }}</span>
-            @enderror
+            <x-validation-error field="email" />
 
             <div class="login__form-group">
                 <i class="bi bi-lock-fill"></i>
@@ -43,9 +32,7 @@
                 <input class="login__input" type="password" name="password" placeholder="Password" autocomplete="current-password" aria-label="パスワードを入力してください">
             </div>
 
-            @error('password')
-                <span class="error-message">{{ $message }}</span>
-            @enderror
+            <x-validation-error field="password" />
 
             <button class="login__button" type="submit">ログイン</button>
         </form>

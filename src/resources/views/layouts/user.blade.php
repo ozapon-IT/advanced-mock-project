@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="{{ asset('css/common/sanitize.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/common/base.css') }}">
     <link rel="stylesheet" href="{{ asset('css/common/user.css') }}">
     @yield('css')
 </head>
@@ -23,27 +24,7 @@
 
     @yield('script')
 
-    <div class="modal-menu" id="modal-menu">
-        <a href="#" class="modal-menu__close"><i class="bi bi-x"></i></a>
-
-        <div class="modal-menu__content">
-            @guest
-                <a class="modal-menu__link" href="{{ route('index') }}">Home</a>
-                <a class="modal-menu__link" href="{{ route('register') }}">Registration</a>
-                <a class="modal-menu__link" href="{{ route('login') }}">Login</a>
-            @endguest
-
-            @auth
-                <a class="modal-menu__link" href="{{ route('index') }}">Home</a>
-                <form action="{{ route('logout') }}" method="POST">
-                    @csrf
-
-                    <button class="modal-menu__button" type="submit">Logout</button>
-                </form>
-                <a class="modal-menu__link" href="{{ route('mypage.index') }}">Mypage</a>
-            @endauth
-        </div>
-    </div>
+    <x-modal-menu />
 </body>
 
 </html>

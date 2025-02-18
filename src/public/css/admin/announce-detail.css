@@ -16,7 +16,7 @@
     padding: 3vw 5vw;
 }
 
-.announce-detail__content-wrapper:not(:first-of-type) {
+.announce-detail__section:not(:first-of-type) {
     margin-top: 2vw;
 }
 
@@ -26,13 +26,13 @@
     border-bottom: 0.1vw solid #000;
 }
 
-.announce-detail__content-wrapper p {
+.announce-detail__section p {
     color: #000;
     font-size: 1.2vw;
     margin-top: 1vw;
 }
 
-.announce-detail__content-wrapper:nth-of-type(2) p {
+.announce-detail__section:nth-of-type(2) p {
     line-height: 1.5;
 }
 
@@ -41,12 +41,12 @@
     text-align: center;
 }
 
-.announce-detail__link {
+.announce-detail__back-link {
     color: #666;
     font-size: 1.2vw;
 }
 
-.announce-detail__link:hover {
+.announce-detail__back-link:hover {
     color: #305cff;
 }
 
@@ -75,7 +75,7 @@
         padding: 6vw 10vw;
     }
 
-    .announce-detail__content-wrapper:not(:first-of-type) {
+    .announce-detail__section:not(:first-of-type) {
         margin-top: 4vw;
     }
 
@@ -83,7 +83,7 @@
         font-size: 3vw;
     }
 
-    .announce-detail__content-wrapper p {
+    .announce-detail__section p {
         font-size: 2.4vw;
         margin-top: 2vw;
     }
@@ -92,7 +92,7 @@
         margin-top: 6vw;
     }
 
-    .announce-detail__link {
+    .announce-detail__back-link {
         font-size: 2.4vw;
     }
 }

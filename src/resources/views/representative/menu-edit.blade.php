@@ -1,22 +1,9 @@
 @extends('layouts.representative')
 
-@section('title', 'メニュー編集ページ(店舗代表者) - Rese')
+@section('title', '店舗メニュー編集ページ - Rese')
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/representative/menu-edit.css') }}">
-@endsection
-
-@section('header')
-<header class="header">
-    <div class="header__wrapper">
-        <div class="header__menu">
-            <a class="header__menu-toggle" href="#modal-menu">
-                <i class="bi bi-list"></i>
-            </a>
-            <span class="header__service-name">Rese</span>
-        </div>
-    </div>
-</header>
 @endsection
 
 @section('main')
@@ -25,7 +12,7 @@
         <h1 class="menu-edit__heading">メニュー</h1>
 
         <div class="menu-edit__contents">
-            <div class="menu-edit__contents-wrapper">
+            <section class="menu-edit__section">
                 <h2 class="menu-edit__subheading">作成</h2>
 
                 <div class="menu-edit__form menu-edit__form--create">
@@ -34,31 +21,28 @@
                         <input type="hidden" name="action" value="create">
 
                         <div class="menu-edit__form-group">
-                            <p>メニュー名</p>
+                            <label class="menu-edit__form-label" for="name">メニュー名</label>
 
-                            <input class="menu-edit__form-input" type="text" name="name" value="{{ old('name') }}">
+                            <input class="menu-edit__form-input" id="name" type="text" name="name" value="{{ old('name') }}">
                         </div>
 
-                        @error('name')
-                            <span class="error-message error-message--yellow">{{ $message }}</span>
-                        @enderror
+                        <x-validation-error field="name" yellow="true" />
 
                         <div class="menu-edit__form-group">
-                            <p>価格</p>
+                            <label class="menu-edit__form-label" for="price">価格</label>
 
-                            <input class="menu-edit__form-input menu-edit__form-input--price" type="number" name="price" value="{{ old('price') }}">
+                            <input class="menu-edit__form-input menu-edit__form-input--price" id="price" type="number" name="price" value="{{ old('price') }}">
                             <span class="menu-edit__form-yen-sign">¥</span>
                         </div>
 
-                        @error('price')
-                            <span class="error-message error-message--yellow">{{ $message }}</span>
-                        @enderror
+                        <x-validation-error field="price" yellow="true" />
+
                         <button class="menu-edit__form-button" type="submit">作成する</button>
                     </form>
                 </div>
-            </div>
+            </section>
 
-            <div class="menu-edit__contents-wrapper">
+            <section class="menu-edit__section">
                 <h2 class="menu-edit__subheading">更新</h2>
 
                 <div class="menu-edit__form menu-edit__form--update">
@@ -88,19 +72,17 @@
                                                 <button class="menu-edit__table-button" type="submit">更新</button>
                                             </td>
                                         </tr>
-                                        @error('name_' . $menu->id)
-                                            <span class="error-message">{{ $message }}</span>
-                                        @enderror
-                                        @error('price_' . $menu->id)
-                                            <span class="error-message">{{ $message }}</span>
-                                        @enderror
+
+                                        <x-validation-error field="{{ 'name_' . $menu->id }}" />
+
+                                        <x-validation-error field="{{ 'price_' . $menu->id }}" />
                                     </form>
                                 @endforeach
                             @endif
                         </tbody>
                     </table>
                 </div>
-            </div>
+            </section>
         </div>
     </div>
 </main>

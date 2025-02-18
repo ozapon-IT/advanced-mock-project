@@ -15,7 +15,7 @@
     margin-top: 3vw;
 }
 
-.shop-edit__contents-wrapper {
+.shop-edit__section {
     width: 41.5vw;
 }
 
@@ -196,11 +196,11 @@
         margin-top: 6vw;
     }
 
-    .shop-edit__contents-wrapper {
+    .shop-edit__section {
         width: 100%;
     }
 
-    .shop-edit__contents-wrapper:not(:first-of-type) {
+    .shop-edit__section:not(:first-of-type) {
         margin-top: 5vw;
     }
 

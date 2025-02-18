@@ -91,25 +91,25 @@
     border-radius: 0.4vw;
 }
 
-.reservation-change__confirmation-table {
+.reservation-change__confirmation-details {
     display: flex;
     flex-direction: row;
     font-size: 1vw;
     padding: 1.7vw;
 }
 
-.reservation-change__confirmation-table tr {
+.reservation-change__confirmation-details tr {
     display: flex;
     flex-direction: column;
 }
 
-.reservation-change__confirmation-table tr:first-of-type {
+.reservation-change__confirmation-details tr:first-of-type {
     text-align: left;
     margin-right: 2.5vw;
 }
 
-.reservation-change__confirmation-table th:not(:first-of-type),
-.reservation-change__confirmation-table td:not(:first-of-type) {
+.reservation-change__confirmation-details th:not(:first-of-type),
+.reservation-change__confirmation-details td:not(:first-of-type) {
     margin-top: 1.3vw;
 }
 
@@ -142,6 +142,11 @@
 
 .reservation-change__back-link:hover {
     color: #305cff;
+}
+
+/* バリデーションエラーメッセージ */
+.error-message {
+    margin-top: 0;
 }
 
 @media screen and (max-width: 768px) {
@@ -193,17 +198,17 @@
         border-radius: 0.8vw;
     }
 
-    .reservation-change__confirmation-table {
+    .reservation-change__confirmation-details {
         font-size: 2.2vw;
         padding: 3vw;
     }
 
-    .reservation-change__confirmation-table tr:first-of-type {
+    .reservation-change__confirmation-details tr:first-of-type {
         margin-right: 5vw;
     }
 
-    .reservation-change__confirmation-table th:not(:first-of-type),
-    .reservation-change__confirmation-table td:not(:first-of-type) {
+    .reservation-change__confirmation-details th:not(:first-of-type),
+    .reservation-change__confirmation-details td:not(:first-of-type) {
         margin-top: 2.5vw;
     }
 

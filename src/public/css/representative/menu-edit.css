@@ -19,7 +19,7 @@
     margin-top: 3vw;
 }
 
-.menu-edit__contents-wrapper {
+.menu-edit__section {
     width: 41.5vw;
 }
 
@@ -55,7 +55,7 @@
     position: relative;
 }
 
-.menu-edit__form-group p {
+.menu-edit__form-label {
     color: #fff;
     font-size: 1.3vw;
     margin-bottom: 1vw;
@@ -201,7 +201,7 @@
         margin-top: 6vw;
     }
 
-    .menu-edit__contents-wrapper {
+    .menu-edit__section {
         width: 100%;
     }
 
@@ -228,7 +228,7 @@
         margin-top: 3vw;
     }
 
-    .menu-edit__form-group p {
+    .menu-edit__form-label {
         font-size: 2.6vw;
         margin-bottom: 2vw;
     }
@@ -257,7 +257,7 @@
     }
 
     /* 更新 */
-    .menu-edit__contents-wrapper:not(:first-of-type) {
+    .menu-edit__section:not(:first-of-type) {
         margin-top: 6vw;
     }
 

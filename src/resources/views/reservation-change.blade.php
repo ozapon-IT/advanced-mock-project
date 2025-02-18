@@ -7,16 +7,7 @@
 @endsection
 
 @section('header')
-<header class="header">
-    <div class="header__wrapper">
-        <div class="header__menu">
-            <a class="header__menu-toggle" href="#modal-menu">
-                <i class="bi bi-list"></i>
-            </a>
-            <span class="header__service-name">Rese</span>
-        </div>
-    </div>
-</header>
+<x-header />
 @endsection
 
 @section('main')
@@ -33,9 +24,8 @@
                 </button>
             </div>
 
-            @error('reservation_date')
-                <span class="error-message error-message--yellow">{{ $message }}</span>
-            @enderror
+            <x-validation-error field="reservation_date" yellow="true" />
+
             <div class="reservation-change__select-field">
                 <select class="reservation-change__select" name="reservation_time" form="reservation-form" id="reservation-time">
                     <option value="" disabled {{ old('reservation_time') ? '' : 'selected'}}>予約時間</option>
@@ -46,9 +36,7 @@
                 </select>
             </div>
 
-            @error('reservation_time')
-                <span class="error-message error-message--yellow">{{ $message }}</span>
-            @enderror
+            <x-validation-error field="reservation_time" yellow="true" />
 
             <div class="reservation-change__select-field">
                 <select class="reservation-change__select" name="number_of_people" form="reservation-form" id="reservation-number">
@@ -60,9 +48,7 @@
                 </select>
             </div>
 
-            @error('number_of_people')
-                <span class="error-message error-message--yellow">{{ $message }}</span>
-            @enderror
+            <x-validation-error field="number_of_people" yellow="true" />
 
             <div class="reservation-change__select-field">
                 <select class="reservation-change__select" name="reservation_menu" form="reservation-form" id="reservation-menu">
@@ -74,39 +60,11 @@
                 </select>
             </div>
 
-            @error('reservation_menu')
-                <span class="error-message error-message--yellow">{{ $message }}</span>
-            @enderror
+            <x-validation-error field="reservation_menu" yellow="true" />
         </div>
 
         <div class="reservation-change__confirmation">
-            <table class="reservation-change__confirmation-table">
-                <thead>
-                    <tr>
-                        <th>Shop</th>
-                        <th>Date</th>
-                        <th>Time</th>
-                        <th>Number</th>
-                        <th>Menu</th>
-                        <th>Price</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>{{ $reservation->shop->name }}</td>
-
-                        <td id="table-reservation-date">{{ old('reservation_date') ?? $reservation->reservation_date }}</td>
-
-                        <td id="table-reservation-time">{{ old('reservation_time') ?? $reservation->reservation_time }}</td>
-
-                        <td id="table-reservation-number">{{ old('number_of_people') ?? $reservation->number_of_people }}</td>
-
-                        <td id="table-reservation-menu">{{ old('reservation_menu') ?? $reservation->menu->name }}</td>
-
-                        <td id="table-reservation-price">{{ formattedTotalAmount($reservation->total_amount) }}</td>
-                    </tr>
-                </tbody>
-            </table>
+            <x-reservation-details-table :reservation="$reservation" type="reservation-change" />
         </div>
 
         <form action="{{ route('reservations.update', $reservation) }}" id="reservation-form" method="POST">
