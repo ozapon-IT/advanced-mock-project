@@ -1,16 +1,6 @@
-/* モーダルメニュー */
-.modal-menu__close {
-    left: 5vw;
-}
-
 @media screen and (max-width: 768px) {
     /* ヘッダー */
     .header {
         height: 13vw;
-    }
-
-    /* モーダルメニュー */
-    .modal-menu__close {
-        left: 4vw;
     }
 }

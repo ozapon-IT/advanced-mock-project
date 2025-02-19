@@ -59,15 +59,15 @@
     background-color: #305cff;
 }
 
+.modal-menu__close {
+    left: 5vw;
+}
+
 .error-message {
     margin-left: 2.3vw;
 }
 
 @media screen and (max-width: 768px) {
-    .modal-menu__close {
-        left: 5vw;
-    }
-
     .register {
         width: 60vw;
         margin: 5vw auto;

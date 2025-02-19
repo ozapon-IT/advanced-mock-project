@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Requests\AnnounceRequest;
 use App\Models\Announce;
 use App\Models\User;

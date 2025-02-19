@@ -78,6 +78,7 @@
     -moz-appearance: none;
     position: relative;
     cursor: pointer;
+    background-color: #fff;
     width: 100%;
     font-size: 1vw;
     border-radius: 0.2vw;

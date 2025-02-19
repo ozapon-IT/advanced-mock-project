@@ -20,17 +20,15 @@ use App\Http\Controllers\ReviewController;
 |
 */
 
-Route::middleware(['guest_or_user'])->group(function () {
-    Route::get('/', [ShopController::class, 'index'])->name('index');
+Route::get('/', [ShopController::class, 'index'])->name('index');
 
-    Route::get('/detail/{shop_id}', [ShopController::class, 'show'])->name('detail.show');
+Route::get('/detail/{shop_id}', [ShopController::class, 'show'])->name('detail.show');
 
-    Route::get('/detail/{shop}/reviews', [ReviewController::class, 'index'])->name('reviews.index');
+Route::get('/detail/{shop}/reviews', [ReviewController::class, 'index'])->name('reviews.index');
 
-    Route::get('/thanks', function () {
-        return view('auth.thanks');
-    })->name('auth.thanks');
-});
+Route::get('/thanks', function () {
+    return view('auth.thanks');
+})->name('auth.thanks');
 
 Route::middleware(['auth', 'role:1'])->group(function () {
     Route::post('/detail/{shop}/reservations', [ReservationController::class, 'store'])->name('reservations.store');

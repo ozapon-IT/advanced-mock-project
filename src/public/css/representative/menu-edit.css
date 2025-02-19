@@ -112,12 +112,11 @@
 
 .menu-edit__table-row {
     display: block;
-    height: 2vw;
-    line-height: 2vw;
 }
 
 .menu-edit__table thead tr {
     border-bottom: 0.1vw solid #aaa;
+    padding-bottom: 0.5vw;
     font-size: 1.3vw;
 }
 
@@ -139,6 +138,7 @@
 }
 
 .menu-edit__table-input {
+    display: block;
     border: none;
     background-color: #edf2fa;
     border-radius: 0.2vw;
@@ -159,7 +159,7 @@
     position: absolute;
     font-size: 1vw;
     left: 0.5vw;
-    top: 0.1vw;
+    top: 0.5vw;
 }
 
 
@@ -171,7 +171,7 @@
     cursor: pointer;
     border-radius: 0.2vw;
     font-size: 1vw;
-    padding: 0 0.7vw;
+    padding: 0.5vw 0.7vw;
 }
 
 .menu-edit__table-button:hover {
@@ -265,12 +265,8 @@
         box-shadow: 0.4vw 0.4vw 0.4vw rgba(0, 0, 0, 0.5);
     }
 
-    .menu-edit__table-row {
-        height: 4vw;
-        line-height: 4vw;
-    }
-
     .menu-edit__table thead tr {
+        padding-bottom: 1vw;
         font-size: 2.6vw;
     }
 
@@ -309,12 +305,12 @@
     .menu-edit__table-yen-sign {
         font-size: 2vw;
         left: 1vw;
-        top: 0.2vw;
+        top: 1vw;
     }
 
     .menu-edit__table-button {
         border-radius: 0.4vw;
         font-size: 2vw;
-        padding: 0 1.4vw;
+        padding: 1vw 1.4vw;
     }
 }

@@ -71,6 +71,7 @@
                 <div class="detail__reservation-form">
                     <div class="detail__reservation-date">
                         <input class="detail__input" type="text" name="reservation_date" value="{{ old('reservation_date') }}" form="reservation-form" id="reservation-date" placeholder="予約日">
+
                         <button  class="detail__button detail__button--calendar" type="button">
                             <i class="bi bi-calendar"></i>
                         </button>
@@ -81,6 +82,7 @@
                     <div class="detail__reservation-time">
                         <select class="detail__select" name="reservation_time" form="reservation-form" id="reservation-time">
                             <option value="" disabled {{ old('reservation_time') ? '' : 'selected'}}>予約時間</option>
+
                             @foreach (generateReservationTimes() as $time)
                                 <option value="{{ $time }}" {{ old('reservation_time') == $time ? 'selected' : ''}}>{{ $time }}</option>
                             @endforeach
@@ -92,6 +94,7 @@
                     <div class="detail__reservation-number">
                         <select class="detail__select" name="number_of_people" form="reservation-form" id="reservation-number">
                             <option value="" disabled {{ old('number_of_people') ? '' : 'selected'}}>予約人数</option>
+
                             @foreach (generateReservationNumbers() as $number)
                                 <option value="{{ $number }}" {{ old('number_of_people') == $number ? 'selected' : ''}}>{{ $number }}</option>
                             @endforeach
@@ -103,6 +106,7 @@
                     <div class="detail__reservation-menu">
                         <select class="detail__select" name="reservation_menu" form="reservation-form" id="reservation-menu">
                             <option value="" disabled {{ old('menu') ? '' : 'selected'}}>予約メニュー</option>
+
                             @foreach (generateReservationMenus($shop->id) as $menu)
                                 <option value="{{ $menu }}" {{ old('menu') == $menu ? 'selected' : ''}}>{{ $menu }}</option>
                             @endforeach
@@ -134,11 +138,15 @@
             @endguest
 
             @auth
-                <form action="{{ route('reservations.store', $shop->id) }}" id="reservation-form" method="POST">
-                    @csrf
-                    <input type="hidden" name="from" value="{{ request('from') }}">
-                    <button class="detail__button detail__button--reservation" type="submit">予約する</button>
-                </form>
+                @if (auth()->user()->isUser())
+                    <form action="{{ route('reservations.store', $shop->id) }}" id="reservation-form" method="POST">
+                        @csrf
+                        <input type="hidden" name="from" value="{{ request('from') }}">
+                        <button class="detail__button detail__button--reservation" type="submit">予約する</button>
+                    </form>
+                @else
+                    <button class="detail__button detail__button--reservation">予約する</button>
+                @endif
             @endauth
         </div>
     </div>

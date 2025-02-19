@@ -16,7 +16,7 @@ class ReviewSeeder extends Seeder
      */
     public function run(): void
     {
-        $users = User::where('role', 1)->get();
+        $users = User::factory()->count(10)->create();
         if ($users->isEmpty()) {
             throw new \Exception("No users with role 1 (一般ユーザー) found in the database.");
         }

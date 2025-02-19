@@ -120,7 +120,7 @@ body {
 /* バリデーションエラーメッセージ */
 .error-message {
     color: red;
-    font-size: 1vw;
+    font-size: 0.9vw;
     margin-top: 0.5vw;
 }
 
@@ -201,7 +201,7 @@ body {
 
     /* バリデーションエラーメッセージ */
     .error-message {
-        font-size: 2vw;
+        font-size: 1.8vw;
         margin-top: 1vw;
     }
 

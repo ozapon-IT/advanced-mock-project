@@ -47,6 +47,11 @@ class ReservationSeeder extends Seeder
                     'payment_status' => 'paid',
                 ]);
             }
+
+            $reservation = Reservation::where('user_id', $user->id)->first();
+            $reservation->update([
+                'status' => '来店済み',
+            ]);
         }
     }
 }
