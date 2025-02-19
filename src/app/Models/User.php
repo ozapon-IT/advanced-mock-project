@@ -32,7 +32,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function isUser(): bool
     {
-        return $this->role === self::ROLE_REPRESENTATIVE;
+        return $this->role === self::ROLE_USER;
     }
 
     /**
@@ -66,7 +66,7 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
-     * 店舗代表者の店舗とのリレーションを定義
+     * 店舗とのリレーションを定義(店舗代表者)
      *
      * @return HasOne
      */

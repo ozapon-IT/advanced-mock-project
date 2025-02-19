@@ -28,7 +28,9 @@
             @endguest
 
             @auth
+                @if (auth()->user()->isUser())
                 <x-favorite-button :shop="$shop" type="index" />
+                @endif
             @endauth
         @elseif ($type === 'favorite')
             <x-favorite-button :shop="$shop" type="favorite" :cardId="$cardId" />

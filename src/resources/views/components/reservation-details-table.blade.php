@@ -12,7 +12,7 @@
         </thead>
         <tbody>
             <tr>
-                <td>{{ mb_strimwidth($reservation->shop->name, 0, 50, "...") }}</td>
+                <td>{{ mb_strimwidth($reservation->shop->name, 0, 40, "...") }}</td>
                 <td id="table-reservation-date">{{ old('reservation_date') ?? $reservation->reservation_date }}</td>
                 <td id="table-reservation-time">{{ old('reservation_time') ?? $reservation->reservation_time }}</td>
                 <td id="table-reservation-number">{{ old('number_of_people') ?? $reservation->number_of_people }}</td>
@@ -36,7 +36,7 @@
         </thead>
         <tbody>
             <tr>
-                <td>{{ mb_strimwidth($shop->name, 0, 50, "...") }}</td>
+                <td>{{ mb_strimwidth($shop->name, 0, 40, "...") }}</td>
                 <td id="table-reservation-date">{{ old('reservation_date') ?? '未選択' }}</td>
                 <td id="table-reservation-time">{{ old('reservation_time') ?? '未選択' }}</td>
                 <td id="table-reservation-number">{{ old('number_of_people') ?? '未選択' }}</td>
@@ -85,7 +85,7 @@
         </thead>
         <tbody>
             <tr>
-                <td>{{ mb_strimwidth($reservation->shop->name, 0, 50, "...") }}</td>
+                <td>{{ mb_strimwidth($reservation->shop->name, 0, 20, "...") }}</td>
                 <td>{{ $reservation->reservation_date }}</td>
                 <td>{{ $reservation->reservation_time }}</td>
                 <td>{{ $reservation->number_of_people }}</td>

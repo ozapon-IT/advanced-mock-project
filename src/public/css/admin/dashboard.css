@@ -63,6 +63,10 @@
     padding: 1vw;
 }
 
+.modal-menu__close {
+    left: 5vw;
+}
+
 .message {
     text-align: center;
     color: blue;
@@ -77,6 +81,10 @@
 @media screen and (max-width: 768px) {
     .header {
         height: 5vw;
+    }
+
+    .modal-menu__close {
+        left: 4vw;
     }
 
     .dashboard {
