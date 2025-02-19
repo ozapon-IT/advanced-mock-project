@@ -1,0 +1,167 @@
+.review-list {
+    margin: 3vw auto;
+    width: 45vw;
+    border-radius: 0.4vw;
+}
+
+.review-list__heading {
+    text-align: center;
+    font-size: 2vw;
+    line-height: 1.5;
+}
+
+.review-list__card {
+    background-color: #fff;
+    padding: 3vw 4vw;
+    border-radius: 0.4vw;
+    box-shadow: 0.2vw 0.2vw 0.2vw rgba(0, 0, 0, 0.5);
+    width: 37vw;
+    margin-top: 3vw;
+}
+
+.review-list__username {
+    font-size: 1.5vw;
+    border-bottom: 0.1vw dashed #666;
+    padding-bottom: 0.5vw;
+}
+
+.review-list__rating {
+    display: flex;
+    align-items: center;
+    color: #FFD700;
+    gap: 0.2vw;
+    font-size: 1.5vw;
+    margin-top: 2vw;
+}
+
+.review-list__title {
+    font-weight: bold;
+}
+
+.review-list__title,
+.review-list__review {
+    font-size: 1.2vw;
+    margin-top: 2vw;
+    line-height: 1.5;
+}
+
+/* ページネーション */
+.review-list__pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 3vw;
+}
+
+.review-list__pagination ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.review-list__pagination li:nth-of-type(1) {
+    border: 0.1vw solid transparent;
+}
+
+.review-list__pagination li:not(:nth-of-type(1)) {
+    border-top: 0.1vw solid transparent;
+    border-right: 0.1vw solid transparent;
+    border-bottom: 0.1vw solid transparent;
+}
+
+.review-list__pagination a,
+.review-list__pagination span {
+    display: inline-block;
+    padding: 0.3vw 0.6vw;
+    font-size: 1vw;
+    background-color: white;
+    color: inherit;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.review-list__pagination a:hover {
+    background-color: #ddd;
+}
+
+.review-list__pagination .active span {
+    background-color: #305cff;
+    color: #fff;
+    cursor: default;
+}
+
+.review-list__pagination .disabled span {
+    color: #999;
+}
+
+/* バックリンク */
+.review-list__back {
+    margin-top: 2vw;
+    text-align: right;
+}
+
+.review-list__back-link {
+    color: #666;
+    font-size: 1.2vw;
+}
+
+.review-list__back-link:hover {
+    color: #305cff;
+}
+
+@media screen and (max-width: 768px) {
+    .review-list {
+        margin: 0 auto 6vw;
+        width: 90vw;
+        border-radius: 0.8vw;
+    }
+
+    .review-list__heading {
+        font-size: 4vw;
+    }
+
+    .review-list__card {
+        padding: 6vw 8vw;
+        border-radius: 0.8vw;
+        box-shadow: 0.4vw 0.4vw 0.4vw rgba(0, 0, 0, 0.5);
+        width: 74vw;
+        margin-top: 6vw;
+    }
+
+    .review-list__username {
+        font-size: 3vw;
+        padding-bottom: 1vw;
+    }
+
+    .review-list__rating {
+        gap: 0.4vw;
+        font-size: 3vw;
+        margin-top: 4vw;
+    }
+
+    .review-list__title,
+    .review-list__review {
+        font-size: 2.4vw;
+        margin-top: 4vw;
+    }
+
+    /* ページネーション */
+    .review-list__pagination {
+        margin-top: 6vw;
+    }
+
+    .review-list__pagination a,
+    .review-list__pagination span {
+        padding: 0.6vw 1.2vw;
+        font-size: 2vw;
+    }
+
+    /* バックリンク */
+    .review-list__back {
+        margin-top: 4vw;
+    }
+
+    .review-list__back-link {
+        font-size: 2.4vw;
+    }
+}

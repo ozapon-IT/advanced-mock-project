@@ -1,0 +1,424 @@
+.detail {
+    display: flex;
+    margin: 2vw auto;
+    width: 90vw;
+    gap: 5vw;
+}
+
+.detail__content {
+    width: 42.5vw;
+}
+
+.detail__shop-name-container {
+    display: flex;
+    align-items: center;
+}
+
+.detail__back-link {
+    background-color: #fff;
+    text-decoration: none;
+    color: #666;
+    font-size: 1.7vw;
+    border-radius: 0.4vw;
+    padding: 0.3vw 0.8vw 0.5vw 0.8vw;
+    box-shadow: 0.2vw 0.2vw 0.2vw rgba(0, 0, 0, 0.5);
+}
+
+.detail__back-link:hover {
+    color: #000;
+}
+
+.detail__shop-name {
+    font-size: 1.8vw;
+    margin-left: 1vw;
+    line-height: 1.5;
+}
+
+.detail__shop-image-container {
+    background-color: #ccc;
+    overflow: hidden;
+    width: 100%;
+    height: 26vw;
+    margin-top: 1.7vw;
+}
+
+.detail__shop-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.detail__shop-description {
+    margin-top: 2vw;
+    position: relative;
+}
+
+.detail__shop-area,
+.detail__shop-genre {
+    display: inline-block;
+    font-size: 1vw;
+}
+
+.detail__shop-summary {
+    margin-top: 2.1vw;
+    font-size: 1.1vw;
+    line-height: 1.7;
+}
+
+.detail__shop-menu {
+    margin: 2.1vw 0 0 1vw;
+    font-size: 1.1vw;
+}
+
+.detail__shop-menu-item:not(:first-of-type) {
+    margin-top: 1vw;
+}
+
+.detail__shop-rating-container {
+    display: flex;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.detail__shop-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.2vw;
+    font-size: 1.8vw;
+    color: #FFD700;
+}
+
+.detail__shop-rating-value {
+    margin-left: 0.3vw;
+    font-size: 1.6vw;
+    color: #333;
+}
+
+.detail__shop-reviews,
+.detail__shop-favorites {
+    margin-left: 1vw;
+}
+
+.detail__shop-reviews-link,
+.detail__shop-reviews-number,
+.detail__shop-favorites-number {
+    font-size: 1.6vw;
+}
+
+.detail__shop-reviews-number,
+.detail__shop-favorites-number {
+    color: #333;
+}
+
+.detail__shop-reviews-link {
+    color: #666;
+    border-bottom: 0.1vw solid #666;
+}
+
+.detail__shop-reviews-link:hover{
+    color: #305cff;
+    border-bottom: 0.1vw solid #305cff;
+}
+
+.bi-suit-heart-fill {
+    color: red;
+    font-size: 1.6vw;
+}
+
+/* 予約フォーム */
+.detail__reservation {
+    position: relative;
+    background-color: #305cff;
+    width: 42.5vw;
+    height: 53vw;
+    border-radius: 0.4vw;
+}
+
+.detail__reservation-wrapper {
+    padding: 2vw 2.5vw;;
+}
+
+.detail__reservation-heading {
+    color: #fff;
+    font-size: 1.8vw;
+}
+
+.detail__reservation-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7vw;
+    margin-top: 2vw;
+}
+
+.detail__reservation-date {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    width: 35%;
+}
+
+.detail__input {
+    border: none;
+    width: 100%;
+    padding: 0.5vw 1vw;
+    font-size: 1vw;
+    border-radius: 0.2vw;
+}
+
+.detail__input::placeholder {
+    color: #000;
+}
+
+.detail__button {
+    all: unset;
+    cursor: pointer;
+    position: absolute;
+}
+
+.detail__button--calendar {
+    color: #999;
+    font-size: 1vw;
+    right: 1vw;
+}
+
+.detail__reservation-time,
+.detail__reservation-number,
+.detail__reservation-menu,
+.detail__payment-method {
+    position: relative;
+}
+
+.detail__reservation-time:after,
+.detail__reservation-number:after,
+.detail__reservation-menu:after,
+.detail__payment-method:after {
+    content: "";
+    position: absolute;
+    right: 1vw;
+    top: 50%;
+    transform: translateY(-50%);
+    border-left: 0.5vw solid transparent;
+    border-right: 0.5vw solid transparent;
+    border-top: 0.5vw solid transparent;
+    clip-path: polygon(0% 0%, 50% 30%, 100% 0%, 50% 100%, 0% 0%);
+    background-color: #ddd;
+    height: 0.3vw;
+    pointer-events: none;
+}
+
+.detail__select {
+    border: none;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: relative;
+    background-color: #fff;
+    width: 100%;
+    padding: 0.5vw 1vw;
+    font-size: 1vw;
+    border-radius: 0.2vw;
+}
+
+.detail__reservation-confirmation {
+    background-color: #4D7EFD;
+    color: #fff;
+    margin-top: 1.3vw;
+    border-radius: 0.4vw;
+}
+
+.detail__confirmation-details {
+    display: flex;
+    flex-direction: row;
+    font-size: 1vw;
+    padding: 1.7vw;
+}
+
+.detail__confirmation-details tr {
+    display: flex;
+    flex-direction: column;
+}
+
+.detail__confirmation-details tr:first-of-type {
+    text-align: left;
+    margin-right: 4vw;
+}
+
+.detail__confirmation-details th:not(:first-of-type),
+.detail__confirmation-details td:not(:first-of-type) {
+    margin-top: 1.3vw;
+}
+
+.detail__button--reservation {
+    color: #fff;
+    background-color: #1d49ed;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    font-size: 1.5vw;
+    border-radius: 0 0 0.4vw 0.4vw;
+    padding: 1vw 0;
+}
+
+.detail__button--reservation:hover {
+    background-color: #0538ff;
+}
+
+/* バリデーションエラーメッセージ */
+.error-message {
+    margin-top: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .detail {
+        display: block;
+        margin: 0 auto;
+    }
+
+    .detail__content {
+        width: 100%;
+    }
+
+    .detail__back-link {
+        font-size: 3.5vw;
+        border-radius: 0.8vw;
+        padding: 0.3vw 1.2vw 0.6vw 1.2vw;
+        box-shadow: 0.4vw 0.4vw 0.4vw rgba(0, 0, 0, 0.5);
+    }
+
+    .detail__shop-name {
+        font-size: 3vw;
+        margin-left: 2vw;
+    }
+
+    .detail__shop-image-container {
+        height: 50vw;
+        margin-top: 3vw;
+    }
+
+    .detail__shop-description {
+        margin-top: 5vw;
+    }
+
+    .detail__shop-area,
+    .detail__shop-genre {
+        font-size: 2.2vw;
+    }
+
+    .detail__shop-summary {
+        margin-top: 4vw;
+        font-size: 2.2vw;
+        line-height: 2;
+    }
+
+    .detail__shop-menu {
+        margin: 4vw 0 0 2.5vw;
+        font-size: 2.2vw;
+    }
+
+    .detail__shop-menu-item:not(:first-of-type) {
+        margin-top: 2.5vw;
+    }
+
+    .detail__shop-rating {
+        gap: 0.4vw;
+        font-size: 3.6vw;
+    }
+
+    .detail__shop-rating-value {
+        margin-left: 0.6vw;
+        font-size: 3.2vw;
+    }
+
+    .detail__shop-reviews,
+    .detail__shop-favorites {
+        margin-left: 2vw;
+    }
+
+    .detail__shop-reviews-link,
+    .detail__shop-reviews-number,
+    .detail__shop-favorites-number {
+        font-size: 3.2vw;
+    }
+
+    .bi-suit-heart-fill {
+        font-size: 3.2vw;
+    }
+
+
+    /* 予約フォーム */
+    .detail__reservation {
+        margin: 5vw 0;
+        width: 100%;
+        height: 105vw;
+        border-radius: 0.8vw;
+    }
+
+    .detail__reservation-wrapper {
+        padding: 3vw 4vw;;
+    }
+
+    .detail__reservation-heading {
+        font-size: 3vw;
+    }
+
+    .detail__reservation-form {
+        gap: 1.5vw;
+        margin-top: 4vw;
+    }
+
+    .detail__input {
+        width: 100%;
+        padding: 1vw 2vw;
+        font-size: 2.2vw;
+        border-radius: 0.8vw;
+    }
+
+    .detail__button--calendar {
+        font-size: 2vw;
+        right: 2vw;
+    }
+
+    .detail__reservation-time:after,
+    .detail__reservation-number:after,
+    .detail__reservation-menu:after,
+    .detail__payment-method:after {
+        right: 2vw;
+        border-left: 1vw solid transparent;
+        border-right: 1vw solid transparent;
+        border-top: 1vw solid transparent;
+        height: 0.6vw;
+    }
+
+    .detail__select {
+        font-size: 2.2vw;
+        border-radius: 0.8vw;
+        padding: 1vw 2vw;
+    }
+
+    .detail__reservation-confirmation {
+        margin: 2.5vw 0;
+        border-radius: 0.8vw;
+    }
+
+    .detail__confirmation-details {
+        font-size: 2.2vw;
+        padding: 3vw;
+    }
+
+    .detail__confirmation-details tr:first-of-type {
+        margin-right: 5vw;
+    }
+
+    .detail__confirmation-details th:not(:first-of-type),
+    .detail__confirmation-details td:not(:first-of-type) {
+        margin-top: 2.5vw;
+    }
+
+    .detail__button--reservation {
+        font-size: 3vw;
+        border-radius: 0 0 0.8vw 0.8vw;
+        padding: 2vw 0;
+    }
+}

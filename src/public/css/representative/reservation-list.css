@@ -1,0 +1,133 @@
+.reservation-list {
+    width: 90vw;
+    margin: 2vw auto;
+}
+
+.reservation-list__heading {
+    text-align: center;
+    font-size: 2vw;
+}
+
+.reservation-list__table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 0.5vw;
+    margin: 3vw 0;
+    font-size: 1.5vw;
+}
+
+.reservation-list__table-row {
+    background-color: #305cff;
+    width: 100%;
+    height: 3vw;
+}
+
+.reservation-list__table-row td {
+    text-align: center;
+}
+
+.reservation-list__table-row th,
+.reservation-list__table-row td {
+    color: #fff;
+    line-height: 3vw;
+}
+
+.reservation-list__table-row th:first-of-type,
+.reservation-list__table-row td:first-of-type {
+    width: 20vw;
+}
+
+.reservation-list__table-row th:last-of-type,
+.reservation-list__table-row td:last-of-type {
+    width: 10vw;
+}
+
+.reservation-list__table-row th:first-of-type {
+    border-radius: 0.4vw 0 0 0;
+}
+
+.reservation-list__table-row th:last-of-type {
+    border-radius: 0 0.4vw 0 0;
+}
+
+.reservation-list__table-row:last-of-type td:first-of-type {
+    border-radius: 0 0 0 0.4vw;
+}
+
+.reservation-list__table-row:last-of-type td:last-of-type {
+    border-radius: 0 0 0.4vw 0;
+}
+
+.reservation-list__table-row td a {
+    color: #fff;
+}
+
+.reservation-list__table-row td a:hover {
+    color: gold;
+}
+
+.modal-menu__close {
+    left: 5vw;
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        height: 5vw;
+    }
+
+    .reservation-list {
+        margin: 0 auto 3vw;
+        width: 90vw;
+    }
+
+    .reservation-list__heading {
+        text-align: center;
+        font-size: 3.8vw;
+    }
+
+    .reservation-list__table {
+        border-spacing: 0 1vw;
+        margin: 4vw 0;
+        font-size: 2.5vw;
+    }
+
+    .reservation-list__table-row {
+        height: 6vw;
+    }
+
+    .reservation-list__table-row th,
+    .reservation-list__table-row td {
+        line-height: 6vw;
+    }
+
+    .reservation-list__table-row th:first-of-type,
+    .reservation-list__table-row td:first-of-type {
+        width: 30vw;
+    }
+
+    .reservation-list__table-row th:last-of-type,
+    .reservation-list__table-row td:last-of-type {
+        width: 15vw;
+    }
+
+    .reservation-list__table-row th:nth-of-type(2),
+    .reservation-list__table-row td:nth-of-type(2) {
+        display: none;
+    }
+
+    .reservation-list__table-row th:first-of-type {
+        border-radius: 0.8vw 0 0 0;
+    }
+
+    .reservation-list__table-row th:last-of-type {
+        border-radius: 0 0.8vw 0 0;
+    }
+
+    .reservation-list__table-row:last-of-type td:first-of-type {
+        border-radius: 0 0 0 0.8vw;
+    }
+
+    .reservation-list__table-row:last-of-type td:last-of-type {
+        border-radius: 0 0 0.8vw 0;
+    }
+}

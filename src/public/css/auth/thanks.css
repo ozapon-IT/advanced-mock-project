@@ -1,0 +1,64 @@
+.thanks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    width: 30vw;
+    height: 18vw;
+    margin: 10vw auto;
+    border-radius: 0.4vw;
+    box-shadow: 0.2vw 0.2vw 0.2vw rgba(0, 0, 0, 0.5);
+}
+
+.thanks__wrapper {
+    width: 80%;
+    text-align: center;
+}
+
+.thanks__message {
+    font-size: 1.5vw;
+}
+
+.thanks__button {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #4366eb;
+    color: #fff;
+    border-radius: 0.4vw;
+    font-size: 1.2vw;
+    padding: 0.6vw 0.9vw;
+    margin-top: 3vw;
+}
+
+.thanks__button:hover {
+    background-color: #305cff;
+}
+
+.modal-menu__close {
+    left: 5vw;
+}
+
+@media screen and (max-width: 768px) {
+    .thanks {
+        width: 60vw;
+        height: 36vw;
+        margin: 5vw auto;
+        border-radius: 0.8vw;
+        box-shadow: 0.4vw 0.4vw 0.4vw rgba(0, 0, 0, 0.5);
+    }
+
+    .thanks__wrapper {
+        width: 80%;
+    }
+
+    .thanks__message {
+        font-size: 3vw;
+    }
+
+    .thanks__button {
+        border-radius: 0.8vw;
+        font-size: 2.5vw;
+        padding: 1.2vw 1.8vw;
+        margin-top: 6vw;
+    }
+}

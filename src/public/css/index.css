@@ -1,0 +1,19 @@
+.shop-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 2vw auto;
+    width: 90vw;
+    gap: 1.6vw;
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        height: 14vw;
+    }
+
+    .shop-list {
+        grid-template-columns: repeat(2, 1fr);
+        margin: 0 auto 6vw;
+        gap: 2vw;
+    }
+}

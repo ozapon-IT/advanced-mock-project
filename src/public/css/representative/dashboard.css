@@ -1,0 +1,122 @@
+.dashboard {
+    margin: 2vw auto;
+    width: 90vw;
+}
+
+.dashboard__heading {
+    text-align: center;
+    font-size: 2vw;
+}
+
+.dashboard__contents {
+    display: flex;
+    width: 100%;
+    gap: 7vw;
+    margin-top: 3vw;
+}
+
+.dashboard__section {
+    width: 41.5vw;
+}
+
+.dashboard__subheading {
+    text-align: center;
+    font-size: 1.5vw;
+}
+
+.dashboard__action {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #305cff;
+    margin: 0 auto;
+    box-shadow: 0.2vw 0.2vw 0.2vw rgba(0, 0, 0, 0.5);
+    border-radius: 0.4vw;
+    width: 41.5vw;
+    height: 20vw;
+    margin-top: 3vw;
+}
+
+.bi-shop,
+.bi-list-check
+.bi-book {
+    color: #fff;
+    font-size: 1.5vw;
+}
+
+.dashboard__link {
+    text-decoration: none;
+    font-size: 1.5vw;
+    color: #fff;
+}
+
+.dashboard__link:hover {
+    text-decoration: underline;
+}
+
+.dashboard__action p {
+    font-size: 1.5vw;
+    background-color: #fff;
+    border-radius: 0.4vw;
+    margin-bottom: 5vw;
+    padding: 1vw;
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        height: 5vw;
+    }
+
+    .dashboard {
+        margin: 0 auto 6vw;
+    }
+
+    .dashboard__heading {
+        font-size: 4vw;
+    }
+
+    .dashboard__contents {
+        display: block;
+        width: 100%;
+        margin-top: 6vw;
+    }
+
+    .dashboard__section {
+        width: 100%;
+    }
+
+    .dashboard__section:not(:first-of-type) {
+        margin-top: 5vw;
+    }
+
+    .dashboard__subheading {
+        font-size: 3vw;
+    }
+
+    .dashboard__action {
+        box-shadow: 0.4vw 0.4vw 0.4vw rgba(0, 0, 0, 0.5);
+        border-radius: 0.8vw;
+        width: 100%;
+        height: 40vw;
+        margin-top: 5vw;
+    }
+
+    .bi-shop,
+    .bi-list-check {
+        margin-right: 1vw;
+        font-size: 3vw;
+    }
+
+    .dashboard__link {
+        font-size: 3vw;
+    }
+
+    .dashboard__action p {
+        font-size: 3vw;
+        background-color: #fff;
+        border-radius: 0.8vw;
+        margin-bottom: 10vw;
+        padding: 2vw;
+    }
+}

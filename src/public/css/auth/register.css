@@ -1,0 +1,113 @@
+.register {
+    width: 30vw;
+    margin: 10vw auto;
+    border-radius: 0.4vw;
+    box-shadow: 0.2vw 0.2vw 0.2vw rgba(0, 0, 0, 0.5);
+}
+
+.register__heading {
+    background-color: #305cff;
+    color: #fff;
+    font-size: 1.4vw;
+    padding: 1.3vw;
+    border-radius: 0.4vw 0.4vw 0 0;
+}
+
+.register__form {
+    background-color: #fff;
+    padding: 1.2vw 2vw;
+    border-radius: 0 0 0.4vw 0.4vw;
+}
+
+.register__form-group {
+    display: flex;
+    align-items: center;
+}
+
+.register__form-group i {
+    color: #444;
+    font-size: 1.7vw;
+    margin-right: 0.7vw;
+}
+
+.register__form-group:nth-of-type(2),
+.register__form-group:nth-of-type(3) {
+    margin-top: 1vw;
+}
+
+.register__input {
+    width: 100%;
+    border: none;
+    border-bottom: 0.1vw solid #444;
+    font-size: 1.4vw;
+}
+
+.register__button {
+    display: block;
+    margin-left: auto;
+    border: none;
+    cursor: pointer;
+    background-color: #4366eb;
+    color: #fff;
+    border-radius: 0.4vw;
+    font-size: 1.2vw;
+    padding: 0.3vw 0.9vw;
+    margin-top: 1.4vw;
+}
+
+.register__button:hover {
+    background-color: #305cff;
+}
+
+.modal-menu__close {
+    left: 5vw;
+}
+
+.error-message {
+    margin-left: 2.3vw;
+}
+
+@media screen and (max-width: 768px) {
+    .register {
+        width: 60vw;
+        margin: 5vw auto;
+        border-radius: 0.8vw;
+        box-shadow: 0.4vw 0.4vw 0.4vw rgba(0, 0, 0, 0.5);
+    }
+
+    .register__heading {
+        font-size: 3vw;
+        padding: 2.5vw;
+        border-radius: 0.8vw 0.8vw 0 0;
+    }
+
+    .register__form {
+        padding: 2.5vw 4vw;
+        border-radius: 0 0 0.8vw 0.8vw;
+    }
+
+    .register__form-group i {
+        font-size: 3vw;
+        margin-right: 1.5vw;
+    }
+
+    .register__form-group:nth-of-type(2),
+    .register__form-group:nth-of-type(3) {
+        margin-top: 2vw;
+    }
+
+    .register__input {
+        font-size: 2.8vw;
+    }
+
+    .register__button {
+        border-radius: 0.8vw;
+        font-size: 2.5vw;
+        padding: 0.6vw 1.8vw;
+        margin-top: 3vw;
+    }
+
+    .error-message {
+        margin-left: 4.5vw;
+    }
+}

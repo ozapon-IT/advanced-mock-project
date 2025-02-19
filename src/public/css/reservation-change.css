@@ -1,0 +1,230 @@
+.reservation-change {
+    position: relative;
+    background-color: #305cff;
+    margin: 3vw auto 0;
+    width: 37vw;
+    height: 46vw;
+    border-radius: 0.4vw;
+    padding: 3vw 4vw;
+}
+
+.reservation-change__heading {
+    color: #fff;
+    font-size: 1.8vw;
+}
+
+.reservation-change__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    margin-top: 2vw;
+}
+
+.reservation-change__input-field {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    width: 35%;
+}
+
+.reservation-change__input {
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1vw;
+    border-radius: 0.2vw;
+    padding: 0.5vw 1vw;
+}
+
+.reservation-change__input::placeholder {
+    color: #000;
+}
+
+.reservation-change__button {
+    all: unset;
+    cursor: pointer;
+    position: absolute;
+}
+
+.reservation-change__button--calendar {
+    color: #999;
+    font-size: 1vw;
+    right: 1vw;
+}
+
+.reservation-change__select-field {
+    position: relative;
+}
+
+.reservation-change__select-field:after {
+    content: "";
+    position: absolute;
+    right: 1vw;
+    top: 50%;
+    transform: translateY(-50%);
+    border-left: 0.5vw solid transparent;
+    border-right: 0.5vw solid transparent;
+    border-top: 0.5vw solid transparent;
+    clip-path: polygon(0% 0%, 50% 30%, 100% 0%, 50% 100%, 0% 0%);
+    background-color: #ddd;
+    height: 0.3vw;
+    pointer-events: none;
+}
+
+.reservation-change__select {
+    border: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: relative;
+    cursor: pointer;
+    background-color: #fff;
+    width: 100%;
+    font-size: 1vw;
+    border-radius: 0.2vw;
+    padding: 0.5vw 1vw;
+}
+
+.reservation-change__confirmation {
+    background-color: #4D7EFD;
+    color: #fff;
+    margin-top: 2vw;
+    border-radius: 0.4vw;
+}
+
+.reservation-change__confirmation-details {
+    display: flex;
+    flex-direction: row;
+    font-size: 1vw;
+    padding: 1.7vw;
+}
+
+.reservation-change__confirmation-details tr {
+    display: flex;
+    flex-direction: column;
+}
+
+.reservation-change__confirmation-details tr:first-of-type {
+    text-align: left;
+    margin-right: 2.5vw;
+}
+
+.reservation-change__confirmation-details th:not(:first-of-type),
+.reservation-change__confirmation-details td:not(:first-of-type) {
+    margin-top: 1.3vw;
+}
+
+.reservation-change__button--update {
+    color: #fff;
+    background-color: #1d49ed;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    width: 100%;
+    font-size: 1.5vw;
+    border-radius: 0 0 0.4vw 0.4vw;
+    padding: 1vw 0;
+}
+
+.reservation-change__button--update:hover {
+    background-color: #0538ff;
+}
+
+/* バックリンク */
+.reservation-change__back {
+    margin: 3vw 0;
+    text-align: center;
+}
+
+.reservation-change__back-link {
+    color: #666;
+    font-size: 1.2vw;
+}
+
+.reservation-change__back-link:hover {
+    color: #305cff;
+}
+
+/* バリデーションエラーメッセージ */
+.error-message {
+    margin-top: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .reservation-change {
+        margin: 3vw auto 0;
+        width: 74vw;
+        height: 90vw;
+        border-radius: 0.8vw;
+        padding: 6vw 8vw;
+    }
+
+    .reservation-change__heading {
+        font-size: 3vw;
+    }
+
+    .reservation-change__form {
+        gap: 2vw;
+        margin-top: 4vw;
+    }
+
+    .reservation-change__input {
+        width: 100%;
+        font-size: 2.2vw;
+        border-radius: 0.4vw;
+        padding: 1vw 2vw;
+    }
+
+    .reservation-change__button--calendar {
+        font-size: 2vw;
+        right: 2vw;
+    }
+
+    .reservation-change__select-field:after {
+        right: 2vw;
+        border-left: 1vw solid transparent;
+        border-right: 1vw solid transparent;
+        border-top: 1vw solid transparent;
+        height: 0.6vw;
+    }
+
+    .reservation-change__select {
+        font-size: 2.2vw;
+        border-radius: 0.4vw;
+        padding: 1vw 2vw;
+    }
+
+    .reservation-change__confirmation {
+        margin-top: 4vw;
+        border-radius: 0.8vw;
+    }
+
+    .reservation-change__confirmation-details {
+        font-size: 2.2vw;
+        padding: 3vw;
+    }
+
+    .reservation-change__confirmation-details tr:first-of-type {
+        margin-right: 5vw;
+    }
+
+    .reservation-change__confirmation-details th:not(:first-of-type),
+    .reservation-change__confirmation-details td:not(:first-of-type) {
+        margin-top: 2.5vw;
+    }
+
+    .reservation-change__button--update {
+        font-size: 3vw;
+        border-radius: 0 0 0.8vw 0.8vw;
+        padding: 2vw 0;
+    }
+
+    /* バックリンク */
+    .reservation-change__back {
+        margin: 6vw 0;
+    }
+
+    .reservation-change__back-link {
+        font-size: 2.4vw;
+    }
+}

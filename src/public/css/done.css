@@ -1,0 +1,64 @@
+.done {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    width: 30vw;
+    height: 18vw;
+    margin: 10vw auto;
+    border-radius: 0.4vw;
+    box-shadow: 0.2vw 0.2vw 0.2vw rgba(0, 0, 0, 0.5);
+}
+
+.done__wrapper {
+    width: 80%;
+    text-align: center;
+}
+
+.done__message {
+    font-size: 1.5vw;
+}
+
+.done__back-link {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #4366eb;
+    color: #fff;
+    border-radius: 0.4vw;
+    font-size: 1.2vw;
+    padding: 0.6vw 0.9vw;
+    margin-top: 3vw;
+}
+
+.done__back-link:hover {
+    background-color: #305cff;
+}
+
+.modal-menu__close {
+    left: 5vw;
+}
+
+@media screen and (max-width: 768px) {
+    .done {
+        width: 60vw;
+        height: 36vw;
+        margin: 5vw auto;
+        border-radius: 0.8vw;
+        box-shadow: 0.4vw 0.4vw 0.4vw rgba(0, 0, 0, 0.5);
+    }
+
+    .done__wrapper {
+        width: 80%;
+    }
+
+    .done__message {
+        font-size: 3vw;
+    }
+
+    .done__back-link {
+        border-radius: 0.8vw;
+        font-size: 2.5vw;
+        padding: 1.2vw 1.8vw;
+        margin-top: 6vw;
+    }
+}

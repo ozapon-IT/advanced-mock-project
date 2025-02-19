@@ -1,0 +1,178 @@
+.review {
+    margin: 3vw auto;
+    width: 45vw;
+    border-radius: 0.4vw;
+}
+
+.review__heading {
+    text-align: center;
+    font-size: 2vw;
+    line-height: 1.5;
+}
+
+.review__form {
+    position: relative;
+    background-color: #305cff;
+    padding: 3vw 4vw;
+    border-radius: 0.4vw;
+    width: 37vw;
+    height: 44vw;
+    margin-top: 3vw;
+}
+
+.review__form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7vw;
+    padding-bottom: 2vw;
+}
+
+.review__form-group:not(:first-of-type) {
+    margin-top: 2vw;
+}
+
+.review__form-group:not(:last-of-type) {
+    border-bottom: 0.1vw dashed #ccc;
+}
+
+.review__subheading {
+    color: #fff;
+    font-size: 1.5vw;
+}
+
+.review__rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    gap: 0.3vw;
+}
+
+.review__rating input {
+    display: none;
+}
+
+.review__rating label i {
+    font-size: 2.5vw;
+    color: #fff;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.review__rating input:checked ~ label i,
+.review__rating input:checked ~ label ~ label i {
+    color: #FFD700;
+}
+
+.review__input,
+.review__textarea {
+    border: none;
+    border-radius: 0.2vw;
+    font-size: 1.2vw;
+    padding: 0.5vw 1vw;
+}
+
+.review__textarea {
+    height: 15vw;
+    line-height: 1.5;
+}
+
+.review__button {
+    all: unset;
+    color: #fff;
+    background-color: #1d49ed;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    width: 100%;
+    font-size: 1.5vw;
+    border-radius: 0 0 0.4vw 0.4vw;
+    padding: 1vw 0;
+}
+
+.review__button:hover {
+    background-color: #0538ff;
+}
+
+/* バックリンク */
+.review__back {
+    margin-top: 3vw;
+    text-align: center;
+}
+
+.review__back-link {
+    color: #666;
+    font-size: 1.2vw;
+}
+
+.review__back-link:hover {
+    color: #305cff;
+}
+
+@media screen and (max-width: 768px) {
+    .review {
+        margin: 0 auto 6vw;
+        width: 90vw;
+        border-radius: 0.8vw;
+    }
+
+    .review__heading {
+        font-size: 4vw;
+    }
+
+    .review__form {
+        padding: 6vw 8vw;
+        border-radius: 0.8vw;
+        width: 74vw;
+        height: 88vw;
+        margin-top: 6vw;
+    }
+
+    .review__form-group {
+        gap: 1.4vw;
+        padding-bottom: 4vw;
+    }
+
+    .review__form-group:not(:first-of-type) {
+        margin-top: 4vw;
+    }
+
+    .review__subheading {
+        font-size: 3vw;
+    }
+
+    .review__rating {
+        gap: 0.6vw;
+    }
+
+    .review__rating label i {
+        font-size: 5vw;
+    }
+
+    .review__input,
+    .review__textarea {
+        border-radius: 0.4vw;
+        font-size: 2.4vw;
+        padding: 1vw 2vw;
+    }
+
+    .review__textarea {
+        height: 30vw;
+    }
+
+    .review__button {
+        font-size: 3vw;
+        border-radius: 0 0 0.8vw 0.8vw;
+        padding: 2vw 0;
+    }
+
+    /* バックリンク */
+    .review__back {
+        margin-top: 6vw;
+    }
+
+    .review__back-link {
+        font-size: 2.4vw;
+    }
+}
