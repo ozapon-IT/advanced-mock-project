@@ -55,13 +55,30 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    display: none;
     background-color: rgba(255, 255, 255);
     overflow: auto;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
 }
 
 .modal-menu:target {
-    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-menu__header {
+    height: 6.7vw;
+    display: flex;
+    align-items: end;
+}
+
+.modal-menu__close-container {
+    display: flex;
+    align-items: center;
+    width: 90vw;
+    height: 4vw;
+    margin: 0 auto;
 }
 
 .modal-menu__link {
@@ -72,9 +89,6 @@ body {
 .modal-menu__close {
     display:inline-block;
     background-color: #4366eb;
-    position: absolute;
-    top: 3.33vw;
-    left: 4.5vw;
     border-radius: 0.4vw;
     padding: 0.1vw;
     box-shadow: 0.2vw 0.2vw 0.2vw rgba(0, 0, 0, 0.5);
@@ -91,7 +105,7 @@ body {
 
 .modal-menu__content {
     text-align: center;
-    margin: 20vw auto;
+    margin: 10vw auto;
     width: 20vw;
 }
 
@@ -159,12 +173,12 @@ body {
 
     .header__menu-toggle {
         border-radius: 0.8vw;
-        padding: 0.6vw;
+        padding: 0.6vw 0.7vw 0.5vw 0.7vw;
         box-shadow: 0.4vw 0.4vw 0.4vw rgba(0, 0, 0, 0.5);
     }
 
     .bi-list {
-        font-size: 4vw;
+        font-size: 4.4vw;
     }
 
     .header__service-name {
@@ -173,16 +187,24 @@ body {
     }
 
     /* モーダルメニュー */
+    .modal-menu__header {
+        align-items: center;
+        height: 5vw;
+        padding: 4.4vw 0;
+    }
+
+    .modal-menu__close-container {
+        height: 100%;
+    }
+
     .modal-menu__close {
-        top: 4vw;
-        left: 4vw;
         border-radius: 0.8vw;
-        padding: 0.2vw;
+        padding: 0.2vw 0.3vw 0 0.3vw;
         box-shadow: 0.4vw 0.4vw 0.4vw rgba(0, 0, 0, 0.5);
     }
 
     .bi-x {
-        font-size: 4.8vw;
+        font-size: 5.3vw;
     }
 
     .modal-menu__content {

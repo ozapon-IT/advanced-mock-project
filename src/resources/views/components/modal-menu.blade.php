@@ -1,5 +1,9 @@
 <div class="modal-menu" id="modal-menu">
-    <a href="#" class="modal-menu__close"><i class="bi bi-x"></i></a>
+    <div class="modal-menu__header">
+        <div class="modal-menu__close-container">
+            <a href="#" class="modal-menu__close"><i class="bi bi-x"></i></a>
+        </div>
+    </div>
 
     <div class="modal-menu__content">
         @if ($role === 'guest')
