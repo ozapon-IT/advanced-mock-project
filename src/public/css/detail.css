@@ -166,20 +166,10 @@
     border-radius: 0.2vw;
 }
 
-.detail__input::placeholder {
-    color: #000;
-}
-
 .detail__button {
     all: unset;
     cursor: pointer;
     position: absolute;
-}
-
-.detail__button--calendar {
-    color: #999;
-    font-size: 1vw;
-    right: 1vw;
 }
 
 .detail__reservation-time,
@@ -216,7 +206,7 @@
     position: relative;
     background-color: #fff;
     width: 100%;
-    padding: 0.5vw 1vw;
+    padding: 0.5vw 1.5vw;
     font-size: 1vw;
     border-radius: 0.2vw;
 }
@@ -283,7 +273,7 @@
     .detail__back-link {
         font-size: 3.5vw;
         border-radius: 0.8vw;
-        padding: 0.3vw 1.2vw 0.6vw 1.2vw;
+        padding: 0.3vw 1.4vw 0.9vw 1.4vw;
         box-shadow: 0.4vw 0.4vw 0.4vw rgba(0, 0, 0, 0.5);
     }
 
@@ -333,6 +323,9 @@
 
     .detail__shop-reviews,
     .detail__shop-favorites {
+        display: flex;
+        align-items: center;
+        gap: 0.5vw;
         margin-left: 2vw;
     }
 
@@ -375,11 +368,6 @@
         border-radius: 0.8vw;
     }
 
-    .detail__button--calendar {
-        font-size: 2vw;
-        right: 2vw;
-    }
-
     .detail__reservation-time:after,
     .detail__reservation-number:after,
     .detail__reservation-menu:after,
@@ -394,7 +382,7 @@
     .detail__select {
         font-size: 2.2vw;
         border-radius: 0.8vw;
-        padding: 1vw 2vw;
+        padding: 1vw 3vw;
     }
 
     .detail__reservation-confirmation {

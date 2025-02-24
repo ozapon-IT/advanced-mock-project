@@ -70,18 +70,14 @@
 
                 <div class="detail__reservation-form">
                     <div class="detail__reservation-date">
-                        <input class="detail__input" type="text" name="reservation_date" value="{{ old('reservation_date') }}" form="reservation-form" id="reservation-date" placeholder="予約日">
-
-                        <button  class="detail__button detail__button--calendar" type="button">
-                            <i class="bi bi-calendar"></i>
-                        </button>
+                        <input class="detail__input" type="date" name="reservation_date" value="{{ old('reservation_date') }}" form="reservation-form" id="reservation-date">
                     </div>
 
                     <x-validation-error field="reservation_date" yellow="true" />
 
                     <div class="detail__reservation-time">
                         <select class="detail__select" name="reservation_time" form="reservation-form" id="reservation-time">
-                            <option value="" disabled {{ old('reservation_time') ? '' : 'selected'}}>予約時間</option>
+                            <option value="" disabled {{ old('reservation_time') ? '' : 'selected'}}>時間</option>
 
                             @foreach (generateReservationTimes() as $time)
                                 <option value="{{ $time }}" {{ old('reservation_time') == $time ? 'selected' : ''}}>{{ $time }}</option>
@@ -93,7 +89,7 @@
 
                     <div class="detail__reservation-number">
                         <select class="detail__select" name="number_of_people" form="reservation-form" id="reservation-number">
-                            <option value="" disabled {{ old('number_of_people') ? '' : 'selected'}}>予約人数</option>
+                            <option value="" disabled {{ old('number_of_people') ? '' : 'selected'}}>人数</option>
 
                             @foreach (generateReservationNumbers() as $number)
                                 <option value="{{ $number }}" {{ old('number_of_people') == $number ? 'selected' : ''}}>{{ $number }}</option>
@@ -105,7 +101,7 @@
 
                     <div class="detail__reservation-menu">
                         <select class="detail__select" name="reservation_menu" form="reservation-form" id="reservation-menu">
-                            <option value="" disabled {{ old('menu') ? '' : 'selected'}}>予約メニュー</option>
+                            <option value="" disabled {{ old('menu') ? '' : 'selected'}}>メニュー</option>
 
                             @foreach (generateReservationMenus($shop->id) as $menu)
                                 <option value="{{ $menu }}" {{ old('menu') == $menu ? 'selected' : ''}}>{{ $menu }}</option>
@@ -155,20 +151,6 @@
 
 @section('script')
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const dateInput = document.getElementById('reservation-date');
-        const calendarIcon = document.querySelector('.detail__button--calendar');
-
-        flatpickr("#reservation-date", {
-            dateFormat: "Y-m-d",
-            locale: "ja",
-        });
-
-        calendarIcon.addEventListener('click', () => {
-            dateInput._flatpickr.open();
-        })
-    });
-
     document.addEventListener('DOMContentLoaded', () => {
         const dateInput = document.getElementById('reservation-date');
         const timeSelect = document.getElementById('reservation-time');
