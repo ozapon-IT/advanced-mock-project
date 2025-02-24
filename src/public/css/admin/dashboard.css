@@ -63,10 +63,6 @@
     padding: 1vw;
 }
 
-.modal-menu__close {
-    left: 5vw;
-}
-
 .message {
     text-align: center;
     color: blue;
