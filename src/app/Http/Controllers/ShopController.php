@@ -57,7 +57,7 @@ class ShopController extends Controller
     {
         $validatedData = $shopRequest->validated();
 
-        $path = $shopRequest->file('image')->store('shops', 'public');
+        $path = $shopRequest->file('image')->store('shops', 's3');
 
         Shop::create([
             'user_id' => auth()->id(),
@@ -76,10 +76,10 @@ class ShopController extends Controller
         $validatedData = $shopRequest->validated();
 
         if ($shop->image_path) {
-            \Storage::disk('public')->delete($shop->image_path);
+            \Storage::disk('s3')->delete($shop->image_path);
         }
 
-        $path = $shopRequest->file('image')->store('shops', 'public');
+        $path = $shopRequest->file('image')->store('shops', 's3');
 
 
         $shop->update([

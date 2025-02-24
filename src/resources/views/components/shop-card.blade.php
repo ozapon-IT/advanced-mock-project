@@ -1,6 +1,6 @@
 <div class="shop-list__card" @if($cardId) id="{{ $cardId }}" @endif>
     <div class="shop-list__image">
-        <img src="{{ asset('storage/' . $shop->image_path) }}" alt="{{ $shop->name . 'の店舗画像' }}">
+        <img src="{{ Storage::disk('s3')->url($shop->image_path) }}" alt="{{ $shop->name . 'の店舗画像' }}">
     </div>
 
     <div class="shop-list__content">

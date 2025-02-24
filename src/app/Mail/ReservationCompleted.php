@@ -21,7 +21,7 @@ class ReservationCompleted extends Mailable
 
     public $reservation;
     public $reservationUrl;
-    public $qrCodePath;
+    private $qrCodeData;
 
     /**
      * Create a new message instance.
@@ -52,16 +52,16 @@ class ReservationCompleted extends Mailable
                 'url' => $this->reservationUrl,
             ]);
 
-            // 画像ファイルとして保存
-            $fileName = 'qr_codes/qr_' . $this->reservation->id . '_' . Carbon::now()->timestamp . '.png';
-            Storage::disk('public')->put($fileName, file_get_contents($imageData));
+            $s3FileName = 'qr_codes/qr_' . $this->reservation->id . '_' . Carbon::now()->timestamp . '.png';
+            $data = explode(',', $imageData)[1];
+            Storage::disk('s3')->put($s3FileName, base64_decode($data));
 
-             // 保存したパス
-            $this->qrCodePath = storage_path("app/public/{$fileName}");
+            $this->qrCodeData = Storage::disk('s3')->get($s3FileName);
+
         } catch (\Exception $e) {
             \Log::error('QRコード生成エラー: ' . $e->getMessage());
             \Log::error('スタックトレース: ' . $e->getTraceAsString());
-            $this->qrCodePath = null;
+            $this->qrCodeData = null;
         }
     }
 
@@ -96,8 +96,8 @@ class ReservationCompleted extends Mailable
      */
     public function attachments(): array
     {
-        return $this->qrCodePath ? [
-            Attachment::fromPath($this->qrCodePath)->as('qrcode.png')->withMime('image/png'),
+        return $this->qrCodeData ? [
+            Attachment::fromData(fn () => $this->qrCodeData)->as('qrcode.png')->withMime('image/png'),
         ] : [];
     }
 }

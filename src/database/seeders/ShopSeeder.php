@@ -71,14 +71,18 @@ class ShopSeeder extends Seeder
             $imageUrl = $shop['image_path'];
             $imageContents = file_get_contents($imageUrl);
 
+	    if ($imageContents === false) {
+		throw new \Exception("Failed to download image from URL: $imageUrl");
+	    }
+
             // ファイル拡張子を取得
             $extension = pathinfo($imageUrl, PATHINFO_EXTENSION);
 
             // ファイル名をランダムな文字列に変更
             $imageName = 'shops/' . Str::random(20) . '.' . $extension;
 
-            // storage/app/public/shops に保存
-            Storage::disk('public')->put($imageName, $imageContents);
+            // S3に保存
+            Storage::disk('s3')->put($imageName, $imageContents);
 
             // 店舗データを作成
             Shop::create([

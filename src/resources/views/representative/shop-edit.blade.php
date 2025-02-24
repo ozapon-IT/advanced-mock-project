@@ -80,7 +80,7 @@
                     <p class="shop-edit__shop-name" id="shop-name-preview">{{ $shop->name ?? '' }}</p>
 
                     <div class="shop-edit__shop-image">
-                        <img class="shop-edit__image {{ $shop?->image_path ? 'shop-edit__image--visible' : '' }}" id="shop-image-preview" src="{{ $shop?->image_path ? asset('storage/' . $shop->image_path) : '' }}" alt="店舗画像">
+                        <img class="shop-edit__image {{ $shop?->image_path ? 'shop-edit__image--visible' : '' }}" id="shop-image-preview" src="{{ $shop?->image_path ? Storage::disk('s3')->url($shop->image_path) : '' }}" alt="店舗画像">
                     </div>
 
                     <p class="shop-edit__shop-area" id="shop-area-preview">{{ $shop?->area?->name ? '#' . $shop?->area?->name : '' }}</p>

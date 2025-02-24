@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y supervisor
 COPY ./supervisor.conf /etc/supervisor/conf.d/supervisor.conf
 
 RUN apt-get update \
-    && apt-get install -y \
+    && apt-get install -y --no-install-recommends \
         default-mysql-client \
         zlib1g-dev \
         libzip-dev \
@@ -15,11 +15,13 @@ RUN apt-get update \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libpng-dev \
+        libonig-dev \
+        curl \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install -j$(nproc) \
-        pdo_mysql \
-        zip \
-        gd
+    && docker-php-ext-install -j$(nproc) pdo_mysql zip gd  \
+    && pecl install redis \
+    && docker-php-ext-enable redis \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN curl -sS https://getcomposer.org/installer | php \
     && mv composer.phar /usr/local/bin/composer \

@@ -24,7 +24,7 @@
             </div>
 
             <div class="detail__shop-image-container">
-                <img class="detail__shop-image" src="{{ asset('storage/' . $shop->image_path) }}" alt="{{ $shop->name .'の店舗画像' }}">
+                <img class="detail__shop-image" src="{{ Storage::disk('s3')->url($shop->image_path) }}" alt="{{ $shop->name .'の店舗画像' }}">
             </div>
 
             <div class="detail__shop-description">
