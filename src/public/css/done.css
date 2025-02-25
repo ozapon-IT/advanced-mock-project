@@ -34,10 +34,6 @@
     background-color: #305cff;
 }
 
-.modal-menu__close {
-    left: 5vw;
-}
-
 @media screen and (max-width: 768px) {
     .done {
         width: 60vw;
