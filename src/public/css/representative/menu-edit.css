@@ -1,7 +1,3 @@
-.modal-menu__close {
-    left: 5vw;
-}
-
 .menu-edit {
     width: 90vw;
     margin: 2vw auto;
@@ -181,10 +177,6 @@
 @media screen and (max-width: 768px) {
     .header {
         height: 5vw;
-    }
-
-    .modal-menu__close {
-        left: 4vw;
     }
 
     .menu-edit {
