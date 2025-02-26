@@ -78,7 +78,14 @@ class ReservationController extends Controller
 
     public function index()
     {
-        $shopId = Shop::where('user_id', auth()->id())->first()->id;
+        $shop = Shop::where('user_id', auth()->id())->first();
+
+        if (!$shop) {
+            $reservations = [];
+            return view('representative.reservation-list', compact('reservations'));
+        }
+
+        $shopId = $shop->id;
 
         $reservations = Reservation::where('shop_id', $shopId)
             ->where('status', '予約済み')
