@@ -173,7 +173,7 @@ body {
 
     .header__menu-toggle {
         border-radius: 0.8vw;
-        padding: 0.6vw 0.7vw 0.5vw 0.7vw;
+        padding: 0.5vw 0.7vw;
         box-shadow: 0.4vw 0.4vw 0.4vw rgba(0, 0, 0, 0.5);
     }
 
@@ -190,7 +190,7 @@ body {
     .modal-menu__header {
         align-items: center;
         height: 5vw;
-        padding: 4.4vw 0;
+        padding: 4.3vw 0;
     }
 
     .modal-menu__close-container {
@@ -199,7 +199,7 @@ body {
 
     .modal-menu__close {
         border-radius: 0.8vw;
-        padding: 0.2vw 0.3vw 0 0.3vw;
+        padding: 0.2vw 0.2vw 0 0.2vw;
         box-shadow: 0.4vw 0.4vw 0.4vw rgba(0, 0, 0, 0.5);
     }
 

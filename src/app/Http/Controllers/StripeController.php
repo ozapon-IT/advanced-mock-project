@@ -13,7 +13,7 @@ class StripeController extends Controller
 {
     public function checkout(Request $request)
     {
-        Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
+        Stripe::setApiKey(config('services.stripe.secret'));
 
         DB::beginTransaction();
 
