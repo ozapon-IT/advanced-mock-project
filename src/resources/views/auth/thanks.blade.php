@@ -16,6 +16,7 @@
         <div class="thanks__wrapper">
             <p class="thanks__message">会員登録ありがとうございます</p>
             <a class="thanks__button" href="/login">ログインする</a>
+            <p class="thanks__indication">*登録したメールアドレスを確認するために、送信されたリンクをクリックしてください。</p>
         </div>
     </div>
 </main>
