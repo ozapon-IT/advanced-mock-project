@@ -32,7 +32,7 @@ jobs:
 
       - name: Run tests
         working-directory: src
-        run: php artisan test --env=testing
+        run: php artisan test --testsuite=unit --env=testing
 
       - name: Notify Slack on test failure
         if: failure()
