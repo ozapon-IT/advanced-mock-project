@@ -67,6 +67,10 @@
 ## テーブル設計
 [rese-table.pdf](https://github.com/ozapon-IT/advanced-mock-project/raw/main/docs/rese-table.pdf)
 
+## ER図
+![advanced-mock-project erd](https://github.com/user-attachments/assets/8e460c3d-851e-4a81-9298-cbf7510d9d5b)
+
+
 ## 環境構築
 
 ### Dockerビルド
