@@ -103,6 +103,7 @@ STRIPE_PUBLIC_KEY=your_test_public_key
 - 開発環境 : [http://localhost](http://localhost)  
 - phpMyAdmin : [http://localhost:8080](http://localhost:8080)
 - MailHog : [http://localhost:8025](http://localhost:8025)
+- Stirpe公式 : [https://dashboard.stripe.com/register](https://dashboard.stripe.com/register)
 - 本番環境 : [https://rese-prod-aws.com](https://rese-prod-aws.com)
 
 ---
