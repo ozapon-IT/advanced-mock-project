@@ -6,6 +6,7 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\MypageController;
 use Laravel\Fortify\Http\Controllers\VerifyEmailController;
+use App\Http\Controllers\ResendVerificationController;
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\ReviewController;
 
@@ -26,9 +27,11 @@ Route::get('/detail/{shop_id}', [ShopController::class, 'show'])->name('detail.s
 
 Route::get('/detail/{shop}/reviews', [ReviewController::class, 'index'])->name('reviews.index');
 
-Route::get('/thanks', function () {
-    return view('auth.thanks');
-})->name('auth.thanks');
+Route::middleware(['guest_or_user'])->group(function () {
+    Route::get('/thanks', function () {
+        return view('auth.thanks');
+    })->name('auth.thanks');
+});
 
 Route::middleware(['auth', 'role:1'])->group(function () {
     Route::post('/detail/{shop}/reservations', [ReservationController::class, 'store'])->name('reservations.store');
@@ -61,3 +64,5 @@ Route::middleware(['auth', 'role:1'])->group(function () {
 });
 
 Route::get('/email/verify/{id}/{hash}', [VerifyEmailController::class, '__invoke'])->middleware('signed', 'setUserFromId')->name('verification.verify');
+
+Route::post('/email/resend', [ResendVerificationController::class, 'resend'])->name('verification.resend');
