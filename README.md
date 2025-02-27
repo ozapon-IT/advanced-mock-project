@@ -12,7 +12,7 @@
 
 1. `docker-compose exec php bash`
 2. `composer install`
-3. `cp .env.example .env`
+3. `cp .env.development.example .env`
 4. `php artisan key:generate`
 5. `php artisan storage:link`
 6. `php artisan migrate`
@@ -113,7 +113,8 @@ STRIPE_PUBLIC_KEY=your_test_public_key
 ### 開発環境と本番環境について
 
 - 同じリポジトリでmain(develop)ブランチは開発環境、production-mainブランチで本番環境のコードをそれぞれ管理しています。
-- また、ymlファイルと.envファイルで構築を切り分けています。
+- また、.env.development.example(開発環境用)、.env.production.example(本番環境用)で構築を切り分けています。
+- (初回デプロイ時は、docker-compose.prod.ymlも用意し、`docker-compose -f docker-compose.prod.yml up -d --build`で構築しました。)
 
 ### 本番環境(AWS)のネットワーク構成
 
