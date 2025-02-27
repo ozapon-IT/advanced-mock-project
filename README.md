@@ -18,6 +18,20 @@
 6. `php artisan migrate`
 7. `php artisan db:seed`
 
+### アカウント情報
+
+Laravel環境構築後ダミーデータのアカウントでアプリにログインできます。
+- 一般ユーザー
+  - メールアドレス: test@user1.com パスワード: testuser1
+> ログインできる一般ユーザーはuser1~user10まで用意しています。それぞれメールアドレスとパスワードのuser+数字を変えてください。
+
+- 店舗代表者
+  - メールアドレス: test@daihyousha1.com パスワード: daihyousha1
+> ログインできる店舗代表者はdaihyousha1~daihyousha20まで用意しています。それぞれメールアドレスとパスワードのdaihyousha+数字を変えてください。
+
+- 管理者
+  - メールアドレス: test@admin.com パスワード: testadmin
+
 ### Stripeセットアップ
 
 1. Stripeアカウントの作成とAPIキーの取得
@@ -54,10 +68,10 @@ STRIPE_PUBLIC_KEY=your_test_public_key
 `STRIPE_WEBHOOK_SECRET=whsec_xxxxxxxxxx`
 
 5. 動作確認
-- カード払いのテスト
-  - アプリケーションの商品購入画面で「カード払い」を選択し、購入ボタンを押します。
-  - Stripeのテスト用カード番号（例：4242 4242 4242 4242）を使用して決済を完了します。
-  - マイページにリダイレクトされ、購入処理が完了することを確認します。
+  - 1. `stripe listen --forward-to http://localhost/api/stripe/webhook`でstripe listenモードにします。
+  - 2. アプリケーションの店舗詳細ページの予約フォームで必要項目を選択し、予約ボタンを押します。
+  - 3. Stripeのテスト用カード番号（例：4242 4242 4242 4242）を使用して決済を完了します。
+  - 4. 予約完了ページにリダイレクトされ、予約が完了することを確認します。
 
 6. 参考資料
 - [Stripe公式ドキュメント - Stripe CLI](https://docs.stripe.com/stripe-cli/overview)
