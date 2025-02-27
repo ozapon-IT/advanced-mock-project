@@ -65,6 +65,7 @@
   - Github Actions
 
 ## テーブル設計
+[rese-table.pdf](https://github.com/ozapon-IT/advanced-mock-project/raw/main/docs/rese-table.pdf)
 
 ## 環境構築
 
