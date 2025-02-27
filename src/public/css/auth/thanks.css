@@ -19,29 +19,52 @@
     font-size: 1.5vw;
 }
 
-.thanks__button {
-    display: inline-block;
+.thanks__login {
+    display: block;
     text-decoration: none;
     background-color: #4366eb;
     color: #fff;
+    width: 8vw;
     border-radius: 0.4vw;
     font-size: 1.2vw;
     padding: 0.6vw 0.9vw;
-    margin-top: 3vw;
+    margin: 2.5vw auto;
 }
 
-.thanks__button:hover {
+.thanks__login:hover {
     background-color: #305cff;
 }
 
-.modal-menu__close {
-    left: 5vw;
+.thanks__indication {
+    display: inline;
+    line-height: 1.5;
+    font-size: 1vw;
+    color: #000;
+}
+
+.thanks__form {
+    display: inline;
+}
+
+.thanks__resend {
+    all: unset;
+    text-decoration: underline;
+    color: #999;
+    font-size: 1vw;
+}
+
+.thanks__resend:hover {
+    color: #305cff;
+}
+
+.message {
+    font-size: 0.8vw;
 }
 
 @media screen and (max-width: 768px) {
     .thanks {
         width: 60vw;
-        height: 36vw;
+        height: 32vw;
         margin: 5vw auto;
         border-radius: 0.8vw;
         box-shadow: 0.4vw 0.4vw 0.4vw rgba(0, 0, 0, 0.5);
@@ -55,10 +78,23 @@
         font-size: 3vw;
     }
 
-    .thanks__button {
+    .thanks__login {
+        width: 16vw;
         border-radius: 0.8vw;
         font-size: 2.5vw;
         padding: 1.2vw 1.8vw;
-        margin-top: 6vw;
+        margin: 4vw auto 2vw;
+    }
+
+    .thanks__indication {
+        font-size: 2vw;
+    }
+
+    .thanks__resend {
+        font-size: 2vw;
+    }
+
+    .message {
+        font-size: 1.6vw;
     }
 }

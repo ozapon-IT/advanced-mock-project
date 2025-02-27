@@ -54,7 +54,7 @@ jobs:
           script: |
             cd /home/ubuntu/advanced-mock-project
             git pull origin production-main
-            docker-compose exec php php artisan down --message="メンテナンス中です。しばらくお待ちください。"
+            docker-compose exec php php artisan down
             docker-compose down
             docker-compose up -d --build
             docker-compose exec php php artisan cache:clear
