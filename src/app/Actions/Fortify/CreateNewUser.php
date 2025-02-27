@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\CustomRegisterRequest;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
+use Illuminate\Support\Facades\Session;
 
 class CreateNewUser implements CreatesNewUsers
 {
@@ -30,6 +31,8 @@ class CreateNewUser implements CreatesNewUsers
             'email' => $validatedData['email'],
             'password' => Hash::make($validatedData['password']),
         ]);
+
+        Session::put('register_email', $user->email);
 
         return $user;
     }
