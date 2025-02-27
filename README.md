@@ -90,6 +90,7 @@
 5. `php artisan storage:link`
 6. `php artisan migrate`
 7. `php artisan db:seed`
+8. `supervisorctl restart all`
 
 ### アカウント情報
 
