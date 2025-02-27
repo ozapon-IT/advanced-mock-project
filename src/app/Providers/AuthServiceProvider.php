@@ -4,7 +4,7 @@ namespace App\Providers;
 
 // use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
-use Illuminate\Auth\Notifications\VerifyEmail as VerifyEmailNotification;
+use Illuminate\Auth\Notifications\VerifyEmail as DefaultVerifyEmail;
 use Illuminate\Notifications\Messages\MailMessage;
 
 class AuthServiceProvider extends ServiceProvider
@@ -23,13 +23,16 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        VerifyEmailNotification::toMailUsing(function ($notifiable, $url) {
+        DefaultVerifyEmail::toMailUsing(function ($notifiable, $url) {
             return (new MailMessage)
                 ->subject('【Rese】メール認証のお願い')
-                ->greeting('こんにちは、' . $notifiable->name . 'さん!')
-                ->line('アカウントのセキュリティーを確保するために、メールアドレスの認証を完了してください。')
+                ->greeting("こんにちは、{$notifiable->name} さん！")
+                ->line('アカウントのセキュリティを確保するために、メールアドレスの認証を完了してください。')
                 ->action('メール認証を完了する', $url)
-                ->line('このメールに心当たりがない場合は、このまま無視してください。');
+                ->line('このメールに心当たりがない場合は、このまま無視してください。')
+                ->line('もしボタンをクリックできない場合は、以下のリンクをコピーしてブラウザに貼り付けてください。')
+                ->line($url)
+                ->salutation('Rese');
         });
     }
 }
