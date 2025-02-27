@@ -16,6 +16,7 @@
  [https://rese-prod-aws.com](https://rese-prod-aws.com)
 
 ### アカウント情報
+アプリの上部左側メニューアイコンをクリック->Loginでログインページに遷移します。下記のダミーデータのアカウントでログインし、アプリの機能を使用できます。
 - 一般ユーザー
   - メールアドレス: test@user1.com パスワード: testuser1
 > ログインできる一般ユーザーはuser1~user10まで用意しています。それぞれメールアドレスとパスワードのuser+数字を変えてください。
@@ -150,7 +151,7 @@ STRIPE_PUBLIC_KEY=your_test_public_key
 
 ---
 
-## 使用技術
+## 使用技術(開発環境)
 
 - Laravel Framework 10.48.23
 - Laravel Fortify 1.24
@@ -164,38 +165,19 @@ STRIPE_PUBLIC_KEY=your_test_public_key
 
 ---
 
-## ER図
-![飲食店予約アプリRese:ER図](https://github.com/user-attachments/assets/385cf5fa-6a26-4c71-ab9c-15e23acb5f92)
-
-
----
-
 ## URL
 
 - 開発環境 : [http://localhost](http://localhost)  
 - phpMyAdmin : [http://localhost:8080](http://localhost:8080)
 - MailHog : [http://localhost:8025](http://localhost:8025)
 - Stirpe公式 : [https://dashboard.stripe.com/register](https://dashboard.stripe.com/register)
-- 本番環境 : [https://rese-prod-aws.com](https://rese-prod-aws.com)
 
 ---
 
-## 本番環境
-
-### 開発環境と本番環境について
+## 開発環境と本番環境について
 
 - 同じリポジトリでmain(develop)ブランチは開発環境、production-mainブランチで本番環境のコードをそれぞれ管理しています。
 - また、.env.development.example(開発環境用)、.env.production.example(本番環境用)で構築を切り分けています。
 > 初回デプロイ時は、docker-compose.prod.ymlも用意し、`docker-compose -f docker-compose.prod.yml up -d --build`で構築しました。
 
-### 本番環境(AWS)のネットワーク構成
-
-- VPC内
-  - パブリックサブネット
-    - EC2(WEBサーバー)
-  - プライベートサブネット
-    - RDS(MySQL)
-- VPC外
-  - S3(ストレージ)
-- これら全て同じ東京リージョンに配置しています。
-- また、独自ドメインを取得&SSL化(Let's encrypt)し、AWSのSESをメール送信サーバーとして利用しています。
+---
