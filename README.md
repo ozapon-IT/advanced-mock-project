@@ -93,11 +93,11 @@
 - Github Actions
 
 ## テーブル設計
-<img width="1310" alt="スクリーンショット 2025-02-28 19 06 39" src="https://github.com/user-attachments/assets/ff0afabb-14f8-4981-9903-20b65fc49293" />
-<img width="1304" alt="スクリーンショット 2025-02-28 19 06 54" src="https://github.com/user-attachments/assets/a0cf4562-6232-44b3-b80f-1e94f629c206" />
-<img width="1307" alt="スクリーンショット 2025-02-28 19 07 06" src="https://github.com/user-attachments/assets/6ab951b7-d392-4c10-80e3-dde7ec80af81" />
-<img width="1303" alt="スクリーンショット 2025-02-28 19 07 15" src="https://github.com/user-attachments/assets/2950af18-468c-4b17-a536-5f75c1137e37" />
-<img width="1306" alt="スクリーンショット 2025-02-28 19 07 24" src="https://github.com/user-attachments/assets/7130d053-ef10-44a5-8d32-2886a51e451e" />
+<img width="1344" alt="スクリーンショット 2025-02-28 19 39 37" src="https://github.com/user-attachments/assets/954bb5ff-e6fe-468a-bd46-80ee720902a9" />
+<img width="1347" alt="スクリーンショット 2025-02-28 19 39 46" src="https://github.com/user-attachments/assets/0c66b48a-da91-438c-9a5c-f98fc576e494" />
+<img width="1343" alt="スクリーンショット 2025-02-28 19 39 54" src="https://github.com/user-attachments/assets/6810bdd8-8e9a-4d60-a366-3e8bdae2d88a" />
+<img width="1344" alt="スクリーンショット 2025-02-28 19 45 24" src="https://github.com/user-attachments/assets/c28df506-dd81-4147-adb9-74508f36acd7" />
+<img width="1349" alt="スクリーンショット 2025-02-28 19 46 57" src="https://github.com/user-attachments/assets/915e646f-b6e4-49f2-ae3b-8c181c631b2e" />
 
 ## ER図
 ![advanced-mock-project erd](https://github.com/user-attachments/assets/8e460c3d-851e-4a81-9298-cbf7510d9d5b)
