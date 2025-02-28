@@ -1,6 +1,14 @@
 #!/bin/sh
 set -e
 
+echo "Checking for composer dependencies..."
+if [ ! -d "vendor" ]; then
+    echo "Vendor directory not found. Running composer install..."
+    composer install --no-interaction --prefer-dist --optimize-autoloader
+else
+    echo "Vendor directory exists. Skipping composer install."
+fi
+
 echo "Waiting for database connection..."
 /usr/local/bin/wait-for-it.sh mysql:3306 --timeout=30 --strict -- echo "Database is up"
 
