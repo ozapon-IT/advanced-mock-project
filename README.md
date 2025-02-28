@@ -68,7 +68,7 @@
 ## 使用技術(実行環境)
 ### AWS
 - EC2
-  - Docker(docker-compose)
+  - Docker 26.1.3(Docker Compose v2.33.0)
     - PHP 8.2.27(Laravel 10.48.28)
     - Nginx 1.27.4
     - Redis 7.4.2
@@ -177,15 +177,15 @@ STRIPE_PUBLIC_KEY=your_test_public_key
 
 ## 使用技術(開発環境)
 
-- Laravel Framework 10.48.23
-- Laravel Fortify 1.24
-- PHP 8.2.26 (cli)
-- MySQL 9.1.0 for Linux on x86_64
-- Nginx 1.27.2
-- phpMyAdmin 5.2.1
-- MailHog 1.14.7
-- Stripe Stripe-php 16.2
-- Stripe CLI 1.21.11
+- Docker 27.3.1
+- Docker Compose v2.30.3
+- PHP 8.2.27(Laravel 10.48.25)
+- Nginx 1.27.4
+- MySQL 9.2.0 for Linux on x86_64
+- phpMyAdmin 5.2.2
+- MailHog latest
+- Stripe Stripe-php 16.4
+- Stripe CLI 1.24.0
 
 ---
 
