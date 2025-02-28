@@ -15,6 +15,9 @@ if [ ! -f ".env" ]; then
     php artisan key:generate
 fi
 
+echo "Creating storage symbolic link..."
+php artisan storage:link
+
 echo "Waiting for database connection..."
 /usr/local/bin/wait-for-it.sh mysql:3306 --timeout=30 --strict -- echo "Database is up"
 
