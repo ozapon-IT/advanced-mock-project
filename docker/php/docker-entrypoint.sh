@@ -4,9 +4,15 @@ set -e
 echo "Checking for composer dependencies..."
 if [ ! -d "vendor" ]; then
     echo "Vendor directory not found. Running composer install..."
-    composer install --no-interaction --prefer-dist --optimize-autoloader
+    composer install
 else
     echo "Vendor directory exists. Skipping composer install."
+fi
+
+echo "Setting up .env file..."
+if [ ! -f ".env" ]; then
+    cp .env.development.example .env
+    php artisan key:generate
 fi
 
 echo "Waiting for database connection..."
