@@ -82,15 +82,22 @@
 - Route53
 - SES
 ### SSL化
-  - ドメイン
-    - お名前.com
-  - SSL証明書
-    - Let's encrypt
+- ドメイン
+  - お名前.com
+- SSL証明書
+  - Let's encrypt
+### Stripe
+- テストアカウント
+   
 ### CI/CD
-  - Github Actions
+- Github Actions
 
 ## テーブル設計
-[rese-tables.pdf](https://github.com/ozapon-IT/advanced-mock-project/raw/main/docs/rese-tables.pdf)
+<img width="1310" alt="スクリーンショット 2025-02-28 19 06 39" src="https://github.com/user-attachments/assets/ff0afabb-14f8-4981-9903-20b65fc49293" />
+<img width="1304" alt="スクリーンショット 2025-02-28 19 06 54" src="https://github.com/user-attachments/assets/a0cf4562-6232-44b3-b80f-1e94f629c206" />
+<img width="1307" alt="スクリーンショット 2025-02-28 19 07 06" src="https://github.com/user-attachments/assets/6ab951b7-d392-4c10-80e3-dde7ec80af81" />
+<img width="1303" alt="スクリーンショット 2025-02-28 19 07 15" src="https://github.com/user-attachments/assets/2950af18-468c-4b17-a536-5f75c1137e37" />
+<img width="1306" alt="スクリーンショット 2025-02-28 19 07 24" src="https://github.com/user-attachments/assets/7130d053-ef10-44a5-8d32-2886a51e451e" />
 
 ## ER図
 ![advanced-mock-project erd](https://github.com/user-attachments/assets/8e460c3d-851e-4a81-9298-cbf7510d9d5b)
@@ -207,6 +214,6 @@ STRIPE_PUBLIC_KEY=your_test_public_key
 
 - 同じリポジトリでmain(develop)ブランチは開発環境、production-mainブランチで本番環境のコードをそれぞれ管理しています。
 - また、.env.development.example(開発環境用)、.env.production.example(本番環境用)で構築を切り分けています。
-> 初回デプロイ時は、docker-compose.prod.ymlも用意し、`docker-compose -f docker-compose.prod.yml up -d --build`で構築しました。
+> 初回デプロイ時は、mainブランチにdocker-compose.prod.ymlを追加し、`docker-compose -f docker-compose.prod.yml up -d --build`で構築しました。
 
 ---
