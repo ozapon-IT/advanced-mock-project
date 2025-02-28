@@ -27,4 +27,10 @@ RUN curl -sS https://getcomposer.org/installer | php \
 
 WORKDIR /var/www
 
-CMD ["supervisord", "-c", "/etc/supervisor/conf.d/supervisor.conf"]
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+
+COPY wait-for-it.sh /usr/local/bin/wait-for-it.sh
+RUN chmod +x /usr/local/bin/wait-for-it.sh
+
+ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
